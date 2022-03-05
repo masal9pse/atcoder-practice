@@ -9,21 +9,25 @@ bool isPrime(int);
 
 int main(void)
 {
-    int n;
-    cin >> n;
-    int count = 0;
-    for (int i = 0; i < n; i++)
+    int n, r[2], maxv, min;
+	cin >> n;
+	cin >> r[0] >> r[1];
+	maxv = r[1] - r[0];
+    // int n;
+    // cin >> n;
+    for (int j = 0; j < n -1 ; j++)
     {
         int a;
         cin >> a;
-
-        if (isPrime(a))
-        {
-            count++;
-        }
     }
-    std::cout << count << std::endl;
-    // printf("%d", count);
+    // for (int i = 0; i < j - 1; i++)
+        // {
+        //     int maxv;
+        //     if (i != 0) {
+        //         // if (maxv > ){}
+        //     }
+        // }        
+    // std::cout << count << std::endl;    
 }
 
 bool isPrime(int num)
@@ -47,4 +51,10 @@ bool isPrime(int num)
     }
 
     return true;
+}
+
+int max(int a, int b)
+{
+	if (a >= b)return a;
+	else return b;
 }

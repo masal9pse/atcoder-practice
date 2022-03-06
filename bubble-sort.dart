@@ -1,6 +1,8 @@
 
 void main() {
+  // print(bubbleSort([3,2,5,1,7]));
   print(bubbleSort([3,2,5,1,7]));
+  // print(bubbleSort([3,2]));
 }
 
 List<int> bubbleSort(List<int> A){

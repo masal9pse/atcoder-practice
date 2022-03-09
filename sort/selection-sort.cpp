@@ -11,6 +11,7 @@ int main()
 {
   int n;
   cin >> n;
+  int count = 0;
   int a[n];
   for (int i = 0; i < n; i++) {
     cin >> a[i];
@@ -23,15 +24,17 @@ int main()
     {
       if (a[min_idx_temp] > a[j])
       {
+        // count++;
         min_idx_temp = j;
       }
     }
-    // if (i != min_idx_temp) {
+    if (i != min_idx_temp) {
         int temp = a[i];
         a[i] = a[min_idx_temp];
         a[min_idx_temp] = temp;
         int o = 3;
-      // }
+        count ++;
+      }
   }
 
   for (int i = 0; i < n; i++)
@@ -40,7 +43,7 @@ int main()
       cout << ' ';
     cout << a[i];
   }
-  cout << endl;
+  cout << endl << count << endl;
   return 0;
 }
 

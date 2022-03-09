@@ -1,7 +1,7 @@
 #include <iostream>
 // #define N 1000
 using namespace std;
-
+// https://onlinejudge.u-aizu.ac.jp/courses/lesson/1/ALDS1/2/ALDS1_2_B
 // void selectionSort();
 // void out();
 

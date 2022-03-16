@@ -41,6 +41,8 @@ int main()
         {
             V -= A;
             result = 'M';
+        } else if (V - A < 0) {
+            break;
         }
         // if (V > A + B || V == A)
         if (V > B || V == A)
@@ -48,6 +50,8 @@ int main()
             // V = V - (A + B);
             V -=B;
             result = 'T';
+        } else if (V - B < 0) {
+            break;
         }
 
         // if (V > A + B + C || V == A + B)
@@ -56,6 +60,8 @@ int main()
             // V = V - (A + B + C);
             V -= C;
             // result = 'T';
+        } else if (V - C < 0) {
+            break;
         }
         // if (V )
     }

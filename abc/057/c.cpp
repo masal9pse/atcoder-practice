@@ -6,13 +6,13 @@ using namespace std;
 
 int main()
 {
-    int n;
+    long long n;
     cin >> n;
     int count = 0;
-    int resultMinSize = 0;
-    for (int a = 1; a <= n; a++)
+    int resultMinSize = 0;    
+    for (long long a = 1; a * a <= n; a++)
     {
-        int b;
+        long long b;
         if (n % a == 0)
         {
             b = n / a;

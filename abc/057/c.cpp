@@ -12,24 +12,27 @@ int main()
     int resultMinSize = 0;
     for (int a = 1; a <= n; a++)
     {
-        for (int b = 1; b <= n; b++)
+        int b;
+        if (n % a == 0)
         {
-            if (n == a * b)
+            b = n / a;
+            if (n == b * a)
             {
-                int tempMinSize = 0;
                 int sizeA = to_string(a).size();
                 int sizeB = to_string(b).size();
+                int tempMinSize = 0;
                 tempMinSize = max(sizeA, sizeB);
                 if (resultMinSize == 0)
                 {
                     resultMinSize = tempMinSize;
                     int c = 0;
                 }
-            else if (resultMinSize != 0)
+                else if (resultMinSize != 0)
                 {
                     resultMinSize = min(tempMinSize, resultMinSize);
                 }
             }
+            int c = 3;
         }
     }
     cout << resultMinSize << endl;

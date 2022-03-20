@@ -8,10 +8,10 @@ using namespace std;
 //     for (int i = 0; i < N; i++) cin >> S[i]
 int main()
 {
-    int n, m;
-    cin >> n >> m;
-    vector<string> s[n];
-    for (int i = 0; i < n; i++) cin >> s[i];
+    int N;
+    cin >> N;
+    vector<string> S(N);
+    for (int i = 0; i < N; i++) cin >> S[i];
     // vector<string> t[m];
     // for (int i = 0; i < m; i++) cin >> t[i];
 

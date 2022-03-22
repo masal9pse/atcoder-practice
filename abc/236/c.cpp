@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <set>
 using namespace std;
 
 int main()
@@ -7,24 +8,23 @@ int main()
     int n, m;
     cin >> n >> m;
     vector<string> s(n);
-    vector<string> t(m);
+    set<string> st;
     for (int i = 0; i < n; i++)
         cin >> s[i];
     for (int i = 0; i < m; i++)
-        cin >> t[i];
+    {
+        string t;
+        cin >> t;
+        st.insert(t);
+    }
 
     for (int i = 0; i < n; i++)
     {
-        bool flag = false;
-        for (int j = 0; j < m; j++)
+        if (st.count(s[i]))
         {
-            if (s[i] == t[j])
-            {
-                flag = true;
-            }
-        }
-        if (flag)
+            cout << st.count(s[i]) << endl;
             cout << "Yes" << endl;
+        }
         else
             cout << "No" << endl;
     }

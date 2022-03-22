@@ -13,8 +13,8 @@ int main()
     cin >> n;
     vector<int> a(n);
     rep(i,n) cin >> a[i];
-    int temp = 0;
-    int humidai_sum = 0;
+    ll temp = 0;
+    ll humidai_sum = 0;
     rep(i,n) {
         if (i == 0) {
             temp = a[0];

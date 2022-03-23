@@ -2,6 +2,12 @@
     "files.associations": {
         "vector": "cpp",
         "iosfwd": "cpp",
-        "iterator": "cpp"
+        "iterator": "cpp",
+        "complex": "cpp",
+        "valarray": "cpp",
+        "cmath": "cpp",
+        "filesystem": "cpp",
+        "stdexcept": "cpp",
+        "string": "cpp"
     }
 }

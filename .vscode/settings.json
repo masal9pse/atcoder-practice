@@ -8,6 +8,7 @@
         "cmath": "cpp",
         "filesystem": "cpp",
         "stdexcept": "cpp",
-        "string": "cpp"
+        "string": "cpp",
+        "iostream": "cpp"
     }
 }

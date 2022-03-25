@@ -18,14 +18,12 @@ int main()
     {
         for (int j = 0; j <= n - i; j++)
         {
-            for (int k = 0; k <= n - i - j; k++)
+            int k = n - i - j;
+            if (y == 10000 * i + 5000 * j + 1000 * k)
             {
-                if (y == 10000 * i + 5000 * j + 1000 * k)
-                {
-                    tempI = i;
-                    tempJ = j;
-                    tempK = k;
-                }
+                tempI = i;
+                tempJ = j;
+                tempK = k;
             }
         }
     }

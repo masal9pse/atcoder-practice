@@ -2,42 +2,23 @@
 #include <vector>
 using namespace std;
 
+// A問題はmainの中でreturnを使うことが結構大事
 int main()
 {
-    int V, A, B, C;
-    cin >> V >> A >> B >> C;
-    int count = 0;
-    string result;
-    while (V >= 0)
-    {
-        result = 'F';
-        if (V >= A)
-        {
-            V -= A;
-            result = 'M';
-        }
-        else if (V - A < 0)
-        {
-            break;
-        }
-        if (V >= B || V == A)
-        {
-            V -= B;
-            result = 'T';
-        }
-        else if (V - B < 0)
-        {
-            break;
-        }
-
-        if (V >= C || V == B)
-        {
-            V -= C;
-        }
-        else if (V - C < 0)
-        {
-            break;
-        }
+    int a,b;
+    cin >> a >> b;
+    if (a == b - 1 || a - 1 == b) {
+        cout << "Yes" << endl;
+        return 0;
     }
-    cout << result << endl;
+    if (a == 10 && b == 1) {
+        cout << "Yes" << endl;
+        return 0;
+    }
+    if (a == 1 && b == 10) {
+        cout << "Yes" << endl;
+        return 0;
+    }
+    cout << "No" << endl;
+    return 0;
 }

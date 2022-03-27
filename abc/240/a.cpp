@@ -7,6 +7,8 @@ int main()
 {
     int a,b;
     cin >> a >> b;
+    // 1≤a<b≤10 この制約なので、
+    // if (b - a == 1 || b - a == 9) という条件分岐でもいける。 
     if (a == b - 1 || a - 1 == b) {
         cout << "Yes" << endl;
         return 0;

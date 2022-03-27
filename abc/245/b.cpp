@@ -13,52 +13,40 @@ int main()
     int n;
     cin >> n;
     vector<int> a(n);
-    rep(i,n) cin >> a[i];
-    sort(a.begin(),a.end());
-    vec.erase(std::unique(vec.begin(), vec.end()), vec.end());
-    int ans = 0;
-    for (int i = 0; i < n; i++)
+    set<int> st;
+    rep(i, n)
     {
-        if (i != a[i]) {
-
-        }
+        int d;
+        cin >> d;
+        st.insert(d);
     }
-    
-    // set<int> st;
-    // rep(i, n)
-    // {
-    //     int d;
-    //     cin >> d;
-    //     st.insert(d);
-    // }
     int count = 0;
     int ans = 0;
     int p_temp = 0;
-    // vector<int> temp(2000);
-    // for (const int &number : st)
-    // {
-    //     if (count == 0)
-    //     {
-    //         if (n >= number) {
-    //           p_temp = number;
-    //         }
-    //         count++;
-    //     }
-    //     else
-    //     {
-    //         if (p_temp + 1 == number && n >= number)
-    //         {
-    //             p_temp = number;
-    //             count++;
-    //         }
-    //         else
-    //         {
-    //             // 
-    //             ans = count;
-    //             break;
-    //         }
-    //     }
-    // }
+    for (const int &number : st)
+    {
+        if (count == 0)
+        {
+            if (n >= number) {
+              p_temp = number;
+            }
+            count++;
+        }
+        else
+        {
+            if (p_temp + 1 == number && n >= number)
+            {
+                p_temp = number;
+                count++;
+            }
+            else
+            {
+                // 
+                ans = count;
+                break;                
+            }
+        }
+    }
 
     decltype(st)::iterator it = st.find(0);
 
@@ -68,8 +56,8 @@ int main()
         ans = 0;
     }
 
-    // if (flag) ans = 0;    
     cout << ans << endl;
+    return 0;
 }
 
 // 3

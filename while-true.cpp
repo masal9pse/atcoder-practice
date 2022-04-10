@@ -10,16 +10,19 @@ using ll = long long;
 
 int main()
 {
-    int n;
-    cin >> n;
-    string s;
-    cin >> s;
-    for (int i = 0; i < n; i++)
+    int counter = 9;
+
+    while (true)
     {
-        if (i == n - 1) {
-            cout << s[i] << endl;
-            return 0;
+
+        cout << "Counter: " << counter << endl;
+        counter--;
+
+        if (counter == 0)
+        {
+            break;
         }
     }
+
     return 0;
 }

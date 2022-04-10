@@ -12,14 +12,13 @@ int main()
 {
     int n;
     cin >> n;
-    string s;
-    cin >> s;
-    for (int i = 0; i < n; i++)
-    {
-        if (i == n - 1) {
-            cout << s[i] << endl;
-            return 0;
-        }
+    vector<int> A(n);
+    vector<int> cnt(200);
+    rep(i, n) cin >> A[i];
+    int ans = 0;
+    rep(i,200) {
+       cnt[A[i]%200]++;
     }
+    
     return 0;
 }

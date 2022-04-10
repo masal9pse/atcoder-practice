@@ -7,19 +7,13 @@
 using namespace std;
 using ll = long long;
 #define rep(i, n) for (int i = 0; i < n; i++)
-
+ 
 int main()
 {
     int n;
     cin >> n;
-    string s;
-    cin >> s;
-    for (int i = 0; i < n; i++)
-    {
-        if (i == n - 1) {
-            cout << s[i] << endl;
-            return 0;
-        }
-    }
+    int century = n / 100;
+    if (n % 100 == 0) cout << n / 100 << endl;
+    else cout << n / 100 + 1<< endl;
     return 0;
 }

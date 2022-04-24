@@ -10,21 +10,16 @@ using ll = long long;
  
 int main()
 {
-    int a,b,k;
-    int x = 0;
+    ll a,b,k;
+    int call = 0;
     cin >> a >> b >> k;
-    
-    x = b / (a * k);
 
-    if(a * x * k >= b) {
-        cout << x << endl;
-    } else {
-        // cout << x << endl;
-        // cout << a * x * k << endl;
-        // cout << b << endl;
-        cout << 0 << endl;
+    while (a < b)
+    {
+        a *= k;
+        call++;
     }
 
-    // cout << x << endl;
+    cout << call << endl;
     return 0;
 }

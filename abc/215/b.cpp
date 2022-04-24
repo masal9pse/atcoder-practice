@@ -11,7 +11,19 @@ using ll = long long;
  
 int main()
 {
-    int n;
+    ll n;
     cin >> n;
+    double k = 0;
+    double temp_ans = 2;
+    while (true)
+    {
+        double ans = 2;
+        ans = pow(ans,k);
+        if (ans > n) {
+            cout << k-1 << endl;
+            break;
+        }
+        k ++;
+    }
     return 0;
 }

@@ -11,19 +11,14 @@ using ll = long long;
  
 int main()
 {
-    ll n;
+    int n;
+    string s;
     cin >> n;
-    int k = 0;
-    ll val = 1;
-    while (true)
-    {
-        if (val > n) {
-            cout << k-1 << endl;
-            break;
-        }
-        // これで階乗が求まる。
-        val *= 2;
-        k ++;
+    cin >> s;
+    if (s[n-1] == 'o') {
+        cout << "Yes" << endl;
+    } else {
+        cout << "No" << endl;
     }
     return 0;
-}3
+}

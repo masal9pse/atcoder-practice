@@ -11,19 +11,10 @@ using ll = long long;
  
 int main()
 {
-    ll n;
-    cin >> n;
-    int k = 0;
-    ll val = 1;
-    while (true)
-    {
-        if (val > n) {
-            cout << k-1 << endl;
-            break;
-        }
-        // これで階乗が求まる。
-        val *= 2;
-        k ++;
-    }
+    string s;
+    cin >> s;
+    if (s[0] == s[1] && s[1] == s[2]) cout << 1 << endl;
+    else if (s[0] != s[1] && s[0] != s[2] && s[1] != s[2]) cout << 6 << endl;
+    else cout << 3 << endl; 
     return 0;
-}3
+}

@@ -11,19 +11,11 @@ using ll = long long;
  
 int main()
 {
-    ll n;
-    cin >> n;
-    int k = 0;
-    ll val = 1;
-    while (true)
-    {
-        if (val > n) {
-            cout << k-1 << endl;
-            break;
-        }
-        // これで階乗が求まる。
-        val *= 2;
-        k ++;
-    }
+    int a,b;
+    cin >> a >> b;
+    int c = a-b;
+    int o = 32;
+    int k = pow(32,c);
+    cout << k << endl;
     return 0;
-}3
+}

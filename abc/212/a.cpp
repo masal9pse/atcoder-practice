@@ -11,19 +11,14 @@ using ll = long long;
  
 int main()
 {
-    ll n;
-    cin >> n;
-    int k = 0;
-    ll val = 1;
-    while (true)
-    {
-        if (val > n) {
-            cout << k-1 << endl;
-            break;
-        }
-        // これで階乗が求まる。
-        val *= 2;
-        k ++;
+    int a,b;
+    cin >> a >> b;
+    if (0 < a && b == 0) {
+        cout << "Gold" << endl;
+    } else if (a == 0 && 0 < b){
+        cout << "Silver" << endl;
+    } else if (0 < a && 0 < b) {
+        cout << "Alloy" << endl;
     }
     return 0;
-}3
+}

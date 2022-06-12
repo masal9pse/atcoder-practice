@@ -5,25 +5,25 @@
 #include <algorithm>
 #include <set>
 #include <regex>
+#include <map>
 using namespace std;
 using ll = long long;
 #define rep(i, n) for (int i = 0; i < n; i++)
  
 int main()
 {
-    ll n;
+    int n;
     cin >> n;
-    int k = 0;
-    ll val = 1;
-    while (true)
-    {
-        if (val > n) {
-            cout << k-1 << endl;
-            break;
-        }
-        // これで階乗が求まる。
-        val *= 2;
-        k ++;
+    map<int,int> p;
+    int a;
+    rep(i,n) {
+        cin >> a;
+        p[a] = i;
     }
+    for (auto &i: p)
+    {
+        cout << i.second + 1 << " ";
+    }
+    cout << endl;
     return 0;
-}3
+}

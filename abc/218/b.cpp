@@ -11,19 +11,13 @@ using ll = long long;
  
 int main()
 {
-    ll n;
-    cin >> n;
-    int k = 0;
-    ll val = 1;
-    while (true)
-    {
-        if (val > n) {
-            cout << k-1 << endl;
-            break;
-        }
-        // これで階乗が求まる。
-        val *= 2;
-        k ++;
+    int n = 26;
+    vector<int> p(26);
+    rep(i,n) cin >> p[i];
+    string ans;
+    rep(i,26) {
+        ans += 'a' + (p[i]-1);
     }
+    cout << ans << endl;
     return 0;
-}3
+}

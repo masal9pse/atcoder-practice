@@ -11,19 +11,8 @@ using ll = long long;
  
 int main()
 {
-    ll n;
-    cin >> n;
-    int k = 0;
-    ll val = 1;
-    while (true)
-    {
-        if (val > n) {
-            cout << k-1 << endl;
-            break;
-        }
-        // これで階乗が求まる。
-        val *= 2;
-        k ++;
-    }
+    double d;
+    cin >> d;
+    cout << d / 100 << endl;
     return 0;
-}3
+}

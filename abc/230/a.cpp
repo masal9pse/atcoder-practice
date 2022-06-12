@@ -11,19 +11,13 @@ using ll = long long;
  
 int main()
 {
-    ll n;
+    int n;
     cin >> n;
-    int k = 0;
-    ll val = 1;
-    while (true)
-    {
-        if (val > n) {
-            cout << k-1 << endl;
-            break;
-        }
-        // これで階乗が求まる。
-        val *= 2;
-        k ++;
+    if (n >= 42) {
+        n++;
     }
+    string str_n = to_string(n);
+    if (n >= 10) cout << "AGC0" + str_n << endl;
+    else cout << "AGC00" + str_n << endl;
     return 0;
-}3
+}

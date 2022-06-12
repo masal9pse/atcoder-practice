@@ -11,19 +11,17 @@ using ll = long long;
  
 int main()
 {
-    ll n;
-    cin >> n;
-    int k = 0;
-    ll val = 1;
-    while (true)
+    ll a,b;
+    cin >> a >> b;
+    while (a > 0 && b > 0)
     {
-        if (val > n) {
-            cout << k-1 << endl;
-            break;
+        if (a % 10 + b % 10 >= 10) {
+            cout << "Hard" << endl;
+            return 0;
         }
-        // これで階乗が求まる。
-        val *= 2;
-        k ++;
+        a = a / 10;
+        b = b / 10;
     }
+    cout << "Easy" << endl;
     return 0;
-}3
+}

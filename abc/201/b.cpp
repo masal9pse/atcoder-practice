@@ -11,19 +11,13 @@ using ll = long long;
  
 int main()
 {
-    ll n;
+    int n;
     cin >> n;
-    int k = 0;
-    ll val = 1;
-    while (true)
-    {
-        if (val > n) {
-            cout << k-1 << endl;
-            break;
-        }
-        // これで階乗が求まる。
-        val *= 2;
-        k ++;
+    vector<pair<int,string>> data(n);
+    rep(i,n) {
+        cin >> data[i].second >> data[i].first;
     }
+    sort(data.rbegin(),data.rend());
+    cout << data[1].second << endl;
     return 0;
-}3
+}

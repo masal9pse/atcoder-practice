@@ -11,19 +11,17 @@ using ll = long long;
  
 int main()
 {
-    ll n;
-    cin >> n;
-    int k = 0;
-    ll val = 1;
-    while (true)
-    {
-        if (val > n) {
-            cout << k-1 << endl;
-            break;
-        }
-        // これで階乗が求まる。
-        val *= 2;
-        k ++;
+    string s;
+    cin >> s;
+    string t = "";    
+    rep(i,pow(10,5)) {
+        t += "oxx";
+    }
+    int k = t.find(s);    
+    if (k == string::npos) {
+        cout << "No" << endl;
+    } else {
+        cout << "Yes" << endl;
     }
     return 0;
-}3
+}

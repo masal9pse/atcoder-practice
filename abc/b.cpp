@@ -5,25 +5,24 @@
 #include <algorithm>
 #include <set>
 #include <regex>
+#include <map>
 using namespace std;
 using ll = long long;
 #define rep(i, n) for (int i = 0; i < n; i++)
- 
+
 int main()
 {
-    ll n;
-    cin >> n;
-    int k = 0;
-    ll val = 1;
-    while (true)
+    int n, k;
+    cin >> n >> k;
+    vector<int> a(k);
+    rep(i, k) cin >> a[i];
+    vector<pair<int, int>> xys(n);
+    rep(i, n)
     {
-        if (val > n) {
-            cout << k-1 << endl;
-            break;
-        }
-        // これで階乗が求まる。
-        val *= 2;
-        k ++;
+        int x, y;
+        cin >> x >> y;
+        xys[i].first = x;
+        xys[i].second = y;
     }
     return 0;
-}3
+}

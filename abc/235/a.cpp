@@ -11,13 +11,7 @@ using ll = long long;
  
 int main()
 {
-    int n,k,a;
-    cin >> n >> k >> a;
-    int first_card_person = n - k;
-    if (first_card_person + a > n) {
-
-    } else {
-        
-    }
+    int abc;
+    cin >> abc;
     return 0;
 }

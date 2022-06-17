@@ -11,13 +11,12 @@ using ll = long long;
  
 int main()
 {
-    int n,k,a;
-    cin >> n >> k >> a;
-    int first_card_person = n - k;
-    if (first_card_person + a > n) {
-
+    int n;
+    cin >> n;
+    if (pow(2,n) > pow(n,2)) {
+        cout << "Yes" << endl;
     } else {
-        
+        cout << "No" << endl;
     }
     return 0;
 }

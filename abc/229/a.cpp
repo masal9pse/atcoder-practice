@@ -11,13 +11,12 @@ using ll = long long;
  
 int main()
 {
-    int n,k,a;
-    cin >> n >> k >> a;
-    int first_card_person = n - k;
-    if (first_card_person + a > n) {
-
+    string s1,s2;
+    cin >> s1 >> s2;
+    if ((s1 == ".#" && s2 == "#.") || (s1 == "#." && s2 == ".#")) {
+        cout << "No" << endl;
     } else {
-        
+        cout << "Yes" << endl;
     }
     return 0;
 }

@@ -5,19 +5,15 @@
 #include <algorithm>
 #include <set>
 #include <regex>
+#include <iomanip>
 using namespace std;
 using ll = long long;
 #define rep(i, n) for (int i = 0; i < n; i++)
- 
+
 int main()
 {
-    int n,k,a;
-    cin >> n >> k >> a;
-    int first_card_person = n - k;
-    if (first_card_person + a > n) {
-
-    } else {
-        
-    }
+    double h;
+    cin >> h;
+    cout << fixed << setprecision(7) << sqrt(h * (12800000 + h)) << endl;
     return 0;
 }

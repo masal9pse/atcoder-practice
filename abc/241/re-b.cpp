@@ -19,20 +19,19 @@ int main()
     rep(i, n) cin >> a[i];
     rep(i, m) cin >> b[i];
     vector<bool> eated(n);
-    rep(i, m)
+     // この状態から穴埋めする。
+    rep(i, n)
     {
         bool ok = false;
-        rep(j, n)
+        rep(j, m)
         {
-            if (a[j] == b[i] && !eated[j])
-            {
-                eated[j] = true;
+            if (a[i] == b[j] && !eated[i]) {
+                eated[i] = true;
                 ok = true;
                 break;
             }
         }
-        if (!ok)
-        {
+        if (!ok) {
             cout << "No" << endl;
             return 0;
         }

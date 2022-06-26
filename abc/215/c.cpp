@@ -13,7 +13,14 @@ using ll = long long;
 
 int main()
 {
-    ll n;
-    cin >> n;    
+    string s;
+    int k;
+    cin >> s >> k;
+    sort(s.begin(), s.end());
+    rep(i, k - 1)
+    {
+        next_permutation(s.begin(), s.end());
+    }
+    cout << s << endl;
     return 0;
 }

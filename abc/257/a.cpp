@@ -13,7 +13,18 @@ using ll = long long;
 
 int main()
 {
-    ll n;
-    cin >> n;    
+    int n, x;
+    cin >> n >> x;
+    string alfa = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    vector<char> strs;
+    rep(i, 26)
+    {
+        rep(j, n)
+        {
+            char s = alfa[i];
+            strs.push_back(s);
+        }
+    }
+    cout << strs[x - 1] << endl;
     return 0;
 }

@@ -12,23 +12,25 @@ using ll = long long;
 using P = pair<int, int>;
 #define rep(i, n) for (int i = 0; i < n; i++)
 
-// ランレングス圧縮
-vector<P> rle(const string& s) {
-    vector<P> res;
-    for (char c:s)
-    {
-        if (res.size() > 0 && res.back().first == c) {
-            res.back().second++;
-        } else {
-            res.emplace_back(c,1);
-        }
-    }
-    return res;
-}
-
 int main()
 {
     int n;
     cin >> n;
+    vector<int> a(n),b(n);
+    rep(i,n) cin >> a[i] >> b[i];
+    double t = 0;
+    rep(i,n) t+=a[i]/b[i];
+    t/=2;
+    double ans = 0;
+    rep(i,n) {
+        int nt = a[i]/b[i];
+        if (nt > t) {
+            ans += b[i] * t;
+            break;
+        }
+        ans += a[i];
+        t -= nt;
+    }
+    printf("%.10f\n",ans);
     return 0;
 }

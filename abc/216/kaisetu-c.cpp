@@ -28,7 +28,21 @@ vector<P> rle(const string& s) {
 
 int main()
 {
-    int n;
+    ll n;
     cin >> n;
+    string ans;
+    while (n)
+    {        
+        if (n&1) {
+            ans += 'A';
+            n --;            
+        }else {
+            ans += 'B';
+            n /= 2;
+            // n >>= 1;
+        }
+    }
+    reverse(ans.begin(),ans.end());
+    cout << ans << endl;
     return 0;
 }

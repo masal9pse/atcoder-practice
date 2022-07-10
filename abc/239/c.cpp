@@ -12,15 +12,19 @@ using ll = long long;
 using P = pair<int, int>;
 #define rep(i, n) for (int i = 0; i < n; i++)
 
-// ランレングス圧縮
-vector<P> rle(const string& s) {
-    vector<P> res;
-    for (char c:s)
+set<P> f()
+{
+    set<P> res;
+    int sx, sy;
+    cin >> sx >> sy;
+    for (int x = -2; x <= 2; x++)
     {
-        if (res.size() > 0 && res.back().first == c) {
-            res.back().second++;
-        } else {
-            res.emplace_back(c,1);
+        for (int y = -2; y <= 2; y++)
+        {
+            if (x * x + y * y != 5)
+                continue;
+            res.emplace(sy + x, sy + y);
+            // res.emplace(x,y);
         }
     }
     return res;
@@ -28,7 +32,7 @@ vector<P> rle(const string& s) {
 
 int main()
 {
-    int n;
-    cin >> n;
+    auto as = f();
+    auto bs = f();
     return 0;
 }

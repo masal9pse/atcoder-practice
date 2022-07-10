@@ -12,7 +12,8 @@ using ll = long long;
 using P = pair<int, int>;
 #define rep(i, n) for (int i = 0; i < n; i++)
 
-// ランレングス圧縮
+// ランレングス圧縮 
+// 何回その文字列が登場した配列を出力する。
 vector<P> rle(const string& s) {
     vector<P> res;
     for (char c:s)

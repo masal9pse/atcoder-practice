@@ -9,24 +9,28 @@
 #include <map>
 using namespace std;
 using ll = long long;
+using P = pair<int, int>;
 #define rep(i, n) for (int i = 0; i < n; i++)
 
 int main()
 {
-    int n;
-    cin >> n;
-    set<vector<int>> st;
-    rep(i, n)
+    int n, q;
+    cin >> n >> q;
+    string s;
+    cin >> s;
+    int p = 0;
+    rep(qi, q)
     {
-        int l;
-        cin >> l;
-        vector<int> a(l);
-        rep(j, l)
+        int type, x;
+        cin >> type >> x;
+        if (type == 1)
         {
-            cin >> a[j];
+            p = (p - x + n) % n;
         }
-        st.insert(a);
+        else
+        {
+            cout << s[(p + x - 1) % n] << '\n';
+        }
     }
-    cout << st.size() << endl;
     return 0;
 }

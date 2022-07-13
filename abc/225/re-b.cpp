@@ -18,26 +18,53 @@ int main()
 {
     int n;
     cin >> n;
-    vector<int> c = getNextSumList({1,2,3,4},4);    
+    vector<int> a(n - 1), b(n - 1);
+    rep(i, n) cin >> a[i] >> b[i];
+    map<int, int> mab;    
+    rep2(i,n) mab[i] = 0;            
+    rep(i, n)
+    {
+        if (mab.count(a[i])) {
+            mab[a[i]] ++;
+            int k = 3;
+        }
+        if (mab.count(b[i])) {
+            mab[b[i]] ++;
+            int k = 3;
+        }
+    }
+    rep2(i, n)
+    {
+        // cout << a[i] << endl;
+        if (mab[i] == n-1)
+        {
+            cout << "Yes" << endl;
+            return 0;
+        }
+    }
+    cout << "No" << endl;
     return 0;
 }
 
 // ランレングス圧縮
-vector<P> rle(const string& s) {
+vector<P> rle(const string &s)
+{
     vector<P> res;
-    for (char c:s)
+    for (char c : s)
     {
-        if (res.size() > 0 && res.back().first == c) {
+        if (res.size() > 0 && res.back().first == c)
+        {
             res.back().second++;
-        } else {
-            res.emplace_back(c,1);
+        }
+        else
+        {
+            res.emplace_back(c, 1);
         }
     }
     return res;
 }
 
-
-vector<int> getNextSumList(vector<int> a,int n)
+vector<int> getNextSumList(vector<int> a, int n)
 {
     int sum = 0;
     vector<int> b(n);
@@ -45,7 +72,7 @@ vector<int> getNextSumList(vector<int> a,int n)
     {
         sum += a[i];
         b[i] += sum;
-    }    
+    }
     return b;
 }
 

@@ -12,50 +12,35 @@ using namespace std;
 using ll = long long;
 using P = pair<int, int>;
 #define rep(i, n) for (int i = 0; i < n; i++)
-#define rep2(i, n) for (int i = 1; i <= n; i++)
+// #define rep2(i, n) for (int i = 1; i <= n; i++)
+#define rep3(i, n) for (int i = 0; i <= n; i++)
 
-int main()
-{
-    int n;
-    cin >> n;
-    return 0;
-}
-
-// 隣接する文字列が２文字以上の部分を１文字にする。
-string getNearStrOne(string s, int n)
-{
-    vector<char> s_list;
-    char temp;
-    rep(i, n)
-    {
-        if (temp != s[i])
-        {
-            s_list.push_back(s[i]);
-            temp = s[i];
-        }
-    }
-    string ans;
-    rep(i, s_list.size())
-    {
-        ans += s_list[i];
-    }
-    return ans;
-}
 
 // vectorの中で該当の要素と最も違い値が0の要素番号を求める。
-int getNearIndex(vector<int> d, int x)
-{
-    P ans(99999, -1);
-    rep(i, 102)
-    {
-        if (d[i] == 1)
-            continue;
-        int dif = abs(x - i);
+int getNearIndex(vector<int> d,int x) {
+    P ans(99999,-1);
+    rep(i,102) {
+        if (d[i] == 1) continue;
+        int dif = abs(x-i);
         // pairの比較の場合、まずはfirstからminのチェックが入り、もしfirstがminの第１引数と同じであればsecondで比較される。
-        ans = min(ans, P(dif, i));
+        ans = min(ans,P(dif,i));
         int k = 3;
     }
     return ans.second;
+}
+
+int main()
+{
+    int x, n;
+    cin >> x >> n;
+    vector<int> p(n);    
+    rep(i, n) cin >> p[i];
+    vector<int> d(102);
+    rep(i, n) d[p[i]] = 1;    
+    // vectorの中で該当の要素と最も違い0の要素数を求める。
+    int ans = getNearIndex(d,x);
+    cout << ans << endl;
+    return 0;
 }
 
 // ランレングス圧縮

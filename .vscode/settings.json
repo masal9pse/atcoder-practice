@@ -13,6 +13,7 @@
         "random": "cpp",
         "ostream": "cpp",
         "iomanip": "cpp",
-        "algorithm": "cpp"
+        "algorithm": "cpp",
+        "map": "cpp"
     }
 }

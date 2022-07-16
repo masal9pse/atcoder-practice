@@ -16,46 +16,19 @@ using P = pair<int, int>;
 
 int main()
 {
-    int n;
+    ll n;
     cin >> n;
-    return 0;
-}
-
-// 隣接する文字列が２文字以上の部分を１文字にする。
-string getNearStrOne(string s, int n)
-{
-    vector<char> s_list;
-    char temp;
+    vector<ll> a(n);
+    rep(i, n) cin >> a[i];
+    map<int, int> ma;
+    ll ans = 0;
     rep(i, n)
     {
-        if (temp != s[i])
-        {
-            s_list.push_back(s[i]);
-            temp = s[i];
-        }
+        ans += i - ma[a[i]];
+        ma[a[i]]++;
     }
-    string ans;
-    rep(i, s_list.size())
-    {
-        ans += s_list[i];
-    }
-    return ans;
-}
-
-// vectorの中で該当の要素と最も違い値が0の要素番号を求める。
-int getNearIndex(vector<int> d, int x)
-{
-    P ans(99999, -1);
-    rep(i, 102)
-    {
-        if (d[i] == 1)
-            continue;
-        int dif = abs(x - i);
-        // pairの比較の場合、まずはfirstからminのチェックが入り、もしfirstがminの第１引数と同じであればsecondで比較される。
-        ans = min(ans, P(dif, i));
-        int k = 3;
-    }
-    return ans.second;
+    cout << ans << endl;
+    return 0;
 }
 
 // ランレングス圧縮

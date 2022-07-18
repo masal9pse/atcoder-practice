@@ -16,8 +16,22 @@ using P = pair<int, int>;
 
 int main()
 {
-    int n;    
-    cin >> n;
+    string s;
+    cin >> s;
+    // rep(i,3) 
+    sort(s.begin(),s.end());    
+    map<char,int> ms;
+    rep(i,3) {
+        ms[s[i]] ++;
+    }
+    for (auto s: ms)
+    {
+        if (s.second == 1) {
+            cout << s.first << endl;
+            return 0;
+        }
+    }
+    cout << -1 << endl;
     return 0;
 }
 

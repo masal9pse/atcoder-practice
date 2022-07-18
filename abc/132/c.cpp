@@ -16,8 +16,19 @@ using P = pair<int, int>;
 
 int main()
 {
-    int n;    
+    int n;
     cin >> n;
+    vector<int> d(n);
+    rep(i, n) cin >> d[i];
+    int half = n / 2;
+    sort(d.begin(), d.end());
+    vector<int> halfs;
+    int half_max = d[half];
+    for (int i = d[half-1]; i <= d[half]; i++)
+    {
+        if (i != d[half-1]) halfs.push_back(i);
+    }
+    cout << halfs.size() << endl;
     return 0;
 }
 

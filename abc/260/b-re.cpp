@@ -16,46 +16,38 @@ using P = pair<int, int>;
 
 int main()
 {
-    int n;    
-    cin >> n;
-    return 0;
-}
-
-// 隣接する文字列が２文字以上の部分を１文字にする。
-string getNearStrOne(string s, int n)
-{
-    vector<char> s_list;
-    char temp;
+    int n, x, y, z;
+    cin >> n >> x >> y >> z;
+    vector<int> a(n), b(n);
+    rep(i, n) cin >> a[i];
+    rep(i, n) cin >> b[i];
+    vector<P> p;
+    vector<bool> ok(n);
     rep(i, n)
     {
-        if (temp != s[i])
-        {
-            s_list.push_back(s[i]);
-            temp = s[i];
-        }
+        p.emplace_back(a[i] * -1, i);
     }
-    string ans;
-    rep(i, s_list.size())
-    {
-        ans += s_list[i];
-    }
-    return ans;
-}
+    sort(p.begin(), p.end());
+    rep(i,x) ok[p[i].second] = true;
 
-// vectorの中で該当の要素と最も違い値が0の要素番号を求める。
-int getNearIndex(vector<int> d, int x)
-{
-    P ans(99999, -1);
-    rep(i, 102)
-    {
-        if (d[i] == 1)
-            continue;
-        int dif = abs(x - i);
-        // pairの比較の場合、まずはfirstからminのチェックが入り、もしfirstがminの第１引数と同じであればsecondで比較される。
-        ans = min(ans, P(dif, i));
-        int k = 3;
+    // 初期化
+    p = vector<P>();
+    rep(i,n) {
+        if (!ok[i]) p.emplace_back(b[i]*-1,i);
     }
-    return ans.second;
+    sort(p.begin(),p.end());
+    rep(i,y) ok[p[i].second] = true;
+
+    p = vector<P>();
+    rep(i,n) {
+        if (!ok[i]) p.emplace_back((a[i]+b[i])*-1,i);
+    }
+    sort(p.begin(),p.end());
+    rep(i,z) ok[p[i].second] = true;
+    rep(i,n) {
+        if (ok[i]) cout << i + 1 << endl;
+    }
+    return 0;
 }
 
 // ランレングス圧縮

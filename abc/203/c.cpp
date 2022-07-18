@@ -12,12 +12,24 @@ using namespace std;
 using ll = long long;
 using P = pair<int, int>;
 #define rep(i, n) for (int i = 0; i < n; i++)
-#define rep2(i, n) for (int i = 1; i <= n; i++)
+#define rep2(i, n) for (int i = 0; i <= n; i++)
 
 int main()
 {
-    int n;    
-    cin >> n;
+    int n;
+    ll k;
+    cin >> n >> k;
+    vector<pair<ll, int>> f(n);
+    rep(i, n) cin >> f[i].first >> f[i].second;
+    sort(f.begin(), f.end());
+    int j = 0;
+    rep(i, n)
+    {
+        if (f[i].first > k)
+            break;
+        k += f[i].second;
+    }
+    cout << k << endl;
     return 0;
 }
 

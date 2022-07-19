@@ -14,7 +14,6 @@ using P = pair<int, int>;
 #define rep(i, n) for (int i = 0; i < n; i++)
 #define rep2(i, n) for (int i = 1; i <= n; i++)
 
-
 int main()
 {
     int n;
@@ -25,19 +24,16 @@ int main()
         int b;
         cin >> b;
         a[i] = b;
-    }    
-    vector<int> ans(n);
+    }
+    vector<int> s = a;
+    sort(s.rbegin(), s.rend());
     rep(i, n)
     {
-        rep(j, n)
-        {
-            if (i != j)
-            {
-                ans[i] = max(ans[i],a[j]);
-            }
-        }
+        int ans = s[0];
+        if (a[i] == s[0])
+            ans = s[1];
+        cout << ans << endl;
     }
-    rep(i,n) cout << ans[i] << endl;
     return 0;
 }
 

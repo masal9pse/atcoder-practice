@@ -14,17 +14,19 @@ using P = pair<int, int>;
 #define rep(i, n) for (int i = 0; i < n; i++)
 #define rep2(i, n) for (int i = 1; i <= n; i++)
 
-int main()
-{
-    int n;    
-    cin >> n;
-    return 0;
-}
 
-// 最小公約数
 ll gcd(ll a,ll b) {
     if(b == 0) return a;
     return gcd(b,a%b);
+}
+
+int main()
+{
+    int a, b;
+    cin >> a >> b;
+    ll ans = ll(a) * b / gcd(a, b);
+    cout << ans << endl;
+    return 0;
 }
 
 // 隣接する文字列が２文字以上の部分を１文字にする。

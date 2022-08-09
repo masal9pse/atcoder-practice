@@ -18,25 +18,15 @@ int main()
 {
     int n;    
     cin >> n;
+    vector<int> a(n);
+    rep(i,n) cin >> a[i];
+    int v_size = a.size();
+    set<int> sa;
+    rep(i,n) sa.insert(a[i]);
+    int s_size = sa.size();
+    if (v_size == s_size) cout << "YES" << endl;
+    else cout << "NO" << endl;
     return 0;
-}
-
-// n進数へ変更
-string convertDigits(int n, int k)
-{
-    string ans;
-    vector<int> d;
-    while (n > 0)
-    {
-        d.push_back(n % k);
-        n /= k;
-    }
-    for (int i = d.size()-1; i >= 0; i--)
-    {
-        ans += to_string(d[i]);
-    }
-    
-    return ans;
 }
 
 // 最小公約数

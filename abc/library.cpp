@@ -21,23 +21,8 @@ int main()
     return 0;
 }
 
-// n進数へ変更
-string convertDigits(int n, int k)
-{
-    string ans;
-    vector<int> d;
-    while (n > 0)
-    {
-        d.push_back(n % k);
-        n /= k;
-    }
-    for (int i = d.size()-1; i >= 0; i--)
-    {
-        ans += to_string(d[i]);
-    }
-    
-    return ans;
-}
+// vectorから最大値を取得する。
+
 
 // 最小公約数
 ll gcd(ll a,ll b) {

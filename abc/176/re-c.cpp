@@ -16,33 +16,28 @@ using P = pair<int, int>;
 
 int main()
 {
-    int n;    
+    int n;
     cin >> n;
+    vector<int> a(n);
+    rep(i, n) cin >> a[i];    
+    int h = 0;
+    ll ans = 0;
+    rep(i, n)
+    {        
+        h = max(h, a[i]);
+        // h - a[i]が必要な高さの踏み台
+        ans += h - a[i];
+    }
+    cout << ans << endl;
     return 0;
 }
 
-// n進数へ変更
-string convertDigits(int n, int k)
-{
-    string ans;
-    vector<int> d;
-    while (n > 0)
-    {
-        d.push_back(n % k);
-        n /= k;
-    }
-    for (int i = d.size()-1; i >= 0; i--)
-    {
-        ans += to_string(d[i]);
-    }
-    
-    return ans;
-}
-
 // 最小公約数
-ll gcd(ll a,ll b) {
-    if(b == 0) return a;
-    return gcd(b,a%b);
+ll gcd(ll a, ll b)
+{
+    if (b == 0)
+        return a;
+    return gcd(b, a % b);
 }
 
 // 隣接する文字列が２文字以上の部分を１文字にする。

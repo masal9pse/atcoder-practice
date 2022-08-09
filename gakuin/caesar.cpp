@@ -18,7 +18,7 @@ void q_1(string s, int n)
 {
     int size = s.size();
     vector<char> c(size);
-    vector<string> ans;
+    // vector<string> ans;
     rep(i, size) c[i] = s[i];
     for (int i = 1; i <= n; i++)
     {
@@ -29,6 +29,14 @@ void q_1(string s, int n)
         }
         cout << ans << endl;
     }
+}
+
+int main()
+{
+    // whatmonthが一番それっぽいので、回答は7月
+    q_1("yjcvoqpvj", 4);
+    // q_2({"ooni", "eshh", "gtaa", "hesg"}, 4);
+    return 0;
 }
 
 void q_2(vector<string> s_list, int n)
@@ -42,93 +50,4 @@ void q_2(vector<string> s_list, int n)
         }
         cout << ans << endl;
     }
-}
-int main()
-{
-    // whatmonthが一番それっぽいので、回答は7月
-    // q_1("yjcvoqpvj", 3);
-    q_2({"ooni", "eshh", "gtaa", "hesg"}, 4);
-    return 0;
-}
-
-// 隣接する文字列が２文字以上の部分を１文字にする。
-string getNearStrOne(string s, int n)
-{
-    vector<char> s_list;
-    char temp;
-    rep(i, n)
-    {
-        if (temp != s[i])
-        {
-            s_list.push_back(s[i]);
-            temp = s[i];
-        }
-    }
-    string ans;
-    rep(i, s_list.size())
-    {
-        ans += s_list[i];
-    }
-    return ans;
-}
-
-// vectorの中で該当の要素と最も違い値が0の要素番号を求める。
-int getNearIndex(vector<int> d, int x)
-{
-    P ans(99999, -1);
-    rep(i, 102)
-    {
-        if (d[i] == 1)
-            continue;
-        int dif = abs(x - i);
-        // pairの比較の場合、まずはfirstからminのチェックが入り、もしfirstがminの第１引数と同じであればsecondで比較される。
-        ans = min(ans, P(dif, i));
-        int k = 3;
-    }
-    return ans.second;
-}
-
-// ランレングス圧縮
-vector<P> rle(const string &s)
-{
-    vector<P> res;
-    for (char c : s)
-    {
-        if (res.size() > 0 && res.back().first == c)
-        {
-            res.back().second++;
-        }
-        else
-        {
-            res.emplace_back(c, 1);
-        }
-    }
-    return res;
-}
-
-vector<int> getNextSumList(vector<int> a, int n)
-{
-    int sum = 0;
-    vector<int> b(n);
-    rep(i, n)
-    {
-        sum += a[i];
-        b[i] += sum;
-    }
-    return b;
-}
-
-// 隣り合う要素を引き算する。
-vector<int> getNextSubList(vector<int> a, int n)
-{
-    vector<int> b;
-    rep(i, n + 1)
-    {
-        if (i != n + 1)
-        {
-            int sub = a[i + 1] - a[i];
-            b.push_back(sub);
-        }
-    }
-    return b;
 }

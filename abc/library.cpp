@@ -21,6 +21,8 @@ int main()
     return 0;
 }
 
+// ユークリッド距離
+
 bool is_kaibun(string s) {
     bool ans = false;
     int n = s.size();

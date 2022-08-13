@@ -16,10 +16,21 @@ using P = pair<int, int>;
 
 int main()
 {
-    double a,b,ans;
-    int h,m;
-    cin >> a >> b >> h >> m;
-    ans = sqrt(a*a+b*b);
-    printf("%.10f\n", ans);
+    int n;
+    cin >> n;
+    vector<int> a(n);
+    rep(i,n) cin >> a[i];
+    map<int,int> ma;
+    rep(i,n) {
+        ma[a[i]%200]++;
+    }
+    int ans = 0;
+    for (auto a:ma)
+    {
+        if (a.second >= 2) {
+            ans += (ll)a.second * (a.second-1)/2;            
+        }
+    }
+    cout << ans << endl;
     return 0;
 }

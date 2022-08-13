@@ -16,10 +16,19 @@ using P = pair<int, int>;
 
 int main()
 {
-    double a,b,ans;
-    int h,m;
-    cin >> a >> b >> h >> m;
-    ans = sqrt(a*a+b*b);
-    printf("%.10f\n", ans);
+    int n, d;
+    cin >> n >> d;
+    int count = 0;
+    rep(i, n)
+    {
+        int p, q;
+        cin >> p >> q;
+        double ans;
+        // なぜp*pすると３つ目が通らないのか？
+        ans = sqrt(pow(p, 2) + pow(q, 2));
+        if (ans <= d)
+            count++;
+    }
+    cout << count << endl;
     return 0;
 }

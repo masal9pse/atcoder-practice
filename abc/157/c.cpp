@@ -16,17 +16,48 @@ using P = pair<int, int>;
 
 int main()
 {
-    int k,n;
-    cin >> k >> n;
-    vector<int> a(n);
-    rep(i,n) cin >> a[i];
-    // ２週目の一つ目の町
-    a.push_back(k+a[0]);
-    int l = 0;
-    rep(i,n) {
-        l = max(l,a[i+1]-a[i]);
+    vector<vector<int>> a(3, vector<int>(3));
+    vector<vector<bool>> bingo(3, vector<bool>(3));
+    rep(i, 3) rep(j, 3) cin >> a[i][j];
+    int n;
+    cin >> n;
+    rep(i, n)
+    {
+        int b;
+        cin >> b;
+        rep(j, 3) rep(k, 3)
+        {
+            if (a[j][k] == b)
+                bingo[j][k] = true;
+        }
     }
-    cout << k - l << endl;
+
+    bool ans = false;
+    rep(i, 3)
+    {
+        if (bingo[i][0] && bingo[i][1] && bingo[i][2])
+        {
+            // 横
+            if (bingo[i][0] == bingo[i][1] && bingo[i][1] == bingo[i][2])
+                ans = true;
+        }
+
+        // 縦
+        if (bingo[0][i] && bingo[1][i] && bingo[2][i])
+        {
+            if (bingo[0][i] == bingo[1][i] && bingo[1][i] == bingo[2][i])
+                ans = true;
+        }
+    }
+
+    if (bingo[0][0] && bingo[1][1] && bingo[2][2] == bingo[1][1] && bingo[1][1] == bingo[2][2])
+        ans = true;
+    if (bingo[0][2] && bingo[1][1] && bingo[2][0] && bingo[0][2] == bingo[1][1] && bingo[1][1] == bingo[2][0])
+        ans = true;
+    if (ans)
+        cout << "Yes" << endl;
+    else
+        cout << "No" << endl;
     return 0;
 }
 

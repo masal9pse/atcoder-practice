@@ -16,17 +16,15 @@ using P = pair<int, int>;
 
 int main()
 {
-    int k,n;
-    cin >> k >> n;
-    vector<int> a(n);
-    rep(i,n) cin >> a[i];
-    // ２週目の一つ目の町
-    a.push_back(k+a[0]);
-    int l = 0;
-    rep(i,n) {
-        l = max(l,a[i+1]-a[i]);
-    }
-    cout << k - l << endl;
+    ll n, a, b;
+    cin >> n >> a >> b;
+    ll kiwakiwa = n / (a+b);
+    ll amari = n % (a+b);
+    ll ans = 0;
+    ans = a * kiwakiwa;    
+    if (amari < a) ans += amari;
+    else ans += a;    
+    cout << ans << endl;
     return 0;
 }
 

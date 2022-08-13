@@ -14,20 +14,40 @@ using P = pair<int, int>;
 #define rep(i, n) for (int i = 0; i < n; i++)
 #define rep2(i, n) for (int i = 1; i <= n; i++)
 
+// 最小公約数
+ll gcd(ll a, ll b)
+{
+    if (b == 0)
+        return a;
+    return gcd(b, a % b);
+}
+
 int main()
 {
-    int k,n;
-    cin >> k >> n;
-    vector<int> a(n);
-    rep(i,n) cin >> a[i];
-    // ２週目の一つ目の町
-    a.push_back(k+a[0]);
-    int l = 0;
-    rep(i,n) {
-        l = max(l,a[i+1]-a[i]);
+    int k;
+    cin >> k;
+    ll ans = 0;
+    rep2(i, k) rep2(j, k)
+    {
+        int a = gcd(i, j);
+        rep2(l, k)
+        {
+            int b = gcd(a, l);
+            ans += b;
+        }
     }
-    cout << k - l << endl;
+    cout << ans << endl;
     return 0;
+}
+
+bool is_kaibun(string s)
+{
+    bool ans = false;
+    int n = s.size();
+    string t;
+    for (int i = n - 1; i >= 0; i--)
+        t += s[i];
+    return s == t;
 }
 
 // n進数へ変更
@@ -46,14 +66,6 @@ string convertDigits(int n, int k)
     }
 
     return ans;
-}
-
-// 最小公約数
-ll gcd(ll a, ll b)
-{
-    if (b == 0)
-        return a;
-    return gcd(b, a % b);
 }
 
 // 隣接する文字列が２文字以上の部分を１文字にする。

@@ -21,8 +21,31 @@ int main()
     return 0;
 }
 
-// vectorから最大値を取得する。
+bool is_kaibun(string s) {
+    bool ans = false;
+    int n = s.size();
+    string t;
+    for (int i = n-1; i >= 0; i--) t += s[i];
+    return s == t;
+}
 
+// n進数へ変更
+string convertDigits(int n, int k)
+{
+    string ans;
+    vector<int> d;
+    while (n > 0)
+    {
+        d.push_back(n % k);
+        n /= k;
+    }
+    for (int i = d.size()-1; i >= 0; i--)
+    {
+        ans += to_string(d[i]);
+    }
+    
+    return ans;
+}
 
 // 最小公約数
 ll gcd(ll a,ll b) {

@@ -16,18 +16,23 @@ using P = pair<int, int>;
 
 int main()
 {
-    int k,n;
-    cin >> k >> n;
-    vector<int> a(n);
-    rep(i,n) cin >> a[i];
-    // ２週目の一つ目の町
-    a.push_back(k+a[0]);
-    int l = 0;
-    rep(i,n) {
-        l = max(l,a[i+1]-a[i]);
-    }
-    cout << k - l << endl;
+    ll n, k;
+    cin >> n >> k;
+    ll amari = n % k;
+    ll ans = abs(amari - k);
+    ans = min(ans, amari);
+    cout << ans << endl;
     return 0;
+}
+
+bool is_kaibun(string s)
+{
+    bool ans = false;
+    int n = s.size();
+    string t;
+    for (int i = n - 1; i >= 0; i--)
+        t += s[i];
+    return s == t;
 }
 
 // n進数へ変更

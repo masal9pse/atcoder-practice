@@ -16,17 +16,25 @@ using P = pair<int, int>;
 
 int main()
 {
-    int k,n;
-    cin >> k >> n;
-    vector<int> a(n);
-    rep(i,n) cin >> a[i];
-    // ２週目の一つ目の町
-    a.push_back(k+a[0]);
-    int l = 0;
-    rep(i,n) {
-        l = max(l,a[i+1]-a[i]);
+    int n;
+    cin >> n;
+    vector<string> s(n);
+    rep(i, n) cin >> s[i];
+    map<string, int> ms;
+    for (auto a : s)
+    {
+        ms[a]++;
     }
-    cout << k - l << endl;
+    int max_num = 0;
+    for (auto a : ms)
+    {
+        max_num = max(max_num, a.second);
+    }
+    for (auto a : ms)
+    {
+        if (max_num == a.second)
+            cout << a.first << endl;
+    }
     return 0;
 }
 

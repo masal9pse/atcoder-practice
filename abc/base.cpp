@@ -21,6 +21,14 @@ int main()
     return 0;
 }
 
+bool is_kaibun(string s) {
+    bool ans = false;
+    int n = s.size();
+    string t;
+    for (int i = n-1; i >= 0; i--) t += s[i];
+    return s == t;
+}
+
 // n進数へ変更
 string convertDigits(int n, int k)
 {

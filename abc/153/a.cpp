@@ -16,17 +16,16 @@ using P = pair<int, int>;
 
 int main()
 {
-    int k,n;
-    cin >> k >> n;
-    vector<int> a(n);
-    rep(i,n) cin >> a[i];
-    // ２週目の一つ目の町
-    a.push_back(k+a[0]);
-    int l = 0;
-    rep(i,n) {
-        l = max(l,a[i+1]-a[i]);
+    int h,a;
+    cin >> h >> a;
+    int ans = 0;
+    while (true)
+    {
+        h -= a;
+        ans ++;
+        if (h <= 0) break;
     }
-    cout << k - l << endl;
+    cout << ans << endl;
     return 0;
 }
 

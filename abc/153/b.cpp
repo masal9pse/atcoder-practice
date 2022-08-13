@@ -16,17 +16,14 @@ using P = pair<int, int>;
 
 int main()
 {
-    int k,n;
-    cin >> k >> n;
+    int h,n;
+    cin >> h >> n;
     vector<int> a(n);
     rep(i,n) cin >> a[i];
-    // ２週目の一つ目の町
-    a.push_back(k+a[0]);
-    int l = 0;
-    rep(i,n) {
-        l = max(l,a[i+1]-a[i]);
-    }
-    cout << k - l << endl;
+    int sum = 0;
+    rep(i,n) sum += a[i];
+    if (sum >= h) cout << "Yes" << endl;
+    else cout << "No" << endl;
     return 0;
 }
 

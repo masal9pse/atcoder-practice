@@ -16,17 +16,21 @@ using P = pair<int, int>;
 
 int main()
 {
-    int k,n;
-    cin >> k >> n;
-    vector<int> a(n);
-    rep(i,n) cin >> a[i];
-    // ２週目の一つ目の町
-    a.push_back(k+a[0]);
-    int l = 0;
-    rep(i,n) {
-        l = max(l,a[i+1]-a[i]);
+    int a, b;
+    cin >> a >> b;
+    rep2(i, 1250)
+    {
+        // 税抜き価格を出す。
+        int a_ans = i * 8 / 100;
+        int b_ans = i * 10 / 100;
+        if (a_ans == a && b_ans == b)
+        {
+            cout << i << endl;
+            // return 0;
+        }
     }
-    cout << k - l << endl;
+    // int k = 25 * 0.1;
+    cout << -1 << endl;
     return 0;
 }
 

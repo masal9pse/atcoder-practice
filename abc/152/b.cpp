@@ -14,19 +14,17 @@ using P = pair<int, int>;
 #define rep(i, n) for (int i = 0; i < n; i++)
 #define rep2(i, n) for (int i = 1; i <= n; i++)
 
+
 int main()
 {
-    int k,n;
-    cin >> k >> n;
-    vector<int> a(n);
-    rep(i,n) cin >> a[i];
-    // ２週目の一つ目の町
-    a.push_back(k+a[0]);
-    int l = 0;
-    rep(i,n) {
-        l = max(l,a[i+1]-a[i]);
-    }
-    cout << k - l << endl;
+    int a,b;
+    cin >> a >> b;
+    string a_ans;
+    string b_ans;
+    rep(i,b) a_ans += to_string(a);
+    rep(i,a) b_ans += to_string(b);
+    string ans = min(a_ans,b_ans);
+    cout << ans << endl;
     return 0;
 }
 

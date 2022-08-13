@@ -14,19 +14,26 @@ using P = pair<int, int>;
 #define rep(i, n) for (int i = 0; i < n; i++)
 #define rep2(i, n) for (int i = 1; i <= n; i++)
 
+bool is_kaibun(string s) {
+    bool ans = false;
+    int n = s.size();
+    string t;
+    for (int i = n-1; i >= 0; i--) t += s[i];
+    return s == t;
+}
+
 int main()
 {
-    int k,n;
-    cin >> k >> n;
-    vector<int> a(n);
-    rep(i,n) cin >> a[i];
-    // ２週目の一つ目の町
-    a.push_back(k+a[0]);
-    int l = 0;
-    rep(i,n) {
-        l = max(l,a[i+1]-a[i]);
-    }
-    cout << k - l << endl;
+    string s;
+    cin >> s;
+    int n = s.size();
+    bool ans1 = is_kaibun(s);    
+    bool ans2 = is_kaibun(s.substr(0,(n-1)/2));
+    bool ans3 = is_kaibun(s.substr(((n+3)/2)-1));
+    if (ans1 && ans2 && ans3) cout << "Yes" << endl;
+    else cout << "No" << endl;
+    assert(is_kaibun("abc") == false);
+    assert(is_kaibun("aka") == true);
     return 0;
 }
 

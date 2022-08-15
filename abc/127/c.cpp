@@ -16,21 +16,19 @@ using P = pair<int, int>;
 
 int main()
 {
-    int n;
-    cin >> n;
-    vector<int> a(n);
-    rep(i,n) cin >> a[i];
-    map<int,int> ma;
-    rep(i,n) {
-        ma[a[i]%200]++;
-    }
-    ll ans = 0;
-    for (auto a:ma)
+    int n, m;
+    cin >> n >> m;
+    vector<int> l(m), r(m);
+    rep(i, m) cin >> l[i] >> r[i];
+    int maxL = 1;
+    int minR = n;
+    rep(i, m)
     {
-        if (a.second >= 2) {
-            ans += a.second * (a.second-1)/2;            
-        }
+        maxL = max(maxL, l[i]);
+        minR = min(minR, r[i]);
     }
+    int ans = minR - maxL + 1;
+    ans = max(0,ans);
     cout << ans << endl;
     return 0;
 }

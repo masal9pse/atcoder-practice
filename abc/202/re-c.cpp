@@ -19,18 +19,15 @@ int main()
     int n;
     cin >> n;
     vector<int> a(n);
+    vector<int> b(n);
+    vector<int> c(n);
     rep(i,n) cin >> a[i];
-    map<int,int> ma;
-    rep(i,n) {
-        ma[a[i]%200]++;
-    }
+    rep(i,n) cin >> b[i];
+    rep(i,n) cin >> c[i];    
+    map<int,int> mb;    
+    rep(j,n) mb[b[c[j]-1]]++;    
     ll ans = 0;
-    for (auto a:ma)
-    {
-        if (a.second >= 2) {
-            ans += a.second * (a.second-1)/2;            
-        }
-    }
+    rep(i,n) ans += mb[a[i]];
     cout << ans << endl;
     return 0;
 }

@@ -19,5 +19,13 @@ int main()
 {
     int n;    
     cin >> n;
+    vector<ll> a(n);
+    rep(i,n) cin >> a[i];
+    sort(a.rbegin(),a.rend());
+    string ans;
+    rep(i,3) {
+        ans += to_string(a[i]);
+    }
+    cout << ans << endl;
     return 0;
 }

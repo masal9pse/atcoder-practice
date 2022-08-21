@@ -16,38 +16,38 @@ using P = pair<int, int>;
 
 int main()
 {
-    cout << 7 / 8 << endl;
-    // int n;
-    // cin >> n;
-    // int ans = 0;
-    // rep2(i, n)
-    // {
-    //     bool ok = true;
-    //     // 10進数判定
-    //     {
-    //         int base = 10;
-    //         int x = i;
-    //         while (x > 0)
-    //         {
-    //             if (x % base == 7)
-    //                 ok = false;
-    //             x /= base;
-    //         }
-    //     }
-    //     // 8進数判定
-    //     {
-    //         int base = 8;
-    //         int x = i;
-    //         while (x > 0)
-    //         {
-    //             if (x % base == 7)
-    //                 ok = false;
-    //             x /= base;
-    //         }
-    //     }
-    //     if (ok)
-    //         ans++;
-    // }
-    // cout << ans << endl;
+    // cout << 7 / 8 << endl;
+    int n;
+    cin >> n;
+    int ans = 0;
+    rep2(i, n)
+    {
+        bool ok = true;
+        // 10進数判定
+        {
+            int base = 10;
+            int x = i;
+            while (x > 0)
+            {
+                if (x % base == 7)
+                    ok = false;
+                x /= base;
+            }
+        }
+        // 8進数判定
+        {
+            int base = 8;
+            int x = i;
+            while (x > 0)
+            {
+                if (x % base == 7)
+                    ok = false;
+                x /= base;
+            }
+        }
+        if (ok)
+            ans++;
+    }
+    cout << ans << endl;
     return 0;
 }

@@ -17,7 +17,25 @@ const double PI = acos(-1);
 
 int main()
 {
-    int n;    
-    cin >> n;
+    int n, m;
+    cin >> n >> m;
+    // vector<vector<int>> s(n, vector<int>(m));
+    vector<vector<int>> s(n);
+    vector<int> ks(m);
+    // rep(i,n) rep(k,m)
+    rep(i, m)
+    {
+        int k;
+        cin >> k;
+        ks[i] = k;
+        rep(j, k)
+        {
+            int a;
+            cin >> a;
+            s[i].push_back(a);
+        }
+    }
+    vector<int> p(m);
+    rep(i, m) cin >> p[i];
     return 0;
 }

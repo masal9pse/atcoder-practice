@@ -17,7 +17,14 @@ const double PI = acos(-1);
 
 int main()
 {
-    int n;    
-    cin >> n;
+    int a,b,d;
+    cin >> a >> b >> d;
+    double theta = atan2(b,a);
+    double r = sqrt(a*a+b*b);
+    // theta += (double)d / 180 * PI;
+    theta += (double)d * PI / 180;
+    double x = cos(theta) * r;
+    double y = sin(theta) * r;
+    printf("%.10f\n" "%.10f\n", x,y);
     return 0;
 }

@@ -17,7 +17,9 @@ const double PI = acos(-1);
 
 int main()
 {
-    int n;    
+    int n;
     cin >> n;
+    int ans = n >> 1;
+    cout << ans << endl;
     return 0;
 }

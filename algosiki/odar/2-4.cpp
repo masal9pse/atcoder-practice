@@ -16,9 +16,16 @@ using P = pair<int, int>;
 #define rep3(i, n) for (int i = 0; i <= n; i++)
 const double PI = acos(-1);
 
-int main()
-{
-    int n;    
+int main() {
+    // 入力
+    int n;
     cin >> n;
+    vector<int> a(n);
+    rep(i,n) cin >> a[i];
+    ll ans = 0;    
+    rep3(i,n) {
+        ans += a[i];
+    }
+    cout << ans * ans << endl;
     return 0;
 }

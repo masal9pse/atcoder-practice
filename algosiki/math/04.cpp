@@ -18,7 +18,15 @@ const double PI = acos(-1);
 
 int main()
 {
-    int n;    
+    int n;
     cin >> n;
+    int ans = 0;
+    rep2(i,n-1) {
+        for (int j = i + 1; j <= n; j++)
+        {
+            ans += i * j;
+        }
+    }
+    cout << ans << endl;
     return 0;
 }

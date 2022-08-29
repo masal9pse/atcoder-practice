@@ -18,7 +18,17 @@ const double PI = acos(-1);
 
 int main()
 {
-    int n;
+    ll n;
     cin >> n;
+    ll ans = 0;    
+    rep(i,998244353) {
+        ans = n - i;
+        rep2(j,2) {
+            if (ans % 998244353 == 0) {
+                cout << i << endl;
+                return 0;
+            }
+        }
+    }
     return 0;
 }

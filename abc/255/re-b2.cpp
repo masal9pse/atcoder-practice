@@ -22,6 +22,7 @@ int main()
     cin >> n >> k;
     vector<int> a(k);
     rep(i, k) cin >> a[i];
+    rep(i, k) --a[i];
     vector<int> x(n),y(n);
     rep(i, n) cin >> x[i] >> y[i];
     vector<double> r(n);

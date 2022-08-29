@@ -18,7 +18,11 @@ const double PI = acos(-1);
 
 int main()
 {
-    int n;
+    ll n;
     cin >> n;
+    ll x = 0;
+    if (n >= 0) {
+        
+    }
     return 0;
 }

@@ -22,8 +22,10 @@ int main()
     cin >> n >> k;
     vector<int> a(k);
     rep(i, k) cin >> a[i];
-    vector<int> x(n),y(n);
+    rep(i, k) a[i]--;
+    vector<int> x(n), y(n);
     rep(i, n) cin >> x[i] >> y[i];
+
     vector<double> r(n);
     rep(i, n)
     {
@@ -34,12 +36,10 @@ int main()
             double dy = y[i] - y[a[j]];
             double dist = sqrt(dx * dx + dy * dy);
             r[i] = min(r[i], dist);
-            int k = 3;
         }
     }
     double ans = 0;
     rep(i, n) ans = max(r[i], ans);
-    // printf("%.10f\n",ans);
     printf("%.10f\n", ans);
     return 0;
 }

@@ -18,7 +18,9 @@ const double PI = acos(-1);
 
 int main()
 {
-    int n;
-    cin >> n;
+    string s;
+    cin >> s;
+    int size = s.size();
+    cout << s[size/2] << endl;
     return 0;
 }

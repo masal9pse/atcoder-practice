@@ -17,21 +17,15 @@ using P = pair<int, int>;
 const double PI = acos(-1);
 
 int main()
-{    
-    int n,m;
-    cin >> n >> m;
-    vector<int> a(n),b(m);
-    rep(i,n) cin >> a[i];
-    rep(i,m) cin >> b[i];
-    int ai = 0,bi = 0;
-    int ans = 1001001001;
-    sort(a.begin(),a.end());
-    sort(b.begin(),b.end());
-    while (ai < n && bi < m)
-    {
-        ans = min(ans,abs(a[ai]-b[bi]));
-        if (a[ai] < b[bi]) ai++; else bi++; 
+{
+    int n;
+    cin >> n;
+    vector<int> s(n),t(n);
+    rep(i,n) cin >> s[i];
+    rep(i,n) cin >> t[i];
+    rep(i,n*2) {
+        t[(i+1)%n] = min(t[(i+1)%n],s[i%n]+t[i%n]); 
     }
-    cout << ans << endl;
+    rep(i,n) cout << t[i] << endl;
     return 0;
 }

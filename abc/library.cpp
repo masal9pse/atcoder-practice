@@ -14,6 +14,21 @@ using P = pair<int, int>;
 #define rep(i, n) for (int i = 0; i < n; i++)
 #define rep2(i, n) for (int i = 1; i <= n; i++)
 
+// 座標圧縮 
+// input [2,9,7,8,6] output [1,5,3,4,2]
+vector<int> compress(vector<int> a) {
+    int n = a.size();
+    map<int,int> mp;
+    rep(i,n) mp[a[i]] = 0;
+    int id = 1;
+    for (auto& p:mp)
+    {
+        p.second = id++;
+    }
+    rep(i,n) a[i] = mp[a[i]];
+    return a;
+}
+
 // 左ビットシフトを 1 回行うと、もとの数を 2 倍することができる。 
 int bit2bai(int n) {
     return n >> 1;

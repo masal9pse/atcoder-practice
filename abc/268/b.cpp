@@ -23,7 +23,21 @@ const double PI = acos(-1);
 
 int main()
 {
-    int n;
-    cin >> n;
+    string s,t;
+    cin >> s;
+    cin >> t;
+    int sn = s.size();   
+    int tn = s.size();
+    if (sn > tn) {
+        cout << "No" << endl;
+        return 0;
+    }    
+    rep(i,sn) {
+        if (s[i] != t[i]) {
+            cout << "No" << endl;
+            return 0;
+        }
+    }
+    cout << "Yes" << endl; 
     return 0;
 }

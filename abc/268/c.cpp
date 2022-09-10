@@ -25,5 +25,15 @@ int main()
 {
     int n;
     cin >> n;
+    vi p(n);
+    rep(i,n) cin >> p[i];
+    int ans = 0;
+    int i = 0;
+    while (1)
+    {
+        int ni = i++;
+        if (p[i] == )
+    }
+    
     return 0;
 }

@@ -14,8 +14,8 @@ using P = pair<int, int>;
 using vi = vector<int>;
 using vs = vector<string>;
 using mi = map<int, int>;
-# define ALL(x) (x).begin(), (x).end()
-# define SZ(x) ((int)(x).size())
+#define ALL(x) (x).begin(), (x).end()
+#define SZ(x) ((int)(x).size())
 #define rep(i, n) for (int i = 0; i < n; i++)
 #define rep2(i, n) for (int i = 1; i <= n; i++)
 #define rep3(i, n) for (int i = 0; i <= n; i++)
@@ -25,5 +25,12 @@ int main()
 {
     int n;
     cin >> n;
+    vi s(n), t(n);
+    rep(i, n) cin >> s[i];
+    rep(i, n) cin >> t[i];
+    rep(i,n*2) {
+        t[(i+1)%n] = min(t[(i+1)%n],s[i%n]+t[i%n]);
+    }
+    rep(i,n) cout << t[i] << endl;
     return 0;
 }

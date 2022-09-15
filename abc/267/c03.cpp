@@ -24,23 +24,43 @@ template<class T>bool chmin(T &a, const T &b) { if (b<a) { a=b; return 1; } retu
 #define rep3(i, n) for (int i = 0; i <= n; i++)
 const double PI = acos(-1);
 
-int main()
-{
+int main() {
     int n,m;
     cin >> n >> m;
-    vl a(n);
+    vi a(n);
     rep(i,n) cin >> a[i];
     ll s = 0,t = 0;
     rep(i,m) s += a[i] * (i+1);
     rep(i,m) t += a[i];
     ll ans = s;
+    
     rep(i,n-m) {
         ll ns = s - t + a[i+m]*m;
         ll nt = t - a[i] + a[i+m];
         s = ns;
         t = nt;
-        ans = max(ans,s);
+        ans = max(s,ans);
     }
     cout << ans << endl;
-    return 0;
 }
+
+// int main()
+// {
+//     int n,m;
+//     cin >> n >> m;
+//     vl a(n);
+//     rep(i,n) cin >> a[i];
+//     ll s = 0,t = 0;
+//     rep(i,m) s += a[i] * (i+1);
+//     rep(i,m) t += a[i];
+//     ll ans = s;
+//     rep(i,n-m) {
+//         ll ns = s - t + a[i+m]*m;
+//         ll nt = t - a[i] + a[i+m];
+//         s = ns;
+//         t = nt;
+//         ans = max(ans,s);
+//     }
+//     cout << ans << endl;
+//     return 0;
+// }

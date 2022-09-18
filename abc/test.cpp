@@ -23,37 +23,38 @@ const double PI = acos(-1);
 
 int main()
 {
-    int n;
-    cin >> n;
-    vector a(n, vector<int>(n));
-    rep(i, n)
+    vector<string> g(10);
+    rep(i, 10)
     {
         string s;
         cin >> s;
-        rep(j, n)
-        {
-            a[i][j] = s[j] - '0';
-        }
+        g[i] = s;
     }
-    vector<int> di = {-1, -1, -1, 0, 0, 1, 1, 1};
-    vector<int> dy = {-1, 0, 1, -1, 1, -1, 0, 1};
-    ll ans = 0;
-    rep(si, n) rep(sj, n) rep(v, 8)
+    int a = 0, b = 0, c = 0, d = 0;
+    rep(i, 10) rep(j, 10)
     {
-        ll x = 0;
-        int i = si, j = sj;
-        rep(k, n)
+        if (g[i][j] == '#' && a == 0)
         {
-            x = x * 10 + a[i][j];
-            i += di[v];
-            j += dy[v];
-            i = (i + n) % n;
-            j = (j + n) % n;
-            // cout << x << endl;
-            // printf("%lld\n", x);
+            a = i+1;
+            b = i+1;
+            // c = j;
         }
-        ans = max(ans, x);
+        else if (g[i][j] == '#')
+        {
+            b = i+1;
+            // d = j;
+        }
+        if (g[i][j] == '#' && c == 0)
+        {
+            c = j+1;
+            d = j+1;
+        }
+        else if (g[i][j] == '#')
+        {
+            d = j+1;
+        }
     }
-    cout << ans << endl;
+    cout << a  << ' ' << b << endl;
+    cout << c  << ' ' << d << endl;
     return 0;
 }

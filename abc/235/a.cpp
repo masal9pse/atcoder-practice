@@ -13,5 +13,13 @@ int main()
 {
     int abc;
     cin >> abc;
+    int a = abc / 100;
+    int bc = abc % 100;
+    
+    int b = bc / 10;
+    int c = bc % 10;
+    int bca = 100 * b + 10 * c + a;
+    int cab = 100 * c + 10 * a + b;
+    cout << abc + bca + cab << endl;
     return 0;
 }

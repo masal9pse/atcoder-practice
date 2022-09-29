@@ -14,8 +14,8 @@ using P = pair<int, int>;
 using vi = vector<int>;
 using vs = vector<string>;
 using mi = map<int, int>;
-#define ALL(x) (x).begin(), (x).end()
-#define SZ(x) ((int)(x).size())
+# define ALL(x) (x).begin(), (x).end()
+# define SZ(x) ((int)(x).size())
 #define rep(i, n) for (int i = 0; i < n; i++)
 #define rep2(i, n) for (int i = 1; i <= n; i++)
 #define rep3(i, n) for (int i = 0; i <= n; i++)
@@ -23,14 +23,21 @@ const double PI = acos(-1);
 
 int main()
 {
-    string s;
-    cin >> s;
-    int a, b;
-    cin >> a >> b;    
-    char tmp_a = s[a-1];
-    char tmp_b = s[b-1];
-    s[a-1] = tmp_b;
-    s[b-1] = tmp_a;
-    cout << s << endl;
+    vector<int> a = {0,0,0,0};
+    rep(i,4) {
+        string s;
+        cin >> s;
+        if (s == "H") a[0] = 1;
+        if (s == "2B") a[1] = 1;
+        if (s == "3B") a[2] = 1;
+        if (s == "HR") a[3] = 1;
+    }
+    rep(i,4) {
+        if (a[i] == 0) {
+            cout << "No" << endl;
+            return 0;
+        }
+    }
+    cout << "Yes" << endl;
     return 0;
 }

@@ -23,14 +23,8 @@ const double PI = acos(-1);
 
 int main()
 {
-    string s;
-    cin >> s;
     int a, b;
-    cin >> a >> b;    
-    char tmp_a = s[a-1];
-    char tmp_b = s[b-1];
-    s[a-1] = tmp_b;
-    s[b-1] = tmp_a;
-    cout << s << endl;
+    cin >> a >> b;
+    cout << (a|b) << endl;
     return 0;
 }

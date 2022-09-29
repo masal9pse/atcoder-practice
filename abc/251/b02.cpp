@@ -23,14 +23,35 @@ const double PI = acos(-1);
 
 int main()
 {
-    string s;
-    cin >> s;
-    int a, b;
-    cin >> a >> b;    
-    char tmp_a = s[a-1];
-    char tmp_b = s[b-1];
-    s[a-1] = tmp_b;
-    s[b-1] = tmp_a;
-    cout << s << endl;
+    int n, w;
+    cin >> n >> w;
+    vector<int> a(n);
+    rep(i, n) cin >> a[i];
+    vector<bool> ans(w + 1);
+    int count = 0;
+    rep(i, n)
+    {
+        if (a[i] <= w)
+            ans[a[i]] = true;
+    }
+    rep(i, n) rep(j, i)
+    {
+        int ab = a[i] + a[j];
+        if (ab <= w)
+            ans[ab] = true;
+    }
+
+    rep(i, n) rep(j, i) rep(k, j)
+    {
+        int abc = a[i] + a[j] + a[k];
+        if (abc <= w)
+        {
+            ans[abc] = true;
+        }
+    }
+    rep(i,w+1) {
+        if (ans[i]) count++;
+    }
+    cout << count << endl;
     return 0;
 }

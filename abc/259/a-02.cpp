@@ -23,14 +23,17 @@ const double PI = acos(-1);
 
 int main()
 {
-    string s;
-    cin >> s;
-    int a, b;
-    cin >> a >> b;    
-    char tmp_a = s[a-1];
-    char tmp_b = s[b-1];
-    s[a-1] = tmp_b;
-    s[b-1] = tmp_a;
-    cout << s << endl;
+    int n, m, x, t, d;
+    cin >> n >> m >> x >> t >> d;
+    if (x <= m)
+    {
+        cout << t << endl;
+    }
+    else if (m < x)
+    {
+        t -= (x * d);
+        t += m * d;
+        cout << t << endl;
+    }
     return 0;
 }

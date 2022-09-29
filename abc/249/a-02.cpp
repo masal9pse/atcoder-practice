@@ -23,14 +23,38 @@ const double PI = acos(-1);
 
 int main()
 {
-    string s;
-    cin >> s;
-    int a, b;
-    cin >> a >> b;    
-    char tmp_a = s[a-1];
-    char tmp_b = s[b-1];
-    s[a-1] = tmp_b;
-    s[b-1] = tmp_a;
-    cout << s << endl;
+    int a, b, c, d, e, f, x;
+    cin >> a >> b >> c >> d >> e >> f >> x;
+    int da = 0;
+    int db = 0;
+
+    int ax = x;
+    int bx = x;
+    while (ax)
+    {
+        if (ax < x)
+        {
+            da += a * b;
+            ax -= a;
+        }
+        else
+        {
+            da += ax * b;
+            ax -= ax;
+        }
+         
+        if (x < 0)
+            break;
+        ax -= c;
+        if (ax < 0)
+            break;
+    }
+
+    if (da < db)
+        cout << "Takahashi" << endl;
+    else if (db < da)
+        cout << "Aoki" << endl;
+    else
+        cout << "Draw" << endl;
     return 0;
 }

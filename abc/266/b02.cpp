@@ -23,14 +23,37 @@ const double PI = acos(-1);
 
 int main()
 {
-    string s;
-    cin >> s;
-    int a, b;
-    cin >> a >> b;    
-    char tmp_a = s[a-1];
-    char tmp_b = s[b-1];
-    s[a-1] = tmp_b;
-    s[b-1] = tmp_a;
-    cout << s << endl;
+    ll n;
+    cin >> n;
+    const ll mod = 998244353;
+    cout << (n % mod + mod) % mod << endl;
     return 0;
 }
+
+// int main()
+// {
+//     ll n;
+//     cin >> n;
+//     const int c = 998244353;
+//     n %= c;
+//     if (n < 0) {
+//         n += mod;
+//     }
+//     cout << n << endl;
+// }
+
+// // myans
+// int main()
+// {
+//     ll n;
+//     cin >> n;
+//     const int c = 998244353;
+//     rep(x,c) {
+//         ll ans = n - x;
+//         if (ans % c == 0) {
+//             cout << x << endl;
+//             return 0;
+//         }
+//     }
+//     return 0;
+// }

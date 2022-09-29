@@ -23,28 +23,38 @@ const double PI = acos(-1);
 
 int main()
 {
-    int n, v;
-    cin >> n >> v;
-    vector<int> a(n);
-    rep(i, n) cin >> a[i];
-    bool ans = false;
+    int n;
+    cin >> n;
+    vector<string> w(n);
+    rep(i, n) cin >> w[i];
+    int ans = -1;
     rep(i, (1 << n))
     {
-        int total = 0;
+        int num_number = 0;
+        set<char> st;
         rep(j, n)
         {
-            // なぜここがi?,jではない？
             if (i & (1 << j))
             {
-                total += a[j];
+                num_number++;
+                for (auto c : w[j])
+                {
+                    st.insert(c);
+                }
             }
         }
-        if (total == v)
-            ans = true;
+        if (st.size() == 26)
+        {
+            if (ans == -1)
+            {
+                ans = num_number;
+            }
+            else
+            {
+                ans = min(num_number, ans);
+            }
+        }
     }
-    if (ans)
-        cout << "Yes" << endl;
-    else
-        cout << "No" << endl;
+    cout << ans << endl;
     return 0;
 }

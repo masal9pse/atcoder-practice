@@ -20,38 +20,61 @@ using mi = map<int, int>;
 #define rep2(i, n) for (int i = 1; i <= n; i++)
 #define rep3(i, n) for (int i = 0; i <= n; i++)
 const double PI = acos(-1);
- 
 
-
-
-
-
-bool f(int a,int b,int y) {
-  if (b < a) {
-    swap(a,b);
-  }
-  return a < y && y < b;
+bool f(int a, int b, int p)
+{
+    if (b < a)
+        swap(a, b);
+    return a < p && p < b;
 }
 
-int main() {
-    int x,y,z;
+int main()
+{
+    int x, y, z;
     cin >> x >> y >> z;
-    int ans = 0;
-    if (f(0,x,y)) {
-        // zの間にyが含まれるかどうか？
-        if (f(0,z,y)) {
+    if (f(0, x, y))
+    {
+        if (f(0, z, y))
+        {
             cout << -1 << endl;
-            return 0;
-        } else {
-            ans = abs(z) + abs(z-x);
+        }
+        else
+        {
+            int ans = abs(z) + abs(x - z);
             cout << ans << endl;
         }
-    } else {
+    }
+    else
+    {
         cout << abs(x) << endl;
-        return 0;
     }
 }
 
+// bool f(int a,int b,int y) {
+//   if (b < a) {
+//     swap(a,b);
+//   }
+//   return a < y && y < b;
+// }
+
+// int main() {
+//     int x,y,z;
+//     cin >> x >> y >> z;
+//     int ans = 0;
+//     if (f(0,x,y)) {
+//         // zの間にyが含まれるかどうか？
+//         if (f(0,z,y)) {
+//             cout << -1 << endl;
+//             return 0;
+//         } else {
+//             ans = abs(z) + abs(z-x);
+//             cout << ans << endl;
+//         }
+//     } else {
+//         cout << abs(x) << endl;
+//         return 0;
+//     }
+// }
 
 // bool f(int a, int b, int y)
 // {

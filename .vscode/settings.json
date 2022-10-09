@@ -73,7 +73,12 @@
         "variant": "cpp",
         "__functional_base": "cpp",
         "functional": "cpp",
-        "utility": "cpp"
+        "utility": "cpp",
+        "forward_list": "cpp",
+        "list": "cpp",
+        "span": "cpp",
+        "unordered_set": "cpp",
+        "ranges": "cpp"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }

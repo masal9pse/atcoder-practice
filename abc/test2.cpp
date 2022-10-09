@@ -28,50 +28,25 @@ int main()
     // vector x_list(m,vector);
 
     vector<vector<int>> x_list(m);
-    vector<vector<int>> joined(m);
+    // vector<vector<int>> joined(m);
     vector<int> k_list(m);
 
     rep(i, m)
     {
         int k;
         cin >> k;
-        k_list[i] = k;
+        // k_list[i] = k;
+        vector joined(k,vector<int>(k)); 
         rep(j, k)
         {
             int x;
             cin >> x;
             x--;
-            x_list[i].push_back(x);
-            joined[i].push_back(0);
-            // joined[i][x_list[i][j]]++;
-            int k = 3;
+            rep(j,i) {
+
+            }        
         }
         joined[i].push_back(0);
     }
-
-    rep(i, m)
-    {
-        rep(j, k_list[i])
-        {
-            // joined[i][x_list[i][j]]++;
-            joined[i][x_list[i][j]]++;
-            joined[x_list[i][j]][j]++;
-            int k = 3;
-        }
-    }
-
-    rep(i, m)
-    {
-        rep(j, k_list[i])
-        {
-            //   joined[i][x_list[i][j]]++;
-            if (i != j && joined[i][j] != 1)
-            {
-                cout << "No" << endl;
-                return 0;
-            }
-        }
-    }
-    cout << "Yes" << endl;
     return 0;
 }

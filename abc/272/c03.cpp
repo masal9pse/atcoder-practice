@@ -23,21 +23,29 @@ const double PI = acos(-1);
 
 int main()
 {
-    int n, q;
-    cin >> n >> q;
-    vector<vector<int>> a(n);
+    int n;
+    cin >> n;
+    vector<int> odd, even;
     rep(i, n)
     {
-        int l;
-        cin >> l;
-        a[i] = vector<int>(l);
-        rep(j, l) cin >> a[i][j];
+        int a;
+        cin >> a;
+        if (a % 2 == 0)
+            even.push_back(a);
+        if (a % 2 == 1)
+            odd.push_back(a);
     }
-    rep(i,q) {
-        int s,t;
-        cin >> s >> t;
-        --s;--t;
-        cout << a[s][t] << endl;
+    sort(odd.rbegin(), odd.rend());
+    sort(even.rbegin(), even.rend());
+    int ans = -1;
+    if (odd.size() >= 2)
+    {
+        ans = max(odd[0] + odd[1], ans);
     }
+    if (even.size() >= 2)
+    {
+        ans = max(even[0] + even[1], ans);
+    }
+    cout << ans << endl;
     return 0;
 }

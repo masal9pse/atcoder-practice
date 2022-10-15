@@ -23,21 +23,23 @@ const double PI = acos(-1);
 
 int main()
 {
-    int n, q;
-    cin >> n >> q;
-    vector<vector<int>> a(n);
-    rep(i, n)
+    int n, m;
+    cin >> n >> m;
+    vector<vector<bool>> d(n, vector<bool>(n));
+    rep(mi, m)
     {
-        int l;
-        cin >> l;
-        a[i] = vector<int>(l);
-        rep(j, l) cin >> a[i][j];
+        int k;
+        cin >> k;
+        vector<int> x(k);
+        rep(i, k) cin >> x[i];
+        rep(i, k)-- x[i];
+        rep(i, k) rep(j, k) d[x[i]][x[j]] = true;
     }
-    rep(i,q) {
-        int s,t;
-        cin >> s >> t;
-        --s;--t;
-        cout << a[s][t] << endl;
+    rep(i, n) rep(j, n) if (!d[i][j])
+    {
+        cout << "No" << endl;
+        return 0;
     }
+    cout << "Yes" << endl;
     return 0;
 }

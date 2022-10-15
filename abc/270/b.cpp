@@ -21,34 +21,85 @@ using mi = map<int, int>;
 #define rep3(i, n) for (int i = 0; i <= n; i++)
 const double PI = acos(-1);
 
-bool f(int a, int b, int p)
-{
-    if (b < a)
-        swap(a, b);
-    return a < p && p < b;
-}
-
 int main()
 {
     int x, y, z;
     cin >> x >> y >> z;
-    if (f(0, x, y))
+    if (y < 0)
     {
-        if (f(0, z, y))
-        {
-            cout << -1 << endl;
-        }
-        else
-        {
-            int ans = abs(z) + abs(x - z);
-            cout << ans << endl;
-        }
+        x *= -1;
+        y *= -1;
+        z *= -1;
     }
-    else
-    {
+    if (x < y)
         cout << abs(x) << endl;
+    else if (x > y)
+    {
+        if (z > y)
+            cout << -1 << endl;
+        else
+            cout << abs(z) + abs(x - z) << endl;
     }
 }
+
+// bool f(int a, int b, int p)
+// {
+//     if (b < a)
+//     {
+//         swap(b, a);
+//     }
+//     return a < p && p < b;
+// }
+
+// int main()
+// {
+//     int x, y, z;
+//     cin >> x >> y >> z;
+//     if (f(0, x, y))
+//     {
+//         if (f(0, z, y))
+//         {
+//             cout << -1 << endl;
+//         }
+//         else
+//         {
+//             cout << abs(z) + abs(x - z) << endl;
+//         }
+//     }
+//     else
+//     {
+//         cout << abs(x) << endl;
+//     }
+// }
+
+// bool f(int a, int b, int p)
+// {
+//     if (b < a)
+//         swap(a, b);
+//     return a < p && p < b;
+// }
+
+// int main()
+// {
+//     int x, y, z;
+//     cin >> x >> y >> z;
+//     if (f(0, x, y))
+//     {
+//         if (f(0, z, y))
+//         {
+//             cout << -1 << endl;
+//         }
+//         else
+//         {
+//             int ans = abs(z) + abs(x - z);
+//             cout << ans << endl;
+//         }
+//     }
+//     else
+//     {
+//         cout << abs(x) << endl;
+//     }
+// }
 
 // bool f(int a,int b,int y) {
 //   if (b < a) {

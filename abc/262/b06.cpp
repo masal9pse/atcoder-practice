@@ -23,21 +23,27 @@ const double PI = acos(-1);
 
 int main()
 {
-    int n, q;
-    cin >> n >> q;
-    vector<vector<int>> a(n);
-    rep(i, n)
+    int n, m;
+    cin >> n >> m;
+    vector d(n, vector<int>(n));
+    rep(i, m)
     {
-        int l;
-        cin >> l;
-        a[i] = vector<int>(l);
-        rep(j, l) cin >> a[i][j];
+        int u, v;
+        cin >> u >> v;
+        u--;
+        v--;
+        d[u][v] = 1;
+        d[v][u] = 1;
     }
-    rep(i,q) {
-        int s,t;
-        cin >> s >> t;
-        --s;--t;
-        cout << a[s][t] << endl;
+    int ans = 0;
+    rep(i, n) rep(j, i)
+    {
+        rep(k, j)
+        {
+            if (d[i][j] == 1 && d[j][k] == 1 && d[i][k] == 1)
+                ans++;
+        }
     }
+    cout << ans << endl;
     return 0;
 }

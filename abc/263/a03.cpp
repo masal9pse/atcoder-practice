@@ -23,21 +23,15 @@ const double PI = acos(-1);
 
 int main()
 {
-    int n, q;
-    cin >> n >> q;
-    vector<vector<int>> a(n);
-    rep(i, n)
-    {
-        int l;
-        cin >> l;
-        a[i] = vector<int>(l);
-        rep(j, l) cin >> a[i][j];
-    }
-    rep(i,q) {
-        int s,t;
-        cin >> s >> t;
-        --s;--t;
-        cout << a[s][t] << endl;
-    }
+    int a, b, c, d, e;
+    cin >> a >> b >> c >> d >> e;
+    vector<int> o = {a, b, c, d, e};
+    sort(o.begin(), o.end());
+    if (o[0] == o[1] && o[1] == o[2] && o[3] == o[4])
+        cout << "Yes" << endl;
+    else if (o[0] == o[1] && o[2] == o[3] && o[3] == o[4])
+        cout << "Yes" << endl;
+    else
+        cout << "No" << endl;
     return 0;
 }

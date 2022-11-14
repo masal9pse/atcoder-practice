@@ -29,41 +29,27 @@ int main()
     rep(i, n) cin >> s[i];
     rep(i, n)
     {
-        if (s[i][0] == 'H' || s[i][0] == 'D' || s[i][0] == 'C' || s[i][0] == 'S')
-        {
-        }
-        else
+        const string cs1 = "HDCS";
+        const string cs2 = "A23456789TJQK";
+        if (cs1.find(s[i][0]) == string::npos)
         {
             cout << "No" << endl;
             return 0;
         }
-        if (s[i][1] == 'A' || s[i][1] == '2' || s[i][1] == '3' || s[i][1] == '4' || s[i][1] == '5' || s[i][1] == '6' || s[i][1] == '7' || s[i][1] == '8' || s[i][1] == '9' || s[i][1] == 'T' || s[i][1] == 'J' || s[i][1] == 'Q' || s[i][1] == 'K')
-        {
-        }
-        else
+        if (cs2.find(s[i][1]) == string::npos)
         {
             cout << "No" << endl;
             return 0;
         }
         int size = s[i].size();
         rep(j, i)
-        {            
-            if (s[i] == s[j]) {
+        {
+            if (s[i] == s[j])
+            {
                 cout << "No" << endl;
                 return 0;
             }
         }
-        // rep(j, size)
-        // {
-        //     rep(k, j)
-        //     {
-        //         if (s[i][j] == s[i][k])
-        //         {
-        //             cout << "No" << endl;
-        //             return 0;
-        //         }
-        //     }
-        // }
     }
     cout << "Yes" << endl;
     return 0;

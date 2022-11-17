@@ -78,7 +78,8 @@
         "list": "cpp",
         "span": "cpp",
         "unordered_set": "cpp",
-        "ranges": "cpp"
+        "ranges": "cpp",
+        "cassert": "cpp"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }

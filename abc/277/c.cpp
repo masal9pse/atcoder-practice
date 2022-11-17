@@ -8,6 +8,7 @@
 #include <iomanip>
 #include <map>
 #include <cassert>
+#include <queue>
 using namespace std;
 using ll = long long;
 using P = pair<int, int>;
@@ -26,24 +27,36 @@ int main()
 {
     int n;
     cin >> n;
-    map<int,vector<int>> mp;
+    map<int,vector<int>> to;
     rep(i,n) {
         int a,b;
         cin >> a >> b;
-        mp[a].push_back(b);
+        to[a].push_back(b);
+        to[b].push_back(a);
     }
-    ll ans = 1;
-    for(auto v: mp) {
-        if (v.first != 1) {
-            cout << 1 << endl;
-            return 0;
-        }
-        
-        // int size = v.second.size();
-        // rep(i,size) {
 
-        // }
+    set<int> reach;
+    queue<int> q;
+    q.push(1); reach.insert(1);
+    while (!q.empty())
+    {
+        int v = q.front(); q.pop();
+        for (int u: to[v])
+        {
+            if (reach.count(u)) continue;
+            reach.insert(u);
+            q.push(u);
+        }
     }
+
+    int ans = -1;
+    for (auto x: reach)
+    {
+        ans = max(ans,x);
+    }
+    cout << ans << endl;
+
+    // cout << (*reach.rbegin()) << endl;
     
     return 0;
 }

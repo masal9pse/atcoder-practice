@@ -21,26 +21,63 @@ using mi = map<int, int>;
 #define rep3(i, n) for (int i = 0; i <= n; i++)
 const double PI = acos(-1);
 
+bool f(int a, int b, int p)
+{
+    // if (b < a)
+    //     swap(a, b);
+    // return a < p && p < b;
+    if (a < b)
+    {
+        return a < p && p < b;
+    }
+    else
+    {
+        return p < a && b < p;
+    }
+}
+
 int main()
 {
     int x, y, z;
     cin >> x >> y >> z;
-    if (y < 0)
+    if (f(0, x, y))
     {
-        x *= -1;
-        y *= -1;
-        z *= -1;
-    }
-    if (x < y)
-        cout << abs(x) << endl;
-    else if (x > y)
-    {
-        if (z > y)
+        if (f(0, z, y))
+        {
             cout << -1 << endl;
+        }
         else
-            cout << abs(z) + abs(x - z) << endl;
+        {
+            // cout << abs(z) + (abs(x) - abs(z)) << endl;
+            cout << abs(z) + abs(x-z) << endl;
+        }
+    }
+    else
+    {
+        cout << abs(x) << endl;
     }
 }
+
+// int main()
+// {
+//     int x, y, z;
+//     cin >> x >> y >> z;
+//     if (y < 0)
+//     {
+//         x *= -1;
+//         y *= -1;
+//         z *= -1;
+//     }
+//     if (x < y)
+//         cout << abs(x) << endl;
+//     else if (x > y)
+//     {
+//         if (z > y)
+//             cout << -1 << endl;
+//         else
+//             cout << abs(z) + abs(x - z) << endl;
+//     }
+// }
 
 // bool f(int a, int b, int p)
 // {

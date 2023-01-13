@@ -8,6 +8,7 @@
 #include <iomanip>
 #include <map>
 #include <cassert>
+#include <queue>
 using namespace std;
 using ll = long long;
 using P = pair<int, int>;
@@ -23,18 +24,31 @@ const double PI = acos(-1);
 
 int main()
 {
-    ll mod = 998244353;
-
-    vector<ll> a(6);
-    rep(i, 6)
+    int n, q;
+    cin >> n >> q;
+    set<P> st;
+    // ２次元配列を使うとTLEになる。
+    rep(qi, q)
     {
-        cin >> a[i];
-        a[i] %= mod;
+        int t, a, b;
+        cin >> t >> a >> b;
+        if (t == 1)
+        {
+            st.insert(P(a, b));
+        }
+        if (t == 2)
+            st.erase(P(a, b));
+        if (t == 3)
+        {
+            if (st.count(P(a, b)) && st.count(P(b, a)))
+            {
+                cout << "Yes" << endl;
+            }
+            else
+            {
+                cout << "No" << endl;
+            }
+        }
     }
-
-    ll abc = (a[0] * a[1] % mod) * a[2] % mod;
-    ll def = (a[3] * a[4] % mod) * a[5] % mod;
-    ll ans = (abc - def) % mod;
-    cout << ans << endl;
     return 0;
 }

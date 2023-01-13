@@ -8,6 +8,7 @@
 #include <iomanip>
 #include <map>
 #include <cassert>
+#include <queue>
 using namespace std;
 using ll = long long;
 using P = pair<int, int>;
@@ -23,18 +24,14 @@ const double PI = acos(-1);
 
 int main()
 {
-    ll mod = 998244353;
-
-    vector<ll> a(6);
-    rep(i, 6)
-    {
-        cin >> a[i];
-        a[i] %= mod;
+    int n;
+    cin >> n;
+    vector<int> p(n);
+    rep(i, n) cin >> p[i];
+    prev_permutation(p.begin(),p.end());
+    rep(i,n) {
+        cout << p[i] << ' ';
     }
-
-    ll abc = (a[0] * a[1] % mod) * a[2] % mod;
-    ll def = (a[3] * a[4] % mod) * a[5] % mod;
-    ll ans = (abc - def) % mod;
-    cout << ans << endl;
+    cout << endl;
     return 0;
 }

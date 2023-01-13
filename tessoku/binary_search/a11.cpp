@@ -8,6 +8,7 @@
 #include <iomanip>
 #include <map>
 #include <cassert>
+#include <queue>
 using namespace std;
 using ll = long long;
 using P = pair<int, int>;
@@ -21,20 +22,30 @@ using mi = map<int, int>;
 #define rep3(i, n) for (int i = 0; i <= n; i++)
 const double PI = acos(-1);
 
+int search(int x, int n, vector<int> a)
+{
+    int l = 1, r = n;
+
+    while (l <= r)
+    {
+        int m = (l + r) / 2;
+        if (a[m] > x)
+            r = m - 1;
+        if (a[m] == x)
+            return m;
+        if (a[m] < x)
+            l = m + 1;
+    }
+    return -1;
+}
+
 int main()
 {
-    ll mod = 998244353;
-
-    vector<ll> a(6);
-    rep(i, 6)
-    {
-        cin >> a[i];
-        a[i] %= mod;
-    }
-
-    ll abc = (a[0] * a[1] % mod) * a[2] % mod;
-    ll def = (a[3] * a[4] % mod) * a[5] % mod;
-    ll ans = (abc - def) % mod;
+    int n, x;
+    cin >> n >> x;
+    vector<int> a(n+1);
+    rep2(i, n) cin >> a[i];
+    int ans = search(x, n, a);
     cout << ans << endl;
     return 0;
 }

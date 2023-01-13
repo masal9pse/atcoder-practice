@@ -8,6 +8,7 @@
 #include <iomanip>
 #include <map>
 #include <cassert>
+#include <queue>
 using namespace std;
 using ll = long long;
 using P = pair<int, int>;
@@ -21,20 +22,24 @@ using mi = map<int, int>;
 #define rep3(i, n) for (int i = 0; i <= n; i++)
 const double PI = acos(-1);
 
+bool f(int a, int b, int y)
+{
+    if (a < b) {
+        swap(y,z);
+    }
+    return y < x && z < y;
+}
+
 int main()
 {
-    ll mod = 998244353;
-
-    vector<ll> a(6);
-    rep(i, 6)
+    int x, y, z;
+    cin >> x >> y >> z;
+    if (f(0, z, y))
     {
-        cin >> a[i];
-        a[i] %= mod;
+        cout << -1 << endl;
+        return 0;
+    } else {
+        
     }
-
-    ll abc = (a[0] * a[1] % mod) * a[2] % mod;
-    ll def = (a[3] * a[4] % mod) * a[5] % mod;
-    ll ans = (abc - def) % mod;
-    cout << ans << endl;
     return 0;
 }

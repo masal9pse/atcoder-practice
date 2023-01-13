@@ -8,6 +8,7 @@
 #include <iomanip>
 #include <map>
 #include <cassert>
+#include <queue>
 using namespace std;
 using ll = long long;
 using P = pair<int, int>;
@@ -23,18 +24,19 @@ const double PI = acos(-1);
 
 int main()
 {
-    ll mod = 998244353;
-
-    vector<ll> a(6);
-    rep(i, 6)
+    int n;
+    cin >> n;
+    vector<int> a(n);
+    rep(i, n) cin >> a[i];
+    sort(a.begin(), a.end());
+    int q;
+    cin >> q;
+    rep(i, q)
     {
-        cin >> a[i];
-        a[i] %= mod;
+        int x;
+        cin >> x;
+        auto k = lower_bound(a.begin(), a.end(), x);
+        cout << k - a.begin() << endl;
     }
-
-    ll abc = (a[0] * a[1] % mod) * a[2] % mod;
-    ll def = (a[3] * a[4] % mod) * a[5] % mod;
-    ll ans = (abc - def) % mod;
-    cout << ans << endl;
     return 0;
 }

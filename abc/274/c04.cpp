@@ -14,8 +14,8 @@ using P = pair<int, int>;
 using vi = vector<int>;
 using vs = vector<string>;
 using mi = map<int, int>;
-#define ALL(x) (x).begin(), (x).end()
-#define SZ(x) ((int)(x).size())
+# define ALL(x) (x).begin(), (x).end()
+# define SZ(x) ((int)(x).size())
 #define rep(i, n) for (int i = 0; i < n; i++)
 #define rep2(i, n) for (int i = 1; i <= n; i++)
 #define rep3(i, n) for (int i = 0; i <= n; i++)
@@ -23,18 +23,24 @@ const double PI = acos(-1);
 
 int main()
 {
-    ll mod = 998244353;
-
-    vector<ll> a(6);
-    rep(i, 6)
+    int n;
+    cin >> n;
+    vector<int> p(n*2+2);
+    for (int i = 1; i <= n; i++)
     {
-        cin >> a[i];
-        a[i] %= mod;
+        int a;
+        cin >> a;
+        p[i*2] = a;
+        p[i*2+1] = a;
     }
-
-    ll abc = (a[0] * a[1] % mod) * a[2] % mod;
-    ll def = (a[3] * a[4] % mod) * a[5] % mod;
-    ll ans = (abc - def) % mod;
-    cout << ans << endl;
+    vector<int> ans(n*2+2);
+    for (int i = 2; i <= n*2+1; i++)
+    {
+        ans[i] = ans[p[i]] + 1;
+    }
+    for (int i = 1; i <= n*2+1; i++)
+    {
+       cout << ans[i] << endl;
+    }    
     return 0;
 }

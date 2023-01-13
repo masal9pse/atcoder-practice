@@ -23,18 +23,18 @@ const double PI = acos(-1);
 
 int main()
 {
-    ll mod = 998244353;
-
-    vector<ll> a(6);
-    rep(i, 6)
+    ll x;
+    int k;
+    cin >> x >> k;
+    ll t = 1;
+    rep(i, k)
     {
-        cin >> a[i];
-        a[i] %= mod;
+        int d = x / t % 10;
+        t *= 10;
+        x = (x / t) * t;
+        if (d >= 5)
+            x += t;
     }
-
-    ll abc = (a[0] * a[1] % mod) * a[2] % mod;
-    ll def = (a[3] * a[4] % mod) * a[5] % mod;
-    ll ans = (abc - def) % mod;
-    cout << ans << endl;
+    cout << x << endl;
     return 0;
 }

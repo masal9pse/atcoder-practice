@@ -22,9 +22,41 @@ using mi = map<int, int>;
 #define rep3(i, n) for (int i = 0; i <= n; i++)
 const double PI = acos(-1);
 
+// おそらくdfs
 int main()
 {
     int n;
     cin >> n;
+    map<int,vector<int>> to;
+    rep(i,n) {
+        int a,b;
+        cin >> a >> b;
+        to[a].push_back(b);
+        to[b].push_back(a);
+    }
+
+    set<int> reach;
+    queue<int> q;
+    q.push(1); reach.insert(1);
+    while (!q.empty())
+    {
+        int v = q.front(); q.pop();
+        for (int u: to[v])
+        {
+            if (reach.count(u)) continue;
+            reach.insert(u);
+            q.push(u);
+        }
+    }
+
+    int ans = -1;
+    for (auto x: reach)
+    {
+        ans = max(ans,x);
+    }
+    cout << ans << endl;
+
+    // cout << (*reach.rbegin()) << endl;
+    
     return 0;
 }

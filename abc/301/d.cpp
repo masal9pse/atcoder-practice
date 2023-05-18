@@ -21,10 +21,16 @@ using mi = map<int, int>;
 #define rep2(i, n) for (int i = 1; i <= n; i++)
 #define rep3(i, n) for (int i = 0; i <= n; i++)
 const double PI = acos(-1);
-
+// 問題文の理解は完了
 int main()
 {
-    int n;
-    cin >> n;
+    string s,t;
+    cin >> s >> t;
+    // ?を全て1にする
+    // sを10進数に直して、tより小さいか判定
+    // 小さかったら、一番右の?を0にする
+
+    // これを繰り返す    
+
     return 0;
 }

@@ -21,7 +21,7 @@ using mi = map<int, int>;
 #define rep2(i, n) for (int i = 1; i <= n; i++)
 #define rep3(i, n) for (int i = 0; i <= n; i++)
 const double PI = acos(-1);
-// 問題文の理解は完了
+
 int main()
 {
     int n;
@@ -33,15 +33,24 @@ int main()
         bool ok = true;
         rep(i, a.size() - 1)
         {
-            if (abs(a[i] - a[i + 1]) != 1)
+            if (abs(a[i] - a[i + 1]) > 1)
             {
                 ok = false;
-                for (int j = a[i] + 1; j < a[i + 1]; j++)
-                {
-                    if (a[i] < a[i + 1])
-                        a.insert(a.begin() + i + 1, a[i+1] -1);
-                    else if (a[i] > a[i + 1])
-                        a.insert(a.begin() + i + 1, a[i+1] + 1);
+                int j = i + 1,r = a[i+1];
+                if (a[i] < a[i+1]) {
+                    for (int x = a[i]+1; x < r; x++)
+                    {
+                        a.insert(a.begin() + j, x);
+                        j++;
+                    }        
+                } else {
+                    int j = i + 1,r = a[i+1];
+                    for (int x = a[i]-1; x > r ; x--)
+                    {
+                        a.insert(a.begin() + j, x);
+                        j++;
+                    }
+                    
                 }
             }
         }

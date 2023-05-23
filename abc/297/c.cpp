@@ -8,31 +8,30 @@
 #include <iomanip>
 #include <map>
 #include <cassert>
-#include <queue>
 using namespace std;
 using ll = long long;
 using P = pair<int, int>;
-using vi = vector<int>;
-using vs = vector<string>;
-using mi = map<int, int>;
-# define ALL(x) (x).begin(), (x).end()
-# define SZ(x) ((int)(x).size())
 #define rep(i, n) for (int i = 0; i < n; i++)
 #define rep2(i, n) for (int i = 1; i <= n; i++)
 #define rep3(i, n) for (int i = 0; i <= n; i++)
 const double PI = acos(-1);
-// 問題文の理解は完了
+
 int main()
 {
-    string s,t;
-    cin >> s;
-    cin >> t;
-    // atcoder
-    map<char,int> sp,tp;
-    rep(i,s.size()) {
-        sp[s[i]]++;
-        tp[t[i]]++;
+    int h,w;
+    cin >> h >> w;
+    vector<string> s(h);
+    rep(i,h) cin >> s[i];
+    rep(i,h) {
+        rep(j,w-1) {
+            if (s[i][j] == 'T' && s[i][j+1] == 'T' && 0 <= i <= h && 0 <= j <= w) {
+                s[i][j] = 'P';
+                s[i][j+1] = 'C';
+            }
+        }
     }
-    // ２つのmapの比較方法が分からん。 
+    rep(i,h) {
+        cout << s[i] << endl;
+    }
     return 0;
 }

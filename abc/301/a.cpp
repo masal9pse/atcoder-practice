@@ -26,33 +26,24 @@ int main()
 {
     int n;
     cin >> n;
-    string s;
+    string s,t;
     cin >> s;
-    int takahashi = 0;
-    int aoki = 0;
-    int flag = 0;
-    if (s[n-1] == 'A') flag++;
-    rep(i, n)
-    {
-        if (s[i] == 'T')
-        {            
-            takahashi++;
+    cin >> t;
+    // あとでテストケースを見る。
+    rep(i,n) {
+        if (s[i] == 'l' || t[i] == 'l') {
+           s[i] = '1';
+           t[i] = '1';
         }
-        else
-        {
-            aoki++;
+        if (s[i] == 'o' || t[i] == 'o') {
+           s[i] = '0';
+           t[i] = '0';
         }
-    }
-    if (takahashi == aoki) {
-        if (flag) {
-            cout << "T" << endl;
-        } else {
-            cout << "A" << endl;
-        }
-    } else if (takahashi > aoki) {
-        cout << "T" << endl;
+    } 
+    if (s == t) {
+        cout << "Yes" << endl;
     } else {
-        cout << "A" << endl;
+        cout << "No" << endl;
     }
     return 0;
 }

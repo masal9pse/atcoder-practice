@@ -25,21 +25,20 @@ const double PI = acos(-1);
 int main()
 {
     int n;
-    string s;
     cin >> n;
+    string s,t;
     cin >> s;
-    for (int i = 1; i <= n; i++)
-    {
-        int l = 0;
-        for (int k = 0; k + i < n; k++)
-        {
-            if (s[k] == s[k + i])
-            {
-                break;
-            }
-            l = k + 1;
-        }
-        cout << l << endl;
+    cin >> t;
+    rep(i,n) {
+        if (s[i] == )
+        if (s[i] == t[i]) 
     }
+    rep(i,n) {
+        if (s[i] != t[i]) {
+            cout << "No" << endl;
+            return 0;
+        }
+    }
+    cout << "Yes" << endl;
     return 0;
 }

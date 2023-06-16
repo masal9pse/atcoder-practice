@@ -8,15 +8,9 @@
 #include <iomanip>
 #include <map>
 #include <cassert>
-#include <queue>
 using namespace std;
 using ll = long long;
 using P = pair<int, int>;
-using vi = vector<int>;
-using vs = vector<string>;
-using mi = map<int, int>;
-# define ALL(x) (x).begin(), (x).end()
-# define SZ(x) ((int)(x).size())
 #define rep(i, n) for (int i = 0; i < n; i++)
 #define rep2(i, n) for (int i = 1; i <= n; i++)
 #define rep3(i, n) for (int i = 0; i <= n; i++)
@@ -24,17 +18,15 @@ const double PI = acos(-1);
 
 int main()
 {
-    int n,p,q,r,s;
-    cin >> n >> p >> q >> r >> s;
-    p--,q--,r--,s--;
-    vector<int> a(n);
+    int n,m;
+    cin >> n >> m;
+    vector<int> a(n),b(m);
     rep(i,n) cin >> a[i];
-    vector<int> ans(n);
-    copy(a.begin(),a.end(),ans.begin());
-    for (int i = p; i < q; i++)
-    {
-        
+    rep(i,m) cin >> b[i];
+    int ans = 0;
+    rep(i,m) {
+        ans += a[b[i]-1];
     }
-    
+    cout << ans << endl;
     return 0;
 }

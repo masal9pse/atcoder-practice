@@ -16,23 +16,18 @@ using P = pair<int, int>;
 #define rep3(i, n) for (int i = 0; i <= n; i++)
 const double PI = acos(-1);
 
-
-int main() {
-  int n, x;
-  cin >> n >> x;
-  vector<int> a(n);
-  rep(i,n) cin >> a[i];
-  set<int> s;
-  rep(i,n) {
-    s.insert(a[i]);
-  }
-  rep(j,n) {
-    int i = x + a[j];
-    if (s.count(i)) {
-      cout << "Yes" << endl;
-      return 0;
+int main()
+{
+    int n;
+    cin >> n;
+    rep(i,n) {
+        string w;
+        cin >> w;
+        if (w == "and" || w == "not" || w == "that" || w == "the" || w == "you") {
+            cout << "Yes" << endl;
+            return 0;
+        }
     }
-  }
-  cout << "No" << endl;
-  return 0;
+    cout << "No" << endl;
+    return 0;
 }

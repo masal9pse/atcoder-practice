@@ -79,7 +79,9 @@
         "span": "cpp",
         "unordered_set": "cpp",
         "ranges": "cpp",
-        "cassert": "cpp"
+        "cassert": "cpp",
+        "numeric": "cpp",
+        "queue": "cpp"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }

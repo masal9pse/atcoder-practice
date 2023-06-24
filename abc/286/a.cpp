@@ -26,15 +26,17 @@ int main()
 {
     int n,p,q,r,s;
     cin >> n >> p >> q >> r >> s;
-    p--,q--,r--,s--;
     vector<int> a(n);
     rep(i,n) cin >> a[i];
-    vector<int> ans(n);
-    copy(a.begin(),a.end(),ans.begin());
-    for (int i = p; i < q; i++)
-    {
-        
+    rep(i,q-p+1) {
+        int first_i = p+i;
+        int last_i = r+i;
+        swap(a[first_i-1],a[last_i-1]);
     }
     
+    for(auto v:a) {
+        cout << v << " ";
+    }
+    cout << endl;
     return 0;
 }

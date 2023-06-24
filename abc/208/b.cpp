@@ -11,35 +11,28 @@
 using namespace std;
 using ll = long long;
 using P = pair<int, int>;
-using vi = vector<int>;
-using vs = vector<string>;
-using mi = map<int, int>;
-# define ALL(x) (x).begin(), (x).end()
-# define SZ(x) ((int)(x).size())
 #define rep(i, n) for (int i = 0; i < n; i++)
 #define rep2(i, n) for (int i = 1; i <= n; i++)
 #define rep3(i, n) for (int i = 0; i <= n; i++)
 const double PI = acos(-1);
 
+int facctorialMethod(int k){
+    int sum = 1;
+    for (int i = 1; i <= k; ++i)
+    {
+        sum *= i;
+    }
+    return sum;
+}
+// １枚硬化２枚使うなら2円硬化を使った方がいい。
 int main()
 {
-    int a,b,c,d;
-    cin >> a >> b >> c >> d;
-    int blue = a;
-    int red = 0;
-    int count = 0;
-    if (c <= b) {
-        
-    }
-    while (true)
+    int p;
+    cin >> p;
+    int ans = 1;
+    while (1)
     {
-        count++;
-        blue += b;
-        red += c;
-        if (blue <= red * d) {
-            cout << count << endl;
-            return 0;
-        }
+        ans = facctorialMethod(ans);
     }
     
     return 0;

@@ -11,11 +11,6 @@
 using namespace std;
 using ll = long long;
 using P = pair<int, int>;
-using vi = vector<int>;
-using vs = vector<string>;
-using mi = map<int, int>;
-# define ALL(x) (x).begin(), (x).end()
-# define SZ(x) ((int)(x).size())
 #define rep(i, n) for (int i = 0; i < n; i++)
 #define rep2(i, n) for (int i = 1; i <= n; i++)
 #define rep3(i, n) for (int i = 0; i <= n; i++)
@@ -23,24 +18,18 @@ const double PI = acos(-1);
 
 int main()
 {
-    int a,b,c,d;
-    cin >> a >> b >> c >> d;
-    int blue = a;
-    int red = 0;
-    int count = 0;
-    if (c <= b) {
-        
-    }
-    while (true)
-    {
-        count++;
-        blue += b;
-        red += c;
-        if (blue <= red * d) {
-            cout << count << endl;
-            return 0;
+    int n,x;
+    cin >> n >> x;
+    int ans = 0;
+    rep(i,n) {
+        int a;
+        cin >> a;
+        if ((i + 1) % 2 == 0) {
+            a--;
         }
+        ans += a;
     }
-    
+    if (ans <= x) cout << "Yes" << endl;
+    else cout << "No" << endl;
     return 0;
 }

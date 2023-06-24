@@ -28,18 +28,6 @@ int main()
     string s;
     cin >> n;
     cin >> s;
-    for (int i = 1; i <= n; i++)
-    {
-        int l = 0;
-        for (int k = 0; k + i < n; k++)
-        {
-            if (s[k] == s[k + i])
-            {
-                break;
-            }
-            l = k + 1;
-        }
-        cout << l << endl;
-    }
+    
     return 0;
 }

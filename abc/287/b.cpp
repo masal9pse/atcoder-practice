@@ -11,11 +11,6 @@
 using namespace std;
 using ll = long long;
 using P = pair<int, int>;
-using vi = vector<int>;
-using vs = vector<string>;
-using mi = map<int, int>;
-# define ALL(x) (x).begin(), (x).end()
-# define SZ(x) ((int)(x).size())
 #define rep(i, n) for (int i = 0; i < n; i++)
 #define rep2(i, n) for (int i = 1; i <= n; i++)
 #define rep3(i, n) for (int i = 0; i <= n; i++)
@@ -23,24 +18,25 @@ const double PI = acos(-1);
 
 int main()
 {
-    int a,b,c,d;
-    cin >> a >> b >> c >> d;
-    int blue = a;
-    int red = 0;
-    int count = 0;
-    if (c <= b) {
-        
-    }
-    while (true)
+    int n, m;
+    cin >> n >> m;
+    int ans = 0;
+    vector<string> s(n),t(m);
+    rep(i,n) cin >> s[i];
+    rep(i,m) cin >> t[i];
+    rep(i, n)
     {
-        count++;
-        blue += b;
-        red += c;
-        if (blue <= red * d) {
-            cout << count << endl;
-            return 0;
+        string suffix = s[i].substr(3);
+        bool match = false;
+        rep(j, m)
+        {            
+            if (suffix == t[j])
+            {
+                match = true;
+            }
         }
+        if (match) ans++;
     }
-    
+    cout << ans << endl;
     return 0;
 }

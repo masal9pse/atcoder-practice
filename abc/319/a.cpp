@@ -17,21 +17,21 @@ using P = pair<int, int>;
 const double PI = acos(-1);
 
 int main()
-{
-    int n;
-    cin >> n;
-    vector<int> x(n * 5);
-    rep(i,n*5) cin >> x[i];
-    sort(x.begin(),x.end());
-    rep(i,n) {
-        x.erase(x.begin());
-        x.pop_back();
-        int k = 3;
-    }
-    ll ans = 0;
-    rep(i,x.size()) {
-        ans += x[i];
-    }
-    printf("%.10f\n", (double)ans / x.size());
+{    
+    map<string,string>  a = {
+        {"tourist", "3858"},
+        {"ksun48", "3679"},
+        {"Benq", "3658"},
+        {"Um_nik", "3648"},
+        {"apiad", "3638"},
+        {"Stonefeang", "3630"},
+        {"ecnerwala", "3613"},
+        {"mnbvmar", "3555"},
+        {"newbiedmy", "3516"},
+        {"semiexp", "3481"}
+    };
+    string s;
+    cin >> s;
+    cout << a[s] << endl;
     return 0;
 }

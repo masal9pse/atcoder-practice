@@ -20,18 +20,19 @@ int main()
 {
     int n;
     cin >> n;
-    vector<int> x(n * 5);
-    rep(i,n*5) cin >> x[i];
-    sort(x.begin(),x.end());
+    // map<int,vector<int>> m;
+    // rep(i,n) {
+    //     int f,s;
+    //     cin >> f >> s;
+    //     m[f].push_back(s);
+    // }
+
+    // 実装力たんねー
+    int s1,t1;
     rep(i,n) {
-        x.erase(x.begin());
-        x.pop_back();
-        int k = 3;
+        int f,s;
+        cin >> f >> s;
+
     }
-    ll ans = 0;
-    rep(i,x.size()) {
-        ans += x[i];
-    }
-    printf("%.10f\n", (double)ans / x.size());
     return 0;
 }

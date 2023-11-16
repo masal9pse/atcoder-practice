@@ -20,18 +20,17 @@ int main()
 {
     int n;
     cin >> n;
-    vector<int> x(n * 5);
-    rep(i,n*5) cin >> x[i];
-    sort(x.begin(),x.end());
-    rep(i,n) {
-        x.erase(x.begin());
-        x.pop_back();
-        int k = 3;
+    vector<string> s(n);
+    rep(i,n) cin >> s[i];
+    rep(i,n) rep(j,n) {
+        if (i == j) continue;
+        string sum = s[i] + s[j];
+        string kaibun = string(sum.rbegin(),sum.rend());
+        if (sum == kaibun) {
+            cout << "Yes" << endl;
+            return 0;
+        }
     }
-    ll ans = 0;
-    rep(i,x.size()) {
-        ans += x[i];
-    }
-    printf("%.10f\n", (double)ans / x.size());
+    cout << "No" << endl;
     return 0;
 }

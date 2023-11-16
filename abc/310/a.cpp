@@ -18,20 +18,18 @@ const double PI = acos(-1);
 
 int main()
 {
-    int n;
-    cin >> n;
-    vector<int> x(n * 5);
-    rep(i,n*5) cin >> x[i];
-    sort(x.begin(),x.end());
+    int n,p,q;
+    cin >> n >> p >> q;
+    int min_p = 10e8;
     rep(i,n) {
-        x.erase(x.begin());
-        x.pop_back();
-        int k = 3;
+        int d;
+        cin >> d;
+        min_p = min(min_p,d);
     }
-    ll ans = 0;
-    rep(i,x.size()) {
-        ans += x[i];
+    if (p < q + min_p) {
+        cout << p << endl;
+    } else {
+        cout << q + min_p;
     }
-    printf("%.10f\n", (double)ans / x.size());
     return 0;
 }

@@ -18,20 +18,15 @@ const double PI = acos(-1);
 
 int main()
 {
-    int n;
-    cin >> n;
-    vector<int> x(n * 5);
-    rep(i,n*5) cin >> x[i];
-    sort(x.begin(),x.end());
+    int n,m;
+    cin >> n >> m;
+    vector<int> p(n);
+    vector<vector<int>> f(n);
     rep(i,n) {
-        x.erase(x.begin());
-        x.pop_back();
-        int k = 3;
+        int c;
+        cin >> p[i] >> c;
+        f[i] = vector<int>(c);
+        rep(j,c) cin >> f[i][j];
     }
-    ll ans = 0;
-    rep(i,x.size()) {
-        ans += x[i];
-    }
-    printf("%.10f\n", (double)ans / x.size());
-    return 0;
+    rep(i,n) rep(j,n) 
 }

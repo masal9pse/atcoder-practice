@@ -32,6 +32,26 @@ class LinkedList {
     newNode.next = this.head;
     this.head = newNode;
   }
+
+  void printNodeData() {
+    Node? currentNode = this.head;
+    while(currentNode != null) {
+      print(currentNode.data);
+      currentNode = currentNode.next;
+    }
+  }
+
+  // あとで
+  void remove(dynamic data) {
+     Node? currentNode = this.head;
+     if (currentNode != null && currentNode.data == data) {
+      this.head = currentNode.next;
+      currentNode = null;
+      return;
+     }
+
+  }
+  void update() {}
 }
 
 void main(List<String> args) {
@@ -39,9 +59,12 @@ void main(List<String> args) {
   l.append(1);
   l.append(2);
   l.append(3);
+  l.append(4);
   l.insert(0);
-  print(l.head!.data);
-  print(l.head!.next!.data);
-  print(l.head!.next!.next!.data);
-  print(l.head!.next!.next!.next!.data);
+  // print(l.head!.data);
+  // print(l.head!.next!.data);
+  // print(l.head!.next!.next!.data);
+  // // next,next... みたいにたどるのは不便 => ループで辿れるようにしたい
+  // print(l.head!.next!.next!.next!.data);
+  l.printNodeData();
 }

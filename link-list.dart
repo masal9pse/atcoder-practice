@@ -51,7 +51,8 @@ class LinkedList {
      }
 
   }
-  void update() {}
+  // 逆方向に並び替える 21
+  void reverse() {}
 }
 
 void main(List<String> args) {

@@ -26,6 +26,7 @@ class LinkedList {
     lastNode.next = newNode;
   }
 
+  // 先頭にNodeをインサート
   void insert (dynamic data) {
     final newNode = Node(data: data);
     newNode.next = this.head;
@@ -38,7 +39,9 @@ void main(List<String> args) {
   l.append(1);
   l.append(2);
   l.append(3);
+  l.insert(0);
   print(l.head!.data);
   print(l.head!.next!.data);
   print(l.head!.next!.next!.data);
+  print(l.head!.next!.next!.next!.data);
 }

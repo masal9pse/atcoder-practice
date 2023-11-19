@@ -35,6 +35,7 @@ int main()
         auto it = st.find(s[i]);
         if (it != st.end() && !same) {
             count = 0;
+            same = true;
             continue;
         }
         // tmp = s[i];
@@ -45,7 +46,8 @@ int main()
             count = 0;
             count++;
             mp[s[i]] = count;
-            st.insert(s[i]);             
+            st.insert(s[i]);   
+            same = true;          
             continue;
         };
         count++;

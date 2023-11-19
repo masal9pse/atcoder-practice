@@ -62,10 +62,14 @@ void main(List<String> args) {
   l.append(3);
   l.append(4);
   l.insert(0);
+  final k = [1,2,3,4];
+  final d = [1,2,3,4];
+  d.add(5);
+  print(k);
   // print(l.head!.data);
   // print(l.head!.next!.data);
   // print(l.head!.next!.next!.data);
   // // next,next... みたいにたどるのは不便 => ループで辿れるようにしたい
   // print(l.head!.next!.next!.next!.data);
-  l.printNodeData();
+  // l.printNodeData();
 }

@@ -16,46 +16,63 @@ using P = pair<int, int>;
 #define rep3(i, n) for (int i = 0; i <= n; i++)
 const double PI = acos(-1);
 
-bool isPalindrome(const std::string& str) {
-    // 文字列を小文字に変換
-    std::string lowercaseStr;
-    for (char ch : str) {
-        if (std::isalpha(ch)) {
-            lowercaseStr += std::tolower(ch);
-        }
-    }
-
-    // 回文を判定
-    int start = 0;
-    int end = lowercaseStr.length() - 1;
-
-    while (start < end) {
-        if (lowercaseStr[start] != lowercaseStr[end]) {
-            return false; // 回文でない場合
-        }
-        ++start;
-        --end;
-    }
-
-    return true; // 回文の場合
-}
-
 int main()
 {
-    string s;
-    cin >> s;
-    int n = s.size();
-    int ans = 0;
-    rep(i,n) {
-        rep(j,n) {
-            string ss = s.substr(i,j+1);
-            if (isPalindrome(ss)) {
-                int s_size = ss.size();
-                ans = max(ans,s_size);
-                int k = 3;
+    int n;
+    cin >> n;
+    vector<string> a(n);
+    rep(i, n) cin >> a[i];
+    vector<string> b = a;
+    rep(i, n)
+    {
+        rep(j, n)
+        {
+            // 先頭の行の一番左
+            if (i == 0 && j == 0)
+            {
+                a[i][j] = b[i + 1][j];
+                continue;
+            }
+
+            // 先頭の行の一番左以外
+            if (i == 0 && j != 0)
+            {
+                a[i][j] = b[i][j - 1];
+                continue;
+            }
+
+            // 真ん中の一番左
+            if (i != 0 && i != n - 1 && j == 0)
+            {
+                a[i][j] = b[i + 1][j];
+                continue;
+            }
+
+            // 真ん中の一番右
+            if (i != 0 && i != n - 1 && j == n - 1)
+            {
+                a[i][j] = b[i - 1][j];
+                continue;
+            }
+
+            // 一番下の右角以外
+            if (i == n - 1 && j != n - 1)
+            {
+                a[i][j] = b[i][j + 1];
+                continue;
+            }
+
+            // 一番下の右角
+            if (i == n - 1 && j == n - 1)
+            {
+                a[i][j] = b[i - 1][j];
+                continue;
             }
         }
     }
-    cout << ans << endl;
+    rep(i, n)
+    {
+        cout << a[i] << endl;
+    }
     return 0;
 }

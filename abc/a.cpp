@@ -1,3 +1,4 @@
+// 2時間かかった
 #include <iostream>
 #include <vector>
 #include <math.h>
@@ -20,59 +21,51 @@ int main()
 {
     int n;
     cin >> n;
-    vector<string> a(n);
-    rep(i, n) cin >> a[i];
-    vector<string> b = a;
+    vector<vector<int>> a_list(n);
     rep(i, n)
     {
-        rep(j, n)
+        int c;
+        cin >> c;
+        rep(j, c)
         {
-            // 先頭の行の一番左
-            if (i == 0 && j == 0)
+            int a;
+            cin >> a;
+            a_list[i].push_back(a);
+        }
+    }
+    int x;
+    cin >> x;
+    int count = 0;
+    int find_ball = 10e8;
+    vector<int> ans;
+    rep(i, n)
+    {
+        if (a_list[i].size() <= find_ball)
+        {
+            for (auto v : a_list[i])
             {
-                a[i][j] = b[i + 1][j];
-                continue;
-            }
-
-            // 先頭の行の一番左以外
-            if (i == 0 && j != 0)
-            {
-                a[i][j] = b[i][j - 1];
-                continue;
-            }
-
-            // 真ん中の一番左
-            if (i != 0 && i != n - 1 && j == 0)
-            {
-                a[i][j] = b[i + 1][j];
-                continue;
-            }
-
-            // 真ん中の一番右
-            if (i != 0 && i != n - 1 && j == n - 1)
-            {
-                a[i][j] = b[i - 1][j];
-                continue;
-            }
-
-            // 一番下の右角以外
-            if (i == n - 1 && j != n - 1)
-            {
-                a[i][j] = b[i][j + 1];
-                continue;
-            }
-
-            // 一番下の右角
-            if (i == n - 1 && j == n - 1)
-            {
-                a[i][j] = b[i - 1][j];
-                continue;
+                if (v == x)
+                {
+                    if (a_list[i].size() < find_ball) {
+                        count = 0;
+                        ans.clear();
+                    }
+                    count++;
+                    ans.push_back(i + 1);
+                    find_ball = a_list[i].size();
+                    break;
+                }
             }
         }
     }
-    rep(i, n)
+    cout << count << endl;
+    if (count >= 1)
     {
-        cout << a[i] << endl;
+        for (auto v : ans)
+        {
+            cout << v << " ";
+        }
+        cout << endl;
     }
     return 0;
 }

@@ -23,55 +23,17 @@ const double PI = acos(-1);
 
 int main()
 {
-    int n, m;
-    cin >> n >> m;
-    // vector x_list(m,vector);
-
-    vector<vector<int>> x_list(m);
-    vector<vector<int>> joined(m);
-    vector<int> k_list(m);
-
-    rep(i, m)
+    int n, m,p;
+    cin >> n >> m >> p;
+    int full_moon_day = m;
+    int ans = 0;
+    int day = 0;
+    while (full_moon_day <= n)
     {
-        int k;
-        cin >> k;
-        k_list[i] = k;
-        rep(j, k)
-        {
-            int x;
-            cin >> x;
-            x--;
-            x_list[i].push_back(x);
-            joined[i].push_back(0);
-            // joined[i][x_list[i][j]]++;
-            int k = 3;
-        }
-        joined[i].push_back(0);
+        full_moon_day = m + p * day;
+        if (full_moon_day <= n) ans++;
+        day++;
     }
-
-    rep(i, m)
-    {
-        rep(j, k_list[i])
-        {
-            // joined[i][x_list[i][j]]++;
-            joined[i][x_list[i][j]]++;
-            joined[x_list[i][j]][j]++;
-            int k = 3;
-        }
-    }
-
-    rep(i, m)
-    {
-        rep(j, k_list[i])
-        {
-            //   joined[i][x_list[i][j]]++;
-            if (i != j && joined[i][j] != 1)
-            {
-                cout << "No" << endl;
-                return 0;
-            }
-        }
-    }
-    cout << "Yes" << endl;
+    cout << ans << endl;
     return 0;
 }

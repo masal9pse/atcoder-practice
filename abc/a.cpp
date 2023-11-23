@@ -1,4 +1,5 @@
 // 2時間かかった
+// テストケースを変更したいときはpaiza.ioで
 #include <iostream>
 #include <vector>
 #include <math.h>
@@ -40,13 +41,22 @@ int main()
     vector<int> ans;
     rep(i, n)
     {
+        int size = a_list[i].size();
+        if (size <= find_ball)
+        {
+            rep(j, size)
+            {
+                if (v == x) 
+            }
+        }
         if (a_list[i].size() <= find_ball)
         {
             for (auto v : a_list[i])
             {
                 if (v == x)
                 {
-                    if (a_list[i].size() < find_ball) {
+                    if (a_list[i].size() < find_ball)
+                    {
                         count = 0;
                         ans.clear();
                     }

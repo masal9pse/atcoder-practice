@@ -22,60 +22,21 @@ int main()
 {
     int n;
     cin >> n;
-    vector<vector<int>> a_list(n);
-    rep(i, n)
-    {
-        int c;
-        cin >> c;
-        rep(j, c)
-        {
-            int a;
-            cin >> a;
-            a_list[i].push_back(a);
+    string s;
+    cin >> s;
+    int ans = 0;
+    bool is_A = false;
+    bool is_B = false;
+    bool is_C = false;
+    rep(i,n) {
+        if (s[i] == 'A') is_A = true;
+        if (s[i] == 'B') is_B = true;
+        if (s[i] == 'C') is_C = true;
+        if (is_A && is_B && is_C) {
+            ans = i+1;
+            break;
         }
     }
-    int x;
-    cin >> x;
-    int count = 0;
-    int find_ball = 10e8;
-    vector<int> ans;
-    rep(i, n)
-    {
-        int size = a_list[i].size();
-        if (size <= find_ball)
-        {
-            rep(j, size)
-            {
-                if (v == x) 
-            }
-        }
-        if (a_list[i].size() <= find_ball)
-        {
-            for (auto v : a_list[i])
-            {
-                if (v == x)
-                {
-                    if (a_list[i].size() < find_ball)
-                    {
-                        count = 0;
-                        ans.clear();
-                    }
-                    count++;
-                    ans.push_back(i + 1);
-                    find_ball = a_list[i].size();
-                    break;
-                }
-            }
-        }
-    }
-    cout << count << endl;
-    if (count >= 1)
-    {
-        for (auto v : ans)
-        {
-            cout << v << " ";
-        }
-        cout << endl;
-    }
+    cout << ans << endl;
     return 0;
 }

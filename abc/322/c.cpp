@@ -1,4 +1,4 @@
-// 少し解説動画見た
+// 解説AC
 #include <iostream>
 #include <vector>
 #include <math.h>

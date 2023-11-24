@@ -13,40 +13,96 @@ using ll = long long;
 
 int main()
 {
-    int n;
-    cin >> n;
+    int n, m;
+    cin >> n >> m;
     vector<string> s(n);
     rep(i, n) cin >> s[i];
-    vector<pair<int, int>> ans(n);
-    // vector<pair<int, vector<int>>> ans(n);
-    rep(i, n)
+    vector<pair<int, int>> ans;
+    rep(i, n) rep(j, m)
     {
-        ans[i].second = i + 1;
-        int win_count = 0;
-        rep(j, n)
+        bool is_tak_code = true;
+        rep(k, 9)
         {
-            if (s[i][j] == 'o')
+            rep(l, 9)
             {
-                win_count++;
-                ans[i].first = win_count;
+                int ik = i + k;
+                int jl = j + l;
+                // 右上
+                if (k == 0 && l == 0 && s[ik][jl] != '#')
+                {
+                    is_tak_code = false;
+                }
+                if (k == 0 && l == 1 && s[ik][jl] != '#')
+                {
+                    is_tak_code = false;
+                }
+                if (k == 0 && l == 2 && s[ik][jl] != '#')
+                {
+                    is_tak_code = false;
+                }
+                if (k == 0 && l == 3 && s[ik][jl] != '.')
+                {
+                    is_tak_code = false;
+                }
+
+                if (k == 1 && l == 0 && s[ik][jl] != '#')
+                {
+                    is_tak_code = false;
+                }
+                if (k == 1 && l == 1 && s[ik][jl] != '#')
+                {
+                    is_tak_code = false;
+                }
+                if (k == 1 && l == 2 && s[ik][jl] != '#')
+                {
+                    is_tak_code = false;
+                }
+                if (k == 1 && l == 3 && s[ik][jl] != '.')
+                {
+                    is_tak_code = false;
+                }
+
+                if (k == 2 && l == 0 && s[ik][jl] != '#')
+                {
+                    is_tak_code = false;
+                }
+                if (k == 2 && l == 1 && s[ik][jl] != '#')
+                {
+                    is_tak_code = false;
+                }
+                if (k == 2 && l == 2 && s[ik][jl] != '#')
+                {
+                    is_tak_code = false;
+                }
+                if (k == 2 && l == 3 && s[ik][jl] != '.')
+                {
+                    is_tak_code = false;
+                }
+
+                if (k == 3 && l == 0 && s[ik][jl] == '#')
+                {
+                    is_tak_code = false;
+                }
+                if (k == 3 && l == 1 && s[ik][jl] == '#')
+                {
+                    is_tak_code = false;
+                }
+                if (k == 3 && l == 2 && s[ik][jl] == '#')
+                {
+                    is_tak_code = false;
+                }
+                if (k == 3 && l == 3 && s[ik][jl] == '#')
+                {
+                    is_tak_code = false;
+                }
+
+                // 左下
+                
             }
         }
+        if (is_tak_code)
+            ans.push_back({i, j});
+        int ll = 3;
     }
-    sort(ans.rbegin(),ans.rend());
-    map<int,vector<int>> mp;
-    rep(i,n) {
-        mp[ans[i].first].push_back(ans[i].second);
-    }
-    // C++11以降ではautoと範囲ベースのforループを使用して逆順にイテレーションできます。
-    for (auto it = mp.rbegin(); it != mp.rend(); ++it) {
-        // it->first がキー、it->second が値です。
-        // std::cout << "(" << it->first << endl;
-        sort(mp[it->first].begin(),mp[it->first].end());
-        for (auto v:mp[it->first])
-        {
-            cout << v << " ";
-        }
-    }
-    cout << endl;
     return 0;
 }

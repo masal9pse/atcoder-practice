@@ -20,21 +20,35 @@ const double PI = acos(-1);
 
 int main()
 {
-    int n;
-    cin >> n;
-    string s;
-    cin >> s;   
-    // ソートすると隣接していないが、aとbがある文字がYesになってしまう 
-    rep(i,n-1) {
-        if (s[i]=='a' && s[i+1] == 'b') {
-            cout << "Yes" << endl;
-            return 0;
+    int n, l, r;
+    cin >> n >> l >> r;
+    vector<int> a(n);
+    rep(i, n) cin >> a[i];
+    // rep(i,n) {
+    //     if (l <= a[i] && a[i] <= r) is_judge = true;
+    // }
+    // i = 3の際に 7 - 4 = 3にで条件を満たさなくなってしまう。
+    rep(i, n)
+    {
+        bool is_judge = false;
+        int ans = -1;
+        for (int x = l; x <= r; x++)
+        {
+            // xがyになる可能性もあるな
+            // int calc = abs(y-a[i]);
+            if (l <= x && x <= r)
+            {
+                for (int y = l; y <= r; y++)
+                {
+                    if (abs(x - a[i]) <= abs(y - a[i])) {
+                        ans = x;
+                        break;
+                    }
+                }
+            }
         }
-        if (s[i]=='b' && s[i+1] == 'a') {
-            cout << "Yes" << endl;
-            return 0;
-        }
+        cout << ans << " ";
     }
-    cout << "No" << endl;
+    cout << endl;
     return 0;
 }

@@ -23,52 +23,8 @@ const double PI = acos(-1);
 
 int main()
 {
-    vector<vector<int>> d(9, vector<int>(9));
-    rep(i, 9) rep(j, 9) cin >> d.at(i).at(j);
-    // vector<vector<bool>> f(9,vector<bool>(9));
-    rep(i, 9)
-    {
-        vector<bool> first_check_list(9);
-        vector<bool> second_check_list(9);
-        rep(j, 9)
-        {
-            first_check_list[d[i][j] - 1] = true;
-            second_check_list[d[j][i] - 1] = true;
-        }
-        rep(j, 9)
-        {
-            if (!first_check_list[j] || !second_check_list[j])
-            {
-                cout << "No" << endl;
-                return 0;
-            }
-        }
-
-        // ケース3
-        rep(j, 9)
-        {
-            if (i % 3 == 0 && j % 3 == 0)
-            {
-                vector<bool> third_check_list(9);
-                rep(a, 3)
-                {
-                    rep(b, 3)
-                    {
-
-                        int row_value = d[i + a][j + b] - 1;
-                        int column_value = d[b + j][i + a] - 1;
-                        third_check_list.at(row_value) = true;
-                        third_check_list.at(column_value) = true;
-                    }
-                }
-                if (!third_check_list[j])
-                {
-                    cout << "No" << endl;
-                    return 0;
-                }
-            }
-        }
-    }
-    cout << "Yes" << endl;
+    ll d;
+    cin >> d;
+    // xだけ決めてyは引き算で求める
     return 0;
 }

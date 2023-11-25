@@ -1,7 +1,11 @@
+// 解説AC
 // メモ
 // 数学的考察が必要
-// long long は10の19乗までの整数を保持できます
+// 全探索だが、どこまでループするかを工夫する必要がある
 
+// 解き方
+// 1. 全部試す
+// 2**60 == 10**18
 // ヒント
 // 10の18乗を超えるAのA乗の値を求めて、その中まででループを回すとTLEしない
 #include <iostream>
@@ -19,21 +23,29 @@ using ll = long long;
 
 int main()
 {
-    ll b;
-    cin >> b;
-    for (int a = 1; a <= 15; a++)
+    ll n;
+    cin >> n;
+    ll two_calc = 2;
+    // ll three_calc = 3;
+    rep(x, 60)
     {
-        ll result = a;
-        for (int i = 0; i < a-1; i++)
+        if (x == 0) two_calc = 1;
+        else two_calc *= 2;
+        if (two_calc <= n)
         {
-            result *= a;
-        }
-        if (result == b)
-        {
-            cout << a << endl;
-            return 0;
+            ll three_calc = 3;            
+            rep(y, 38)
+            {
+                if (y == 0) three_calc = 1;
+                else three_calc *= 3;
+                ll sum = two_calc * three_calc;
+                if (sum == n) {
+                    cout << "Yes" << endl;
+                    return 0; 
+                }
+            }
         }
     }
-    cout << -1 << endl;
+    cout << "No" << endl;
     return 0;
 }

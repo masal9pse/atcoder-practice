@@ -1,4 +1,9 @@
-// 少し解説動画見た
+// メモ
+// 数学的考察が必要
+// long long は10の19乗までの整数を保持できます
+
+// ヒント
+// 10の18乗を超えるAのA乗の値を求めて、その中まででループを回すとTLEしない
 #include <iostream>
 #include <vector>
 #include <math.h>
@@ -14,25 +19,18 @@ using ll = long long;
 
 int main()
 {
-    int n, m;
-    cin >> n >> m;
-    string s,t;
-    cin >> s;
-    cin >> t;
-    int ans = -1;
-    bool is_first = true;
-    rep(i,n) {
-        if (s.at(i) != t.at(i)) is_first = false;
+    ll b;
+    cin >> b;
+    // ll result = findPower(b);
+    // cout << result << endl;
+    for (ll a = 1; a <= b; a++)
+    {
+        ll kk = pow(a,a);
+        if (kk == b) {
+            cout << a << endl;
+            return 0;
+        }
     }
-    bool is_last = true;
-    reverse(s.begin(),s.end());
-    reverse(t.begin(),t.end());
-    rep(i,n) {
-        if (s.at(i) != t.at(i)) is_last = false;
-    }    
-    if (is_first && is_last) cout << 0 << endl;
-    if (is_first && !is_last) cout << 1 << endl;
-    if (!is_first && is_last) cout << 2 << endl;
-    if (!is_first && !is_last) cout << 3 << endl;
+    cout << -1 << endl;
     return 0;
 }

@@ -1,3 +1,4 @@
+// 解説AC
 #include <iostream>
 #include <vector>
 #include <math.h>
@@ -37,6 +38,8 @@ int main()
         else d.emplace_back(c,1);
     }
     vector<int> ans(26);
+    // nでループを回すと配列外参照でACしなかった。
+    // atを使うか
     rep(i,d.size()) {
         ans[d[i].first -'a'] = max(ans[d[i].first-'a'],d[i].second);
     }

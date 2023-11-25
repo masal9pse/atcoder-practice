@@ -23,17 +23,8 @@ const double PI = acos(-1);
 
 int main()
 {
-    int n, m,p;
-    cin >> n >> m >> p;
-    int full_moon_day = m;
-    int ans = 0;
-    int day = 0;
-    while (full_moon_day <= n)
-    {
-        full_moon_day = m + p * day;
-        if (full_moon_day <= n) ans++;
-        day++;
-    }
-    cout << ans << endl;
+    vector<int> a = {1,2,3,5};
+    cout << a.at(3) << endl; // 5
+    cout << a.at(4) << endl; // エラー libc++abi: terminating due to uncaught exception of type std::out_of_range: vector
     return 0;
 }

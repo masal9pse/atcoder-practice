@@ -24,14 +24,19 @@ int main()
     }
     int passed_day = 0;
     vector<int> ans(n);
-    for (int i = n-1; i >= 0; i--)
-    {
+    // for (int i = n-1; i >= 0; i--)
+    // {
+    //     if (fire_works[i]) {
+    //         passed_day = 0;
+    //         ans[i] = passed_day;
+    //     } else {
+    //         passed_day++;
+    //         ans[i] = passed_day;
+    //     }
+    // }
+    rep(i,n) {
         if (fire_works[i]) {
-            passed_day = 0;
-            ans[i] = passed_day;
-        } else {
-            passed_day++;
-            ans[i] = passed_day;
+            
         }
     }
     rep(i,n) {

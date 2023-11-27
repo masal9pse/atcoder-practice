@@ -20,18 +20,5 @@ int main()
 {
     int n;
     cin >> n;
-    int tmp = -1;
-    while (n)
-    {
-        int d = n % 10;
-        if (tmp >= d)
-        {
-            cout << "No" << endl;
-            return 0;
-        }
-        tmp = d;
-        n /= 10;
-    }
-    cout << "Yes" << endl;
     return 0;
 }

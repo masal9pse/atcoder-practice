@@ -1,9 +1,3 @@
-// メモ
-// 数学的考察が必要
-// long long は10の19乗までの整数を保持できます
-
-// ヒント
-// 10の18乗を超えるAのA乗の値を求めて、その中まででループを回すとTLEしない
 #include <iostream>
 #include <vector>
 #include <math.h>
@@ -19,21 +13,25 @@ using ll = long long;
 
 int main()
 {
-    ll b;
-    cin >> b;
-    for (int a = 1; a <= 15; a++)
-    {
-        ll result = a;
-        for (int i = 0; i < a-1; i++)
-        {
-            result *= a;
-        }
-        if (result == b)
-        {
-            cout << a << endl;
-            return 0;
+    int h,w;
+    cin >> h >> w;
+    string snuke = "snuke";
+    vector<string> s;
+    rep(i,h) cin >> s[i];
+    vector<int> dx = {1, 0, -1, 1, -1, 0};
+    vector<int> = {1, 1, 1, 0, 0, -1};
+    // vector<int> 
+    // 横一列左向きにsnukeがあるときに答えは出力
+    // 横一列右向きにsnukeがあるときに答えは出力
+    // 横一列にsnukeがあるときに答えは出力
+    // 縦一列にsnukeがあるときに答えは出力
+    // 斜め一列にsnukeがあるときに答えは出力
+    rep(i,h) {
+        rep(j,5) {
+            // １文字ずつ探索していきつつも、snukeであることが分かったらそのインデックスを全て出力するやり方が分からない。
+            //  最後の文字(snukeなのでe)が出力した時点で、そこからインデックスを戻していけばいけそう
+            if (j == )
         }
     }
-    cout << -1 << endl;
     return 0;
 }

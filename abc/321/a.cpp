@@ -18,20 +18,30 @@ const double PI = acos(-1);
 
 int main()
 {
-    int n;
-    cin >> n;
-    int tmp = -1;
-    while (n)
-    {
-        int d = n % 10;
-        if (tmp >= d)
-        {
-            cout << "No" << endl;
-            return 0;
-        }
-        tmp = d;
-        n /= 10;
+    int n,m;
+    cin >> n >> m;
+    vector<bool> d(n);
+    rep(i,m) {
+        int a;
+        cin >> a;
+        a--;
+        d[a] = true;
     }
-    cout << "Yes" << endl;
+
+    vector<int> re_list;
+    rep(i,n) {
+        if (d[i]) {
+            re_list.push_back(i);
+        } else {
+            cout << i + 1 << " ";
+            for (int j = re_list.size()-1; j >= 0; j--)
+            {
+                cout << re_list[j] + 1 << " ";
+            }
+            re_list.clear();
+            int dddd = 33;
+        }
+    }
+    cout << endl;
     return 0;
 }

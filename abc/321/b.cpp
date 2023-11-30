@@ -18,14 +18,27 @@ const double PI = acos(-1);
 
 int main()
 {
-    int n,x;
+    int n, x;
     cin >> n >> x;
-    int ans = 0;
-    rep(i,n) {
-        int s;
-        cin >> s;
-        if (s <= x) ans += s;
+    int ans = 10e8;
+    vector<int> a(n-1);
+    rep(i, n - 1) cin >> a[i];
+    for (int i = 0; i <= 100; i++)
+    {
+        vector<int> b = a;
+        b.push_back(i);
+        sort(b.begin(),b.end());
+        int sum = 0;
+        rep(j, n)
+        {
+            if (j != 0 && j != n-1) sum += b[j];
+        }
+        if (x <= sum)
+        {
+            cout << i << endl;
+            return 0;
+        }
     }
-    cout << ans << endl;
+    cout << -1 << endl;
     return 0;
 }

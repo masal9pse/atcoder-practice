@@ -13,24 +13,43 @@ using ll = long long;
 
 int main()
 {
-    int h,w;
-    cin >> h >> w;
-    string snuke = "snuke";
-    vector<string> s;
-    rep(i,h) cin >> s[i];
-    vector<int> dx = {1, 0, -1, 1, -1, 0};
-    vector<int> = {1, 1, 1, 0, 0, -1};
-    // vector<int> 
+    // int h, w;
+    // cin >> h >> w;
+    // string snuke = "snuke";
+    // vector<string> s;
+    // rep(i, h) cin >> s[i];
+    // vector<int> dx = {1, 0, -1, 1, -1, 0};
+    // vector<int> = {1, 1, 1, 0, 0, -1};
+    // vector<int>
+    // 一番初めにsnukeがあること
     // 横一列左向きにsnukeがあるときに答えは出力
     // 横一列右向きにsnukeがあるときに答えは出力
     // 横一列にsnukeがあるときに答えは出力
     // 縦一列にsnukeがあるときに答えは出力
     // 斜め一列にsnukeがあるときに答えは出力
-    rep(i,h) {
+
+    // rep(i,h) {
+    //     rep(j,5) {
+    //         // １文字ずつ探索していきつつも、snukeであることが分かったらそのインデックスを全て出力するやり方が分からない。
+    //         //  最後の文字(snukeなのでe)が出力した時点で、そこからインデックスを戻していけばいけそう
+    //         if (j == )
+    //     }
+    // }
+
+    string snuke_test = "snukea";
+    bool flag = true;
+    int last_x = 0;
+    int last_y = 0;
+    rep(i, snuke_test.size())
+    {
+        string str = "";
         rep(j,5) {
-            // １文字ずつ探索していきつつも、snukeであることが分かったらそのインデックスを全て出力するやり方が分からない。
-            //  最後の文字(snukeなのでe)が出力した時点で、そこからインデックスを戻していけばいけそう
-            if (j == )
+            str += snuke_test[j];
+        }
+        if (str == "snuke") {
+            rep(j,5) {
+                cout << i + 1 << " " << j + 1 << endl;
+            }
         }
     }
     return 0;

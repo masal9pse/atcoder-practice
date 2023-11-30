@@ -1,3 +1,6 @@
+// https://drken1215.hatenablog.com/entry/2023/11/26/015234
+// こっちの方がいいな↓
+// https://programming-hiroba.com/abc330-b/
 #include <iostream>
 #include <vector>
 #include <math.h>
@@ -16,48 +19,42 @@ using P = pair<int, int>;
 #define rep3(i, n) for (int i = 0; i <= n; i++)
 const double PI = acos(-1);
 
-set<int> getOneList(int n)
-{
-    // vector<int> a;
-    set<int> a;
-    // 0になったらfalseになる。
-    while (n)
-    {
-        // a.push_back(n%10);
-        a.insert(n % 10);
-        n /= 10;
-    }
-    return a;
-}
-
-bool isZorome(int month, int day)
-{
-    set<int> month_list = getOneList(month);
-    set<int> day_list = getOneList(day);
-    if (month_list.size() == 1 && day_list.size() == 1)
-    {
-        for (auto v : month_list)
-        {
-            for (auto a : day_list)
-            {
-                if (v == a) return true;
-            }
-        }
-    }
-    return false;
-}
 int main()
 {
-    int n;
-    cin >> n;
-    int ans = 0;
-    for (int i = 1; i <= n; i++)
+    int n, m;
+    cin >> n >> m;
+    vector<string> c(n), d(m);
+    vector<int> p(m);
+    ll ans = 0;
+    rep(i, n) cin >> c[i];
+    rep(i, m) cin >> d[i];
+    int p0 = -1;
+    rep(i, m + 1)
     {
-        int d;
-        cin >> d;
-        for (int j = 1; j <= d; j++)
+        int p_tmp;
+        cin >> p_tmp;
+        if (i == 0)
+            p0 = p_tmp;
+        else
         {
-            if(isZorome(i, j)) ans++;
+            p[i-1] = p_tmp;
+        }
+    }
+    rep(i, n)
+    {
+        bool flag = false;
+        rep(j, m)
+        {
+            if (c[i] == d[j])
+            {
+                ans += p[j];
+                flag = true;
+                break;
+            }
+        }
+        if (!flag) {
+            ans += p0;
+            int c = 33;
         }
     }
     cout << ans << endl;

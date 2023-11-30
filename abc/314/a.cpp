@@ -1,3 +1,4 @@
+// 小数には誤差がつきものなので文字列で考える
 #include <iostream>
 #include <vector>
 #include <math.h>

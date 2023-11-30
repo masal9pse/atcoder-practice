@@ -17,15 +17,18 @@ using P = pair<int, int>;
 const double PI = acos(-1);
 
 int main()
-{
-    int n,x;
-    cin >> n >> x;
-    int ans = 0;
+{    
+    int n;
+    cin >> n;
+    vector<int> a(n);
+    rep(i,n) cin >> a[i];
+    sort(a.begin(),a.end());
+
     rep(i,n) {
-        int s;
-        cin >> s;
-        if (s <= x) ans += s;
+        if (a.at(i+1)-a.at(i) != 1) {
+            cout << a.at(i)+1;
+            return 0;
+        } 
     }
-    cout << ans << endl;
     return 0;
 }

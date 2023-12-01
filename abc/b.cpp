@@ -36,24 +36,29 @@ int main()
     //     }
     // }
 
-    string snuke_test = "snukea";
-    // 1 1
-    // 1 2
-    // 1 3
-    // 1 4
-    // 1 5
+    // string snuke_test = "snukea";
     // string snuke_test = "asnuke";
-
-    string str = "";
-    rep(j, 5)
+    string snuke_test = "aasnuke";
+    // 1
+    // 2
+    // 3
+    // 4
+    // 5
+    int n = snuke_test.size();
+    int d = 1;
+    rep(i, n)
     {
-        str += snuke_test[j];
-    }
-    if (str == "snuke")
-    {
+        string str = "";
         rep(j, 5)
         {
-            cout << j << endl;
+            str += snuke_test[j+i];
+        }
+        if (str == "snuke")
+        {
+            rep(j, 5)
+            {
+                cout << j + i + 1 << endl;
+            }
         }
     }
     return 0;

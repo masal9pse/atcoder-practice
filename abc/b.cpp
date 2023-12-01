@@ -38,28 +38,37 @@ int main()
 
     // string snuke_test = "snukea";
     // string snuke_test = "asnuke";
-    string snuke_test = "aasnuke";
+    // string snuke_test = "aasnuke";
     // 1
     // 2
     // 3
     // 4
     // 5
+    string snuke_test = "ekuns";
+    // n-1スタートするやり方が分からんな。
     int n = snuke_test.size();
     int d = 1;
-    rep(i, n)
+    vector<int> dx = {1, -1};
+    rep(si, n) rep(v, 2)
     {
+        int i = si;
         string str = "";
         rep(j, 5)
         {
-            str += snuke_test[j+i];
+            i += dx[v];
+            i = (i + n) % n;
+            str += snuke_test[i];
         }
         if (str == "snuke")
         {
             rep(j, 5)
             {
-                cout << j + i + 1 << endl;
+                i += dx[v];
+                i = (i + n) % n;
+                cout << i + 1<< endl;
             }
         }
     }
+
     return 0;
 }

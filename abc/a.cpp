@@ -18,14 +18,29 @@ const double PI = acos(-1);
 
 int main()
 {
-    int n,x;
-    cin >> n >> x;
-    int ans = 0;
-    rep(i,n) {
-        int s;
-        cin >> s;
-        if (s <= x) ans += s;
+    string a, b, c;
+    cin >> a;
+    cin >> b;
+    cin >> c;
+    vector<string> d = {a, b, c};
+    int index = 0;
+    while (true)
+    {
+        char t = d[index][0];
+        if (d[index].find(t) != string::npos)
+        {
+            d[index] = d[index].substr(1);
+            index = t - 'a';
+        }
+        else
+        {
+            char ans = index + 'A';
+            cout << ans << endl;
+            // cout << index << endl;
+            return 0;
+        }
+        int c = 2;
     }
-    cout << ans << endl;
+
     return 0;
 }

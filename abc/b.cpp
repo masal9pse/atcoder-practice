@@ -37,19 +37,23 @@ int main()
     // }
 
     string snuke_test = "snukea";
-    bool flag = true;
-    int last_x = 0;
-    int last_y = 0;
-    rep(i, snuke_test.size())
+    // 1 1
+    // 1 2
+    // 1 3
+    // 1 4
+    // 1 5
+    // string snuke_test = "asnuke";
+
+    string str = "";
+    rep(j, 5)
     {
-        string str = "";
-        rep(j,5) {
-            str += snuke_test[j];
-        }
-        if (str == "snuke") {
-            rep(j,5) {
-                cout << i + 1 << " " << j + 1 << endl;
-            }
+        str += snuke_test[j];
+    }
+    if (str == "snuke")
+    {
+        rep(j, 5)
+        {
+            cout << j << endl;
         }
     }
     return 0;

@@ -23,9 +23,20 @@ const double PI = acos(-1);
 
 int main()
 {
-    int n,m;
-    cin >> n >> m;
-    // まずm_iにmがあるか確認し、あればnを取得する、なければimposible
-    // 
+    int k,a,b;
+    cin >> k;
+    cin >> a >> b;
+    int ans = k;
+    int count = 0;
+    while (ans <= b)
+    {
+        if (a <= ans && ans <= b) {
+            cout << "OK" << endl;
+            return 0;
+        }
+        ans=k*count;
+        count++;
+    }
+    cout << "NG" << endl;
     return 0;
 }

@@ -23,8 +23,9 @@ const double PI = acos(-1);
 
 int main()
 {
-    vector<int> a = {1,2,3,5};
-    cout << a.at(3) << endl; // 5
-    cout << a.at(4) << endl; // エラー libc++abi: terminating due to uncaught exception of type std::out_of_range: vector
+    int n,m;
+    cin >> n >> m;
+    // まずm_iにmがあるか確認し、あればnを取得する、なければimposible
+    // 
     return 0;
 }

@@ -23,21 +23,19 @@ const double PI = acos(-1);
 
 int main()
 {
-    int a1, a2, a3;
-    cin >> a1 >> a2 >> a3;
-    vector<int> a = {a1, a2, a3};
-    int ans = 0;
-    int n = 3;
-    sort(a.begin(), a.end());
-    rep(i, n)
+    int n;
+    cin >> n;
+    string s;
+    cin >> s;
+    // 配列外参照
+    rep(i, n-1)
     {
-
-        if (i == 0)
+        if (s.at(i) == 'a' && s.at(i + 1) == 'b' || s.at(i) == 'b' && s.at(i + 1) == 'a')
         {
-            continue;
+            cout << "Yes" << endl;
+            return 0;
         }
-        ans += abs(a[i] - a[i-1]);
     }
-    cout << ans << endl;
+    cout << "No" << endl;
     return 0;
 }

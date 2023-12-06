@@ -1,29 +1,18 @@
-from operator import truediv
+n = int(input())
+input_str = input()
 
+# 文字列をスペースで分割して整数のリストに変換
+integer_list = list(map(int, input_str.split()))
 
-n = input()
-int_n = int(n)
-list = []
-list = []
-for i in range(int_n):
-    list.append(input().split())
+# 結果を出力して確認
+# print(integer_list)
 
-s = input()
-for i in range(int_n):    
-        list[i][0] = int(list[i][0])
-        list[i][1] = int(list[i][1])
+ans = 1
 
-flag = False
-for i in range (int_n):
-    for j in range(int_n):
-        if i != j:
-            if list[i][1] == list[j][1]:
-                if s[i] == "R" and s[j] == "L":
-                    flag = True
-                elif s[i] == "L" and s[j] == "R":
-                    flag = True
+for i in range(n):
+    ans *= integer_list[i]
 
-if flag:
-    print("Yes")
+if 10 ** 18 < ans:
+    print(-1)
 else:
-    print("No")
+    print(ans)

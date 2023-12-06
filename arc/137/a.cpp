@@ -8,6 +8,7 @@
 #include <iomanip>
 #include <map>
 #include <cassert>
+#include <numeric>
 using namespace std;
 using ll = long long;
 using P = pair<int, int>;
@@ -15,14 +16,12 @@ using P = pair<int, int>;
 #define rep2(i, n) for (int i = 1; i <= n; i++)
 const double PI = acos(-1);
 
+// gcdは最大公約数を意味する
+// 数 12 と 18 の場合、共通の約数は 1、2、3、6 です。そして、最大公約数は 6 です。
 int main()
 {
-    int a, b, h, m;
-    cin >> a >> b >> h >> m;
-    double tm = (double)m / 60 * 2 * PI;
-    double th = (double)(60 * h + m) / 720 * 2 * PI;
-    double c = abs(tm - th);
-    double ans = sqrt((double)a * a + b * b - 2 * a * b * cos(c));
-    printf("%.10f\n", );
+    ll l,r;
+    cin >> l >> r;
+    // rからlをループで回してxとyを求めることは計算量的にできない。
     return 0;
 }

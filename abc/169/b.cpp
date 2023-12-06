@@ -23,21 +23,19 @@ const double PI = acos(-1);
 
 int main()
 {
-    int a1, a2, a3;
-    cin >> a1 >> a2 >> a3;
-    vector<int> a = {a1, a2, a3};
-    int ans = 0;
-    int n = 3;
-    sort(a.begin(), a.end());
-    rep(i, n)
-    {
-
-        if (i == 0)
-        {
-            continue;
-        }
-        ans += abs(a[i] - a[i-1]);
+    ll d = 1000000000000000000LL;
+    int n;
+    cin >> n;
+    ll ans = 1;
+    rep(i,n) {
+        ll a;
+        cin >> a;
+        ans *= a;
     }
-    cout << ans << endl;
+    if (d < ans) {
+        cout << -1 << endl;
+    } else {
+        cout << ans << endl;
+    }
     return 0;
 }

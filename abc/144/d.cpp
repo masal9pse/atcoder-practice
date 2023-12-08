@@ -11,6 +11,11 @@
 using namespace std;
 using ll = long long;
 using P = pair<int, int>;
+using vi = vector<int>;
+using vs = vector<string>;
+using mi = map<int, int>;
+#define ALL(x) (x).begin(), (x).end()
+#define SZ(x) ((int)(x).size())
 #define rep(i, n) for (int i = 0; i < n; i++)
 #define rep2(i, n) for (int i = 1; i <= n; i++)
 #define rep3(i, n) for (int i = 0; i <= n; i++)
@@ -18,10 +23,20 @@ const double PI = acos(-1);
 
 int main()
 {
-    int n;
-    cin >> n;
-    string s = "3.1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679";
-    string ans = s.substr(0,n+2);
-    cout << ans << endl; 
+    int k,a,b;
+    cin >> k;
+    cin >> a >> b;
+    int ans = k;
+    int count = 0;
+    while (ans <= b)
+    {
+        if (a <= ans && ans <= b) {
+            cout << "OK" << endl;
+            return 0;
+        }
+        ans=k*count;
+        count++;
+    }
+    cout << "NG" << endl;
     return 0;
 }

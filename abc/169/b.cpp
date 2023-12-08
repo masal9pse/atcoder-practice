@@ -23,19 +23,20 @@ const double PI = acos(-1);
 
 int main()
 {
-    ll d = 1000000000000000000LL;
-    int n;
-    cin >> n;
-    ll ans = 1;
-    rep(i,n) {
-        ll a;
-        cin >> a;
-        ans *= a;
-    }
-    if (d < ans) {
-        cout << -1 << endl;
-    } else {
-        cout << ans << endl;
-    }
+    ll k = 1e18;
+    // ll d = 1000000000000000000LL;
+    // int n;
+    // cin >> n;
+    // ll ans = 1;
+    // rep(i,n) {
+    //     ll a;
+    //     cin >> a;
+    //     ans *= a;
+    // }
+    // if (d < ans) {
+    //     cout << -1 << endl;
+    // } else {
+    //     cout << ans << endl;
+    // }
     return 0;
 }

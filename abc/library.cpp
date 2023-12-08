@@ -13,6 +13,14 @@ using ll = long long;
 using P = pair<int, int>;
 #define rep(i, n) for (int i = 0; i < n; i++)
 #define rep2(i, n) for (int i = 1; i <= n; i++)
+const int MI = 10e8
+const int MLL = 1e18
+
+// ll型がoverflowするかを判定
+// int_128も使えるが環境依存する
+bool isOverflowLL(int a,ll all) {
+    return MX/all < a;
+}
 
 // 座標圧縮 
 // input [2,9,7,8,6] output [1,5,3,4,2]

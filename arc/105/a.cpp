@@ -18,10 +18,18 @@ const double PI = acos(-1);
 
 int main()
 {
-    int a,b;
-    cin >> a >> b;
-    int x = (a + b)/2; 
-    int y = (a - b)/2;
-    cout << x << " " << y << endl;
+    int a,b,c,d;
+    cin >> a >> b >> c >> d;
+    vector<int> cookies = {a,b,c,d};
+    sort(cookies.begin(),cookies.end());
+    if (cookies[0] + cookies[3] == cookies[1] + cookies[2]) {
+        cout << "Yes" << endl;
+        return 0;
+    } 
+    if (cookies[0] + cookies[1] + cookies[2] == cookies[3]) {
+        cout << "Yes" << endl;
+        return 0;
+    }
+    cout << "No" << endl;
     return 0;
 }

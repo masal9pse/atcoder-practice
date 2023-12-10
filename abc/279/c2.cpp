@@ -8,6 +8,7 @@
 #include <iomanip>
 #include <map>
 #include <cassert>
+#include <queue>
 using namespace std;
 using ll = long long;
 using P = pair<int, int>;
@@ -21,17 +22,30 @@ using mi = map<int, int>;
 #define rep3(i, n) for (int i = 0; i <= n; i++)
 const double PI = acos(-1);
 
-// 降順にソートしたものを持っておいて d
-// それと与えられたものを比較する a
-// dとaをループで比べて a[i] != d[i]ならd[0]が答え
-// そうでなければd[i+1]が答え
 int main()
 {
-    int n;
-    cin >> n;
-    vector<int> a(n);
-    rep(i,n) cin >> a[i];
-    vector<int> ans(n);
-
+    /*
+      s[i][j]のt[i][j]の##の数を数えて、同じでなければNoを出力する
+    */
+    int h, w;
+    cin >> h >> w;
+    vector<string> s(h), t(h);
+    rep(i, h) cin >> s[i];
+    rep(i, h) cin >> t[i];
+    rep(i, h)
+    {
+        int s_count = 0;
+        int t_count = 0;
+        rep(j, w)
+        {
+            if (s[i][j] == '#') s_count++;
+            if (t[i][j] == '#') t_count++;
+        }
+        if (s_count != t_count) {
+            cout << "No" << endl;
+            return 0;
+        }
+    }
+    cout << "Yes" << endl;
     return 0;
 }

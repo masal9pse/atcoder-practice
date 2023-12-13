@@ -23,9 +23,19 @@ const double PI = acos(-1);
 
 int main()
 {
-    rep(i,5) rep(j,5) {
-        int k = 3;
-        cout << i + j << endl;
-    }
+    string s;
+    int k;
+    cin >> s >> k;
+    sort(s.begin(),s.end());
+    int count = 0;
+    do
+    {
+        if (count == k - 1) {
+            cout << s << endl;
+            return 0;
+        }
+        count++;
+    } while (next_permutation(s.begin(),s.end()));
+    
     return 0;
 }

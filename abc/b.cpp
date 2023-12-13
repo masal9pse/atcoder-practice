@@ -10,25 +10,28 @@
 using namespace std;
 using ll = long long;
 #define rep(i, n) for (int i = 0; i < n; i++)
+#define rep2(i, n) for (int i = 1; i <= n; i++)
+#define rep3(i, n) for (int i = 0; i <= n; i++)
+const double PI = acos(-1);
+const int MI = 10e8;
+const ll MLL = 1e18;
 
 int main()
 {
-    // ll c = 229 / 10;
-    ll a,b;
-    cin >> a >> b;
-    int a_size = to_string(a).size();
-    int b_size = to_string(b).size();
-    int n = min(a_size,b_size);
-    rep(i,n) {
-        int a_last = a % 10;
-        int b_last = b % 10;
-        if (a_last + b_last >= 10) {
-            cout << "Hard" << endl;
-            return 0;
+    int p;
+    cin >> p;
+    vector<int> a(10);
+    rep2(i, 10)
+    {
+        int sum = 1;
+        for (int j = i; j >= 1; j--)
+        {
+            if (j == 0)
+                continue;
+            sum *= j;
         }
-        a /= 10;
-        b /= 10;
+        a[i] = sum;
     }
-    cout << "Easy" << endl;
+    int k = 3;
     return 0;
 }

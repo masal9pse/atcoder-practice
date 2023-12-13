@@ -15,12 +15,16 @@ using P = pair<int, int>;
 #define rep2(i, n) for (int i = 1; i <= n; i++)
 #define rep3(i, n) for (int i = 0; i <= n; i++)
 const double PI = acos(-1);
-const int MI = 10e8;
-const ll MLL = 1e18;
 
 int main()
 {
-    int n;
-    cin >> n;
+    string s;
+    cin >> s;
+    rep(i,s.size()) {
+        int index1 = 2 * (i+1)-1;
+        int index2 = 2 * (i+1);
+        swap(s[index1-1],s[index2-1]);
+    }
+    cout << s << endl;
     return 0;
 }

@@ -15,8 +15,8 @@ using P = pair<int, int>;
 #define rep2(i, n) for (int i = 1; i <= n; i++)
 #define rep3(i, n) for (int i = 0; i <= n; i++)
 const double PI = acos(-1);
-const int MI = 10e8;
-const ll MLL = 1e18;
+const int MI = 10e8
+const int MLL = 1e18
 
 int main()
 {

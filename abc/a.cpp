@@ -15,13 +15,22 @@ using P = pair<int, int>;
 #define rep2(i, n) for (int i = 1; i <= n; i++)
 #define rep3(i, n) for (int i = 0; i <= n; i++)
 const double PI = acos(-1);
+const int MI = 10e8;
+const ll MLL = 1e18;
+
+ll findMaxK(ll N) {
+    ll k = static_cast<ll>(log2(N));
+    return k;
+}
 
 int main()
 {
-    int n;
+    /*
+      pythonでも通らないか
+    */
+    ll n; 
     cin >> n;
-    string s = "3.1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679";
-    string ans = s.substr(0,n+2);
-    cout << ans << endl; 
+    ll c = findMaxK(n);
+    cout << c << endl;
     return 0;
 }

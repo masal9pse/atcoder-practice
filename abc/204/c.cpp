@@ -15,33 +15,19 @@ using P = pair<int, int>;
 #define rep2(i, n) for (int i = 1; i <= n; i++)
 #define rep3(i, n) for (int i = 0; i <= n; i++)
 const double PI = acos(-1);
-const int MI = 10e8;
-const ll MLL = 1e18;
 
 int main()
 {
-    int x, y;
-    cin >> x >> y;
-    if (x == y)
-    {
-        cout << x << endl;
-    }
-    else
-    {
-        if (y < x)
-        {
-            swap(x, y);
-        }
-        if (x == 0 && y == 1)
-        {
-            cout << 2 << endl;
-        }
-        else if (x == 0 && y == 2) {
-            cout << 1 << endl;
-        }
-        else if (x == 1 && y == 2) {
-            cout << 0 << endl;
+    int n;
+    cin >> n;
+    int ans = 0;
+    rep(i,n) {
+        int a;
+        cin >> a;
+        if (a >= 10) {
+            ans += a - 10;
         }
     }
+    cout << ans << endl;
     return 0;
 }

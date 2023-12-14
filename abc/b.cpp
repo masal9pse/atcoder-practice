@@ -1,37 +1,39 @@
 #include <iostream>
-#include <vector>
-#include <math.h>
-#include <stdio.h>
-#include <algorithm>
-#include <set>
-#include <regex>
-#include <map>
-#include <string>
-using namespace std;
-using ll = long long;
-#define rep(i, n) for (int i = 0; i < n; i++)
-#define rep2(i, n) for (int i = 1; i <= n; i++)
-#define rep3(i, n) for (int i = 0; i <= n; i++)
-const double PI = acos(-1);
-const int MI = 10e8;
-const ll MLL = 1e18;
 
-int main()
-{
-    int p;
-    cin >> p;
-    vector<int> a(10);
-    rep2(i, 10)
-    {
-        int sum = 1;
-        for (int j = i; j >= 1; j--)
-        {
-            if (j == 0)
-                continue;
-            sum *= j;
-        }
-        a[i] = sum;
+using namespace std;
+
+int main() {
+  // 入力
+  int K, G, M;
+  cin >> K >> G >> M;
+
+  // グラスの水の量
+  int g = 0;
+
+  // マグカップの水の量
+  int m = 0;
+
+  // 操作を K 回繰り返す
+  for (int i = 0; i < K; i++) {
+    // グラスが水で満たされている場合
+    if (g == G) {
+      g = 0;
     }
-    int k = 3;
-    return 0;
+    // マグカップが空の場合
+    else if (m == 0) {
+      m = M;
+    }
+    // その他の場合
+    else {
+      // マグカップからグラスに水を移す
+      int n = min(M, G - g);
+      g += n;
+      m -= n;
+    }
+  }
+
+  // 出力
+  cout << g << " " << m << endl;
+
+  return 0;
 }

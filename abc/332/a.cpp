@@ -20,21 +20,9 @@ const ll MLL = 1e18;
 
 int main()
 {
-    /*
-      
-    */
-    int n,s,k;
-    cin >> n >> s >> k;
-    int sum = 0;
-    rep(i,n) {
-        int p,q;
-        cin >> p >> q;
-        // if (p*q <= s) sum += p * q + k;
-        // else sum += p * q;
-        sum += p * q;
-    }
-    // nc,case3
-    if (sum < s) sum += k; 
-    cout << sum << endl;
+    string n;
+    cin >> n;
+    if (n.find('9') != string::npos) cout << "Yes" << endl;
+    else cout << "No" << endl;
     return 0;
 }

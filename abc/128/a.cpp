@@ -29,7 +29,8 @@ int main()
       実装 m
         生成AIに頼ると、細かいテストケースで落ちることが多々ある
     */
-    int n;
-    cin >> n;
+    int a,p;
+    cin >> a >> p;
+    cout << (a * 3 + p) / 2 << endl;
     return 0;
 }

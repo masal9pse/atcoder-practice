@@ -20,15 +20,17 @@ const ll MLL = 1e18;
 
 int main()
 {
+    /*
+      途中で別の問題にいく場合は、終わったものファイルにrpdのいずれかをつける。
+      問題文の理解 read done
+        iからAiに向けて矢印を書く
+        問題文の理解は完了
+      実装方針決め plan
+        グラフの問題分かんないから一旦解説見た方がええか
+      実装 do
+        生成AIに頼ると、細かいテストケースで落ちることが多々ある
+    */
     int n;
     cin >> n;
-    ll sum = 0;
-    rep2(i,n) {
-      if (i % 3 == 0 && i % 5 == 0) continue;
-      if (i % 3 == 0) continue;
-      if (i % 5 == 0) continue;
-      sum += i;
-    }
-    cout << sum << endl;
     return 0;
 }

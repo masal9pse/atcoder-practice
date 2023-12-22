@@ -20,15 +20,21 @@ const ll MLL = 1e18;
 
 int main()
 {
-    int n;
-    cin >> n;
-    ll sum = 0;
-    rep2(i,n) {
-      if (i % 3 == 0 && i % 5 == 0) continue;
-      if (i % 3 == 0) continue;
-      if (i % 5 == 0) continue;
-      sum += i;
+    /*
+      問題文の理解 m now
+        
+
+      実装方針決め m
+        生成AIを参考にするのはあり
+      実装 m
+        生成AIに頼ると、細かいテストケースで落ちることが多々ある
+    */
+    int t;
+    cin >> t;
+    rep(i,t) {
+      int l,r;
+      cin >> l >> r;
+      
     }
-    cout << sum << endl;
     return 0;
 }

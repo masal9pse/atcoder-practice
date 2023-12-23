@@ -21,15 +21,17 @@ const ll MLL = 1e18;
 int main()
 {
     /*
-      問題文の理解 read m
+      問題文の理解 m
         実装時にミスが生じないためにも、ここは怠らず行う。
         脳死コピペだと実装のバグ修正で詰む
-      実装方針決め plan m
+      実装方針決め m
         生成AIを参考にするのはあり
-      実装 do m
+      実装 m
         生成AIに頼ると、細かいテストケースで落ちることが多々ある
     */
-    int n;
-    cin >> n;
+    int b,g;
+    cin >> b >> g;
+    if (b > g) cout << "Bat" << endl;
+    else cout << "Glove" << endl;
     return 0;
 }

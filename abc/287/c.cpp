@@ -8,6 +8,8 @@
 #include <iomanip>
 #include <map>
 #include <cassert>
+#include <stack>
+#include <queue>
 using namespace std;
 using ll = long long;
 using P = pair<int, int>;
@@ -26,6 +28,7 @@ int main()
         脳死コピペだと実装のバグ修正で詰む
       実装方針決め plan m
         生成AIを参考にするのはあり
+        UFで紐付け行って、紐付けが1つのノードが2個の場合 Yes、そうでないならNoで判定できそう
       実装 do m
         生成AIに頼ると、細かいテストケースで落ちることが多々ある
     */

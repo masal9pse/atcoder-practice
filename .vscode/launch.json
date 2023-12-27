@@ -25,7 +25,7 @@
       "args": [],
       "stopAtEntry": true,
       "cwd": "${workspaceFolder}",
-      "environment": [],
+      "environment": [],      
       "externalConsole": false,
       "MIMode": "lldb",
       "preLaunchTask": "clang++ build active file"

@@ -27,21 +27,45 @@ int main()
       実装時にミスが生じないためにも、ここは怠らず行う。
       脳死コピペだと実装のバグ修正で詰む
     実装方針決め plan m
-      生成AIを参考にするのはあり
-    実装 do m
+      そのまま実装
+    実装 do 30+m
       生成AIに頼ると、細かいテストケースで落ちることが多々ある
   */
-  int n, h, x;
-  cin >> n >> h >> x;
-  rep(i, n)
+  int n;
+  cin >> n;
+  string s;
+  rep3(i, n)
   {
-    int p;
-    cin >> p;
-    if (h + p >= x)
+    vector<int> d;
+    rep2(qi, 9)
     {
-      cout << i + 1 << endl;
-      return 0;
+      // ここをミスってた
+      // iの約数ではなく、nの約数を見つける
+      if (n % qi == 0)
+        d.push_back(qi);
+    }
+    vector<int> ans;
+    for (auto j : d)
+    {
+      // i が n/j の倍数であるもの
+      // 分からなかったので、i が n/j の倍数であるものの判定方法を学ぶ
+      if (i == 0)
+      {
+        ans.push_back(j);
+        continue;
+      }
+      // if ((n / j) % i == 0)
+      if (i % (n / j) == 0)
+        ans.push_back(j);
+    }    
+    if (ans.size() == 0)
+      s += '-';
+    else
+    {
+      int output = *min_element(ans.begin(), ans.end());
+      s += to_string(output);
     }
   }
+  cout << s << endl;
   return 0;
 }

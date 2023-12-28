@@ -8,6 +8,8 @@
 #include <iomanip>
 #include <map>
 #include <cassert>
+#include <stack>
+#include <queue>
 using namespace std;
 using ll = long long;
 using P = pair<int, int>;
@@ -21,13 +23,12 @@ const ll MLL = 1e18;
 int main()
 {
     /*
-      途中で別の問題にいく場合は、終わったものファイルにrpdのいずれかをつける。
-      問題文の理解 read
+      問題文の理解 read m
         実装時にミスが生じないためにも、ここは怠らず行う。
         脳死コピペだと実装のバグ修正で詰む
-      実装方針決め plan
+      実装方針決め plan m
         生成AIを参考にするのはあり
-      実装 do
+      実装 do m
         生成AIに頼ると、細かいテストケースで落ちることが多々ある
     */
     int n;

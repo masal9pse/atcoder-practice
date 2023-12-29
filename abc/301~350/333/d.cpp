@@ -8,49 +8,46 @@
 #include <iomanip>
 #include <map>
 #include <cassert>
+#include <stack>
+#include <queue>
 using namespace std;
 using ll = long long;
 using P = pair<int, int>;
+using G = vector<vector<int>>;
 #define rep(i, n) for (int i = 0; i < n; i++)
 #define rep2(i, n) for (int i = 1; i <= n; i++)
 #define rep3(i, n) for (int i = 0; i <= n; i++)
 const double PI = acos(-1);
 const int MI = 10e8;
 const ll MLL = 1e18;
+using namespace std;
+#define rep(i,n) for (int i = 0; i < (n); ++i)
 
-int main()
-{
-    /*
-      問題文の理解 m
-        実装時にミスが生じないためにも、ここは怠らず行う。
-        脳死コピペだと実装のバグ修正で詰む
-      実装方針決め m
-        生成AIを参考にするのはあり
-        nが333の時、112222222233で10^8以上なのでここまでループは回せない
-        2回ループを回して、残り一回は2回のループ合計の引き算から取得すればいけそう？
-      実装 m
-        生成AIに頼ると、細かいテストケースで落ちることが多々ある
-    */
-    // int n;
-    // cin >> n;
-    // vector<int> a = {1,11,111};
-    int k = 10;
-    int output = 0;
-    rep(i,5) {
-      // output
-      // 1 11 111 1111
-      output = (output * k)+1;
-      cout << output << endl;
-    }
+int main() {
+  int n;
+  cin >> n;
+  vector<vector<int>> to(n);
+  rep(i,n-1) {
+    int a, b;
+    cin >> a >> b;
+    --a; --b;
+    to[a].push_back(b);
+    to[b].push_back(a);
+  }
 
-    rep(i,100) {
-      
-    }
-    // vector<int> sum;
-    // do
-    // {
-    //   cout << a[0] << " " << a[1] << " " << a[2] << endl;
-
-    // } while (next_permutation(a.begin(),a.end()));   
-    return 0;
+  int ans = n;
+  for (int v : to[0]) {
+    auto f = [&](auto f, int v, int p=-1) -> int {
+      int res = 1;
+      for (int u : to[v]) {
+        if (u == p) continue;
+        res += f(f,u,v);
+      }
+      return res;
+    };
+    int now = n-f(f,v,0);
+    ans = min(ans, now);
+  }
+  cout << ans << endl;
+  return 0;
 }

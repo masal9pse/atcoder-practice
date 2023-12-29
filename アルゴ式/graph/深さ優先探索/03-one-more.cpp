@@ -24,16 +24,24 @@ const ll MLL = 1e18;
 
 int main()
 {
-    /*
-      問題文の理解 read m
-        実装時にミスが生じないためにも、ここは怠らず行う。
-        脳死コピペだと実装のバグ修正で詰む
-      実装方針決め plan m
-        生成AIを参考にするのはあり
-      実装 do m
-        生成AIに頼ると、細かいテストケースで落ちることが多々ある
-    */
-    int n;
-    cin >> n;
+    int n,m;
+    cin >> n >> m;
+    G g(n);
+    rep(i,m) {
+      int a,b;
+      cin >> a >> b;
+      g[a].push_back(b);
+    }
+    rep(i,n) sort(g[i].begin(),g[i].end());
+    vector<bool> seen(n);
+    auto f = [&](auto f,int v)-> void {
+      seen[v] = true;
+      cout << v << " ";
+      for(int u:g[v]) {
+        if (seen[u]) continue;
+        f(f,u);
+      }
+    };
+    f(f,0);
     return 0;
 }

@@ -25,32 +25,36 @@ const ll MLL = 1e18;
 int main()
 {
     /*
-      問題文の理解 read 20m
+      問題文の理解 read m
         実装時にミスが生じないためにも、ここは怠らず行う。
         脳死コピペだと実装のバグ修正で詰む
       実装方針決め plan m
-        上に行く操作が問題文からは全く読み取れない、ようやくわかった 最後にA1jが来ていたため
-        #の個数が列ごとに一致すればYes?　無理
-        ただそれが確実に正であるか証明できていない。Aで#が同じ行にあって、Bはないときは無理そう
-
-        動画見た感じ普通に全探索する。
-        AとBの配列を比較する場合は、
+        生成AIを参考にするのはあり
       実装 do m
         生成AIに頼ると、細かいテストケースで落ちることが多々ある
     */
-    int h,w;
-    cin >> h >> w;
-    vector<string> a(h),b(h); 
-    rep(i,h) cin >> a[i];
-    rep(i,h) cin >> b[i];
-    rep(s,h) rep(t,w) {
-      vector<string> na = a;
-      rep(i,h) rep(j,w) na[(i+s)%h][(j+t)%w] = a[i][j];
-      if (na == b) {
-        cout << "Yes" << endl;
-        return 0;
-      }
+    int n;
+    cin >> n;
+    G to(n);
+    rep(i,n-1) {
+      int a,b;
+      cin >> a >> b;
+      to[a].push_back(b);
+      to[b].push_back(a);
     }
-    cout << "No" << endl;
+    // rep(i,n) sort(to[i].begin(),to[i].end());
+    int ans = -1;
+    auto dfs = [&](auto f,int v,int p=-1,int h = 0) -> void {      
+      h++;
+      for(int u:to[v]) {
+        // サイクルの場合、2=>0に戻るのでその際、0を踏んだ情報がなくなってしまう。
+        // この場合はseenを使わないと無理だな
+        if (u == p) continue;
+        f(f,u,v,h);
+        ans = max(ans,h);
+      }
+    };
+    dfs(dfs,0);
+    cout << ans << endl;
     return 0;
 }

@@ -35,5 +35,13 @@ int main()
     */
   int n;
   cin >> n;
+  G to(n);
+  for (int v = 1; i < n; i++)
+  {
+    int p;
+    cin >> p;
+    to[p].push_back(v);
+  }
+  
   return 0;
 }

@@ -21,36 +21,25 @@ const double PI = acos(-1);
 const int MI = 10e8;
 const ll MLL = 1e18;
 
-
-int main()
-{
-    /*
-      問題文の理解 read 20m
-        実装時にミスが生じないためにも、ここは怠らず行う。
-        脳死コピペだと実装のバグ修正で詰む
-      実装方針決め plan m
-        上に行く操作が問題文からは全く読み取れない、ようやくわかった 最後にA1jが来ていたため
-        #の個数が列ごとに一致すればYes?　無理
-        ただそれが確実に正であるか証明できていない。Aで#が同じ行にあって、Bはないときは無理そう
-
-        動画見た感じ普通に全探索する。
-        AとBの配列を比較する場合は、
-      実装 do m
-        生成AIに頼ると、細かいテストケースで落ちることが多々ある
-    */
-    int h,w;
-    cin >> h >> w;
-    vector<string> a(h),b(h); 
-    rep(i,h) cin >> a[i];
-    rep(i,h) cin >> b[i];
-    rep(s,h) rep(t,w) {
-      vector<string> na = a;
-      rep(i,h) rep(j,w) na[(i+s)%h][(j+t)%w] = a[i][j];
-      if (na == b) {
+int main() {
+  int H, W;
+  cin >> H >> W;
+  vector<string> A(H), B(H);
+  for (auto& x : A) cin >> x;
+  for (auto& x : B) cin >> x;
+  for (int s = 0; s < H; s++) {
+    for (int t = 0; t < W; t++) {
+      int ok = 1;
+      for (int i = 0; i < H; i++) {
+        for (int j = 0; j < W; j++) {
+          if (A[(i - s + H) % H][(j - t + W) % W] != B[i][j]) ok = 0;
+        }
+      }
+      if (ok) {
         cout << "Yes" << endl;
-        return 0;
+        exit(0);
       }
     }
-    cout << "No" << endl;
-    return 0;
+  }
+  cout << "No" << endl;
 }

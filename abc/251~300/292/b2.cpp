@@ -24,7 +24,7 @@ const ll MLL = 1e18;
 int main()
 {
   /*
-    全て目安20m　ただ手が動くうちはエンドレスでやる。これによってコンテスト本番の粘りACや思考力のupにつながる
+    全て目安20m
     問題文の理解 read
     実装方針決め plan
     実装 do
@@ -33,7 +33,19 @@ int main()
      - すぐに解説を見てしまう癖を防止できる
      - １問に何時間も粘りすぎてしまう問題を防止できる
   */
-  int n;
-  cin >> n;
+  int n,q;
+  cin >> n >> q;
+  vector<int> p(n+1);
+  rep(i,q) {
+    int e,x;
+    cin >> e >> x;
+    if (e == 1) p[x]++;
+    else if (e == 2) p[x]+=2;
+    else {
+      // イエロー＋レッドでカードが３枚になるケースがある
+      if (p[x] >= 2) cout << "Yes" << endl;
+      else cout << "No" << endl;
+    }
+  }
   return 0;
 }

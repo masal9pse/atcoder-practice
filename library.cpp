@@ -67,6 +67,12 @@ vector<int> compress(vector<int> a) {
     return a;
 }
 
+// Σの公式
+https://rikeilabo.com/sum-formula-of-numerical-sequence
+ll f(ll n) {
+  return (1+n)*n/2;
+}
+
 // 左ビットシフトを 1 回行うと、もとの数を 2 倍することができる。 
 int bit2bai(int n) {
     return n >> 1;

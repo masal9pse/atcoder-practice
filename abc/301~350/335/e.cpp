@@ -12,8 +12,7 @@
 #include <queue>
 using namespace std;
 using ll = long long;
-// using P = pair<int, int>;
-template<class T> using P = pair<T, T>;
+using P = pair<int, int>;
 using G = vector<vector<int>>;
 #define rep(i, n) for (int i = 0; i < n; i++)
 #define rep2(i, n) for (int i = 1; i <= n; i++)
@@ -28,14 +27,13 @@ int main()
     全て目安20m　ただ手が動くうちはエンドレスでやる。これによってコンテスト本番の粘りACや思考力のupにつながる
     問題文の理解 read
     実装方針決め plan
+      メモ化の知見が必要だと思うので時間足りないな
+      あとで解き直す
     実装 do
+      
     ３つのパートに分け、それぞれに時間制限を設けることで以下のメリットがある
      - すぐに解説を見てしまう癖を防止できる
      - １問に何時間も粘りすぎてしまう問題を防止できる
-
-    解説記事見た article
-      理解すること＋どうやったらその問題を初見で解けるか考える
-    解説動画見た video
   */
   int n;
   cin >> n;

@@ -12,8 +12,7 @@
 #include <queue>
 using namespace std;
 using ll = long long;
-// using P = pair<int, int>;
-template<class T> using P = pair<T, T>;
+using P = pair<int, int>;
 using G = vector<vector<int>>;
 #define rep(i, n) for (int i = 0; i < n; i++)
 #define rep2(i, n) for (int i = 1; i <= n; i++)
@@ -29,15 +28,25 @@ int main()
     問題文の理解 read
     実装方針決め plan
     実装 do
+
     ３つのパートに分け、それぞれに時間制限を設けることで以下のメリットがある
      - すぐに解説を見てしまう癖を防止できる
      - １問に何時間も粘りすぎてしまう問題を防止できる
-
-    解説記事見た article
-      理解すること＋どうやったらその問題を初見で解けるか考える
-    解説動画見た video
   */
   int n;
   cin >> n;
+  vector<ll> c(n);
+  rep(i, n) cin >> c[i];
+  sort(c.begin(), c.end());
+  // ansを0ではなく、1にすると計算しやすい
+  ll ans = 1;
+  ll t = 1000000007;
+  rep(i, n)
+  {
+    // cannot be represented in type 'll'
+    // ans *=  (c[i] - i) % t; overflowする
+    ans = (ll)(ans * (c[i] - i)) % t;
+  }
+  cout << ans << endl;
   return 0;
 }

@@ -15,6 +15,9 @@ using P = pair<int, int>;
 #define rep2(i, n) for (int i = 1; i <= n; i++)
 const int MI = 10e8
 const int MLL = 1e18
+// 8方向
+const vector<int> di = {-1, -1, 0, 0, 1, 1, 1, -1};
+const vector<int> dj = {0, 1, -1, 1, -1, 0, 1, -1};
 
 struct UnionFind {
     vector<int> par;

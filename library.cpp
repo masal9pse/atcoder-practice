@@ -13,80 +13,101 @@ using ll = long long;
 using P = pair<int, int>;
 #define rep(i, n) for (int i = 0; i < n; i++)
 #define rep2(i, n) for (int i = 1; i <= n; i++)
-const int MI = 10e8
-const int MLL = 1e18
-// 8方向
-const vector<int> di = {-1, -1, 0, 0, 1, 1, 1, -1};
+const int MI = 10e8 const int MLL = 1e18
+    // 8方向
+    const vector<int>
+        di = {-1, -1, 0, 0, 1, 1, 1, -1};
 const vector<int> dj = {0, 1, -1, 1, -1, 0, 1, -1};
 
-struct UnionFind {
+struct UnionFind
+{
     vector<int> par;
 
-    UnionFind() { }
-    UnionFind(int n) : par(n, -1) { }
+    UnionFind() {}
+    UnionFind(int n) : par(n, -1) {}
     void init(int n) { par.assign(n, -1); }
-    
-    int root(int x) {
-        if (par[x] < 0) return x;
-        else return par[x] = root(par[x]);
+
+    // 根を求める
+    int root(int x)
+    {
+        if (par[x] < 0)
+            return x;
+        else
+            return par[x] = root(par[x]);
     }
-    
-    bool issame(int x, int y) {
+
+    // x と y が同じグループに属するか (= 根が一致するか)
+    bool issame(int x, int y)
+    {
         return root(x) == root(y);
     }
-    
-    bool merge(int x, int y) {
-        x = root(x); y = root(y);
-        if (x == y) return false;
-        if (par[x] > par[y]) swap(x, y); // merge technique
+
+    // x を含むグループと y を含むグループを併合する
+    bool merge(int x, int y)
+    {
+        x = root(x);
+        y = root(y);
+        if (x == y)
+            return false;
+        if (par[x] > par[y])
+            swap(x, y); // merge technique
         par[x] += par[y];
         par[y] = x;
         return true;
     }
-    
-    int size(int x) {
+    // x を含む根付き木のサイズを求める
+    int size(int x)
+    {
         return -par[root(x)];
     }
 };
 
 // ll型がoverflowするかを判定
 // int_128も使えるが環境依存する
-bool isOverflowLL(int a,ll all) {
-    return MX/all < a;
+bool isOverflowLL(int a, ll all)
+{
+    return MX / all < a;
 }
 
-// 座標圧縮 
+// 座標圧縮
 // input [2,9,7,8,6] output [1,5,3,4,2]
-vector<int> compress(vector<int> a) {
+vector<int> compress(vector<int> a)
+{
     int n = a.size();
-    map<int,int> mp;
-    rep(i,n) mp[a[i]] = 0;
+    map<int, int> mp;
+    rep(i, n) mp[a[i]] = 0;
     int id = 1;
-    for (auto& p:mp)
+    for (auto &p : mp)
     {
         p.second = id++;
     }
-    rep(i,n) a[i] = mp[a[i]];
+    rep(i, n) a[i] = mp[a[i]];
     return a;
 }
 
 // Σの公式
-https://rikeilabo.com/sum-formula-of-numerical-sequence
-ll f(ll n) {
-  return (1+n)*n/2;
+https : // rikeilabo.com/sum-formula-of-numerical-sequence
+        ll
+        f(ll n)
+{
+    return (1 + n) * n / 2;
 }
 
-// 左ビットシフトを 1 回行うと、もとの数を 2 倍することができる。 
-int bit2bai(int n) {
+// 左ビットシフトを 1 回行うと、もとの数を 2 倍することができる。
+int bit2bai(int n)
+{
     return n >> 1;
 }
 
-string ten_to_2(int n) {
+string ten_to_2(int n)
+{
     string ans;
     while (n > 0)
     {
-        if (n % 2 == 0) ans += "0";
-        else ans += "1";
+        if (n % 2 == 0)
+            ans += "0";
+        else
+            ans += "1";
         n /= 2;
         int k = 3;
     }
@@ -95,7 +116,7 @@ string ten_to_2(int n) {
 
 int main()
 {
-    // int n;    
+    // int n;
     // cin >> n;
     string ans = ten_to_2(17);
     cout << ans << endl;
@@ -104,11 +125,13 @@ int main()
 
 // ユークリッド距離
 
-bool is_kaibun(string s) {
+bool is_kaibun(string s)
+{
     bool ans = false;
     int n = s.size();
     string t;
-    for (int i = n-1; i >= 0; i--) t += s[i];
+    for (int i = n - 1; i >= 0; i--)
+        t += s[i];
     return s == t;
 }
 
@@ -122,18 +145,20 @@ string convertDigits(int n, int k)
         d.push_back(n % k);
         n /= k;
     }
-    for (int i = d.size()-1; i >= 0; i--)
+    for (int i = d.size() - 1; i >= 0; i--)
     {
         ans += to_string(d[i]);
     }
-    
+
     return ans;
 }
 
 // 最小公約数
-ll gcd(ll a,ll b) {
-    if(b == 0) return a;
-    return gcd(b,a%b);
+ll gcd(ll a, ll b)
+{
+    if (b == 0)
+        return a;
+    return gcd(b, a % b);
 }
 
 // 隣接する文字列が２文字以上の部分を１文字にする。

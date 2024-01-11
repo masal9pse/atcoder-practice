@@ -13,8 +13,7 @@
 using namespace std;
 using ll = long long;
 // using P = pair<int, int>;
-template <class T>
-using P = pair<T, T>;
+template<class T> using P = pair<T, T>;
 using G = vector<vector<int>>;
 #define rep(i, n) for (int i = 0; i < n; i++)
 #define rep2(i, n) for (int i = 1; i <= n; i++)
@@ -22,17 +21,13 @@ using G = vector<vector<int>>;
 const double PI = acos(-1);
 const int MI = 10e8;
 const ll MLL = 1e18;
-// 周囲 4 マスを探索するときに使う、差分を表す配列
-int di[4] = {1, 0, -1, 0};
-int dj[4] = {0, 1, 0, -1};
+// 4方向
+// int di[4] = {1, 0, -1, 0};
+// int dj[4] = {0, 1, 0, -1};
 
-// マス (x, y) の頂点番号
-int get_num(int x, int y, int w)
-// int get_num(int x, int y, int h)
-{
-  // return x * h + y;
-  return x * w + y;
-}
+// 8方向
+const vector<int> di = {-1, -1, 0, 0, 1, 1, 1, -1};
+const vector<int> dj = {0, 1, -1, 1, -1, 0, 1, -1};
 
 int main()
 {
@@ -47,46 +42,29 @@ int main()
 
     解説記事見た article
       理解すること＋どうやったらその問題を初見で解けるか考える
+      閉路 == サイクルなんだ
     解説動画見た video
   */
-  int h, w;
-  cin >> h >> w;
-  vector<string> s(h);
-  rep(i, h) cin >> s[i];
-  G to(h * w);
-  rep(i, h) rep(j, w)
-  {
-    if (s[i][j] == '.')
-      continue;
-    int v = get_num(i, j, w);
-    rep(d, 4)
-    {
-      int ni = i + di[d], nj = j + dj[d];
-      if (ni < 0 || nj < 0 || ni >= h || nj >= w)
-        continue;
-      if (s[ni][nj] == '.')
-        continue;
-      int nv = get_num(ni, nj, w);
-      to[v].push_back(nv);
-    }
+  int n;
+  cin >> n;
+  vector<int> a(n+1);
+  rep(i,n) cin >> a[i+1];
+  vector<int> id(n+1);
+  int k = 1;
+  int v = 1;
+  // do whileは必ず１回目のループは実行される
+  while(id[v] == 0) {
+    id[v] = k;k++;
+    v = a[v];
   }
-  vector<bool> seen(h * w);
-  int ans = 0;
-  rep(i,h) rep(j,w)
-  {
-    if (s[i][j] == '.') continue;
-    int v = get_num(i,j,w);
-    auto dfs = [&](auto f, int v) -> void {
-      seen[v] = true;
-      for(int u:to[v]) {
-        if (seen[u]) continue;
-        f(f,u);
-      }
-    };
-    if (seen[v]) continue;
-    dfs(dfs,v);
-    ans++;
+  vector<int> ans;
+  int len = k-id[v];
+  rep(i,len) {
+    ans.push_back(v);
+    v = a[v];
   }
-  cout << ans << endl;
+  cout << ans.size() << endl;
+  rep(i,ans.size()) cout << ans[i] << " ";
+  cout << endl;
   return 0;
 }

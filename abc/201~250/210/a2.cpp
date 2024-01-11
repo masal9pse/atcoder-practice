@@ -36,6 +36,7 @@ int main()
       全て目安20m　ただ手が動くうちはエンドレスでやる。これによってコンテスト本番の粘りACや思考力のupにつながる
       問題文の理解 read
       実装方針決め plan
+
       実装 do
       ３つのパートに分け、それぞれに時間制限を設けることで以下のメリットがある
        - すぐに解説を見てしまう癖を防止できる
@@ -45,22 +46,17 @@ int main()
         理解すること＋どうやったらその問題を初見で解けるか考える
       解説動画見た video
     */
-    int n, d;
-    cin >> n >> d;
-    vector<string> s(n);
-    rep(i, n) cin >> s[i];
+    int n, a, x, y;
+    cin >> n >> a >> x >> y;
     int ans = 0;
-    int count = 0;
-    rep(i, d)
+    if (n <= a)
     {
-        bool flag = true;
-        rep(j, n)
-        {
-            if(s[j][i] == 'x') flag = false;
-        }
-        if (flag) count++;
-        else count = 0;
-        ans = max(count,ans);
+        ans += n * x;
+    }
+    else
+    {
+        ans += a * x;
+        ans += (n - a) * y;
     }
     cout << ans << endl;
     return 0;

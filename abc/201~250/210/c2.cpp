@@ -35,12 +35,9 @@ int main()
   /*
     全て目安20m　ただ手が動くうちはエンドレスでやる。これによってコンテスト本番の粘りACや思考力のupにつながる
     問題文の理解 read
-      理解した
+      問題文の意味がわからない時はサンプルを参考にする
     実装方針決め plan
-      maxは、9876543210
-      10^9 < 9876543210 < 10^10なので、これを小さい順にならべていけば。。ただTLEする
-      数字の集合にして、それを使うか使わないか(bit全探索が使えそう)で判断すればいい =>
-
+      mapでciのindex番号を持ったがここから先どうすればいいかわからん
     実装 do
     ３つのパートに分け、それぞれに時間制限を設けることで以下のメリットがある
      - すぐに解説を見てしまう癖を防止できる
@@ -50,23 +47,26 @@ int main()
       理解すること＋どうやったらその問題を初見で解けるか考える
     解説動画見た video
   */
-  vector<long long> ans;
-  for (int i = 2; i < (1 << 10); i++)
+  int n, k;
+  cin >> n >> k;
+  vector<int> c(n);
+  rep(i, n) cin >> c[i];
+  map<int, int> mp;
+  int ans = 0;
+  int now = 0;
+  rep(i, n)
   {
-    long long x = 0;
-    for (int j = 9; j >= 0; j--)
+    if (mp[c[i]] == 0)
+      now++;
+    mp[c[i]]++;
+    if (i >= k)
     {
-      if (i & (1 << j))
-      {
-        x *= 10;
-        x += j;
-      }
+      mp[c[i - k]]--;
+      if (mp[c[i - k]] == 0)
+        now--;
     }
-    ans.push_back(x);
+    ans = max(ans,now);
   }
-  // sort(ans.begin(), ans.end());
-  int k;
-  cin >> k;
-  cout << ans[k-1] << endl;
+  cout << ans << endl;
   return 0;
 }

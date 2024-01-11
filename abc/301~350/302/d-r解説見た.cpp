@@ -49,6 +49,7 @@ int main()
   {
     ll l = a[i]-d,r = a[i]+d;
     ll j = upper_bound(b.begin(), b.end(), r) - b.begin();
+    // ここ言語化できないな
     if (j > 0) {
       ll x = b[j-1];
       if (l <= x) {

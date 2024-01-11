@@ -35,12 +35,8 @@ int main()
   /*
     全て目安20m　ただ手が動くうちはエンドレスでやる。これによってコンテスト本番の粘りACや思考力のupにつながる
     問題文の理解 read
-      理解した
     実装方針決め plan
-      maxは、9876543210
-      10^9 < 9876543210 < 10^10なので、これを小さい順にならべていけば。。ただTLEする
-      数字の集合にして、それを使うか使わないか(bit全探索が使えそう)で判断すればいい =>
-
+      nを固定して、mを2分探索、キーにはai+dを渡す
     実装 do
     ３つのパートに分け、それぞれに時間制限を設けることで以下のメリットがある
      - すぐに解説を見てしまう癖を防止できる
@@ -49,24 +45,25 @@ int main()
     解説記事見た article
       理解すること＋どうやったらその問題を初見で解けるか考える
     解説動画見た video
+    2 3 2
+    3 10
+    2 6 15
   */
-  vector<long long> ans;
-  for (int i = 2; i < (1 << 10); i++)
+  int n, m, d;
+  cin >> n >> m >> d;
+  vector<ll> a(n), b(m);
+  rep(i, n) cin >> a[i];
+  rep(i, m) cin >> b[i];
+  sort(b.begin(), b.end());
+  ll ans = -1;
+  rep(i, n)
   {
-    long long x = 0;
-    for (int j = 9; j >= 0; j--)
-    {
-      if (i & (1 << j))
-      {
-        x *= 10;
-        x += j;
-      }
-    }
-    ans.push_back(x);
+    ll key = (ll)a[i] + d;
+    // このコードでは、10 + 15を足してしまう
+    // int j = lower_bound(b.begin(), b.end(), key) - b.begin(); 
+    int j = upper_bound(b.begin(), b.end(), key) - b.begin() - 1;
+    ans = max(ans, a[i] + b[j]);
   }
-  // sort(ans.begin(), ans.end());
-  int k;
-  cin >> k;
-  cout << ans[k-1] << endl;
+  cout << ans << endl;
   return 0;
 }

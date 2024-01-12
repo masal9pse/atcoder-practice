@@ -45,7 +45,30 @@ int main()
       理解すること＋どうやったらその問題を初見で解けるか考える
     解説動画見た video
   */
-  int n;
-  cin >> n;
+  int n,m;
+  cin >> n >> m;
+  vector<bool> ac(n+1);
+  vector<int> wa(n+1);
+  rep(i,m) {
+    int p;
+    string s;
+    cin >> p >> s;
+    if (s == "WA") {
+      if (!ac[p]) wa[p]++;
+    }
+    else if (s == "AC") {
+      ac[p] = true;
+    }
+  }
+  int ac_count = 0;
+  int wa_count = 0;
+  rep(i,n+1) {
+    if (ac[i]) ac_count++;
+  }
+  rep(i,n+1) {
+    // acしてる場合だけ、ペナルティ数とする
+    if (ac[i]) wa_count+=wa[i];
+  }
+  cout << ac_count << " " << wa_count << endl;
   return 0;
 }

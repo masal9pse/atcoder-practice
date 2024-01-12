@@ -45,7 +45,23 @@ int main()
       理解すること＋どうやったらその問題を初見で解けるか考える
     解説動画見た video
   */
-  int n;
-  cin >> n;
+  int n,k,m;
+  cin >> n >> k >> m;
+  vector<int> a(n-1);
+  rep(i,n-1) cin >> a[i];
+  // 残りの点数を全探
+  // 100点まで回すとエラー、なんで？
+  rep(i,k+1) {
+    int sum = 0;
+    rep(j,n-1) sum += a[j];    
+    int calc = sum += i;
+    // 小数点切り捨てになるのでこれだとダメ
+    // int calc = (sum += i)/n;
+    if (calc >= m * n) {
+      cout << i << endl;
+      return 0;
+    }
+  }
+  cout << -1 << endl;
   return 0;
 }

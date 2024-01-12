@@ -14,7 +14,8 @@
 using namespace std;
 using ll = long long;
 // using P = pair<int, int>;
-template<class T> using P = pair<T, T>;
+template <class T>
+using P = pair<T, T>;
 using G = vector<vector<int>>;
 #define rep(i, n) for (int i = 0; i < n; i++)
 #define rep2(i, n) for (int i = 1; i <= n; i++)
@@ -47,5 +48,35 @@ int main()
   */
   int n;
   cin >> n;
+  vector<int> a(n);
+  rep(i, n) cin >> a[i];
+  deque<int> deque;
+  rep(i, n) deque.push_back(a[i]);
+  int q;
+  cin >> q;
+  rep(i, q)
+  {
+    int q1, v;
+    cin >> q1 >> v;
+    if (q1 == 0)
+      deque.push_front(v);
+    else if (q1 == 1)
+    {
+      deque.push_back(v);
+      int d = 3;
+    }
+    else if (q1 == 2)
+    {
+      // vectorみたいにこれで確認できる
+      if (v < deque.size())
+      {
+        cout << deque[v] << endl;
+      }
+      else
+      {
+        cout << "Error" << endl;
+      }
+    }
+  }
   return 0;
 }

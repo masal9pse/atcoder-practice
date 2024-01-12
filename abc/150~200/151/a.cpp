@@ -45,7 +45,9 @@ int main()
       理解すること＋どうやったらその問題を初見で解けるか考える
     解説動画見た video
   */
-  int n;
-  cin >> n;
+  char c;
+  cin >> c;
+  c += 1;
+  cout << c << endl;
   return 0;
 }

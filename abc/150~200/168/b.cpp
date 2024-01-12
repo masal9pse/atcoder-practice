@@ -10,11 +10,11 @@
 #include <cassert>
 #include <stack>
 #include <queue>
-#include <deque>
 using namespace std;
 using ll = long long;
 // using P = pair<int, int>;
-template<class T> using P = pair<T, T>;
+template <class T>
+using P = pair<T, T>;
 using G = vector<vector<int>>;
 #define rep(i, n) for (int i = 0; i < n; i++)
 #define rep2(i, n) for (int i = 1; i <= n; i++)
@@ -36,6 +36,7 @@ int main()
     全て目安20m　ただ手が動くうちはエンドレスでやる。これによってコンテスト本番の粘りACや思考力のupにつながる
     問題文の理解 read
     実装方針決め plan
+
     実装 do
     ３つのパートに分け、それぞれに時間制限を設けることで以下のメリットがある
      - すぐに解説を見てしまう癖を防止できる
@@ -45,7 +46,15 @@ int main()
       理解すること＋どうやったらその問題を初見で解けるか考える
     解説動画見た video
   */
-  int n;
-  cin >> n;
+  int k;
+  cin >> k;
+  string s;
+  cin >> s;
+  int n = s.size();
+  if (n <= k) cout << s << endl;
+  else {
+    string ans = s.substr(0,k) + "...";
+    cout << ans << endl;
+  }
   return 0;
 }

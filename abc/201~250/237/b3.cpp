@@ -10,11 +10,11 @@
 #include <cassert>
 #include <stack>
 #include <queue>
-#include <deque>
 using namespace std;
 using ll = long long;
 // using P = pair<int, int>;
-template<class T> using P = pair<T, T>;
+template <class T>
+using P = pair<T, T>;
 using G = vector<vector<int>>;
 #define rep(i, n) for (int i = 0; i < n; i++)
 #define rep2(i, n) for (int i = 1; i <= n; i++)
@@ -45,7 +45,17 @@ int main()
       理解すること＋どうやったらその問題を初見で解けるか考える
     解説動画見た video
   */
-  int n;
-  cin >> n;
+  int h, w;
+  cin >> h >> w;
+  G a(h, vector<int>(w));
+  rep(i, h) rep(j, w) cin >> a[i][j];
+  rep(i, w)
+  {
+    rep(j, h)
+    {
+      cout << a[j][i] << " ";
+    }
+    cout << endl;
+  }
   return 0;
 }

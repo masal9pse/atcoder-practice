@@ -10,7 +10,6 @@
 #include <cassert>
 #include <stack>
 #include <queue>
-#include <deque>
 using namespace std;
 using ll = long long;
 // using P = pair<int, int>;
@@ -29,7 +28,7 @@ const ll MLL = 1e18;
 // 8方向
 const vector<int> di = {-1, -1, 0, 0, 1, 1, 1, -1};
 const vector<int> dj = {0, 1, -1, 1, -1, 0, 1, -1};
-
+base.cpp
 int main()
 {
   /*

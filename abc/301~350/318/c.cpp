@@ -13,7 +13,8 @@
 using namespace std;
 using ll = long long;
 // using P = pair<int, int>;
-template<class T> using P = pair<T, T>;
+template <class T>
+using P = pair<T, T>;
 using G = vector<vector<int>>;
 #define rep(i, n) for (int i = 0; i < n; i++)
 #define rep2(i, n) for (int i = 1; i <= n; i++)
@@ -35,6 +36,8 @@ int main()
     全て目安20m　ただ手が動くうちはエンドレスでやる。これによってコンテスト本番の粘りACや思考力のupにつながる
     問題文の理解 read
     実装方針決め plan
+      仮説
+        でかい順でソートして、
     実装 do
     ３つのパートに分け、それぞれに時間制限を設けることで以下のメリットがある
      - すぐに解説を見てしまう癖を防止できる
@@ -47,16 +50,28 @@ int main()
 
     解説動画見た video
   */
-  int n;
-  cin >> n;
-
-  // ここ意味わからん
-  k=(n+d-1)/d;
-  long long ans=p*k;
-  for(int i=0;i<k;i++){
-    // ここも分からん
-    ans=min(ans,s[n-1-(i*d)]+(p*i));
+  int n, d, p;
+  cin >> n >> d >> p;
+  vector<int> f(n);
+  vector<ll> s(n+1);
+  rep(i,n) cin >> f[i];
+  sort(f.rbegin(),f.rend());
+  // sort(f.begin(),f.end());
+  rep(i,n) {
+    s[i+1] = s[i] + f[i];
+  } 
+  ll ans = 0;
+  // dごとに判断して、s[i] <= pであればそれまで価格を0にしたい
+  int t = 0;
+  rep(i,n+1) {
+    // int r = n - i*d;
+    int r = i*d;
+    ll now = s[r] + p*i;
+    // if (i % d == 0) {
+    //   if (s[i] <= p) {
+    //     ans 
+    //   }
+    // }
   }
-
   return 0;
 }

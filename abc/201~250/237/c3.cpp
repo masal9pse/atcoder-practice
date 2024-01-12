@@ -10,11 +10,11 @@
 #include <cassert>
 #include <stack>
 #include <queue>
-#include <deque>
 using namespace std;
 using ll = long long;
 // using P = pair<int, int>;
-template<class T> using P = pair<T, T>;
+template <class T>
+using P = pair<T, T>;
 using G = vector<vector<int>>;
 #define rep(i, n) for (int i = 0; i < n; i++)
 #define rep2(i, n) for (int i = 1; i <= n; i++)
@@ -30,12 +30,23 @@ const ll MLL = 1e18;
 const vector<int> di = {-1, -1, 0, 0, 1, 1, 1, -1};
 const vector<int> dj = {0, 1, -1, 1, -1, 0, 1, -1};
 
+bool is_reverse(string s)
+{
+  string t = s;
+  reverse(t.begin(), t.end());
+  return t == s;
+}
+
 int main()
 {
   /*
     全て目安20m　ただ手が動くうちはエンドレスでやる。これによってコンテスト本番の粘りACや思考力のupにつながる
     問題文の理解 read
     実装方針決め plan
+      末尾がaの時
+        末尾aの数だけaを追加して、回文判定
+      末尾がaでない時
+        現在の文字列で回文判定でyes or no
     実装 do
     ３つのパートに分け、それぞれに時間制限を設けることで以下のメリットがある
      - すぐに解説を見てしまう癖を防止できる
@@ -43,9 +54,38 @@ int main()
 
     解説記事見た article
       理解すること＋どうやったらその問題を初見で解けるか考える
+      先頭にaがある場合を忘れていた
+      その場合、末尾aの個数-先頭aの個数となる
     解説動画見た video
   */
-  int n;
-  cin >> n;
+  string s;
+  cin >> s;
+  int count = 0;
+  int n = s.size();
+  for (int i = n - 1; i >= 0; i--)
+  {
+    if (s[i] != 'a')
+      break;
+    else
+      count++;
+  }
+  if (!count)
+  {
+    if (is_reverse(s))
+      cout << "Yes" << endl;
+    else
+      cout << "No" << endl;
+    return 0;
+  }
+  string ans;
+  rep(i, count)
+  {
+    ans += 'a';
+  }
+  ans += s;
+  if (is_reverse(ans))
+    cout << "Yes" << endl;
+  else
+    cout << "No" << endl;
   return 0;
 }

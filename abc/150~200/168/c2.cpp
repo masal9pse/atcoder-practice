@@ -10,11 +10,11 @@
 #include <cassert>
 #include <stack>
 #include <queue>
-#include <deque>
 using namespace std;
 using ll = long long;
 // using P = pair<int, int>;
-template<class T> using P = pair<T, T>;
+template <class T>
+using P = pair<T, T>;
 using G = vector<vector<int>>;
 #define rep(i, n) for (int i = 0; i < n; i++)
 #define rep2(i, n) for (int i = 1; i <= n; i++)
@@ -43,9 +43,23 @@ int main()
 
     解説記事見た article
       理解すること＋どうやったらその問題を初見で解けるか考える
+      「座標が分かるよね」と反応するか「長さとなす角が分かるよね」で解く
     解説動画見た video
   */
-  int n;
-  cin >> n;
+  int A, B, H, M;
+  std::cin >> A >> B >> H >> M;
+
+  // 時針の角度
+  double hour_angle = 30 * H + 0.5 * M;
+  // 分針の角度
+  double minute_angle = 6 * M;
+
+  // 角度差
+  double angle_difference = std::abs(hour_angle - minute_angle);
+
+  // 三角関数を用いて距離を計算
+  double distance = std::sqrt(A * A + B * B - 2 * A * B * std::cos(angle_difference));
+
+  std::cout << distance << std::endl;
   return 0;
 }

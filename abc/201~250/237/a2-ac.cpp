@@ -10,7 +10,6 @@
 #include <cassert>
 #include <stack>
 #include <queue>
-#include <deque>
 using namespace std;
 using ll = long long;
 // using P = pair<int, int>;
@@ -45,7 +44,13 @@ int main()
       理解すること＋どうやったらその問題を初見で解けるか考える
     解説動画見た video
   */
-  int n;
+  ll n;
   cin >> n;
+  ll k1 = 1;
+  ll k2 = -1;
+  rep(i,31) k1 *= 2; 
+  rep(i,31) k2 *= 2; 
+  if (k2 <= n && n < k1) cout << "Yes" << endl;
+  else cout << "No" << endl;
   return 0;
 }

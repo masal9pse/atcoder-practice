@@ -10,7 +10,6 @@
 #include <cassert>
 #include <stack>
 #include <queue>
-#include <deque>
 using namespace std;
 using ll = long long;
 // using P = pair<int, int>;
@@ -45,7 +44,22 @@ int main()
       理解すること＋どうやったらその問題を初見で解けるか考える
     解説動画見た video
   */
-  int n;
-  cin >> n;
+  int n,k;
+  cin >> n >> k;
+  vector<int> c(n);
+  rep(i,n) cin >> c[i];
+  map<int,int> mp;
+  int ans = 0;
+  int now = 0;
+  rep(i,n) {
+    if (mp[c[i]] == 0) now++;
+    mp[c[i]]++;
+    if (i >= k) {
+      mp[c[i-k]]--;
+      if (mp[c[i-k]] == 0) now--;
+    }
+    ans = max(now,ans);
+  }
+  cout << ans << endl;
   return 0;
 }

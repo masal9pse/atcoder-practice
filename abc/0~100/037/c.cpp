@@ -14,7 +14,8 @@
 using namespace std;
 using ll = long long;
 // using P = pair<int, int>;
-template<class T> using P = pair<T, T>;
+template <class T>
+using P = pair<T, T>;
 using G = vector<vector<int>>;
 #define rep(i, n) for (int i = 0; i < n; i++)
 #define rep2(i, n) for (int i = 1; i <= n; i++)
@@ -33,7 +34,6 @@ const vector<int> dj = {0, 1, -1, 1, -1, 0, 1, -1};
 int main()
 {
   /*
-  問題回答中
     全て目安20m　ただ手が動くうちはエンドレスでやる。これによってコンテスト本番の粘りACや思考力のupにつながる
     問題文の理解 read
     実装方針決め plan
@@ -41,19 +41,23 @@ int main()
     ３つのパートに分け、それぞれに時間制限を設けることで以下のメリットがある
      - すぐに解説を見てしまう癖を防止できる
      - １問に何時間も粘りすぎてしまう問題を防止できる
-    コーナーケース　細かいコーナーケースをここに記載
-    関連キーワード　使用アルゴリズムか考え方等を記載して、コンテスト本番で検索できるようにする
-      ex: 全探索
 
-  復習
-    解説記事見たメモ article
+    解説記事見た article
       理解すること＋どうやったらその問題を初見で解けるか考える
-    解説動画見たメモ video
-    コーナーケース　細かいコーナーケースをここに記載
-    関連キーワード　使用アルゴリズムか考え方等を記載して、コンテスト本番で検索できるようにする
-      ex: 全探索
+    解説動画見た video
   */
-  int n;
-  cin >> n;
+  ll n, k;
+  cin >> n >> k;
+  vector<int> a(n);
+  rep(i, n) cin >> a[i];
+  vector<ll> r(n + 1);
+  rep(i, n) r[i + 1] = r[i] + a[i];
+  ll ans = 0;
+  rep(i,n-k+1) {
+    // 累積和でkを足すと範囲がもとまる
+    ll sum = r[i+k]-r[i];
+    ans += sum;
+  }
+  cout << ans << endl;
   return 0;
 }

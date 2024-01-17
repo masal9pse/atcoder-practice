@@ -14,7 +14,8 @@
 using namespace std;
 using ll = long long;
 // using P = pair<int, int>;
-template<class T> using P = pair<T, T>;
+template <class T>
+using P = pair<T, T>;
 using G = vector<vector<int>>;
 #define rep(i, n) for (int i = 0; i < n; i++)
 #define rep2(i, n) for (int i = 1; i <= n; i++)
@@ -33,27 +34,40 @@ const vector<int> dj = {0, 1, -1, 1, -1, 0, 1, -1};
 int main()
 {
   /*
-  問題回答中
     全て目安20m　ただ手が動くうちはエンドレスでやる。これによってコンテスト本番の粘りACや思考力のupにつながる
     問題文の理解 read
     実装方針決め plan
+      うーん、b==0以外のコーナーケースが分からん。
+
     実装 do
     ３つのパートに分け、それぞれに時間制限を設けることで以下のメリットがある
      - すぐに解説を見てしまう癖を防止できる
      - １問に何時間も粘りすぎてしまう問題を防止できる
-    コーナーケース　細かいコーナーケースをここに記載
-    関連キーワード　使用アルゴリズムか考え方等を記載して、コンテスト本番で検索できるようにする
-      ex: 全探索
 
-  復習
-    解説記事見たメモ article
+    解説記事見た article
       理解すること＋どうやったらその問題を初見で解けるか考える
-    解説動画見たメモ video
-    コーナーケース　細かいコーナーケースをここに記載
+    解説動画見た video
     関連キーワード　使用アルゴリズムか考え方等を記載して、コンテスト本番で検索できるようにする
       ex: 全探索
   */
-  int n;
-  cin >> n;
+  int a,b;
+  cin >> a >> b;
+  // コーナーケース
+  // Bが1の時、電源タップは必要ないので答えは0
+  if (b == 1) {
+    cout << 0 << endl;
+    return 0;
+  }
+
+  int p = a;
+  int ans = 1;
+  while (p < b)
+  {
+    // 新しいプラグを繋ぐ際にプラグが-1されることが考慮できていなかった
+    p--;
+    p += a;
+    ans++;
+  }
+  cout << ans << endl;
   return 0;
 }

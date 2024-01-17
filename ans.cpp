@@ -46,16 +46,22 @@ int main()
       理解すること＋どうやったらその問題を初見で解けるか考える
     解説動画見た video
   */
-  string n;
-  cin >> n;
-  if (n.back() == '2' || n.back() == '4' || 
-      n.back() == '5' || n.back() == '7' || n.back() == '9') {
-        cout << "hon" << endl;
-    } else if (n.back() == '0' || n.back() == '1' 
-    || n.back() == '6' || n.back() == '8') {
-      cout << "pon" << endl;
-    } else {
-      cout << "bon" << endl;
-    }
-    return 0;
+  int n, k;
+  cin >> n >> k;
+  vector<int> a(n);
+  rep(i, n) cin >> a[i];
+  deque<int> q;
+  rep(i, n) q.push_back(a[i]);
+  rep(i,k) {
+    q.pop_front();
+    q.push_back(0);
+  }
+  while (!q.empty())
+  {
+    int v = q.front();
+    q.pop_front();
+    cout << v << " ";
+  }
+  cout << endl;
+  return 0;
 }

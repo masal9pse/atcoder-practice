@@ -37,7 +37,7 @@ int main()
     全て目安20m　ただ手が動くうちはエンドレスでやる。これによってコンテスト本番の粘りACや思考力のupにつながる
     問題文の理解 read
     実装方針決め plan
-    疑問点
+       空文字列は拡張 A 文字列でも拡張 B 文字列でも拡張 C 文字列でもあることに注意してください。
     実装 do
     ３つのパートに分け、それぞれに時間制限を設けることで以下のメリットがある
      - すぐに解説を見てしまう癖を防止できる
@@ -57,7 +57,38 @@ int main()
     関連キーワード　使用アルゴリズムか考え方等を記載して、コンテスト本番で検索できるようにする
       ex: 全探索
   */
-  int n;
-  cin >> n;
+  string s;
+  cin >> s;
+  // １つ前の文字と比較して、文字が異なっていたらそれをansについか
+  string ans;
+  // vector<bool> k = {false,false,false};
+  ans += s[0];
+  rep(i,s.size()) {
+    // if (s[i] == '') continue;
+    if (i == 0) continue;
+    if (s[i] == s[i-1]) continue;
+    else ans += s[i];
+  }
+
+  // if (ans == "ABC" || ans == "A" || ans == "B" || ans == "C" || ans == "") cout << "Yes" << endl;
+  if (ans == "ABC" || ans == "A" || ans == "B" || ans == "C" || ans == "BC" || ans == "" || ans == "AC" || ans == " ") cout << "Yes" << endl;
+  else {
+    // while (ans != "")
+    // {
+    //   int t = ans.find("ABC");
+    //   if (t == string::npos) {
+    //      cout << "No" << endl;
+    //      return 0;
+    //   }
+    //   ans.erase(t,3);
+    //   int tt = 3;
+    // }
+    // if (ans == "") cout << "Yes" << endl;
+    cout << "No" << endl;
+  }
+  // else cout << "No" << endl;
   return 0;
+  // AAABBBCCCCCCCAAABBBCCCCCCCAAABBBCCCCCCC
+  // ABC
+  //  ABCABC
 }

@@ -44,11 +44,25 @@ int main()
 
     解説記事見た article
       理解すること＋どうやったらその問題を初見で解けるか考える
+      リバースして、大きい順であれば+1していけばいい
     解説動画見た video
     関連キーワード　使用アルゴリズムか考え方等を記載して、コンテスト本番で検索できるようにする
       ex: 全探索
   */
   int n;
   cin >> n;
+  vector<int> h(n);
+  rep(i,n) cin >> h[i];
+  // reverse(h.begin(),h.end());
+  int ans = 0;
+  int now = 0;
+  rep(i,n) {
+    // 配列外参照の対策
+    if (i == n-1) continue;
+    if (h[i] >= h[i+1]) now++;
+    else now = 0;
+    ans = max(ans,now);
+  }
+  cout << ans << endl;
   return 0;
 }

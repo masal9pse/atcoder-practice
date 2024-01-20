@@ -51,6 +51,7 @@ int main()
   vector<string> t = {"Sunny","Cloudy","Rainy"};
   rep(i,3) {
     if (t[i] == s) {
+    // 普通にif文判定してもいいが、この%3で元に戻る処理ができたのはやるやん
       cout << t[(i+1)%3] << endl;
       return 0;
     }

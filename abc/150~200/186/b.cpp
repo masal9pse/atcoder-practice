@@ -10,6 +10,7 @@
 #include <cassert>
 #include <stack>
 #include <queue>
+#include <deque>
 using namespace std;
 using ll = long long;
 // using P = pair<int, int>;
@@ -33,27 +34,39 @@ const vector<int> dj = {0, 1, -1, 1, -1, 0, 1, -1};
 int main()
 {
   /*
+  問題回答中
     全て目安20m　ただ手が動くうちはエンドレスでやる。これによってコンテスト本番の粘りACや思考力のupにつながる
     問題文の理解 read
     実装方針決め plan
-
+      O(NM)で全て舐めて、最小のブロック数を保存
+      ans += ブロック数 - 最小のブロック数
     実装 do
     ３つのパートに分け、それぞれに時間制限を設けることで以下のメリットがある
      - すぐに解説を見てしまう癖を防止できる
      - １問に何時間も粘りすぎてしまう問題を防止できる
+    コーナーケース　細かいコーナーケースをここに記載
+    関連キーワード　使用アルゴリズムか考え方等を記載して、コンテスト本番で検索できるようにする
+      ex: 全探索
+    意識すること
+      計算量を考えない問題でも計算量を少なくなるよう考察を進める、
+      これによって今の自分に欠如している論理的思考や数学的な考え方が身に付くはず
 
-    解説記事見た article
+  復習
+    解説記事見たメモ article
       理解すること＋どうやったらその問題を初見で解けるか考える
-    解説動画見た video
+    解説動画見たメモ video
+    コーナーケース　細かいコーナーケースをここに記載
+    関連キーワード　使用アルゴリズムか考え方等を記載して、コンテスト本番で検索できるようにする
+      ex: 全探索
   */
-  string s;
-  cin >> s;
-  vector<string> t = {"Sunny","Cloudy","Rainy"};
-  rep(i,3) {
-    if (t[i] == s) {
-      cout << t[(i+1)%3] << endl;
-      return 0;
-    }
-  }
+  int h, w;
+  cin >> h >> w;
+  int min_v = 100000;
+  G a(h, vector<int>(w));
+  rep(i, h) rep(j, w) cin >> a[i][j];
+  rep(i, h) rep(j, w) min_v = min(min_v, a[i][j]);
+  int ans = 0;
+  rep(i, h) rep(j, w) ans += a[i][j] - min_v;
+  cout << ans << endl;
   return 0;
 }

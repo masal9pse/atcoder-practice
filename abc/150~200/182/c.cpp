@@ -17,7 +17,27 @@ const double PI = acos(-1);
 
 int main()
 {
-    int n;    
+    string n;
     cin >> n;
+    int size = n.size();
+    int ans = 20;
+    rep(bit, (1 << size))
+    {
+        int count = 0;
+        string n_tmp = "";
+        rep(i, size)
+        {
+            if (bit & (1 << i))
+                n_tmp += n[i];
+            else
+                count++;
+        }
+        if (n_tmp == "") 
+            continue;
+        if (stoi(n_tmp) % 3 == 0)
+            ans = min(ans, count);
+    }
+    if (ans == 20) cout << -1 << endl;
+    else cout << ans << endl;
     return 0;
 }

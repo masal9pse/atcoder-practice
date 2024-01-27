@@ -46,14 +46,8 @@ int main()
       理解すること＋どうやったらその問題を初見で解けるか考える
     解説動画見た video
   */
-  string s;
-  cin >> s;
-  vector<string> t = {"Sunny","Cloudy","Rainy"};
-  rep(i,3) {
-    if (t[i] == s) {
-      cout << t[(i+1)%3] << endl;
-      return 0;
-    }
-  }
+  int a,b,h;
+  cin >> a >> b >> h;
+  cout << (a+b)*h/2 << endl;
   return 0;
 }

@@ -10,11 +10,11 @@
 #include <cassert>
 #include <stack>
 #include <queue>
+#include <deque>
 using namespace std;
 using ll = long long;
 // using P = pair<int, int>;
-template <class T>
-using P = pair<T, T>;
+template<class T> using P = pair<T, T>;
 using G = vector<vector<int>>;
 #define rep(i, n) for (int i = 0; i < n; i++)
 #define rep2(i, n) for (int i = 1; i <= n; i++)
@@ -30,34 +30,47 @@ const ll MLL = 1e18;
 const vector<int> di = {-1, -1, 0, 0, 1, 1, 1, -1};
 const vector<int> dj = {0, 1, -1, 1, -1, 0, 1, -1};
 
+map<int,ll> memo;
+ll f(int n) {
+  if (n == 0) return 2;
+  if (n == 1) return 1;
+  if (memo.count(n)) return memo[n];
+  ll result = f(n-1)+f(n-2);
+  memo[n] = result;
+  return result;
+}
+
 int main()
 {
   /*
+  問題回答中
     全て目安20m　ただ手が動くうちはエンドレスでやる。これによってコンテスト本番の粘りACや思考力のupにつながる
     問題文の理解 read
     実装方針決め plan
-
+    疑問点
     実装 do
     ３つのパートに分け、それぞれに時間制限を設けることで以下のメリットがある
      - すぐに解説を見てしまう癖を防止できる
      - １問に何時間も粘りすぎてしまう問題を防止できる
+    コーナーケース　細かいコーナーケースをここに記載
+    関連キーワード　使用アルゴリズムか考え方等を記載して、コンテスト本番で検索できるようにする
+      ex: 全探索
+    意識すること
+      計算量を考えない問題でも計算量を少なくなるよう考察を進める、
+      これによって今の自分に欠如している論理的思考や数学的な考え方が身に付くはず
 
-    解説記事見た article
+  復習
+    解説記事見たメモ article
       理解すること＋どうやったらその問題を初見で解けるか考える
-    解説動画見た video
+      
+    解説動画見たメモ video
+    コーナーケース　細かいコーナーケースをここに記載
+    関連キーワード　使用アルゴリズムか考え方等を記載して、コンテスト本番で検索できるようにする
+      ex: 全探索
   */
   int n;
   cin >> n;
-  int count = 0;
-  // int ans = 0;
-  while (1)
-  {
-    if (n & (1 << count)) {
-      cout << count << endl;
-      return 0;
-    }
-    count++;
-  }
-  
+  ll ans = f(n);
+  cout << ans << endl;
   return 0;
 }

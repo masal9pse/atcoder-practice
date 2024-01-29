@@ -60,7 +60,8 @@ int main()
   */
   int a, m;
   cin >> a >> m;
-  cout << (a ^ m) << endl;
-  // cout << (m ^ a) << endl;
+  // cout << (a & m) << endl;
+  if ((a & m)) cout << "Yes" << endl;
+  else cout << "No" << endl;
   return 0;
 }

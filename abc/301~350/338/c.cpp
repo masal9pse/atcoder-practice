@@ -14,8 +14,7 @@
 using namespace std;
 using ll = long long;
 // using P = pair<int, int>;
-template <class T>
-using P = pair<T, T>;
+template<class T> using P = pair<T, T>;
 using G = vector<vector<int>>;
 #define rep(i, n) for (int i = 0; i < n; i++)
 #define rep2(i, n) for (int i = 1; i <= n; i++)
@@ -37,7 +36,12 @@ int main()
   問題回答中
     全て目安20m　ただ手が動くうちはエンドレスでやる。これによってコンテスト本番の粘りACや思考力のupにつながる
     問題文の理解 read
+      まだ理解できてない、bit全探索でどれを1にするかしないかを判別できてない
+
+      料理Aを1人分作るには Ai+Ai+1...
+      料理Bを1人分作るには Bi+Bi+1...
     実装方針決め plan
+      一旦貪欲法で    
     疑問点
     実装 do
     ３つのパートに分け、それぞれに時間制限を設けることで以下のメリットがある
@@ -58,9 +62,21 @@ int main()
     関連キーワード　使用アルゴリズムか考え方等を記載して、コンテスト本番で検索できるようにする
       ex: 全探索
   */
-  int a, m;
-  cin >> a >> m;
-  cout << (a ^ m) << endl;
-  // cout << (m ^ a) << endl;
+  int n;
+  cin >> n;
+  vector<int> q(n),a(n),b(n);
+  rep(i,n) cin >> q[i];
+  rep(i,n) cin >> a[i];
+  rep(i,n) cin >> b[i];
+  while (qiが0以上になるまでループ回したい。)
+  {
+    /* code */
+  }
+  
+  rep(i,n) {
+    
+    
+  }
+  
   return 0;
 }

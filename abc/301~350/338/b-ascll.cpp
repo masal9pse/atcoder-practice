@@ -58,9 +58,24 @@ int main()
     関連キーワード　使用アルゴリズムか考え方等を記載して、コンテスト本番で検索できるようにする
       ex: 全探索
   */
-  int a, m;
-  cin >> a >> m;
-  cout << (a ^ m) << endl;
-  // cout << (m ^ a) << endl;
+  string s;
+  cin >> s;
+  int n = s.size();
+  vector<int> cnt(256);
+  // rep(i, n) cnt[s[i]]++;
+  for(char c:s) cnt[c]++;
+  int ans = 0;
+  for (int i = 'a'; i <= 'z'; i++)
+  {
+    ans = max(ans, cnt[i]);
+  }
+  for (int i = 'a'; i <= 'z'; i++)
+  {
+    if (ans == cnt[i])
+    {
+      cout << (char)i << endl;
+      return 0;
+    }
+  }
   return 0;
 }

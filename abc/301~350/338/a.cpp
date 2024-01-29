@@ -18,7 +18,7 @@ template <class T>
 using P = pair<T, T>;
 using G = vector<vector<int>>;
 #define rep(i, n) for (int i = 0; i < n; i++)
-#define rep2(i, n) for (int i = 1; i <= n; i++)
+#define rep2(i, n) for (int i = 1; i < n; i++)
 #define rep3(i, n) for (int i = 0; i <= n; i++)
 const double PI = acos(-1);
 const int MI = 10e8;
@@ -58,9 +58,21 @@ int main()
     関連キーワード　使用アルゴリズムか考え方等を記載して、コンテスト本番で検索できるようにする
       ex: 全探索
   */
-  int a, m;
-  cin >> a >> m;
-  cout << (a ^ m) << endl;
-  // cout << (m ^ a) << endl;
+  string s;
+  cin >> s;
+  if (islower(s[0]))
+  {
+    cout << "No" << endl;
+    return 0;
+  }
+  rep2(i, s.size())
+  {
+    if (!islower(s[i]))
+    {
+      cout << "No" << endl;
+      return 0;
+    }
+  }
+  cout << "Yes" << endl;
   return 0;
 }

@@ -14,8 +14,7 @@
 using namespace std;
 using ll = long long;
 // using P = pair<int, int>;
-template <class T>
-using P = pair<T, T>;
+template<class T> using P = pair<T, T>;
 using G = vector<vector<int>>;
 #define rep(i, n) for (int i = 0; i < n; i++)
 #define rep2(i, n) for (int i = 1; i <= n; i++)
@@ -58,9 +57,9 @@ int main()
     関連キーワード　使用アルゴリズムか考え方等を記載して、コンテスト本番で検索できるようにする
       ex: 全探索
   */
-  int a, m;
-  cin >> a >> m;
-  cout << (a ^ m) << endl;
-  // cout << (m ^ a) << endl;
+  int a1,a2,a3;
+  cin >> a1 >> a2 >> a3;
+  if (a1 + a2 + a3 >= 22) cout << "bust" << endl;
+  else cout << "win" << endl;
   return 0;
 }

@@ -58,9 +58,41 @@ int main()
     関連キーワード　使用アルゴリズムか考え方等を記載して、コンテスト本番で検索できるようにする
       ex: 全探索
   */
-  int a, m;
-  cin >> a >> m;
-  cout << (a ^ m) << endl;
-  // cout << (m ^ a) << endl;
+  string s;
+  cin >> s;
+  char c = 'A';
+  int ans = 0;
+  int n = s.size();
+  int sum = 0;
+  map<char, int> mp;
+  rep(i, s.size())
+  {
+    mp[s[i]]++;
+  }
+  // int t = *max_element(mp.begin(),mp.end());
+  for (auto pair : mp)
+  {
+    if (sum < pair.second)
+    {
+      sum = max(pair.second, sum);
+      c = pair.first;
+    }
+    else if (sum == pair.second)
+    {
+      if (c == 'A')
+      {
+        c = pair.first;
+      }
+      else if (sum == pair.second)
+      {
+        int kk = c;
+        int kk2 = pair.first;
+        if (c > pair.first)
+          c = pair.first;
+        // c = min(c,pair.first);
+      }
+    }
+  }
+  cout << c << endl;
   return 0;
 }

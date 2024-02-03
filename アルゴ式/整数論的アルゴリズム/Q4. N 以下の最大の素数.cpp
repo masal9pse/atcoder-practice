@@ -30,6 +30,14 @@ const ll MLL = 1e18;
 const vector<int> di = {-1, -1, 0, 0, 1, 1, 1, -1};
 const vector<int> dj = {0, 1, -1, 1, -1, 0, 1, -1};
 
+bool isPrime(int n) {
+  for (int i = 2; i*i <= n; i++)
+  {
+    if (n % i == 0) return 0; 
+  }
+  return n;
+}
+
 int main()
 {
   /*
@@ -54,6 +62,8 @@ int main()
   復習
     解説記事見たメモ article
       理解すること＋どうやったらその問題を初見で解けるか考える
+
+      後ろから見たら初めに合致した素数の時点で、処理を終了できる。
     解説動画見たメモ video
     コーナーケース　細かいコーナーケースをここに記載
     関連キーワード　使用アルゴリズムか考え方等を記載して、コンテスト本番で検索できるようにする
@@ -61,5 +71,14 @@ int main()
   */
   int n;
   cin >> n;
+  int ans = 0;
+  for (int i = n;i >= 2; i--)
+  {
+    if (isPrime(i)) {
+      cout << i << endl;
+      return 0;
+    }
+  }
+  cout << ans << endl;
   return 0;
 }

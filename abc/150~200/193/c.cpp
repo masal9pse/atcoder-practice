@@ -36,7 +36,8 @@ int main()
     全て目安20m　ただ手が動くうちはエンドレスでやる。これによってコンテスト本番の粘りACや思考力のupにつながる
     問題文の理解 read
     実装方針決め plan
-
+      10^10なので制約上、ループ回せない
+      
     実装 do
     ３つのパートに分け、それぞれに時間制限を設けることで以下のメリットがある
      - すぐに解説を見てしまう癖を防止できる
@@ -48,13 +49,5 @@ int main()
   */
   int n;
   cin >> n;
-  int ans = 0;
-  rep(i,n) {
-    string s;
-    cin >> s;
-    if (s == "For") ans++;
-  }
-  if (ans*2 >= n) cout << "Yes" << endl;
-  else cout << "No" << endl;
   return 0;
 }

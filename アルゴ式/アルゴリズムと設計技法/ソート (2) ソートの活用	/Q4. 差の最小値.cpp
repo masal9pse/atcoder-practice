@@ -14,7 +14,8 @@
 using namespace std;
 using ll = long long;
 // using P = pair<int, int>;
-template<class T> using P = pair<T, T>;
+template <class T>
+using P = pair<T, T>;
 using G = vector<vector<int>>;
 #define rep(i, n) for (int i = 0; i < n; i++)
 #define rep2(i, n) for (int i = 1; i <= n; i++)
@@ -37,6 +38,9 @@ int main()
     全て目安20m　ただ手が動くうちはエンドレスでやる。これによってコンテスト本番の粘りACや思考力のupにつながる
     問題文の理解 read
     解き方探り plan
+      マイナスがあると幅が大きくなるので、絶対値で考えるとマイナスがなくなるな
+      違うかった
+      
     コード落とし込み方針決め
     疑問点
       大体、解き方探りとコード落とし込み方針決めで詰まるのでその下にこれを置いておく。
@@ -59,14 +63,15 @@ int main()
     関連キーワード　使用アルゴリズムか考え方等を記載して、コンテスト本番で検索できるようにする
       ex: 全探索
   */
-  int n,k;
+  int n, k;
   cin >> n >> k;
   ll ans = 0;
   vector<int> a(n);
-  rep(i,n) cin >> a[i];
+  // rep(i, n) cin >> abs(a[i]);
+  rep(i, n) cin >> a[i];
+  rep(i, n) a[i] = abs(a[i]);
   // シンプルな実装になるよう努力しよ
-  sort(a.rbegin(),a.rend());
-  rep(i,k) ans += a[i];
-  cout << ans << endl;
+  sort(a.begin(), a.end());
+  cout << a[k-1] - a[0] << endl;
   return 0;
 }

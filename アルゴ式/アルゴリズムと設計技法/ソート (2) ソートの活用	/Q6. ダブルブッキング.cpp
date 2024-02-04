@@ -14,7 +14,8 @@
 using namespace std;
 using ll = long long;
 // using P = pair<int, int>;
-template<class T> using P = pair<T, T>;
+template <class T>
+using P = pair<T, T>;
 using G = vector<vector<int>>;
 #define rep(i, n) for (int i = 0; i < n; i++)
 #define rep2(i, n) for (int i = 1; i <= n; i++)
@@ -37,7 +38,11 @@ int main()
     全て目安20m　ただ手が動くうちはエンドレスでやる。これによってコンテスト本番の粘りACや思考力のupにつながる
     問題文の理解 read
     解き方探り plan
+      貪欲法だととりあえず実装しがちなので、考察ちゃんとする
     コード落とし込み方針決め
+      O(K)でkから引く　iが事故る
+
+
     疑問点
       大体、解き方探りとコード落とし込み方針決めで詰まるのでその下にこれを置いておく。
     実装 do
@@ -54,19 +59,32 @@ int main()
   復習
     解説記事見たメモ article
       理解すること＋どうやったらその問題を初見で解けるか考える
+      0分の授業時間が考慮されてないなこの問題
+
     解説動画見たメモ video
     コーナーケース　細かいコーナーケースをここに記載
     関連キーワード　使用アルゴリズムか考え方等を記載して、コンテスト本番で検索できるようにする
-      ex: 全探索
+      貪欲法　ソート
   */
-  int n,k;
+  ll n,k;
   cin >> n >> k;
+  vector<P<ll>> d(n);
+  rep(i, n)
+  {
+    ll a, b;
+    cin >> a >> b;
+    d[i].first = a;
+    d[i].second = b;
+  }
+  sort(d.begin(), d.end());
+  // for (初期化; 条件式; 更新)
   ll ans = 0;
-  vector<int> a(n);
-  rep(i,n) cin >> a[i];
-  // シンプルな実装になるよう努力しよ
-  sort(a.rbegin(),a.rend());
-  rep(i,k) ans += a[i];
+  for (int i = 0; i < k && k > 0; i++)
+  {
+    ll num = min(k, d[i].second);
+    k -= num;
+    ans += (d[i].first*num);
+  }
   cout << ans << endl;
   return 0;
 }

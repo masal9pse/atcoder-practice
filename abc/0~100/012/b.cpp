@@ -14,7 +14,8 @@
 using namespace std;
 using ll = long long;
 // using P = pair<int, int>;
-template<class T> using P = pair<T, T>;
+template <class T>
+using P = pair<T, T>;
 using G = vector<vector<int>>;
 #define rep(i, n) for (int i = 0; i < n; i++)
 #define rep2(i, n) for (int i = 1; i <= n; i++)
@@ -59,14 +60,18 @@ int main()
     関連キーワード　使用アルゴリズムか考え方等を記載して、コンテスト本番で検索できるようにする
       ex: 全探索
   */
-  int n,k;
-  cin >> n >> k;
-  ll ans = 0;
-  vector<int> a(n);
-  rep(i,n) cin >> a[i];
-  // シンプルな実装になるよう努力しよ
-  sort(a.rbegin(),a.rend());
-  rep(i,k) ans += a[i];
-  cout << ans << endl;
+  int n;
+  cin >> n;
+  int h = n / 3600;
+  int left_n = n % 3600;
+  int m = left_n / 60;
+  int s = left_n % 60;
+
+  // hh:mm:ss => 1桁の場合、サクッと直す方法どうするか
+  // stringに直して、1桁なら先頭に0つける
+  //
+  cout << setfill('0') << setw(2) << h << ":"
+            << setfill('0') << setw(2) << m << ":"
+            << setfill('0') << setw(2) << s << endl;
   return 0;
 }

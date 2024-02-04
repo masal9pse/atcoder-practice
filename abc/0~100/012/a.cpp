@@ -59,14 +59,9 @@ int main()
     関連キーワード　使用アルゴリズムか考え方等を記載して、コンテスト本番で検索できるようにする
       ex: 全探索
   */
-  int n,k;
-  cin >> n >> k;
-  ll ans = 0;
-  vector<int> a(n);
-  rep(i,n) cin >> a[i];
-  // シンプルな実装になるよう努力しよ
-  sort(a.rbegin(),a.rend());
-  rep(i,k) ans += a[i];
-  cout << ans << endl;
+  int a,b;
+  cin >> a >> b;
+  swap(a,b);
+  cout << a << " " << b << endl;
   return 0;
 }

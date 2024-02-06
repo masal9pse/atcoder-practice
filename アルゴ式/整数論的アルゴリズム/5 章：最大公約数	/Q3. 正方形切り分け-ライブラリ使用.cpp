@@ -24,9 +24,21 @@ const ll MLL = 1e18;
 const vector<int> di = {-1, -1, 0, 0, 1, 1, 1, -1};
 const vector<int> dj = {0, 1, -1, 1, -1, 0, 1, -1};
 
+// ll gcd(ll a,ll b) {
+//   if (b == 0) return a;
+//   return gcd(b,a%b);
+// }
+
 int main()
 {
-  int n;
-  cin >> n;
+  // 上記の実装方法
+  //   1. A と B で割ったあまりを R とする
+  //   2. R=0 のときは、B を出力して手続きを終了する (この時点での B が求める最大公約数)
+  //   3. R≠0 のときは、A を B に置き換えて、B を R に置き換えて、ステップ 1 に戻る
+  ll a,b;
+  cin >> a >> b;
+  // ライブラリを使用して実装
+  ll ans = gcd(a,b);
+  cout << ans << endl;
   return 0;
 }

@@ -11,7 +11,6 @@
 #include <stack>
 #include <queue>
 #include <deque>
-#include <numeric>
 using namespace std;
 using ll = long long;
 template<class T> using P = pair<T, T>;
@@ -26,7 +25,10 @@ const vector<int> dj = {0, 1, -1, 1, -1, 0, 1, -1};
 
 int main()
 {
+  // 整数A, B の公約数は、A, B の最大公約数の約数である
   int n;
   cin >> n;
+  vector<ll> a(n);
+  rep(i,n) cin >> a[i];
   return 0;
 }

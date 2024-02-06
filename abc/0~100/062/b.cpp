@@ -11,7 +11,6 @@
 #include <stack>
 #include <queue>
 #include <deque>
-#include <numeric>
 using namespace std;
 using ll = long long;
 template<class T> using P = pair<T, T>;
@@ -26,7 +25,16 @@ const vector<int> dj = {0, 1, -1, 1, -1, 0, 1, -1};
 
 int main()
 {
-  int n;
-  cin >> n;
+  int h,w;
+  cin >> h >> w;
+  vector<string> a(h);
+  rep(i,h) cin >> a[i];
+  rep(i,h+2) {
+   string ans;
+   if (i == 0) rep(j,w+2) ans += '#';
+   else if (i == h+1) rep(j,w+2) ans += '#';
+   else ans = '#' + a[i-1] + '#';
+   cout << ans << endl;
+  }
   return 0;
 }

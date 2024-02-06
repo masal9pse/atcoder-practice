@@ -11,7 +11,6 @@
 #include <stack>
 #include <queue>
 #include <deque>
-#include <numeric>
 using namespace std;
 using ll = long long;
 template<class T> using P = pair<T, T>;
@@ -24,9 +23,16 @@ const ll MLL = 1e18;
 const vector<int> di = {-1, -1, 0, 0, 1, 1, 1, -1};
 const vector<int> dj = {0, 1, -1, 1, -1, 0, 1, -1};
 
+ll gcd(ll a,ll b) {
+  if (b == 0) return a;
+  return gcd(b,a % b);
+}
+
 int main()
 {
-  int n;
-  cin >> n;
+  ll a,b;
+  cin >> a >> b;
+  ll g = gcd(a,b);
+  cout << a / g * b << endl;
   return 0;
 }

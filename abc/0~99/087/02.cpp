@@ -21,10 +21,26 @@ using G = vector<vector<int>>;
 const double PI = acos(-1);
 const int MI = 10e8;
 const ll MLL = 1e18;
+// 8方向
+const vector<int> di = {-1, -1, 0, 0, 1, 1, 1, -1};
+const vector<int> dj = {0, 1, -1, 1, -1, 0, 1, -1};
 
 int main()
 {
   int n;
   cin >> n;
+  G a(2,vector<int>(n));
+  rep(i,2) rep(j,n) cin >> a[i][j];
+  int ans = 0;
+  rep(i,n) {
+    int sum = 0;
+    rep(j,n) {
+      if (j == i+1) break;
+      sum += a[0][j];
+    }
+    rrep(j,i,n) sum+=a[1][j];
+    ans = max(sum,ans);
+  }
+  cout << ans << endl;
   return 0;
 }

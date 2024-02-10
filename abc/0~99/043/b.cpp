@@ -24,7 +24,14 @@ const ll MLL = 1e18;
 
 int main()
 {
-  int n;
-  cin >> n;
+  string s;
+  cin >> s;
+  string ans = "";
+  for (char c:s)
+  {
+    if (c == 'B' && !ans.empty()) ans.pop_back();
+    else if (c == '0' || c == '1') ans+=c;
+  }
+  cout << ans << endl;
   return 0;
 }

@@ -21,10 +21,15 @@ using G = vector<vector<int>>;
 const double PI = acos(-1);
 const int MI = 10e8;
 const ll MLL = 1e18;
+// 8方向
+const vector<int> di = {-1, -1, 0, 0, 1, 1, 1, -1};
+const vector<int> dj = {0, 1, -1, 1, -1, 0, 1, -1};
 
 int main()
 {
-  int n;
-  cin >> n;
+  int k,x;
+  cin >> k >> x;
+  for (int i = x-(k-1); i <= x+(k-1); i++) cout << i << " ";
+  cout << endl;
   return 0;
 }

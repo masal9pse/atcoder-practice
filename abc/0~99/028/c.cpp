@@ -21,10 +21,30 @@ using G = vector<vector<int>>;
 const double PI = acos(-1);
 const int MI = 10e8;
 const ll MLL = 1e18;
+// 8方向
+const vector<int> di = {-1, -1, 0, 0, 1, 1, 1, -1};
+const vector<int> dj = {0, 1, -1, 1, -1, 0, 1, -1};
 
 int main()
 {
-  int n;
-  cin >> n;
+  int n = 5;
+  vector<int> d(n);
+  rep(i,n) cin >> d[i];
+  vector<int> ans;
+  rep(bit,(1 << n)) {
+    int sum = 0;
+    // 3つ選ぶ処理をどうすればいいのか？
+    int count = 0;
+    rep(i,n) {
+      if (count==3) break;
+      if (bit & (1 << i)) {
+        sum += d[i];
+        count++;
+      }
+    }
+    if (count == 3) ans.push_back(sum);
+  }
+  sort(ans.rbegin(),ans.rend());
+  cout << ans[2] << endl;
   return 0;
 }

@@ -21,10 +21,16 @@ using G = vector<vector<int>>;
 const double PI = acos(-1);
 const int MI = 10e8;
 const ll MLL = 1e18;
+// 8方向
+const vector<int> di = {-1, -1, 0, 0, 1, 1, 1, -1};
+const vector<int> dj = {0, 1, -1, 1, -1, 0, 1, -1};
 
 int main()
 {
   int n;
   cin >> n;
+  int ans = 0;
+  rrep(i,1,n+1) ans+=i;
+  cout << ans << endl;
   return 0;
 }

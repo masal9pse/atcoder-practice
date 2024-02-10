@@ -25,42 +25,36 @@ const ll MLL = 1e18;
 const vector<int> di = {-1, -1, 0, 0, 1, 1, 1, -1};
 const vector<int> dj = {0, 1, -1, 1, -1, 0, 1, -1};
 
+// 解説見た
+// 単純に N,N+1,…
+// と順々に試していって「Dをいずれも含まないもの」が初めて登場した時点でそれを出力する方法でいい
+set<int> d;
+bool isValid(int n) {
+  while (n)
+  {
+    if (d.count(n%10)) return false;
+    n /= 10;
+  }
+  return true;
+}
+
 int main()
 {
   int n, k;
   cin >> n >> k;
-  vector<char> d(k);
-  vector<bool> f(10, true);
-  rep(i, k)
-  {
-    cin >> d[i];
-    f[d[i] - '0'] = false;
+  rep(i,k) {
+    int a;
+    cin >> a;
+    d.insert(a);
   }
-  string ans;
-  string s = to_string(n);
-  rep(i, s.size()) rep(j, 10)
+  // for (int i = n;;i++)
+  while(1)
   {
-    if (s[i] == j + '0')
-    {
-      if (f[j]) {
-        ans += j + '0';
-        break;
-      }
-      // d[i]がfalseの場合、次のtrueのd[j]をansに加算したい。
-      else
-      {
-        for (int k = j + 1; k < 10; k++)
-        {
-          if (f[k])
-          {
-            ans += k + '0';
-            break;
-          }
-        }
-        break;        
-      }
+    if (isValid(n)) {
+      cout << n << endl;
+      return 0;
     }
+    n++;
   }
-  cout << ans << endl;
   return 0;
 }

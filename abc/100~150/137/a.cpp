@@ -21,10 +21,19 @@ using G = vector<vector<int>>;
 const double PI = acos(-1);
 const int MI = 10e8;
 const ll MLL = 1e18;
+// 8方向
+const vector<int> di = {-1, -1, 0, 0, 1, 1, 1, -1};
+const vector<int> dj = {0, 1, -1, 1, -1, 0, 1, -1};
 
 int main()
 {
-  int n;
-  cin >> n;
+  int A,B;
+  cin >> A >> B;
+  // int ans = a + b;
+  // ans = max(ans,a-b);
+  // ans = max(ans,a*b);
+  // C++のmaxだと2つの比較になるが、{}で与えてやるとリストで渡してくれるので、複数個の比較ができる。
+  int ans = max({ A + B, A - B, A * B }); 
+  cout << ans << endl;
   return 0;
 }

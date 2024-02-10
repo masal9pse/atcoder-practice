@@ -34,6 +34,7 @@ int main()
   
   // 2を節約する
   vector<ll> a(n);
+  rep(i,n) cin >> a[i];
   int ans = 0;
   rep(i,n) {
     while (a[i] % 2 == 0)

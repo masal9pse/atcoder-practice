@@ -21,18 +21,38 @@ using G = vector<vector<int>>;
 const double PI = acos(-1);
 const int MI = 10e8;
 const ll MLL = 1e18;
-// 8方向
-const vector<int> di = {-1, -1, 0, 0, 1, 1, 1, -1};
-const vector<int> dj = {0, 1, -1, 1, -1, 0, 1, -1};
 
 int main()
 {
-  ll n;
+  int t,n,m;
+  cin >> t;  
   cin >> n;
-  // 問題文の意味は分かったが、解く方針は全く
-  // グラフ？
-  // 解く時間とか
+  vector<int> a(n);
+  vector<bool> is_ate(105);
+  rep(i,n) cin >> a[i];
+  cin >> m;
+  vector<int> b(m);
+  vector<bool> is_solds(m);
+  rep(i,m) cin >> b[i];
 
-  // 解説見たら、分からんが最短経路問題というアルゴリズム使うみたい
+  rep(i,m) {
+    rep(j,n) {
+      if (is_ate[j]) continue;
+      if (b[i]-a[j] >= 0 && b[i]-a[j] <= t) {
+        is_solds[i] = true;
+        is_ate[j] = true;
+        break;
+      }
+    }
+  }
+
+  for (bool b:is_solds)
+  {
+    if (!b) {
+      cout << "no" << endl;
+      return 0;
+    }
+  }
+  cout << "yes" << endl;
   return 0;
 }

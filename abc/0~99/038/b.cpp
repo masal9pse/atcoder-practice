@@ -21,18 +21,18 @@ using G = vector<vector<int>>;
 const double PI = acos(-1);
 const int MI = 10e8;
 const ll MLL = 1e18;
-// 8方向
-const vector<int> di = {-1, -1, 0, 0, 1, 1, 1, -1};
-const vector<int> dj = {0, 1, -1, 1, -1, 0, 1, -1};
 
 int main()
 {
-  ll n;
-  cin >> n;
-  // 問題文の意味は分かったが、解く方針は全く
-  // グラフ？
-  // 解く時間とか
-
-  // 解説見たら、分からんが最短経路問題というアルゴリズム使うみたい
+  // 実装に悩む場合、20分考えて無理なら答え見る
+  // どちらも傾け可能なので、分岐でやっていけばいい 
+  // 初めに組み合わせの数の通りを4C2でやっておけば良かった。
+  int h1,w1,h2,w2;
+  cin >> h1 >> w1 >> h2 >> w2;
+  if (h1 == h2) cout << "YES" << endl;
+  else if (h1 == w2) cout << "YES" << endl;
+  else if (h2 == w1) cout << "YES" << endl;  
+  else if (w1 == w2) cout << "YES" << endl;  
+  else cout << "NO" << endl;
   return 0;
 }

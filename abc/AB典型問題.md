@@ -36,3 +36,8 @@
   - これも考察が進んでいるからできる
 - 数値を循環させたい場合はmodを使う 
   時間に関する問題、配列の操作等によく出る
+
+グリッドの回転の問題
+https://zenn.dev/koyanagihitoshi/books/atcoder-classification-6/viewer/12-3-1
+
+charの数字をintに直す場合は、'0'を引く

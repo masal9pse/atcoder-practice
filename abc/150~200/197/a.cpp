@@ -24,7 +24,8 @@ const ll MLL = 1e18;
 
 int main()
 {
-  int n;
-  cin >> n;
+  string s;
+  cin >> s;
+  cout << s[1] << s[2] << s[0] << endl;
   return 0;
 }

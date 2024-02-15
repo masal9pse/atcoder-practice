@@ -58,5 +58,13 @@ int main()
   */
   int n;
   cin >> n;
+  vector<int> f(n+1);
+  // f[2]を2にするための調整
+  f[0] = 1;
+  f[1] = 1;
+  rrep(i,2,n+1) {
+    f[i] = f[i-2] + f[i-1];
+  }
+  cout << f[n] << endl;
   return 0;
 }

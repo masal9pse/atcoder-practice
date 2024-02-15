@@ -48,8 +48,6 @@ int main()
   復習
     解説記事見たメモ article
       理解すること＋どうやったらその問題を初見で解けるか考える
-      解説読んで大方理解できるが、落とし込みが面倒な時
-        写経での解説ACでいい、ただし理解が9割できてからACすること
     解説動画見たメモ video
     コーナーケース　細かいコーナーケースをここに記載
     参考記事リンク    
@@ -58,5 +56,13 @@ int main()
   */
   int n;
   cin >> n;
+  vector<int> a(n);
+  rep(i,n) cin >> a[i];
+  sort(a.rbegin(),a.rend());
+  ll aliceP = 0;
+  ll bobP = 0;
+  for (int i = 0; i < n; i+=2) aliceP+=a[i];
+  for (int i = 1; i < n; i+=2) bobP+=a[i];
+  cout << aliceP - bobP << endl;
   return 0;
 }

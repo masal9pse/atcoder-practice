@@ -58,5 +58,13 @@ int main()
   */
   int n;
   cin >> n;
+  vector<int> a(n),t(n);
+  rep(i,n) cin >> a[i];
+  t[0] = 0;
+  t[1] = a[1];
+  rrep(i,2,n) {
+    t[i] = min(t[i-1]+a[i],t[i-2] + a[i]*2);
+  }
+  cout << t[n-1] << endl;
   return 0;
 }

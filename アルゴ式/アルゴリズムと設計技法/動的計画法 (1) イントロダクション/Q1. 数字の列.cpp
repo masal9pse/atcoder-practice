@@ -56,7 +56,14 @@ int main()
     関連キーワード　使用アルゴリズムか考え方等を記載して、コンテスト本番で検索できるようにする
       ex: 全探索
   */
-  int n;
-  cin >> n;
+  int n,x,y;
+  cin >> n >> x >> y;
+  vector<int> a(n);
+  a[0] = x;
+  a[1] = y;
+  rrep(i,2,n) {
+    a[i] = (a[i-2] + a[i-1])%100;
+  }
+  cout << a[n-1] << endl;
   return 0;
 }

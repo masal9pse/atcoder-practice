@@ -56,7 +56,22 @@ int main()
     関連キーワード　使用アルゴリズムか考え方等を記載して、コンテスト本番で検索できるようにする
       ex: 全探索
   */
-  int n;
-  cin >> n;
+  int n,m;
+  cin >> n >> m;
+  vector<int> a(n-1);
+  rep(i,n-1) cin >> a[i];
+  // N × M のマスを用意する
+  vector<vector<bool>> dp(n, vector<bool>(m));
+  dp[0][0] = true;
+  rep(i,n-1) rep(j,m) {
+    if (!dp[i][j]) continue;
+    dp[i+1][j] = true;
+    if (j+a[i] < m) dp[i+1][j+a[i]] = true;
+  }
+  int res = 0;
+  rep(i,m) {
+    if (dp[n-1][i]) res++;
+  }
+  cout << res << endl;
   return 0;
 }

@@ -56,7 +56,11 @@ int main()
     関連キーワード　使用アルゴリズムか考え方等を記載して、コンテスト本番で検索できるようにする
       ex: 全探索
   */
-  int n;
-  cin >> n;
+  int x,a,b;
+  cin >> x >> a >> b;
+  int ate = 0 - a + b;
+  if (ate <= 0) cout << "delicious" << endl;
+  if (0 < ate && ate <= x) cout << "safe" << endl;
+  else if (x + 1 <= ate) cout << "dangerous" << endl;
   return 0;
 }

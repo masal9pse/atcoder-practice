@@ -16,6 +16,7 @@ using namespace std;
 using ll = long long;
 template<class T> using P = pair<T, T>;
 using G = vector<vector<int>>;
+using DP = vector<vector<int>>;
 #define rep(i, n) for (int i = 0; i < n; i++)
 #define rrep(i,j, n) for (int i = j; i < n; i++)
 const double PI = acos(-1);
@@ -30,6 +31,7 @@ int main()
     過去問を解く際は、一旦1,2分問題を見る。解法が思いつかなければ解説をちょろっとみて使用アルゴリズム等の確認を
     してから再チャレンジしていい。
     問題文の理解 read
+      自力AC
     解き方探り、考察 plan
     コード落とし込み方針決め
     疑問点
@@ -56,7 +58,16 @@ int main()
     関連キーワード　使用アルゴリズムか考え方等を記載して、コンテスト本番で検索できるようにする
       ex: 全探索
   */
-  int n;
-  cin >> n;
+  int n = 4;
+  DP dp(n,vector<int>(n));
+  rep(i,n) cin >> dp[0][i];
+  rrep(i,1,n) rep(j,n) {
+    // 細かい配列ガイ参照の判定をしないために配列を余分に確保する番兵法というやり方がある
+    // 今回ならn == 6にすればいい
+    if (j >= 1) dp[i][j]+=dp[i-1][j-1];
+    dp[i][j]+=dp[i-1][j];
+    if (j < n-1) dp[i][j]+=dp[i-1][j+1];
+  }
+  cout << dp[n-1][n-1] << endl;
   return 0;
 }

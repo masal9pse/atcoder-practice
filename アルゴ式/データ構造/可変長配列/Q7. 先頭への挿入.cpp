@@ -10,6 +10,7 @@
 #include <cassert>
 #include <stack>
 #include <queue>
+#include <deque>
 using namespace std;
 using ll = long long;
 // using P = pair<int, int>;
@@ -32,17 +33,32 @@ const vector<int> dj = {0, 1, -1, 1, -1, 0, 1, -1};
 
 int main()
 {
-  vector<int> d = {3,1,4,1,5,9,2,6,5,3};
-  int q;
+  int n, q;
+  cin >> n;
+  vector<int> a(n);
+  rep(i, n) cin >> a[i];
   cin >> q;
-  rep(i,q) {
-    int type,k;
-    cin >> type >> k;
-    if (type == 0) cout << d[k] << endl;
-    else {
+  // push_front,pop_frontなのでreverseすればいける
+  reverse(a.begin(),a.end());
+  rep(i, q)
+  {
+    int type;
+    cin >> type;
+    if (type == 0)
+    {
       int v;
       cin >> v;
-      d[k] = v;
+      a.push_back(v);
+    }
+    else
+    {
+      if (a.empty())
+        cout << "Error" << endl;
+      else
+      {
+        cout << a.back() << endl;
+        a.pop_back();
+      }
     }
   }
   return 0;

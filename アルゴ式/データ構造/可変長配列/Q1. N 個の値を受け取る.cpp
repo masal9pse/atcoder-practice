@@ -10,6 +10,7 @@
 #include <cassert>
 #include <stack>
 #include <queue>
+#include <deque>
 using namespace std;
 using ll = long long;
 // using P = pair<int, int>;
@@ -32,18 +33,24 @@ const vector<int> dj = {0, 1, -1, 1, -1, 0, 1, -1};
 
 int main()
 {
-  vector<int> d = {3,1,4,1,5,9,2,6,5,3};
-  int q;
-  cin >> q;
-  rep(i,q) {
-    int type,k;
-    cin >> type >> k;
-    if (type == 0) cout << d[k] << endl;
-    else {
-      int v;
-      cin >> v;
-      d[k] = v;
-    }
-  }
+  /*
+    全て目安20m　ただ手が動くうちはエンドレスでやる。これによってコンテスト本番の粘りACや思考力のupにつながる
+    問題文の理解 read
+    実装方針決め plan
+    実装 do
+    ３つのパートに分け、それぞれに時間制限を設けることで以下のメリットがある
+     - すぐに解説を見てしまう癖を防止できる
+     - １問に何時間も粘りすぎてしまう問題を防止できる
+
+    解説記事見た article
+      理解すること＋どうやったらその問題を初見で解けるか考える
+    解説動画見た video
+  */
+  int n,k;
+  cin >> n >> k;
+  vector<int> a(n);
+  rep(i, n) cin >> a[i];
+  cout << a[k] << endl;
+  cout << a[n-k-1] << endl;
   return 0;
 }

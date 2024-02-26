@@ -20,7 +20,16 @@ using G = vector<vector<int>>;
 #define rrep(i,j, n) for (int i = j; i < n; i++)
 const double PI = acos(-1);
 const int MI = 10e8;
-const ll MLL = 1e18;
+const ll MLL = 1e9+7;
+
+ll f(ll k){
+    ll sum = 1;
+    for (int i = 1; i <= k; ++i)
+    {
+        sum *= i;
+    }
+    return sum;
+}
 
 int main()
 {
@@ -31,6 +40,7 @@ int main()
     してから再チャレンジしていい。
     問題文の理解 read
     解き方探り、考察 plan
+      分からん、検討がつかない
     コード落とし込み方針決め
     疑問点
       大体、解き方探りとコード落とし込み方針決めで詰まるのでその下にこれを置いておく。
@@ -50,17 +60,22 @@ int main()
       理解すること＋どうやったらその問題を初見で解けるか考える
       解説読んで大方理解できるが、落とし込みが面倒な時
         写経での解説ACでいい、ただし理解が9割できてからACすること
+        |n-m| >= 2であれば0を出力
+        |n-m| == 0
+        |n-m| == 1
+        ケース4のオーバーフロー
+
     解説動画見たメモ video
     コーナーケース　細かいコーナーケースをここに記載
     参考記事リンク    
     関連キーワード　使用アルゴリズムか考え方等を記載して、コンテスト本番で検索できるようにする
       ex: 全探索
   */
-  int x,a,b;
-  cin >> x >> a >> b;
-  int ate = 0 - a + b;
-  if (ate <= 0) cout << "delicious" << endl;
-  if (0 < ate && ate <= x) cout << "safe" << endl;
-  else if (x + 1 <= ate) cout << "dangerous" << endl;
+  ll n,m;
+  cin >> n >> m;
+  int v = abs(n-m);
+  if (v >= 2) cout << 0 << endl;
+  else if (v == 1) cout << f(n) * f(m)%MLL << endl;
+  else cout << 2 * f(n) * f(m)%MLL << endl;;
   return 0;
 }

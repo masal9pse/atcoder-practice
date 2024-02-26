@@ -15,6 +15,8 @@
 using namespace std;
 using ll = long long;
 template<class T> using P = pair<T, T>;
+template<typename T> bool chmax(T &a, T b) { return ((a < b) ? (a = b, true) : (false)); }
+template<typename T> bool chmin(T &a, T b) { return ((a > b) ? (a = b, true) : (false)); }
 using G = vector<vector<int>>;
 #define rep(i, n) for (int i = 0; i < n; i++)
 #define rrep(i,j, n) for (int i = j; i < n; i++)
@@ -31,8 +33,7 @@ int main()
     してから再チャレンジしていい。
     問題文の理解 read
     解き方探り、考察 plan
-      どのボタンおせばいいか分からんかったが、
-      初めはボタン1のみ光っているのでシミュレーションかな
+      |i - iの個数| O(N)
     コード落とし込み方針決め
     疑問点
       大体、解き方探りとコード落とし込み方針決めで詰まるのでその下にこれを置いておく。
@@ -52,7 +53,6 @@ int main()
       理解すること＋どうやったらその問題を初見で解けるか考える
       解説読んで大方理解できるが、落とし込みが面倒な時
         写経での解説ACでいい、ただし理解が9割できてからACすること
-        解説見てもわからなかったので一旦飛ばし
     解説動画見たメモ video
     コーナーケース　細かいコーナーケースをここに記載
     参考記事リンク    
@@ -62,16 +62,18 @@ int main()
   int n;
   cin >> n;
   vector<int> a(n);
+  map<int,int> cnt;
   rep(i,n) cin >> a[i];
-  rep(i,n) --a[i];
-  int cur = 0;
-  rep(i,n) {       
-    cur = a[i];
-    if (cur ==) {
-      cout << i+1 << endl;
-      return 0;
-    }
+  rep(i,n) cnt[a[i]]++;
+  // 勘違いしてた。
+  // 3が1,2個で4が4個なら4も消すものだと思ってた
+  int ans = 0;
+  for (auto p:cnt)
+  {
+    if (p.first == p.second) continue;
+    if (p.first > p.second) ans+=p.second;
+    if (p.first < p.second) ans+=p.second-p.first;
   }
-  cout << -1 << endl;
+  cout << ans << endl;
   return 0;
 }

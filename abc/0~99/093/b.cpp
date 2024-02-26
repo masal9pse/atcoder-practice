@@ -17,7 +17,7 @@ using ll = long long;
 template<class T> using P = pair<T, T>;
 using G = vector<vector<int>>;
 #define rep(i, n) for (int i = 0; i < n; i++)
-#define rrep(i,j, n) for (int i = j; i < n; i++)
+#define rrep(i,j, n) for (int i = j; i <= n; i++)
 const double PI = acos(-1);
 const int MI = 10e8;
 const ll MLL = 1e18;
@@ -54,7 +54,12 @@ int main()
     関連キーワード　使用アルゴリズムか考え方等を記載して、コンテスト本番で検索できるようにする
       ex: 全探索
   */
-  int n;
-  cin >> n;
+  int a,b,k;
+  cin >> a >> b >> k;
+  // a[i+n]まで出力
+  // a[n-i]まで出力
+  // 上記をセットに詰める
+  rrep(i,a,min(b,a+k-1)) cout << i << endl;
+  for (int i = max(b-k+1,a+k); i <= b; i++) cout << i << endl;
   return 0;
 }

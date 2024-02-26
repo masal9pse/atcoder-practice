@@ -19,7 +19,6 @@ using P = pair<T, T>;
 using G = vector<vector<int>>;
 #define rep(i, n) for (int i = 0; i < n; i++)
 #define rrep(i, j, n) for (int i = j; i < n; i++)
-#define all(x) (x).begin(), (x).end()
 const double PI = acos(-1);
 const int MI = 10e8;
 const ll MLL = 1e18;
@@ -33,9 +32,7 @@ int main()
    してから再チャレンジしていい。
    問題文の理解 read
    解き方探り、考察 plan
-     K=5なので、文字列の長さが必ず5以下である
-     sの各文字から5文字までつながった文字をsetに入れる
-     
+     findはO(|S|)かかるからO(N)
    コード落とし込み方針決め
    疑問点
      大体、解き方探りとコード落とし込み方針決めで詰まるのでその下にこれを置いておく。
@@ -56,31 +53,39 @@ int main()
      解説読んで大方理解できるが、落とし込みが面倒な時
        写経での解説ACでいい、ただし理解が9割できてからACすること
 
-     全ての連続部分列を列挙してソートした5番目というのは、文字列の長さが必ず5以下になっている。
-     ソートして、最初の５文字を列挙
+       問題なのは、前から読むと "dream" が "dreamer" に完全に被っていること(これを、prefixという)
+       後ろから読むと上記の問題を解消できる。
    解説動画見たメモ video
    コーナーケース　細かいコーナーケースをここに記載
    参考記事リンク
+     https://qiita.com/drken/items/fd4e5e3630d0f5859067#%E7%AC%AC-9-%E5%95%8F--abc-049-c---daydream-300-%E7%82%B9
    関連キーワード　使用アルゴリズムか考え方等を記載して、コンテスト本番で検索できるようにする
      ex: 全探索
  */
   string s;
   cin >> s;
-  int k;
-  cin >> k;
+  vector<string> divide = {"dream", "dreamer", "erase", "eraser"};
   int n = s.size();
-  set<string> ans;
-  rep(i, n) rrep(j, 1, 6) ans.insert(s.substr(i, j));  
-  int count = 0;
-  for (string t : ans)
+  reverse(s.begin(), s.end());
+  rep(i, 4) reverse(divide[i].begin(), divide[i].end());
+  for (int i = 0; i < n;)
   {
-    if (count == k - 1)
+    bool can = false;
+    rep(j, 4)
     {
-      cout << t << endl;
+      int size = divide[j].size();
+      if (s.substr(i, size) == divide[j])
+      {
+        can = true;
+        i += size;
+      }
+    }
+    if (!can)
+    {
+      cout << "NO" << endl;
       return 0;
     }
-    else
-      count++;
   }
+  cout << "YES" << endl;
   return 0;
 }

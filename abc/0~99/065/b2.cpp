@@ -25,10 +25,21 @@ const double PI = acos(-1);
 const int MI = 10e8;
 const ll MLL = 1e18;
 
+int N, A[101010];
+
 int main()
 {
-  // 実装に悩む場合、20分考えて無理なら答え見る
-  int n;
-  cin >> n;
+  // シミュレーション
+  cin >> N;
+  rrep(i,1,N+1) cin >> A[i];
+  int cur = 1;
+  rep(i,101010){
+    cur = A[cur];
+    if (cur == 2) {
+      cout << i+1 << endl;
+      return 0;
+    }
+  }
+  cout << -1 << endl;
   return 0;
 }

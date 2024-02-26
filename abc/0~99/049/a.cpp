@@ -22,21 +22,12 @@ using G = vector<vector<int>>;
 const double PI = acos(-1);
 const int MI = 10e8;
 const ll MLL = 1e18;
-// 4方向
-// int di[4] = {1, 0, -1, 0};
-// int dj[4] = {0, 1, 0, -1};
-
-// 8方向
-const vector<int> di = {-1, -1, 0, 0, 1, 1, 1, -1};
-const vector<int> dj = {0, 1, -1, 1, -1, 0, 1, -1};
 
 int main()
 {
-  int d;
-  cin >> d;
-  if (d == 25) cout << "Christmas" << endl;
-  if (d == 24) cout << "Christmas Eve" << endl;
-  if (d == 23) cout << "Christmas Eve Eve" << endl;
-  if (d == 22) cout << "Christmas Eve Eve Eve" << endl;
+  char c;
+  cin >> c;
+  if (c == 'a' || c == 'e'|| c == 'i' || c == 'o' || c == 'u') cout << "vowel" << endl;
+  else cout << "consonant" << endl;
   return 0;
 }

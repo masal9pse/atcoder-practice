@@ -15,20 +15,29 @@
 using namespace std;
 using ll = long long;
 template<class T> using P = pair<T, T>;
-template<typename T> bool chmax(T &a, T b) { return ((a < b) ? (a = b, true) : (false)); }
-template<typename T> bool chmin(T &a, T b) { return ((a > b) ? (a = b, true) : (false)); }
 using G = vector<vector<int>>;
 #define rep(i, n) for (int i = 0; i < n; i++)
 #define rrep(i,j, n) for (int i = j; i < n; i++)
-#define all(x) (x).begin(), (x).end()
 const double PI = acos(-1);
 const int MI = 10e8;
 const ll MLL = 1e18;
 
 int main()
 {
-  // 実装に悩む場合、20分考えて無理なら答え見る
   int n;
-  cin >> n;
+  string t;
+  cin >> n >> t;
+  int ans = 0;
+  rep(i,n) {
+    int m;
+    cin >> m;
+    rep(j,m) {
+      string s;
+      cin >> s;
+      if (s == t) ans++;
+    }
+  }
+  // cout << "\n" << endl;
+  cout << ans << endl;
   return 0;
 }

@@ -26,9 +26,9 @@ const int MI = 10e8;
 const ll MLL = 1e18;
 
 int main()
-{
-  // 実装に悩む場合、20分考えて無理なら答え見る
-  int n;
-  cin >> n;
+{  
+  int a,b;
+  cin >> a >> b;
+  cout << max({a+b,a-b,a*b}) << endl;
   return 0;
 }

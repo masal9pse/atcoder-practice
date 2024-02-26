@@ -31,8 +31,8 @@ int main()
     してから再チャレンジしていい。
     問題文の理解 read
     解き方探り、考察 plan
-      どのボタンおせばいいか分からんかったが、
-      初めはボタン1のみ光っているのでシミュレーションかな
+      ２次元配列で管理
+      友達の要素番号の自分以外をソートして出力
     コード落とし込み方針決め
     疑問点
       大体、解き方探りとコード落とし込み方針決めで詰まるのでその下にこれを置いておく。
@@ -52,26 +52,29 @@ int main()
       理解すること＋どうやったらその問題を初見で解けるか考える
       解説読んで大方理解できるが、落とし込みが面倒な時
         写経での解説ACでいい、ただし理解が9割できてからACすること
-        解説見てもわからなかったので一旦飛ばし
     解説動画見たメモ video
     コーナーケース　細かいコーナーケースをここに記載
     参考記事リンク    
     関連キーワード　使用アルゴリズムか考え方等を記載して、コンテスト本番で検索できるようにする
       ex: 全探索
   */
-  int n;
-  cin >> n;
-  vector<int> a(n);
-  rep(i,n) cin >> a[i];
-  rep(i,n) --a[i];
-  int cur = 0;
-  rep(i,n) {       
-    cur = a[i];
-    if (cur ==) {
-      cout << i+1 << endl;
-      return 0;
-    }
+  int n,m;
+  cin >> n >> m;
+  vector<vector<int>> f(n+1);
+  rep(i,m) {
+    int a,b;
+    cin >> a >> b;
+    f[a].push_back(b);
+    f[b].push_back(a);
   }
-  cout << -1 << endl;
+  rrep(v,1,n+1) {
+    set<int> st;
+    for(int i:f[v]) for(int j:f[i]) st.insert(j);
+
+    // まず友達と自分自身をセットに格納してから削除する
+    st.erase(v);
+    for(int i:f[v]) st.erase(i);
+    cout << st.size() << endl;
+  }
   return 0;
 }

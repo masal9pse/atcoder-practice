@@ -15,12 +15,17 @@
 using namespace std;
 using ll = long long;
 template<class T> using P = pair<T, T>;
+template<typename T> bool chmax(T &a, T b) { return ((a < b) ? (a = b, true) : (false)); }
+template<typename T> bool chmin(T &a, T b) { return ((a > b) ? (a = b, true) : (false)); }
 using G = vector<vector<int>>;
 #define rep(i, n) for (int i = 0; i < n; i++)
 #define rrep(i,j, n) for (int i = j; i < n; i++)
+#define all(x) (x).begin(), (x).end()
 const double PI = acos(-1);
 const int MI = 10e8;
 const ll MLL = 1e18;
+
+int E[301010], W[301010];
 
 int main()
 {
@@ -31,8 +36,10 @@ int main()
     してから再チャレンジしていい。
     問題文の理解 read
     解き方探り、考察 plan
-      どのボタンおせばいいか分からんかったが、
-      初めはボタン1のみ光っているのでシミュレーションかな
+      w,eの個数をそれぞれ求めて、少ない方の個数を出力
+      それだとケース1が合わない
+
+      問題文読み違えてた
     コード落とし込み方針決め
     疑問点
       大体、解き方探りとコード落とし込み方針決めで詰まるのでその下にこれを置いておく。
@@ -52,7 +59,12 @@ int main()
       理解すること＋どうやったらその問題を初見で解けるか考える
       解説読んで大方理解できるが、落とし込みが面倒な時
         写経での解説ACでいい、ただし理解が9割できてからACすること
-        解説見てもわからなかったので一旦飛ばし
+        
+        i番目をリーダーとして全探索する
+        i番目をリーダーとすると、1~i-1番目が西(W)の場合、東(E)に変える必要がある。
+        i+1~N番目が東(E)の時、西(W)に変える必要がある。
+        これを
+
     解説動画見たメモ video
     コーナーケース　細かいコーナーケースをここに記載
     参考記事リンク    
@@ -61,17 +73,25 @@ int main()
   */
   int n;
   cin >> n;
-  vector<int> a(n);
-  rep(i,n) cin >> a[i];
-  rep(i,n) --a[i];
-  int cur = 0;
-  rep(i,n) {       
-    cur = a[i];
-    if (cur ==) {
-      cout << i+1 << endl;
-      return 0;
-    }
+  string s;
+  cin >> s;
+  rep(i,n) {
+    if (s[i] == 'E') E[i] = 1;
+    else W[i] = 1;
   }
-  cout << -1 << endl;
+  rrep(i,1,n) {
+   W[i] += W[i-1];
+   E[i] += E[i-1];
+  }
+  int ans = MI;
+  rep(i,n) {
+    int sm = 0;
+    if(i) sm += W[i-1];
+    sm += E[n-1] - E[i];
+    // chmin(ans,sm);
+    // うーん、chminの方が早いけどこれでもよくないか
+    ans = min(ans,sm);
+  }
+  cout << ans << endl;
   return 0;
 }

@@ -19,7 +19,6 @@ using P = pair<T, T>;
 using G = vector<vector<int>>;
 #define rep(i, n) for (int i = 0; i < n; i++)
 #define rrep(i, j, n) for (int i = j; i < n; i++)
-#define all(x) (x).begin(), (x).end()
 const double PI = acos(-1);
 const int MI = 10e8;
 const ll MLL = 1e18;
@@ -33,9 +32,8 @@ int main()
    してから再チャレンジしていい。
    問題文の理解 read
    解き方探り、考察 plan
-     K=5なので、文字列の長さが必ず5以下である
-     sの各文字から5文字までつながった文字をsetに入れる
-     
+     s[i]から順番にルールを適応するのではなく、一気に1ステップ経過する。
+     そのためsを1ステップごとにコピーする
    コード落とし込み方針決め
    疑問点
      大体、解き方探りとコード落とし込み方針決めで詰まるのでその下にこれを置いておく。
@@ -55,32 +53,76 @@ int main()
      理解すること＋どうやったらその問題を初見で解けるか考える
      解説読んで大方理解できるが、落とし込みが面倒な時
        写経での解説ACでいい、ただし理解が9割できてからACすること
-
-     全ての連続部分列を列挙してソートした5番目というのは、文字列の長さが必ず5以下になっている。
-     ソートして、最初の５文字を列挙
    解説動画見たメモ video
    コーナーケース　細かいコーナーケースをここに記載
    参考記事リンク
    関連キーワード　使用アルゴリズムか考え方等を記載して、コンテスト本番で検索できるようにする
      ex: 全探索
  */
-  string s;
-  cin >> s;
-  int k;
-  cin >> k;
-  int n = s.size();
-  set<string> ans;
-  rep(i, n) rrep(j, 1, 6) ans.insert(s.substr(i, j));  
-  int count = 0;
-  for (string t : ans)
+  int n, x;
+  cin >> n >> x;
+  vector<string> s(n);
+  rep(i, n) cin >> s[i];
+  vector<string> a = s;
+  rep(qi, x)
   {
-    if (count == k - 1)
+    rep(i, n) rep(j, n)
     {
-      cout << t << endl;
-      return 0;
+      int count = 0;
+      // 上
+      if (i > 0)
+        if (s[i - 1][j] == '#')
+          count++;
+      // 下
+      if (i < n - 1)
+        if (s[i + 1][j] == '#')
+          count++;
+      // 右
+      if (j < n - 1)
+        if (s[i][j + 1] == '#')
+          count++;
+      // 左
+      if (j > 0)
+        if (s[i][j - 1] == '#')
+          count++;
+      // 左上
+      if (i > 0 && j > 0)
+        if (s[i - 1][j - 1] == '#')
+          count++;
+      // 右上
+      if (i > 0 && j < n - 1)
+        if (s[i - 1][j + 1] == '#')
+          count++;
+      // 左下
+      if (i < n - 1 && j > 0)
+        if (s[i + 1][j - 1] == '#')
+          count++;
+      // 右下
+      if (i < n - 1 && j < n - 1)
+        if (s[i + 1][j + 1] == '#')
+          count++;
+
+      // ルール
+      if (a[i][j] == '.')
+      {
+        if (count == 3)
+          a[i][j] = '#';
+      }
+      else
+      {
+        if (count <= 1)
+          a[i][j] = '.';
+        if (count >= 4)
+          a[i][j] = '.';
+      }
     }
-    else
-      count++;
+    // 最後
+    s = a;
+    int kk = 2;
   }
+  // cout << "\n"
+  //      << endl;
+  for (string t : s)
+    cout << t << endl;
   return 0;
 }

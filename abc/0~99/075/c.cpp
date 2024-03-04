@@ -14,12 +14,15 @@
 #include <numeric>
 using namespace std;
 using ll = long long;
-template<class T> using P = pair<T, T>;
-template<typename T> bool chmax(T &a, T b) { return ((a < b) ? (a = b, true) : (false)); }
-template<typename T> bool chmin(T &a, T b) { return ((a > b) ? (a = b, true) : (false)); }
+template <class T>
+using P = pair<T, T>;
+template <typename T>
+bool chmax(T &a, T b) { return ((a < b) ? (a = b, true) : (false)); }
+template <typename T>
+bool chmin(T &a, T b) { return ((a > b) ? (a = b, true) : (false)); }
 using G = vector<vector<int>>;
 #define rep(i, n) for (int i = 0; i < n; i++)
-#define rrep(i,j, n) for (int i = j; i < n; i++)
+#define rrep(i, j, n) for (int i = j; i < n; i++)
 #define all(x) (x).begin(), (x).end()
 const double PI = acos(-1);
 const int MI = 10e8;
@@ -33,7 +36,13 @@ int main()
     過去問を解く際は、一旦1,2分問題を見る。解法が思いつかなければ解説をちょろっとみて使用アルゴリズム等の確認を
     してから再チャレンジしていい。
     問題文の理解 read
+      橋であるとは、その辺を除去したときに、グラフが連結でなくなることを指す
     解き方探り、考察 plan
+      dfsで紐付けが1のノードであれば+1する
+      橋の定義がビミョいな
+
+      隣接行列と隣接リストの違い
+        https://atcoder.jp/contests/abc276/editorial/5159
     コード落とし込み方針決め
     疑問点
       大体、解き方探りとコード落とし込み方針決めで詰まるのでその下にこれを置いておく。
@@ -51,13 +60,38 @@ int main()
       理解すること＋どうやったらその問題を初見で解けるか考える
       解説読んで大方理解できるが、落とし込みが面倒な時
         写経での解説ACでいい、ただし理解が9割できてからACすること
+
     解説動画見たメモ video
     コーナーケース　細かいコーナーケースをここに記載
-    参考記事リンク    
+    参考記事リンク
     関連キーワード　使用アルゴリズムか考え方等を記載して、コンテスト本番で検索できるようにする
-      ex: 全探索
+      ex:　グラフ　連結であるかを判定 橋
   */
-  int n;
-  cin >> n;
-  return 0;
+
+  int n, m;
+  cin >> n >> m;
+  G g(n,vector<int>(m))
+  G g(n);
+  rep(i, m)
+  {
+    int a, b;
+    cin >> a >> b;
+    a--, b--;
+    g[a].push_back(b);
+    g[b].push_back(a);
+  }
+  vector<bool> seen(n);
+  int ans = 0;
+  auto f = [&](auto f, int v) -> void
+  {    
+    seen[v] = true;    
+    for (int v2 : g[v])
+    {
+      if (seen[v2])
+        continue;
+      f(f, v2);
+    }
+  };
+  f(f, 0);
+  // cout << ans << endl;
 }

@@ -58,9 +58,20 @@ int main()
     コーナーケース　細かいコーナーケースをここに記載
     参考記事リンク    
     関連キーワード　使用アルゴリズムか考え方等を記載して、コンテスト本番で検索できるようにする
-      ex: 全探索
+      ex: 典型的な貪欲法
   */
-  int n;
-  cin >> n;
+  ll n,m;
+  cin >> n >> m;
+  vector<P<ll>> p(n);
+  rep(i,n) cin >> p[i].first >> p[i].second;
+  sort(all(p));
+  ll ans = 0;
+  rep(i,n) {
+    if (m == 0) break;
+    ll t = min(m,p[i].second);
+    m -= t;
+    ans += p[i].first * t;
+  }
+  cout << ans << endl;
   return 0;
 }

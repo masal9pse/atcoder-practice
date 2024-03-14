@@ -27,13 +27,12 @@ const ll MLL = 1e18;
 
 int main()
 {
-  /*
-  提出前チェックリスト
-  　- 簡単な問題でも制約は必ずチェック、これによって無駄な実装時間が減る
-  メモ
-  わからない点まとめ   
-  */
   int n;
   cin >> n;
+  int task = 0;
+  int ans = 0;
+  rrep(i,1,n+1) ans += i * 10000;
+  // cout << ans/n << endl;
+  cout << ans/n << endl;
   return 0;
 }

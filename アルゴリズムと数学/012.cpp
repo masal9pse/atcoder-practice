@@ -27,13 +27,16 @@ const ll MLL = 1e18;
 
 int main()
 {
-  /*
-  提出前チェックリスト
-  　- 簡単な問題でも制約は必ずチェック、これによって無駄な実装時間が減る
-  メモ
-  わからない点まとめ   
-  */
-  int n;
+  // 素数判定
+  ll n;
   cin >> n;
+  for (ll i = 2; i * i <= n; i++)
+  {
+    if (n%i == 0) {
+      cout << "No" << endl;
+      return 0;
+    }
+  }
+  cout << "Yes" << endl;
   return 0;
 }

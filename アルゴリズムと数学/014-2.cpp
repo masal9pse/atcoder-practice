@@ -27,13 +27,28 @@ const ll MLL = 1e18;
 
 int main()
 {
-  /*
-  提出前チェックリスト
-  　- 簡単な問題でも制約は必ずチェック、これによって無駄な実装時間が減る
-  メモ
-  わからない点まとめ   
+  /*  
+    関連キーワード　使用アルゴリズムか考え方等を記載して、コンテスト本番で検索できるようにする
+      ex: 素因数分解
   */
-  int n;
+  ll n;
   cin >> n;
+  // 区切り用のフラグ
+  bool flag = false;
+  for (ll i = 2; i*i <= n; i++)
+  {
+    while (n % i == 0)
+    {
+      if (flag) cout << " ";
+      flag = true;
+      n /= i;
+      cout << i;
+    }
+  }
+  if (n >= 2) {
+    if (flag) cout << " ";
+    flag = true;
+    cout << n;
+  }
   return 0;
 }

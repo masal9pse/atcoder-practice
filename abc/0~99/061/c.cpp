@@ -35,6 +35,8 @@ int main()
     問題文の理解
       制約次第では、実装が楽になることがあるのでAでも必ず見る。
     解き方探り
+      vectorの限界個数を見たい
+
     計算量見積もり
     コード落とし込み方針決め
     疑問点
@@ -60,9 +62,23 @@ int main()
     参考記事リンク    
     関連キーワード　使用アルゴリズムか考え方等を記載して、コンテスト本番で検索できるようにする
       ex: 全探索
-    ステータス　自力ACか解説ACか、まだ理解できてないのか書く
   */
   int n;
-  cin >> n;
+  ll k;
+  cin >> n >> k;
+  vector<P<int>> a(n);
+  rep(i,n) cin >> a[i].first >> a[i].second;
+  sort(all(a));
+  ll sum = 0;
+  int res = 0;
+  rep(i,n) {
+    sum += a[i].second;
+    if (sum >= k) {
+    //  cout << a[i].first << endl;
+     res = a[i].first;
+     break;
+    }
+  }
+  cout << res << endl;
   return 0;
 }

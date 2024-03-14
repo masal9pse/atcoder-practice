@@ -25,15 +25,38 @@ const double PI = acos(-1);
 const int MI = 10e8;
 const ll MLL = 1e18;
 
+vector<P<ll>> prime_factorize(ll n) {
+  vector<P<ll>> res;
+  for (ll p = 2; p <= n; p++)
+  {
+    if (n % p != 0) continue;
+    int e = 0;
+    while (n%p == 0)
+    {
+      e++;
+      n/=p;
+    }
+    res.emplace_back(p,e);
+  }
+  if (n != 1) res.emplace_back(n,1);
+  return res;
+}
+
 int main()
 {
-  /*
-  提出前チェックリスト
-  　- 簡単な問題でも制約は必ずチェック、これによって無駄な実装時間が減る
-  メモ
-  わからない点まとめ   
+  /*  
+    関連キーワード　使用アルゴリズムか考え方等を記載して、コンテスト本番で検索できるようにする
+      ex: 素因数分解
   */
-  int n;
+  ll n;
   cin >> n;
+  const auto& pf = prime_factorize(n);
+  for(auto [p,e]: pf) {
+    for (int i = 0; i < e; i++)
+    {
+      cout << p << " ";
+    }
+  }
+  cout << endl;
   return 0;
 }

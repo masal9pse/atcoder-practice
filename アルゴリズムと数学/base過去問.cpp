@@ -11,40 +11,38 @@
 #include <stack>
 #include <queue>
 #include <deque>
+#include <numeric>
 using namespace std;
 using ll = long long;
-// using P = pair<int, int>;
-template <class T>
-using P = pair<T, T>;
+template<class T> using P = pair<T, T>;
+template<typename T> bool chmax(T &a, T b) { return ((a < b) ? (a = b, true) : (false)); }
+template<typename T> bool chmin(T &a, T b) { return ((a > b) ? (a = b, true) : (false)); }
 using G = vector<vector<int>>;
 #define rep(i, n) for (int i = 0; i < n; i++)
-#define rep2(i, n) for (int i = 1; i <= n; i++)
-#define rep3(i, n) for (int i = 0; i <= n; i++)
+#define rrep(i,j, n) for (int i = j; i < n; i++)
+#define all(x) (x).begin(), (x).end()
 const double PI = acos(-1);
 const int MI = 10e8;
 const ll MLL = 1e18;
-// 4方向
-// int di[4] = {1, 0, -1, 0};
-// int dj[4] = {0, 1, 0, -1};
-
-// 8方向
-const vector<int> di = {-1, -1, 0, 0, 1, 1, 1, -1};
-const vector<int> dj = {0, 1, -1, 1, -1, 0, 1, -1};
 
 int main()
 {
+  // 実装に悩む場合、20分考えて無理なら答え見る
   /*
   問題回答中
-    全て目安20m　ただ手が動くうちはエンドレスでやる。これによってコンテスト本番の粘りACや思考力のupにつながる
+    過去問を解く際は、一旦1,2分問題を見る。解法が思いつかなければ解説をちょろっとみて使用アルゴリズム等の確認を
+    してから再チャレンジしていい。
     問題文の理解 read
-    実装方針決め plan
+      制約次第では、実装が楽になることがあるのでAでも必ず見る。
+    解き方探り、考察 plan
+    コード落とし込み方針決め
+    疑問点
+      大体、解き方探りとコード落とし込み方針決めで詰まるのでその下にこれを置いておく。
     実装 do
     ３つのパートに分け、それぞれに時間制限を設けることで以下のメリットがある
      - すぐに解説を見てしまう癖を防止できる
      - １問に何時間も粘りすぎてしまう問題を防止できる
-    コーナーケース　細かいコーナーケースをここに記載
-    関連キーワード　使用アルゴリズムか考え方等を記載して、コンテスト本番で検索できるようにする
-      ex: 全探索
+    コーナーケース　細かいコーナーケースをここに記載    
     意識すること
       計算量を考えない問題でも計算量を少なくなるよう考察を進める、
       これによって今の自分に欠如している論理的思考や数学的な考え方が身に付くはず
@@ -52,29 +50,17 @@ int main()
   復習
     解説記事見たメモ article
       理解すること＋どうやったらその問題を初見で解けるか考える
+      解説読んで大方理解できるが、落とし込みが面倒な時
+        写経での解説ACでいい、ただし理解が9割できてからACすること
+        解説読んでもわからないときに、とりあえず写経してみると案外理解が深まることがある。
 
-      難しい操作になったら、後ろから見ることを検討してみよう。
-      https://babcs2035.hateblo.jp/entry/2019/09/23/AtCoder_Beginner_Contest_136%EF%BC%9AC_-_Build_Stairs
-
-      h[i] == h[i+1]+1だったら、h[i]を絶対に-1するところが分からん
-      一旦前に進む
     解説動画見たメモ video
     コーナーケース　細かいコーナーケースをここに記載
+    参考記事リンク    
     関連キーワード　使用アルゴリズムか考え方等を記載して、コンテスト本番で検索できるようにする
-      ex: 後ろから見る
+      ex: 全探索
   */
   int n;
   cin >> n;
-  vector<int> h(n);
-  rep(i, n) cin >> h[i];
-  
-  for (int i = n-2; i >= 0; i--)
-  {
-    if (h[i] > h[i+1]+1) {
-      cout << "No" << endl;
-      return 0;
-    }else if (h[i] == h[i+1]+1) h[i]--;
-  }
-  cout << "Yes" << endl;
   return 0;
 }

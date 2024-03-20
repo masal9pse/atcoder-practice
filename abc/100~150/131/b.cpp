@@ -14,12 +14,15 @@
 #include <numeric>
 using namespace std;
 using ll = long long;
-template<class T> using P = pair<T, T>;
-template<typename T> bool chmax(T &a, T b) { return ((a < b) ? (a = b, true) : (false)); }
-template<typename T> bool chmin(T &a, T b) { return ((a > b) ? (a = b, true) : (false)); }
+template <class T>
+using P = pair<T, T>;
+template <typename T>
+bool chmax(T &a, T b) { return ((a < b) ? (a = b, true) : (false)); }
+template <typename T>
+bool chmin(T &a, T b) { return ((a > b) ? (a = b, true) : (false)); }
 using G = vector<vector<int>>;
 #define rep(i, n) for (int i = 0; i < n; i++)
-#define rrep(i,j, n) for (int i = j; i < n; i++)
+#define rrep(i, j, n) for (int i = j; i < n; i++)
 #define all(x) (x).begin(), (x).end()
 const double PI = acos(-1);
 const int MI = 10e8;
@@ -35,8 +38,6 @@ int main()
     問題文の理解
       制約次第では、実装が楽になることがあるのでAでも必ず見る。
     解き方探り
-      vectorの限界個数を見たい
-
     計算量見積もり
     コード落とし込み方針決め
     疑問点
@@ -59,26 +60,28 @@ int main()
 
     解説動画見たメモ
     コーナーケース　解説後
-    参考記事リンク    
+    参考記事リンク
     関連キーワード　使用アルゴリズムか考え方等を記載して、コンテスト本番で検索できるようにする
-      ex:　ASCIIコード
+      ex: 全探索
+    ステータス　自力ACか解説ACか、まだ理解できてないのか書く
   */
-  int n;
-  ll k;
-  cin >> n >> k;
-  vector<P<int>> a(n);
-  rep(i,n) cin >> a[i].first >> a[i].second;
-  sort(all(a));
-  ll sum = 0;
-  int res = 0;
-  rep(i,n) {
-    sum += a[i].second;
-    if (sum >= k) {
-    //  cout << a[i].first << endl;
-     res = a[i].first;
-     break;
+  int n, l;
+  cin >> n >> l;
+  // 食べるりんごを全探索
+  int mi = MI, mi_i = -1;
+  // rrep(i,1,n+1) if (chmin(mi,abs(l+i-1))) mi_i = i;
+  rrep(i, 1, n + 1)
+  {
+    int d = abs(l + i - 1);
+    if (mi > d)
+    {
+      mi = d;
+      mi_i = i;   
     }
+    // if (chmin(mi,d)) mi_i = i;
   }
-  cout << res << endl;
+  int ans = 0;
+  rrep(i, 1, n + 1) if (i != mi_i) ans += l + i - 1;
+  cout << ans << endl;
   return 0;
 }

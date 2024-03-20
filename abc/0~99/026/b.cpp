@@ -34,9 +34,9 @@ int main()
     してから再チャレンジしていい。
     問題文の理解
       制約次第では、実装が楽になることがあるのでAでも必ず見る。
-    解き方探り
-      vectorの限界個数を見たい
 
+      フラグをおいて i > 0 の時、-と+を交互に行う
+    解き方探り
     計算量見積もり
     コード落とし込み方針決め
     疑問点
@@ -61,24 +61,24 @@ int main()
     コーナーケース　解説後
     参考記事リンク    
     関連キーワード　使用アルゴリズムか考え方等を記載して、コンテスト本番で検索できるようにする
-      ex:　ASCIIコード
+      ex: 全探索
+    ステータス　自力ACか解説ACか、まだ理解できてないのか書く
   */
   int n;
-  ll k;
-  cin >> n >> k;
-  vector<P<int>> a(n);
-  rep(i,n) cin >> a[i].first >> a[i].second;
-  sort(all(a));
-  ll sum = 0;
-  int res = 0;
+  cin >> n;
+  vector<int> r(n);
+  rep(i,n) cin >> r[i];
+  sort(all(r));
+  bool flag = true;
+  double ans = 0;
   rep(i,n) {
-    sum += a[i].second;
-    if (sum >= k) {
-    //  cout << a[i].first << endl;
-     res = a[i].first;
-     break;
-    }
+    if (flag) ans += r[i] * r[i];
+    else ans -= r[i] * r[i];
+    flag = !flag;
   }
-  cout << res << endl;
+  // cout << ans << endl;
+  ans *= PI;
+  /// 小さい順にしたからか
+  printf("%.10f\n",abs(ans));
   return 0;
 }

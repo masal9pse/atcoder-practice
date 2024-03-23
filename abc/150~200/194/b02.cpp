@@ -60,9 +60,19 @@ int main()
     参考記事リンク    
     関連キーワード　使用アルゴリズムか考え方等を記載して、コンテスト本番で検索できるようにする
       ex: 全探索
-    ステータス　自力ACか解説ACか、まだ理解できてないのか書く
+    ステータス　やり直し
   */
   int n;
   cin >> n;
+  vector<int> a(n),b(n);
+  rep(i,n) cin >> a[i] >> b[i];
+  int ans = MI;
+  rep(i,n) rep(j,n) {
+    int cost;
+    if (i == j) cost = a[i] + b[i];
+    else cost = max(a[i],b[j]);
+    ans = min(ans,cost);
+  }
+  cout << ans << endl;
   return 0;
 }

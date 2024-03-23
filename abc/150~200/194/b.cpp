@@ -35,6 +35,8 @@ int main()
     問題文の理解
       制約次第では、実装が楽になることがあるのでAでも必ず見る。
     解き方探り
+      別々で割り当てた場合と同じ人に割り当てた場合をそれぞれ全探索、
+      その後、少ない方を出力
     計算量見積もり
     コード落とし込み方針決め
     疑問点　懸念点
@@ -48,6 +50,9 @@ int main()
       計算量を考えない問題でも計算量を少なくなるよう考察を進める、
       これによって今の自分に欠如している論理的思考や数学的な考え方が身に付くはず
 
+      この方針だと間違ってそうなので答え見る。
+      仕事 A に割り当てる従業員の番号と、仕事 B に割り当てる従業員の番号を全探索すればいいみたい。
+      O(N^2)
   復習
     解説記事見たメモ
       理解すること＋どうやったらその問題を初見で解けるか考える
@@ -62,7 +67,41 @@ int main()
       ex: 全探索
     ステータス　自力ACか解説ACか、まだ理解できてないのか書く
   */
-  int n;
-  cin >> n;
+ int n;
+ cin >> n;
+ vector<int> a(n),b(n);
+ rep(i,n) cin >> a[i] >> b[i];
+  int res = MI;
+  rep(i,n) rep(j,n) {
+    int cost;
+    if (i == j) cost = a[i] + b[j];
+    else cost = max(a[i],b[j]);
+    // chmin(res,cost);
+    res = min(res,cost);
+  }
+  cout << res << endl;
+
+  // O(N)で解こうとしたが挫折
+  // int n;
+  // cin >> n;
+  // vector<P<int>> a(n),b(n);
+  // // 別々
+  // rep(i,n) {
+  //   int A,B;
+  //   cin >> A >> B;
+  //   a[i].first = A;
+  //   a[i].second = i;
+  //   b[i].first = B;
+  //   b[i].second = i;
+  // }
+  // sort(all(a));
+  // sort(all(b));
+  // P<ll> other;
+  // rep(i,2) {
+  //   if (a[i].second == b[i].second) {
+  //     if (a[i].first < b[i].first) other.first = a[0].first;
+  //     else other.second = b[0].first;
+  //   }
+  // }
   return 0;
 }

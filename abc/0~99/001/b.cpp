@@ -62,7 +62,29 @@ int main()
       ex: 全探索
     ステータス　自力ACか解説ACか、まだ理解できてないのか書く
   */
-  int n;
-  cin >> n;
+  double m;
+  cin >> m;
+  double km = m / 1000;
+  // double km = m * 0.001;
+  double vv;
+  if (km < 0.1) vv = 0;
+  else if (0.1 <= km && km <= 0.5) {
+    vv = km * 10;
+  } else if(km >= 6 and km <= 30){
+    vv = km + 50;
+    int t = 2;
+  }
+  else if(km >= 35 and km <= 70){
+    vv = (km-30)/5+80;
+  }
+  else{
+    vv = 89;
+  }
+  string s = to_string(int(vv));
+  if (s.size() == 1) {
+    cout << '0' << s << endl;
+  } else {
+    cout << s << endl;
+  }
   return 0;
 }

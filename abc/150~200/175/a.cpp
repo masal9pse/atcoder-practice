@@ -37,7 +37,7 @@ int main()
     解き方探り
     計算量見積もり
     コード落とし込み方針決め
-    疑問点　懸念点
+    疑問点
       大体、解き方探りとコード落とし込み方針決めで詰まるのでその下にこれを置いておく。
     実装
     ３つのパートに分け、それぞれに時間制限を設けることで以下のメリットがある
@@ -62,7 +62,14 @@ int main()
       ex: 全探索
     ステータス　自力ACか解説ACか、まだ理解できてないのか書く
   */
-  int n;
-  cin >> n;
+  string s;
+  cin >> s;
+  bool p = s[0] == 'R';
+  bool q = s[1] == 'R';
+  bool r = s[2] == 'R';
+  if (p and q and r) cout << 3 << endl;
+  else if ((p and q) or (q and r)) cout << 2 << endl;
+  else if (p or q or r) cout << 1 << endl;
+  else cout << 0 << endl;
   return 0;
 }

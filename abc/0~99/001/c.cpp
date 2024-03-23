@@ -25,6 +25,15 @@ const double PI = acos(-1);
 const int MI = 10e8;
 const ll MLL = 1e18;
 
+/* 小数点n以下で四捨五入する */
+float round_n(float number, double n)
+{
+    number = number * pow(10,n-1); //四捨五入したい値を10の(n-1)乗倍する。
+    number = round(number); //小数点以下を四捨五入する。
+    number /= pow(10, n-1); //10の(n-1)乗で割る。
+    return number;
+}
+
 int main()
 {
   // 実装に悩む場合、20分考えて無理なら答え見る
@@ -35,6 +44,8 @@ int main()
     問題文の理解
       制約次第では、実装が楽になることがあるのでAでも必ず見る。
     解き方探り
+      小数第n位はroundで実装できない
+      このやり方を見るか
     計算量見積もり
     コード落とし込み方針決め
     疑問点　懸念点
@@ -62,7 +73,10 @@ int main()
       ex: 全探索
     ステータス　自力ACか解説ACか、まだ理解できてないのか書く
   */
-  int n;
-  cin >> n;
+  double deg,dis;
+  cin >> deg >> dis;
+  string dir;
+  // dir　方位
+  if (deg/10)
   return 0;
 }

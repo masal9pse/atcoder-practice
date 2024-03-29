@@ -27,8 +27,11 @@ const ll MLL = 1e18;
 
 int main()
 {
- double x = 1000000000;
-  double y = 0.1;
-  double z = x + y;
-  int t = 33; 
+  int n;
+  cin >> n;
+  vector<int> a(n);
+  rep(i,n) cin >> a[i];
+  rep(i,n-1) cout << a[i] * a[i+1] << " ";
+  cout << endl;
+  return 0;
 }

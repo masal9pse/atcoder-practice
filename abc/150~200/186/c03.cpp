@@ -25,6 +25,15 @@ const double PI = acos(-1);
 const int MI = 10e8;
 const ll MLL = 1e18;
 
+string sevenFromTen(int n) {
+  string result;
+  while (n)
+  {
+    result += n % 8
+  }
+  
+}
+
 int main()
 {
   // 実装に悩む場合、20分考えて無理なら答え見る
@@ -55,32 +64,14 @@ int main()
         写経での解説ACでいい、ただし理解が9割できてからACすること
         解説読んでもわからないときに、とりあえず写経してみると案外理解が深まることがある。
 
-        小数の誤差がイマイチ分からん
-        とりあえず型は合わせる
     解説動画見たメモ
     コーナーケース　解説後
     参考記事リンク    
     関連キーワード　使用アルゴリズムか考え方等を記載して、コンテスト本番で検索できるようにする
-      ex: ユークリッド距離 小数の誤差
+      ex: 全探索
     ステータス　自力ACか解説ACか、まだ理解できてないのか書く
   */
-  int before_x,before_y,after_x,after_y,t,v;
-  cin >> before_x >> before_y >> after_x >> after_y >> t >> v;
   int n;
   cin >> n;
-  vector<int> x(n),y(n);
-  rep(i,n) cin >> x[i] >> y[i];
-  // 分速 = 1分でどれくらい移動できるか、つまり分速4は1分に4移動できる
-  int can_run_sum = t * v;
-  rep(i,n) {
-    // sqrtをintにすると型落ちするので、
-    double t1 = sqrt((double)(x[i]-before_x) * (x[i]-before_x) + (y[i]-before_y) * (y[i]-before_y));
-    double t2 = sqrt((double)(after_x-x[i]) * (after_x-x[i]) + (after_y-y[i]) * (after_y-y[i]));
-    if (t1 + t2 <= can_run_sum) {
-      cout << "YES" << endl;
-      return 0;
-    }
-  }
-  cout << "NO" << endl;
   return 0;
 }

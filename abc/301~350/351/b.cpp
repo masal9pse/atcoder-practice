@@ -27,8 +27,25 @@ const ll MLL = 1e18;
 
 int main()
 {
- double x = 1000000000;
-  double y = 0.1;
-  double z = x + y;
-  int t = 33; 
+  // wbwbwwbwbw bwwbw
+  // wbwbwwbwbwbw
+  // w 7
+  // b 5
+  string t = "wbwbwwbwbwbw";
+  string s;
+  rep(i,200) s+=t;
+  int w_c,b_c = 0;
+  for(char c:s) {
+    if (c == 'w') w_c++;
+    if (c == 'b') b_c++;
+  }
+  int w,b;
+  cin >> w >> b;
+  string w_start,b_start;
+  // 適切な考察もコードの落とし込みもできてないね、無理だこれは
+  // wから始まるケース
+  // bから始まるケース
+  // wwから始まるケースの場合分け？
+  // うーん、解説記事読んでも分からんわ。動画やな
+  return 0;
 }

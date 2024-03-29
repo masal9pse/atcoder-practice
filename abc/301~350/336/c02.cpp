@@ -30,6 +30,17 @@ const ll MLL = 1e18;
 const vector<int> di = {-1, -1, 0, 0, 1, 1, 1, -1};
 const vector<int> dj = {0, 1, -1, 1, -1, 0, 1, -1};
 
+string fiveFromTen(ll n) {
+  string result = "";
+  while (n)
+  {
+    result = (char)(n%5+'0')+result;
+    n /= 5;
+  }
+  if (result == "") result = "0";
+  return result;
+}
+
 int main()
 {
   /*
@@ -48,29 +59,16 @@ int main()
       ５進数とは0 ~ 4でできた数値のこと 0,14,114 etc
       0から始まっていてスタートがずれているのでn-1する
 
-      泥臭いやり方
-      　桁数を数える
-      　
+      1. nを5進数に直す
+      2. 直したら格桁を*2する。
+    // N進数     　
   */
   ll n;
   cin >> n;
   n--;
-  if (n == 0) {
-    cout << 0 << endl;
-    return 0;
-  }
-  string s;
-  while (n)
-  {
-    int t = n%5*2;
-    // s += '0'+(n%5*2);
-    // '0'を+するとintをstringに
-    s += '0'+ t;
-    n/=5;
-    int k = 2;
-  }
-  // reverse(all(s));
-  reverse(s.begin(),s.end());
-  cout << s << endl;
+  string s = fiveFromTen(n);
+  string result;
+  rep(i,s.size()) result += (s[i]-'0') * 2 + '0';
+  cout << result << endl;
   return 0;
 }

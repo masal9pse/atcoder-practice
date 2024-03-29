@@ -27,8 +27,23 @@ const ll MLL = 1e18;
 
 int main()
 {
- double x = 1000000000;
-  double y = 0.1;
-  double z = x + y;
-  int t = 33; 
+  ll n,k;
+  cin >> n >> k;
+  // vector<ll> a(n);
+  map<ll,ll> mp;
+  rep(i,n) {
+    ll a;
+    cin >> a;
+    mp[a] = 1;
+  }
+  vector<ll> ans;
+  // オーバーフロー
+  for (ll i = 1; i <= k; i++)
+  {
+    if (!mp[i]) ans.push_back(i);
+  }
+  ll res = 0;
+  for(ll d:ans) res += d;
+  cout << res << endl;
+  return 0;
 }

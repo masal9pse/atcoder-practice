@@ -27,8 +27,27 @@ const ll MLL = 1e18;
 
 int main()
 {
- double x = 1000000000;
-  double y = 0.1;
-  double z = x + y;
-  int t = 33; 
+  // 汎用性のある考え方
+  // 元の位置に戻るような処理はmodを使うとシンプルに解ける
+  // 円や時計の問題で応用できそう
+
+  string s = "wbwbwwbwbwbw";
+  
+  int w,b;
+  cin >> w >> b;
+  int n = s.size();
+  rep(si,n) {
+    int cnt = 0;
+    // for (int i = si; i < w+b; i++)
+    rep(i,w+b)
+    {
+      if (s[(si+i)%n] == 'w')cnt++;
+    }
+    if (cnt == w) {
+      cout << "Yes" << endl;
+      return 0;
+    }
+  }
+  cout << "No" << endl;
+  return 0;
 }

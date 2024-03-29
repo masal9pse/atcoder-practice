@@ -27,8 +27,26 @@ const ll MLL = 1e18;
 
 int main()
 {
- double x = 1000000000;
-  double y = 0.1;
-  double z = x + y;
-  int t = 33; 
+  // 汎用性のある考え方
+  // Σの公式　総和を求める問題で制約が10^9以上だとこれを使うと思え
+  // 現れていないものを求める = 全体 - 現れているもの
+  int n,k;
+  cin >> n >> k;
+  // vector<int> a(n);
+  set<int> st;
+  rep(i,n) {
+    int a;
+    cin >> a;
+    st.insert(a);
+  }
+  
+  ll sum_k = (ll)k * (k + 1)/2;
+  ll sum_a = 0;
+  for (int b:st)
+  {
+    if (b <= k) sum_a += b;
+  }
+  ll ans = sum_k - sum_a;
+  cout << ans << endl;
+  return 0;
 }

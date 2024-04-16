@@ -30,11 +30,31 @@ int main()
   /*
   提出前チェックリスト
   　- 簡単な問題でも制約は必ずチェック、これによって無駄な実装時間が減る
-    - A,B分からなかったら早い段階で生成AI使うことを検討 
+    - A,B分からなかったら早い段階で生成AI使うことを検討
+
+    ソートして、Σfi~fd > pの場合はans+=p
+    else ans+= Σfi~fd
+
+    累積和
   メモ
   わからない点まとめ   
   */
-  int n;
-  cin >> n;
+  int n,d,p;
+  cin >> n >> d >> p;
+  vector<ll> f(n),s(n+1);
+  rep(i,n) cin >> f[i];
+  // やっぱ昇順で
+  sort(f.rbegin(),f.rend());
+  rep(i,n) s[i+1] = s[i]+f[i];
+
+  // パスを買った枚数を全探索
+  ll ans = s.back();
+  rep(i,n/d+1) {
+    // int r = n-i*d;
+    ll now = s.back() - (ll)i*p;
+    ans = min(ans,now);
+  }
+  // if ()
+  cout << ans << endl;
   return 0;
 }

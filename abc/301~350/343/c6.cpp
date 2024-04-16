@@ -25,16 +25,26 @@ const double PI = acos(-1);
 const int MI = 10e8;
 const ll MLL = 1e18;
 
+bool isCheck(ll n) {
+  string s = to_string(n);
+  string t = s;
+  reverse(all(t));
+  return s == t;
+}
+
 int main()
 {
   /*
-  提出前チェックリスト
-  　- 簡単な問題でも制約は必ずチェック、これによって無駄な実装時間が減る
-    - A,B分からなかったら早い段階で生成AI使うことを検討 
-  メモ
-  わからない点まとめ   
+    回文立法数はNの1/3しかない
+    nが10^9以上ならこのfor文を削減する方針をよく使う。
   */
-  int n;
+  ll n;
   cin >> n;
+  ll ans = 0;
+  for (ll i = 1; i*i*i <= n; i++)
+  {
+    if (isCheck(i*i*i)) ans = i*i*i;
+  }
+  cout << ans << endl;
   return 0;
 }

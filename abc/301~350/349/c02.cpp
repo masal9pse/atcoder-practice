@@ -33,8 +33,32 @@ int main()
     - A,B分からなかったら早い段階で生成AI使うことを検討 
   メモ
   わからない点まとめ   
+  部分文字列 大文字を小文字に
+  人に説明できてない
   */
-  int n;
-  cin >> n;
+  string s,t;
+  cin >> s >> t;
+  rep(i,3) t[i] = tolower(t[i]);
+  auto isSubArray = [&](string x)->bool {
+    int xi = 0;
+    for(char c:s) {
+      if (x[xi] == c) xi++;      
+      if (xi == x.size()) return true;
+    }
+    return false;
+  };
+
+  if (isSubArray(t)) {
+    cout << "Yes" << endl;
+    return 0;
+  }
+  if (t.back() == 'x') {
+    t.pop_back();
+      if (isSubArray(t)) {
+      cout << "Yes" << endl;
+      return 0;
+    }
+  }
+  cout << "No" << endl;
   return 0;
 }

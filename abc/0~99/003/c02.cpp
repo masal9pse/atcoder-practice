@@ -35,6 +35,10 @@ int main()
     問題文の理解
       制約次第では、実装が楽になることがあるのでAでも必ず見る。
     解き方探り
+    　風向は deg/10して場合分け
+      
+      風力は風速を計算し、小数第2 位を四捨五入して場合分け
+      では風速は、dir/60でもとまる
     計算量見積もり
     コード落とし込み方針決め
     疑問点　懸念点
@@ -47,8 +51,6 @@ int main()
     意識すること、メモ
       計算量を考えない問題でも計算量を少なくなるよう考察を進める、
       これによって今の自分に欠如している論理的思考や数学的な考え方が身に付くはず
-    分からなかったら
-      解説を見る前に分からない部分を言語するようにしよう。
 
   復習
     解説記事見たメモ
@@ -64,7 +66,47 @@ int main()
       ex: 全探索
     ステータス　自力ACか解説ACか、まだ理解できてないのか書く
   */
-  int n;
-  cin >> n;
+  // int deg,dis;
+  double deg,dis;
+  cin >> deg >> dis;
+  // intで入力を受け取ると、変数名をdouble型に指定しているが小数点が出力されない
+  double wm = deg/10;
+  string ans1;
+  if (wm < 11.25) ans1 = "N";
+  else if (wm < 33.75) ans1 = "NNE";
+  else if (wm <  56.25) ans1 = "NE";
+  else if (wm < 78.75) ans1 = "ENE";
+  else if (wm < 101.25) ans1 = "E";
+  else if (wm < 123.75) ans1 = "ESE";
+  else if (wm < 146.25) ans1 = "SE";
+  else if (wm < 168.75) ans1 = "SSE";
+  else if (wm < 191.25) ans1 = "S";
+  else if (wm < 213.75) ans1 = "SSW";
+  else if (wm < 236.25) ans1 = "SW";
+  else if (wm < 258.75) ans1 = "WSW";
+  else if (wm < 281.25) ans1 = "W";
+  else if (wm < 303.75) ans1 = "WNW";
+  else if (wm < 326.25) ans1 = "NW";
+  else if (wm < 348.75) ans1 = "NNW";
+  else ans1 = "N";
+  double ws = dis/60;
+  double wp = round(ws * 10) / 10;
+  int ans2;
+  // 以下と書いてあるやつを代入
+  if (wp <= 0.2) ans2 = 0;
+  else if (wp <= 1.5) ans2 = 1;  
+  else if (wp <= 3.3) ans2 = 2;
+  else if (wp <= 5.4) ans2 = 3;
+  else if (wp <= 7.9) ans2 = 4;
+  else if (wp <= 10.7) ans2 = 5;
+  else if (wp <= 13.8) ans2 = 6;
+  else if (wp <= 17.1) ans2 = 7;
+  else if (wp <= 20.7) ans2 = 8;
+  else if (wp <= 24.4) ans2 = 9;
+  else if (wp <= 28.4) ans2 = 10;
+  else if (wp <= 32.6) ans2 = 11;
+  else ans2 = 12;
+  if (ans2 == 0) ans1 = "C";
+  cout << ans1 << " " << ans2 << endl;
   return 0;
 }

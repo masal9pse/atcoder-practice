@@ -36,5 +36,17 @@ int main()
   */
   int n;
   cin >> n;
+  map<ll,ll> mp;
+  rep(i,n) {
+    ll a,c;
+    cin >> a >> c;
+    if (mp[c] == 0) mp[c] = MLL;    
+    mp[c] = min(mp[c],a);
+  }
+  ll ans = -1;
+  for(auto m:mp) {
+    ans = max(m.second,ans);
+  }
+  cout << ans << endl;
   return 0;
 }

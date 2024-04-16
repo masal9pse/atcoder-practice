@@ -36,5 +36,28 @@ int main()
   */
   int n;
   cin >> n;
+  vector<double> x(n),y(n);
+  rep(i,n) cin >> x[i] >> y[i];
+  rep(i,n) {
+   double now = 0;
+   vector<int> max_list;
+   rep(j,n) {
+    if (i == j) continue;
+    // double t1 = (x[i]-x[j]);
+    double t = sqrt((x[i]-x[j])*(x[i]-x[j]) + (y[i]-y[j])*(y[i]-y[j]));
+    if (max_list.empty()) {
+      max_list.push_back(j);
+      now = t;
+    }
+    else if (t == now) max_list.push_back(j);
+    else if (t > now) {
+      max_list.clear();
+      max_list.push_back(j);
+      now = t;
+    }
+   }
+   cout << max_list[0]+1 << endl;
+   max_list.clear();
+  }
   return 0;
 }

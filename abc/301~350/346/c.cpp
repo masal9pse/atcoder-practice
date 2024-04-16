@@ -34,7 +34,21 @@ int main()
   メモ
   わからない点まとめ   
   */
-  int n;
-  cin >> n;
+  int n,k;
+  cin >> n >> k;
+  set<int> st;
+  rep(i,n) {
+    int a;
+    cin >> a;
+    st.insert(a);
+  }
+  // Kは10^9で2sで終わらせるには10^8じゃないとだめ、よってΣの公式を使う。
+  ll sum_k = (ll)k*(k+1)/2;
+  ll sum_a = 0;
+  for(int b:st) {
+    if (b <= k) sum_a += b; 
+  }
+  ll ans = sum_k-sum_a;
+  cout << ans << endl;
   return 0;
 }

@@ -15,26 +15,20 @@
 using namespace std;
 using ll = long long;
 template<class T> using P = pair<T, T>;
+template<typename T> bool chmax(T &a, T b) { return ((a < b) ? (a = b, true) : (false)); }
+template<typename T> bool chmin(T &a, T b) { return ((a > b) ? (a = b, true) : (false)); }
 using G = vector<vector<int>>;
 #define rep(i, n) for (int i = 0; i < n; i++)
 #define rrep(i,j, n) for (int i = j; i < n; i++)
+#define all(x) (x).begin(), (x).end()
 const double PI = acos(-1);
 const int MI = 10e8;
 const ll MLL = 1e18;
-// 8方向
-const vector<int> di = {-1, -1, 0, 0, 1, 1, 1, -1};
-const vector<int> dj = {0, 1, -1, 1, -1, 0, 1, -1};
 
 int main()
 {
-  double ax,ay,bx,by,cx,cy;
-  cin >> ax >> ay >> bx >> by >> cx >> cy;
-  // ユークリッド距離　ヘロンの公式
-  double a = sqrt((ax-bx) * (ax-bx) + (ay-by) * (ay-by));
-  double b = sqrt((bx-cx) * (bx-cx) + (by-cy) * (by-cy));
-  double c = sqrt((ax-cx) * (ax-cx) + (ay-cy) * (ay-cy));
-  double s = (a+b+c)/2;
-  // 小数第3位まで表示
-  cout << fixed << setprecision(3) << sqrt(s*(s-a)*(s-b)*(s-c)) << endl; 
+  int n;
+  cin >> n;
+  cout << n * 2 << endl;
   return 0;
 }

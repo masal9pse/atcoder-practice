@@ -34,7 +34,26 @@ int main()
   メモ
   わからない点まとめ   
   */
-  int n;
-  cin >> n;
+  string s;
+  cin >> s;
+  int n = s.size();
+  vector<set<char>> t(n+1);
+  rep(i,n) {
+    int count = 0;
+    rep(j,n) {
+      if (s[i] == s[j]) count++;      
+    }
+    t[count].insert(s[i]);
+  }
+  // cout < "Yes" << endl;
+  // cout << 1 << endl;
+  rep(i,n+1) {
+    if(t[i].size() != 0 && t[i].size() != 2) {
+      cout << "No" << endl;
+      return 0;
+    }
+  }
+  // cout < "Yes" <<
+  cout << "Yes" << endl;
   return 0;
 }

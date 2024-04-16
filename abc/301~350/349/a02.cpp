@@ -25,16 +25,21 @@ const double PI = acos(-1);
 const int MI = 10e8;
 const ll MLL = 1e18;
 
-int main()
-{
-  /*
-  提出前チェックリスト
-  　- 簡単な問題でも制約は必ずチェック、これによって無駄な実装時間が減る
-    - A,B分からなかったら早い段階で生成AI使うことを検討 
-  メモ
-  わからない点まとめ   
-  */
-  int n;
-  cin >> n;
-  return 0;
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+    // シミュレーション？
+    // 人1が2~4と対戦するケースがあるが実装できない。
+    // いやO(N^2)ならいける？ => きつい、人1がずっと対戦してしまうので、1,2が戦ってつぎ2,3が戦うことができない。
+    int sum = 0;
+    rep(i,n-1) {
+        int a;
+        cin >> a;
+        sum+=a;
+    }
+    sum*=-1;
+    cout << sum << endl;
+    return 0;
 }

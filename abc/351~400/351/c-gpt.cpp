@@ -25,16 +25,34 @@ const double PI = acos(-1);
 const int MI = 10e8;
 const ll MLL = 1e18;
 
-int main()
-{
-  /*
-  提出前チェックリスト
-  　- 簡単な問題でも制約は必ずチェック、これによって無駄な実装時間が減る
-    - A,B分からなかったら早い段階で生成AI使うことを検討 
-  メモ
-  わからない点まとめ   
-  */
-  int n;
-  cin >> n;
-  return 0;
+bool allHoliday(std::vector<int>& days, int A, int B) {
+    int n = days.size();
+    int lastDay = A + B;
+    
+    // Check if there's any working day among the schedule
+    for (int i = 0; i < n; ++i) {
+        if (days[i] % lastDay > A) {
+            return false; // There's a working day among the schedule
+        }
+    }
+    
+    return true; // All schedules fall on holidays
+}
+
+int main() {
+    int N, A, B;
+    std::cin >> N >> A >> B;
+    
+    std::vector<int> days(N);
+    for (int i = 0; i < N; ++i) {
+        std::cin >> days[i];
+    }
+    
+    if (allHoliday(days, A, B)) {
+        std::cout << "Yes\n";
+    } else {
+        std::cout << "No\n";
+    }
+    
+    return 0;
 }

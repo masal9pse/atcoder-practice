@@ -26,12 +26,31 @@ const int MI = 10e8;
 const ll MLL = 1e18;
 
 int main()
-{ 
-  int a,b;
-  cin >> a;
-  cin >> b;
-  // cout << a - b << endl;
-  // option+|でバックスラッシュ \n
-  printf("%d\n",a-b);
+{
+  /*
+  提出前チェックリスト
+  　- 簡単な問題でも制約は必ずチェック、これによって無駄な実装時間が減る
+  メモ
+  わからない点まとめ   
+  */
+  // int n;
+  // cin >> n;
+  // 0 ~ 5まで出力、6になると条件がfalseになるので落ちる
+  // for (int i = 0; i + 3 < 9; i++) cout << i << endl;
+  // 部分文字列
+  string s,t;
+  cin >> s >> t;
+  int ans = t.size();
+  // 6-3 = 3
+  // +2してたけど、0~3で合計4回やってたわ笑
+  rep(i,s.size()-t.size()+1) {
+    string k = s.substr(i,t.size());
+    int cnt = 0;
+    rep(j,k.size()) {
+      if (t[j] != k[j]) cnt++;
+    }
+    ans = min(ans,cnt);
+  }
+  cout << ans << endl;
   return 0;
 }

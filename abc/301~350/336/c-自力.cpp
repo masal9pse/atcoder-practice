@@ -31,13 +31,15 @@ const vector<int> di = {-1, -1, 0, 0, 1, 1, 1, -1};
 const vector<int> dj = {0, 1, -1, 1, -1, 0, 1, -1};
 
 int main() {
-    int n;
+    ll n;
     cin >> n;
-    map<ll,ll> mp;
-    for (ll i = 0; i <= 10000000; i++)
+    n--;
+    vector<int> a;
+    while (n)
     {
-     mp[i] = i+1;
+        a.push_back(n%5);
+        n/=5;
     }
-    
+    // なんで-1なの？
     return 0;
 }

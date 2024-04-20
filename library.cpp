@@ -18,6 +18,17 @@ const int MI = 10e8 const int MLL = 1e18
 const vector<int> di = {-1, -1, 0, 0, 1, 1, 1, -1};
 const vector<int> dj = {0, 1, -1, 1, -1, 0, 1, -1};
 
+void grid_judge(int x,int y) {
+    // 上
+    if (x > 0) 
+    // 下
+    if (x < h) 
+    // 左
+    if (y > 0) 
+    // 右
+    if (y < w) 
+}
+
 struct UnionFind
 {
     vector<int> par;

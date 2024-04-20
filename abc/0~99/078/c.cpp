@@ -26,12 +26,19 @@ const int MI = 10e8;
 const ll MLL = 1e18;
 
 int main()
-{ 
-  int a,b;
-  cin >> a;
-  cin >> b;
-  // cout << a - b << endl;
-  // option+|でバックスラッシュ \n
-  printf("%d\n",a-b);
+{
+  /*
+  提出前チェックリスト
+  　- 簡単な問題でも制約は必ずチェック、これによって無駄な実装時間が減る
+    - A,B分からなかったら早い段階で生成AI使うことを検討 
+  メモ
+  わからない点まとめ   
+  N進法
+  */
+  char x,y;
+  cin >> x >> y;
+  if (x < y) cout << "<" << endl;
+  else if(y < x) cout << ">" << endl;
+  else cout << "=" << endl;
   return 0;
 }

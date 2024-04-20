@@ -26,12 +26,29 @@ const int MI = 10e8;
 const ll MLL = 1e18;
 
 int main()
-{ 
-  int a,b;
-  cin >> a;
-  cin >> b;
-  // cout << a - b << endl;
-  // option+|でバックスラッシュ \n
-  printf("%d\n",a-b);
+{
+  /*
+  提出前チェックリスト
+  　- 簡単な問題でも制約は必ずチェック、これによって無駄な実装時間が減る
+  メモ
+  わからない点まとめ   
+  */
+  string s;
+  cin >> s;
+  int n = s.size();
+  set<string> st;
+  rep(i,n) {
+    int count = n - i;
+    for (int j = 1; j <= count; j++)
+    {
+      string t = s.substr(i,j);
+      st.insert(t); 
+    }
+    // rep(j,count) {
+    //   string t = s.substr(i,j+1);
+    //   st.insert(t);
+    // }
+  }
+  cout << st.size() << endl;
   return 0;
 }

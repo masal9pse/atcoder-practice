@@ -25,9 +25,9 @@ const ll MLL = 1e18;
 
 int main()
 {
-  int a,b;
-  cin >> a >> b;
-  double ans = (double)a*b/100;
-  printf("%.7f\n",ans);
+  int n;
+  cin >> n; 
+  // 末尾２桁/10して末尾1桁にして、末尾1桁を表示
+  cout << (n%100)/10 << (n%10) << endl;
   return 0;
 }

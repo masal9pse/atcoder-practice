@@ -25,45 +25,18 @@ const double PI = acos(-1);
 const int MI = 10e8;
 const ll MLL = 1e18;
 
-// 右から順
-int dx[8] = {0,1,1,1,0,-1,-1,-1};
-int dy[8] = {1,1,0,-1,-1,-1,0,1};
-
-// int dx[8] = {-1, -1, -1, 0, 0, 1, 1, 1};
-// int dy[8] = {-1, 0, 1, -1, 1, -1, 0, 1};
-
 int main()
 {
   /*
   提出前チェックリスト
   　- 簡単な問題でも制約は必ずチェック、これによって無駄な実装時間が減る
   メモ
-  わからない点まとめ   
-  */
-  int h,w;
-  cin >> h >> w;
-  vector<string> s(h);
-  rep(i,h) cin >> s[i];
-  string t = "snuke";
-  rep(i,h) rep(j,w) {
-    rep(v,8) {
-      int nx = i,ny = j;
-      string ans;
-      rep(k,5) {
-        if (nx < 0 || nx >= h || ny < 0 || ny >= w) continue;
-        ans += s[nx][ny];
-        nx += dx[v],ny += dy[v];
-      }
+   グリッド　８方向　トーラス
 
-      if (ans == t) {
-        nx = i,ny = j;
-        rep(k,5) {
-          printf("%d %d\n",nx+1,ny+1);
-          nx += dx[v],ny += dy[v];
-        }
-        break;
-      }
-    }
-  }
+   分からない点
+   　斜めのトーラスの際にどこにいくか　動画見る
+  */
+  int n;
+  cin >> n;
   return 0;
 }

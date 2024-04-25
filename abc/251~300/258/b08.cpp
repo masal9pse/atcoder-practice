@@ -25,12 +25,8 @@ const double PI = acos(-1);
 const int MI = 10e8;
 const ll MLL = 1e18;
 
-// 右から順
 int dx[8] = {0,1,1,1,0,-1,-1,-1};
 int dy[8] = {1,1,0,-1,-1,-1,0,1};
-
-// int dx[8] = {-1, -1, -1, 0, 0, 1, 1, 1};
-// int dy[8] = {-1, 0, 1, -1, 1, -1, 0, 1};
 
 int main()
 {
@@ -40,30 +36,41 @@ int main()
   メモ
   わからない点まとめ   
   */
-  int h,w;
-  cin >> h >> w;
-  vector<string> s(h);
-  rep(i,h) cin >> s[i];
-  string t = "snuke";
-  rep(i,h) rep(j,w) {
-    rep(v,8) {
-      int nx = i,ny = j;
-      string ans;
-      rep(k,5) {
-        if (nx < 0 || nx >= h || ny < 0 || ny >= w) continue;
-        ans += s[nx][ny];
-        nx += dx[v],ny += dy[v];
-      }
-
-      if (ans == t) {
-        nx = i,ny = j;
-        rep(k,5) {
-          printf("%d %d\n",nx+1,ny+1);
-          nx += dx[v],ny += dy[v];
-        }
-        break;
-      }
+  int n;
+  cin >> n;
+  vector a(n,vector<int>(n));
+  rep(i,n) {
+    string s;
+    cin >> s;
+    rep(j,n) {
+      a[i][j] = s[j] - '0';
     }
   }
+  ll ans = 0;
+  rep(i,n) rep(j,n) {
+    rep(v,8) {
+      int nx = i,ny = j;
+      ll t = 0;
+      rep(k,n) {
+        t = t * 10 + a[nx][ny];
+        // nx = (nx + dx[v] + n) % n;
+        // ny = (ny + dy[v] + n) % n;
+
+        // -1になったら+4して3、これをmod n
+        // 限界値超えたら + 4して8 これを mod n
+
+        // トーラスを場合分け
+        nx += dx[v];
+        if (nx < 0) nx += n;
+        if (nx == n) nx -= n;
+
+        ny += dy[v];
+        if (ny < 0) ny += n;
+        if (ny == n) ny -= n;
+      }
+      ans = max(ans,t);
+    }
+  }  
+  cout << ans << endl;
   return 0;
 }

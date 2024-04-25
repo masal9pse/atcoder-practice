@@ -25,51 +25,33 @@ const double PI = acos(-1);
 const int MI = 10e8;
 const ll MLL = 1e18;
 
-int dx[4] = {1,0,-1,0};
+int dx[4] = {-1,0,1,0};
 int dy[4] = {0,1,0,-1};
 
 int main()
 {
+  /*
+  提出前チェックリスト
+  　- 簡単な問題でも制約は必ずチェック、これによって無駄な実装時間が減る
+  メモ
+   グリッド　４方向
+  */
   int h,w;
   cin >> h >> w;
   vector<string> s(h);
   rep(i,h) cin >> s[i];
-  // rep(i,h) cout << s[i] << endl;
   int q;
   cin >> q;
   rep(i,q) {
     int x,y;
     cin >> x >> y;
     int cnt = 0;
-    // // 上
-    // if (x > 0) {
-    //  if (s[x-1][y] == '#') cnt++;
-    // }
-    // // 下 最大のindexは-1すること忘れてた。
-    // if (x < h-1) {
-    //  if(s[x+1][y] == '#') cnt++;
-    // }
-    // // 左
-    // if (y > 0) {
-    //  if(s[x][y-1] == '#') cnt++;
-    // }
-    // // 右
-    // if (y < w-1) {
-    //   if(s[x][y+1] == '#') cnt++;
-    // }
-
-    // 上記の場合分けを簡略化する
-    rep(d,4) {
-      // 方向を移動したあとのindexが枠外であるかを判定するイメージ
-      int nx = x + dx[d],ny = y + dy[d];
+    rep(j,4) {
+      int nx = x + dx[j],ny = y + dy[j];
+      // 移動後の位置が枠外でないかを判定
       if (nx < 0 || nx >= h || ny < 0 || ny >= w) continue;
       if (s[nx][ny] == '#') cnt++;
-      // 計算結果が枠外じゃなかったら
-      // あとでネストじゃない場合もやる
-      // if (0 <= nx && nx < h && 0 <= ny && ny < w) {
-      //   if (s[nx][ny] == '#') cnt++;
-      // }
-    }    
+    }
     cout << cnt << endl;
   }
   return 0;

@@ -19,21 +19,19 @@ using G = vector<vector<int>>;
 #define rep(i, n) for (int i = 0; i < n; i++)
 #define rep2(i, n) for (int i = 1; i <= n; i++)
 #define rep3(i, n) for (int i = 0; i <= n; i++)
-#define all(x) (x).begin(), (x).end()
 const double PI = acos(-1);
 const int MI = 10e8;
 const ll MLL = 1e18;
 
 int main()
 {
-  // レベル３
-  int n;
-  cin >> n;
-  vector<int> a(n);
-  rep(i,n) cin >> a[i];
-  vector<int>::iterator t = max_element(all(a));
-  int index = distance(a.begin(),t);
-  if (index == 0) cout << 0 << endl;
-  else cout << (*t)-a[0]+1 << endl;
+  int a,b;
+  cin >> a >> b;
+  // なんでこれ1になる？もう演算子の順番を理解した方が早いね
+  double ans = (double) (1-b/a)*100;
+  // double ans = (double) b/a;
+  // cout << 1.0-0.8 << endl;
+  // cout << 1.0-ans << endl;
+  printf("%.4f\n",ans);
   return 0;
 }

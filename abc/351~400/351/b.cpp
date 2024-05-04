@@ -25,36 +25,17 @@ const double PI = acos(-1);
 const int MI = 10e8;
 const ll MLL = 1e18;
 
-// gptを使用してACした
-// 落とし込みができなかったのでとりあえずgptに食わせたらACした
-std::set<std::string> getAllSubstrings(const std::string& s) {
-    std::set<std::string> substrings;
-    int n = s.size();
-    
-    // Iterate through all substrings
-    for (int i = 0; i < n; ++i) {
-        for (int len = 1; len <= n - i; ++len) {
-            std::string substring = s.substr(i, len);
-            substrings.insert(substring);
+int main() {
+    int n;
+    cin >> n;
+    vector<string> a(n),b(n);
+    rep(i,n) cin >> a[i];
+    rep(i,n) cin >> b[i];
+    rep(i,n) rep(j,n) {
+        if (a[i][j] != b[i][j]) {
+            cout << i + 1 << " " << j + 1 << endl;
+            return 0;
         }
     }
-    
-    return substrings;
-}
-
-int countSubstrings(const std::string& s) {
-    std::set<std::string> substrings = getAllSubstrings(s);
-    return substrings.size();
-}
-
-int main() {
-    std::string input;
-    // std::cout << "Enter a string: ";
-    std::cin >> input;
-    
-    int result = countSubstrings(input);
-    // std::cout << "Number of different substrings: " << result << std::endl;
-    std::cout << result << std::endl;
-    
     return 0;
 }

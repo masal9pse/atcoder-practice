@@ -10,35 +10,28 @@
 #include <cassert>
 #include <stack>
 #include <queue>
-#include <deque>
-#include <numeric>
 using namespace std;
 using ll = long long;
-template<class T> using P = pair<T, T>;
-template<typename T> bool chmax(T &a, T b) { return ((a < b) ? (a = b, true) : (false)); }
-template<typename T> bool chmin(T &a, T b) { return ((a > b) ? (a = b, true) : (false)); }
+// using P = pair<int, int>;
+template <class T>
+using P = pair<T, T>;
 using G = vector<vector<int>>;
 #define rep(i, n) for (int i = 0; i < n; i++)
-#define rrep(i,j, n) for (int i = j; i < n; i++)
+#define rep2(i, n) for (int i = 1; i <= n; i++)
+#define rep3(i, n) for (int i = 0; i <= n; i++)
 #define all(x) (x).begin(), (x).end()
 const double PI = acos(-1);
 const int MI = 10e8;
 const ll MLL = 1e18;
 
 int main()
-{
-  int T = 0;
-  int A = 0;
-  rep(i,9) {
-    int a;
-    cin >> a;
-    T += a;
-  }
-  rep(i,8) {
-    int a;
-    cin >> a;
-    A += a;
-  }
-  cout << T-A+1 << endl;
+{  
+  int a,b;
+  cin >> a >> b;
+  int a1 = a;
+  int b1 = b;
+  rep(i,b-1) a1 *= a;
+  rep(i,a-1) b1 *= b;
+  cout << a1 + b1 << endl;
   return 0;
 }

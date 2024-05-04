@@ -8,32 +8,22 @@
 #include <iomanip>
 #include <map>
 #include <cassert>
-#include <stack>
-#include <queue>
 using namespace std;
 using ll = long long;
-// using P = pair<int, int>;
-template <class T>
-using P = pair<T, T>;
-using G = vector<vector<int>>;
+using P = pair<int, int>;
 #define rep(i, n) for (int i = 0; i < n; i++)
 #define rep2(i, n) for (int i = 1; i <= n; i++)
 #define rep3(i, n) for (int i = 0; i <= n; i++)
-#define all(x) (x).begin(), (x).end()
 const double PI = acos(-1);
 const int MI = 10e8;
 const ll MLL = 1e18;
 
 int main()
 {
-  // レベル３
   int n;
   cin >> n;
-  vector<int> a(n);
-  rep(i,n) cin >> a[i];
-  vector<int>::iterator t = max_element(all(a));
-  int index = distance(a.begin(),t);
-  if (index == 0) cout << 0 << endl;
-  else cout << (*t)-a[0]+1 << endl;
+  string s = "3.1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679";
+  cout << "3." <<s.substr(2,n) << endl;
+  // printf("%.nf\n",PI);
   return 0;
 }

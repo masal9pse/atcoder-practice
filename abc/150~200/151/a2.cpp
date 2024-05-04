@@ -10,6 +10,7 @@
 #include <cassert>
 #include <stack>
 #include <queue>
+#include <deque>
 using namespace std;
 using ll = long long;
 // using P = pair<int, int>;
@@ -19,21 +20,17 @@ using G = vector<vector<int>>;
 #define rep(i, n) for (int i = 0; i < n; i++)
 #define rep2(i, n) for (int i = 1; i <= n; i++)
 #define rep3(i, n) for (int i = 0; i <= n; i++)
-#define all(x) (x).begin(), (x).end()
 const double PI = acos(-1);
 const int MI = 10e8;
 const ll MLL = 1e18;
 
 int main()
 {
-  // レベル３
-  int n;
-  cin >> n;
-  vector<int> a(n);
-  rep(i,n) cin >> a[i];
-  vector<int>::iterator t = max_element(all(a));
-  int index = distance(a.begin(),t);
-  if (index == 0) cout << 0 << endl;
-  else cout << (*t)-a[0]+1 << endl;
+  char c;
+  cin >> c;
+  cout << (char) (c+1) << endl;
+  
+  // これだと数値が出力されるのは、先にcharになって+1されるからだと思う
+  // cout << (char) c+1 << endl;
   return 0;
 }

@@ -22,19 +22,18 @@ using G = vector<vector<int>>;
 #define rrep(i,j, n) for (int i = j; i < n; i++)
 #define all(x) (x).begin(), (x).end()
 const double PI = acos(-1);
-const int MI = 10e8;
+const int MI = 1001001000;
 const ll MLL = 1e18;
 
 int main()
 {
-  /*
-  提出前チェックリスト
-  　- 簡単な問題でも制約は必ずチェック、これによって無駄な実装時間が減る
-  メモ
-  わからない点まとめ   
-  */
-  int n;
-  cin >> n;
-  
-  return 0;
+    // 2分探索
+    int n,k;
+    cin >> n >> k;
+    vector<int> a(n);
+    rep(i,n) cin >> a[i];
+    int j = lower_bound(all(a),k)-a.begin();
+    if (n-1 < j) cout << -1 << endl;
+    else cout << j << endl;
+    return 0;
 }

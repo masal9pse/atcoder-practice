@@ -27,16 +27,25 @@ const ll MLL = 1e18;
 
 int main() {
     /*
-     分からない点
-     2^A[i]だとオーバーフローになるし、最大計算量がO(N^A[i])になるつまり10^14
-     1,2はok
-     3がむずい
-
-     レベル4だね、無理だ
+      2^2+2^2 = 2^3
+      2^5+2^5=2^6であることを利用する
     */
     int n;
     cin >> n;
-    vector<int> a(n);
-    rep(i,n)
+    vector<int> ans;
+    rep(i,n) {
+        int a;
+        cin >> a;
+        ans.push_back(a);
+        while (ans.size() >= 2)
+        {
+            int x = ans.back(),y = ans.end()[-2];
+            if (x != y) break;
+            ans.pop_back();
+            ans.pop_back();
+            ans.push_back(x+1);
+        }
+    }
+    cout << ans.size() << endl;
     return 0;
 }

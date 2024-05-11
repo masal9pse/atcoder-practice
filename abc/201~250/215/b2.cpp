@@ -8,24 +8,25 @@
 #include <iomanip>
 #include <map>
 #include <cassert>
-#include <stack>
-#include <queue>
 using namespace std;
 using ll = long long;
-// using P = pair<int, int>;
-template <class T>
-using P = pair<T, T>;
-using G = vector<vector<int>>;
+using P = pair<int, int>;
 #define rep(i, n) for (int i = 0; i < n; i++)
 #define rep2(i, n) for (int i = 1; i <= n; i++)
 #define rep3(i, n) for (int i = 0; i <= n; i++)
-#define all(x) (x).begin(), (x).end()
 const double PI = acos(-1);
-const int MI = 10e8;
-const ll MLL = 1e18;
 
 int main()
 {
-  cout << MLL << endl;
-  return 0;
+    ll n;
+    cin >> n;
+    ll ans = 1;
+    rep(i,60) {
+        if (ans > n) {
+            cout << i-1 << endl;
+            break;
+        }
+        ans *= 2;
+    }
+    return 0;
 }

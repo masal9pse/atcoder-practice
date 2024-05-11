@@ -22,19 +22,28 @@ using G = vector<vector<int>>;
 #define rrep(i,j, n) for (int i = j; i < n; i++)
 #define all(x) (x).begin(), (x).end()
 const double PI = acos(-1);
-const int MI = 10e8;
+const int MI = 1001001000;
 const ll MLL = 1e18;
 
+ 
 int main()
 {
-  /*
-  提出前チェックリスト
-  　- 簡単な問題でも制約は必ずチェック、これによって無駄な実装時間が減る
-  メモ
-  わからない点まとめ   
-  */
-  int n;
-  cin >> n;
-  
-  return 0;
+    int n,m;
+    cin >> n >> m;
+    vector<int> a(n),b(m);
+    rep(i,n) cin >> a[i];
+    rep(i,m) cin >> b[i];
+    sort(all(a));
+    sort(all(b));
+    // binary search使うやり方もあるけど分からないので一旦飛ばし
+    int ai = 0,bi = 0;
+    int ans = MI;
+    while ((ai < n) && (bi < m))
+    {
+        ans = min(ans,abs(a[ai]-b[bi]));
+        if (a[ai] < b[bi]) ai++;
+        else bi++;
+    }
+    cout << ans << endl;
+    return 0;
 }

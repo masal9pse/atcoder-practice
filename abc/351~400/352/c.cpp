@@ -26,7 +26,7 @@ const int MI = 10e8;
 const ll MLL = 1e18;
 
 int main()
-{  
+{
   int n;
   cin >> n;
   int mx = 0;

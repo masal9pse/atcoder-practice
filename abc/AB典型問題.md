@@ -8,6 +8,23 @@
 - ASCIIコード
     - charの大小判定、mapではなくvectorで管理、要素番号をASCIIコードとすると大小判定が簡単にできる  https://atcoder.jp/contests/abc338/tasks/abc338_b
 
+- 数字の性質を操る問題　苦手
+https://atcoder.jp/contests/abc214/tasks/abc214_b
+https://atcoder.jp/contests/abc215/tasks/abc215_b
+https://atcoder.jp/contests/abc220/tasks/abc220_b
+https://atcoder.jp/contests/abc239/tasks/abc239_b
+https://atcoder.jp/contests/abc327/tasks/abc327_b
+https://atcoder.jp/contests/abc273/tasks/abc273_b
+
+- 幾何
+https://atcoder.jp/contests/abc332/tasks/abc332_b
+
+- シミュレーション　苦手
+https://atcoder.jp/contests/abc241/tasks/abc241_b
+https://atcoder.jp/contests/abc332/tasks/abc332_b
+https://atcoder.jp/contests/abc303/tasks/abc303_b
+https://atcoder.jp/contests/abc278/tasks/abc278_b
+
 - 貪欲法 ざっくりとした実装方針は見えやすいが、基本的にコーナケースの存在を意識せずに実装するとコーナケースを探すために、デバッカーで値を見まくって時間ロスする。
 　　　とにかくちゃんと最後までコード落とし込み方針もできてから実装に挑む
     - https://atcoder.jp/contests/abc167/tasks/abc167_b

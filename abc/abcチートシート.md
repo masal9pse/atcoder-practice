@@ -13,5 +13,10 @@ https://atcoder.jp/contests/APG4b/tasks/APG4b_y#:~:text=%E6%84%8F%E5%91%B3%E3%81
 - map,set,dequeなど
 https://atcoder.jp/contests/apg4b/tasks/APG4b_aa
 
+- イテレータについて
+https://rinatz.github.io/cpp-book/ch03-08-iterators/
+
 - int,llの限界値
 https://atcoder.jp/contests/APG4b/tasks/APG4b_y#:~:text=%E3%81%B0%E3%82%88%E3%81%84%E3%81%A7%E3%81%99%E3%80%82-,%E4%BB%96%E3%81%AE%E6%95%B0%E5%80%A4%E5%9E%8B,-int%E5%9E%8B%E3%82%84
+
+補足でllは10^18までは入るが10^19だと壊れる

@@ -25,16 +25,17 @@ const double PI = acos(-1);
 const int MI = 10e8;
 const ll MLL = 1e18;
 
-int main()
-{
-  /*
-  提出前チェックリスト
-  　- 簡単な問題でも制約は必ずチェック、これによって無駄な実装時間が減る
-  メモ
-  わからない点まとめ   
-  */
-  int n;
-  cin >> n;
-  
-  return 0;
+int main() {
+    int n;
+    cin >> n;
+    vector<string> a(n),b(n);
+    rep(i,n) cin >> a[i];
+    rep(i,n) cin >> b[i];
+    rep(i,n) rep(j,n) {
+        if (a[i][j] != b[i][j]) {
+            cout << i + 1 << " " << j + 1 << endl;
+            return 0;
+        }
+    }
+    return 0;
 }

@@ -25,14 +25,24 @@ const double PI = acos(-1);
 const int MI = 10e8;
 const ll MLL = 1e18;
 
-int main()
-{  
-  /*
-    問題分類　ex: 累積和
-
-    自由記述↓
-  */
-  int n;
-  cin >> n;
-  return 0;
+int main() {
+    // 高橋君の身長を入力
+    int H;
+    // cout << "高橋君の身長を入力してください(cm): ";
+    cin >> H;
+    
+    // 日数を計算
+    int days = 0;
+    long long height = 0;
+    
+    while (height <= H) {
+        height += pow(2, days);
+        days++;
+    }
+    
+    // 結果を出力
+    // cout << "植物の高さが高橋君の身長を超えるのは発芽から " << days << " 日目の朝です。" << endl;
+    cout << days << endl;
+    
+    return 0;
 }

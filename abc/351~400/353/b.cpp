@@ -26,13 +26,36 @@ const int MI = 10e8;
 const ll MLL = 1e18;
 
 int main()
-{  
+{
   /*
-    問題分類　ex: 累積和
-
-    自由記述↓
+  提出前チェックリスト
+  　- 簡単な問題でも制約は必ずチェック、これによって無駄な実装時間が減る
+  メモ
+  わからない点まとめ   
   */
-  int n;
-  cin >> n;
+  int n,k;
+  cin >> n >> k;
+  vector<int> a(n);
+  vector<bool> ride(n);
+  rep(i,n) cin >> a[i];
+  int count = 0;
+  rep(i,n) {
+    if (ride[i]) continue;
+    int K = k;
+    int j = i;
+    while (K)
+    {
+      // 最後＋１のindexにアクセスしていたのに気が付かなかった、本番で気づいてえらい
+     if (j == n) break;
+     if(a[j] <= K) {
+      K -= a[j];
+      ride[j] = true;
+      j++;
+     }
+     else break;
+    }
+    count++;
+  }
+  cout << count << endl;
   return 0;
 }

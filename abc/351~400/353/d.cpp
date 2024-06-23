@@ -26,13 +26,17 @@ const int MI = 10e8;
 const ll MLL = 1e18;
 
 int main()
-{  
+{
   /*
-    問題分類　ex: 累積和
-
-    自由記述↓
+  提出前チェックリスト
+  　- 簡単な問題でも制約は必ずチェック、これによって無駄な実装時間が減る
+  メモ
+  わからない点まとめ   
   */
   int n;
   cin >> n;
+  vector<int> a
+  ll ans = 0;
+  rep(i,n-1) rrep(j,i+1,n) f(a[i],a[j]);
   return 0;
 }

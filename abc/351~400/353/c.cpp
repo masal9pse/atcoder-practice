@@ -22,17 +22,31 @@ using G = vector<vector<int>>;
 #define rrep(i,j, n) for (int i = j; i < n; i++)
 #define all(x) (x).begin(), (x).end()
 const double PI = acos(-1);
-const int MI = 10e8;
+const int MI = 1e8;
 const ll MLL = 1e18;
 
-int main()
-{  
-  /*
-    問題分類　ex: 累積和
+int f(int x,int y) {
+  return (x+y)%MI;
+}
 
-    自由記述↓
+int main()
+{
+  /*
+  提出前チェックリスト
+  　- 簡単な問題でも制約は必ずチェック、これによって無駄な実装時間が減る
+  分かっていることは、f(x,y)の中身を入れ替えても答えは同じ
   */
   int n;
   cin >> n;
+  vector<int> a(n);
+  rep(i,n) cin >> a[i];
+  // 累積和　使うと良さげ？
+
+  // 全探索 これをどう削減するか
+  ll ans = 0;
+  rep(i,n-1) rrep(j,i+1,n) {
+    ans += f(a[i],a[j]);
+  }
+  cout << ans << endl;
   return 0;
 }

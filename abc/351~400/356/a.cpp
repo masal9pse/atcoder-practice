@@ -27,12 +27,18 @@ const ll MLL = 1e18;
 
 int main()
 {  
-  /*
-    問題分類　ex: 累積和
+  int N, L, R;
+  cin >> N >> L >> R;
+  
+  vector<int> A(N);
+  for(int i = 0; i < N; ++i) {
+      A[i] = i + 1; // 数列Aを1からNまで初期化
+  }
+  reverse(A.begin() + L - 1, A.begin() + R);
 
-    自由記述↓
-  */
-  int n;
-  cin >> n;
+  for(const auto& num : A) {
+    cout << num << " ";
+  }
+  cout << endl;
   return 0;
 }

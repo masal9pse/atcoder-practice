@@ -26,13 +26,30 @@ const int MI = 10e8;
 const ll MLL = 1e18;
 
 int main()
-{  
+{
   /*
-    問題分類　ex: 累積和
-
-    自由記述↓
+  提出前チェックリスト
+  　- 簡単な問題でも制約は必ずチェック、これによって無駄な実装時間が減る
+  メモ
+  わからない点まとめ   
   */
   int n;
   cin >> n;
+  vector<string> s(n);
+  int sum = 0;
+  rep(i,n) {
+    string S;
+    int c;
+    cin >> S >> c;
+    s[i] = S;
+    sum += c;
+  }
+  sort(all(s));
+  rep(i,n) {
+    if (sum % n == i) {
+      cout << s[i] << endl;
+      return 0;
+    }
+  }
   return 0;
 }

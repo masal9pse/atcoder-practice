@@ -27,12 +27,22 @@ const ll MLL = 1e18;
 
 int main()
 {  
-  /*
-    問題分類　ex: 累積和
-
-    自由記述↓
-  */
-  int n;
-  cin >> n;
+  int n,m;
+  cin >> n >> m;
+  vector<ll> a(m);
+  rep(i,m) cin >> a[i];
+  vector x(n,vector<ll>(m));
+  rep(i,n) rep(j,m) cin >> x[i][j];
+  vector<ll> ans(m);
+  rep(i,m) {
+    rep(j,n) {
+      ans[i] += x[j][i];
+    }
+    if (ans[i] < a[i]) {
+      cout << "No" << endl;
+      return 0;
+    }
+  }
+  cout << "Yes" << endl;
   return 0;
 }

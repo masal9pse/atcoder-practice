@@ -26,13 +26,22 @@ const int MI = 10e8;
 const ll MLL = 1e18;
 
 int main()
-{  
+{
   /*
-    問題分類　ex: 累積和
-
-    自由記述↓
+  提出前チェックリスト
+  　- 簡単な問題でも制約は必ずチェック、これによって無駄な実装時間が減る
+  メモ
+  わからない点まとめ   
   */
-  int n;
-  cin >> n;
+  ll h;
+  cin >> h;
+  ll now = 0;
+  ll i = 0;
+  while (now <= h)
+  {
+    now = now + ((ll)1 << i);
+    i++;
+  }
+  cout << i << endl;
   return 0;
 }

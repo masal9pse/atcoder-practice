@@ -14,15 +14,12 @@ int main()
     ll n;
     cin >> n;
     ll val = 1;
-    rep(i,63)
-    {
-        // 先に比較すれば2^0乗の計算ができている。
-        if (val > n) {
-            cout << i-1 << endl;
-            break;
-        }
-        // これで階乗が求まる。
-        val *= 2;
+    ll k = 0;
+    // 1はintとして扱われて32bit以上だと壊れるのでllにキャスト
+    while (((ll)1 << k) <= n)
+    {        
+        k++;
     }
+    cout << k-1 << endl;
     return 0;
 }

@@ -25,14 +25,7 @@ const double PI = acos(-1);
 const int MI = 10e8;
 const ll MLL = 1e18;
 
-int main()
-{  
-  /*
-    問題分類　ex: 累積和
-
-    自由記述↓
-  */
-  int n;
-  cin >> n;
+int main() {
+  // 2**30 > 10**8 なので、30本以上鍵があるとビット全探索が使えない
   return 0;
 }

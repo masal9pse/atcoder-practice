@@ -39,6 +39,7 @@ int main()
       if (b[i] == a[j]) {
         ok = true;
         ate[j] = true;
+        // これが抜けてて、麺を複数食ってしまってた。
         break;
       }
     }

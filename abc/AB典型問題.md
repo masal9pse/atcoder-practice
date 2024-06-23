@@ -15,33 +15,24 @@ https://atcoder.jp/contests/abc220/tasks/abc220_b
 https://atcoder.jp/contests/abc239/tasks/abc239_b
 https://atcoder.jp/contests/abc327/tasks/abc327_b
 https://atcoder.jp/contests/abc273/tasks/abc273_b
+https://atcoder.jp/contests/abc324/tasks/abc324_b
+https://atcoder.jp/contests/abc202/tasks/abc202_c
+https://atcoder.jp/contests/abc220/tasks/abc220_c
 
-- 幾何
+- 幾何 ユークリッド幾何以外は出ないので優先度低め
 https://atcoder.jp/contests/abc332/tasks/abc332_b
 
 - シミュレーション　苦手
-https://atcoder.jp/contests/abc241/tasks/abc241_b
+https://zenn.dev/koyanagihitoshi/books/atcoder-classification-6/viewer/12-8　一覧
 https://atcoder.jp/contests/abc332/tasks/abc332_b
 https://atcoder.jp/contests/abc303/tasks/abc303_b
+https://atcoder.jp/contests/abc241/tasks/abc241_b
+https://atcoder.jp/contests/abc353/tasks/abc353_b
+
+- 時間
 https://atcoder.jp/contests/abc278/tasks/abc278_b
 
-- 貪欲法 ざっくりとした実装方針は見えやすいが、基本的にコーナケースの存在を意識せずに実装するとコーナケースを探すために、デバッカーで値を見まくって時間ロスする。
-　　　とにかくちゃんと最後までコード落とし込み方針もできてから実装に挑む
-    - https://atcoder.jp/contests/abc167/tasks/abc167_b
-    下記をminを使って、置き換えることができるのと最後、どう選ぶかもちゃんと明確にする
-    ```cpp    
-    if (a < k)
-  {
-    ans += a;
-    k -= a;
-  }
-  else
-  {
-    ans += k;
-    cout << ans << endl;
-    return 0;
-  }
-    ```
+- 貪欲法(シミュレーションだと計算量がやばい場合に使うことが多い)
 
 - グリッドの問題　高diffになる傾向にあるが、灰色diffなので茶色にいくためには落としたくない
   - 4方向＋トーラス　https://atcoder.jp/contests/abc339/tasks/abc339_b

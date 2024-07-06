@@ -15,17 +15,24 @@
 using namespace std;
 using ll = long long;
 template<class T> using P = pair<T, T>;
+template<typename T> bool chmax(T &a, T b) { return ((a < b) ? (a = b, true) : (false)); }
+template<typename T> bool chmin(T &a, T b) { return ((a > b) ? (a = b, true) : (false)); }
 using G = vector<vector<int>>;
 #define rep(i, n) for (int i = 0; i < n; i++)
 #define rrep(i,j, n) for (int i = j; i < n; i++)
+#define all(x) (x).begin(), (x).end()
 const double PI = acos(-1);
 const int MI = 10e8;
 const ll MLL = 1e18;
 
 int main()
-{
-  string s;
-  cin >> s;
-  cout << s[1] << s[2] << s[0] << endl;
+{  
+  /*
+    問題分類　ex: 累積和
+
+    自由記述↓
+  */
+  int n;
+  cin >> n;
   return 0;
 }

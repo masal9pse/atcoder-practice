@@ -26,36 +26,40 @@ const int MI = 10e8;
 const ll MLL = 1e18;
 
 int main() {
-    int N, M, K;
-    cin >> N >> M >> K;
-    vector<int> C(M);
-    vector<vector<int>> A(M);
-    vector<string> R(M);
-    for (int i = 0; i < M; i++) {
-        int L;
-        cin >> C[i];
-        A[i].resize(C[i]);
-        for (int j = 0; j < C[i]; j++) {
-            cin >> A[i][j];
-            A[i][j]--;
-        }
-        cin >> R[i];
+  // 2**30 > 10**8 なので、30本以上鍵があるとビット全探索が使えない
+  int n,m;
+  cin >> n >> m;
+  vector<vector<int>> s(m);
+  rep(i,m) {
+    int k;
+    cin >> k;
+    rep(j,k) {
+        int t;
+        cin >> t;
+        t--;
+        s[i].push_back(t);
     }
-
-    int ans = 0;
-    // 鍵を使うかどうか
-    for (int mask = 0; mask < (1 << N); mask++) {
-        bool ok = true;
-        for (int i = 0; i < M; i++) {
-            int cnt = 0;
-            for (int a : A[i]) {
-                // これ何？
-                cnt += (mask >> a) & 1;
-            }
-            // これ何？
-            ok &= (cnt >= K) == (R[i] == "o");
-        }
-        ans += ok;
+  }
+  vector<int> p(m);
+  rep(i,m) cin >> p[i];
+  int ans = 0;
+  rep(bit,(1 << n)) {
+    vector<bool> on(n);
+    rep(i,n) {
+      if (bit & (1 << i)) on[i] = true;
     }
-    cout << ans << endl;
+    // 全ての電球が点灯しているか
+    bool all = true;
+    rep(i,m) {
+      int count = 0;
+      for (int t:s[i])
+      {
+        if (on[t]) count++;
+      }
+      if (count % 2 != p[i]) all = false;
+    }
+    if (all) ans++;
+  }
+  cout << ans << endl;
+  return 0;
 }

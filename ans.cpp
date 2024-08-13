@@ -24,29 +24,32 @@ const double PI = acos(-1);
 const int MI = 10e8;
 const ll MLL = 1e18;
 
+int n,x;
+vector<int> a;
+
+bool rec(int i,int sum) {
+  if (i == n) {
+    // cout << (sum == x) << endl;
+    return sum == x;
+    // if (sum == x) return true;
+    // else return false;
+  }
+  if (rec(i+1,a[i]+sum)) {
+    // cout << (a[i]+sum) << endl;
+    return true;
+  }
+  if (rec(i+1,sum)) return true;
+
+  return false;
+}
+
 int main()
 {
-  int n,m;
-  cin >> n >> m;
-  vector<ll> a(n),b(m);
-  vector<bool> ate(n);
+  cin >> n >> x;
+  a.resize(n);
   rep(i,n) cin >> a[i];
-  rep(i,m) cin >> b[i];
-  rep(i,m) {
-    bool ok = false;
-    rep(j,n) {
-      if (ate[j]) continue;
-      if (b[i] == a[j]) {
-        ok = true;
-        ate[j] = true;
-        break;
-      }
-    }
-    if (!ok) {
-      cout << "No" << endl;
-      return 0;
-    }
-  }
-  cout << "Yes" << endl;
+  if (rec(0,0)) cout << "Yes" << endl;
+  else cout << "No" << endl;
   return 0;
 }
+

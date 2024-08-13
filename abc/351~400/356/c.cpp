@@ -37,6 +37,7 @@ int main() {
         A[i].resize(C[i]);
         for (int j = 0; j < C[i]; j++) {
             cin >> A[i][j];
+            // これ0indexスタートにする必要ある？
             A[i][j]--;
         }
         cin >> R[i];
@@ -51,8 +52,10 @@ int main() {
             for (int a : A[i]) {
                 // これ何？
                 cnt += (mask >> a) & 1;
+                int t = 3;
             }
             // これ何？
+            // ok &= ((cnt >= K) && (R[i] == "o"));
             ok &= (cnt >= K) == (R[i] == "o");
         }
         ans += ok;

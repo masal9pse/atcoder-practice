@@ -23,41 +23,23 @@ int main()
     vector<int> a(n), b(m);
     rep(i, n) cin >> a[i];
     rep(i, m) cin >> b[i];
-    int ai = 0, bi = 0;
-    int ans = 1001001001;
-    sort(a.begin(), a.end());
-    sort(b.begin(), b.end());
-    while (ai < n && bi < m)
-    {
-        ans = min(ans, abs(a[ai] - b[bi]));
-        if (a[ai] < b[bi])
-            ai++;
-        else
-            bi++;
+    auto f = [&](int index,int key) -> bool {
+        return b[index] >= key;
+    };
+    int ans = 1e9+1;
+    sort(b.begin(),b.end());
+    rep(i,n) {
+        int left = -1,right = b.size();
+        while (right - left > 1)
+        {
+            int mid = (left + right) / 2;
+            if (f(mid,a[i])) right = mid;
+            else left = mid;
+        }
+        int t = 3;
+        if (left >= 0) ans = min(ans,abs(a[i]-b[left])); 
+        if (right < b.size()) ans = min(ans,abs(a[i]-b[right])); 
     }
     cout << ans << endl;
     return 0;
 }
-
-// int main()
-// {
-//     int n, m;
-//     cin >> n >> m;
-//     vector<int> a(n), b(m);
-//     rep(i, n) cin >> a[i];
-//     rep(i, m) cin >> b[i];
-//     sort(a.begin(), a.end());
-//     sort(b.begin(), b.end());
-//     int ai = 0, bi = 0;
-//     int ans = 1001001001;
-//     while (ai < n && bi < m)
-//     {
-//         ans = min(ans, abs(a[ai] - b[bi]));
-//         if (a[ai] < b[bi])
-//             ++ai;
-//         else
-//             bi++;
-//     }
-//     cout << ans << endl;
-//     return 0;
-// }

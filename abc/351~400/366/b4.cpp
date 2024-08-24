@@ -1,32 +1,44 @@
 #include <iostream>
 #include <vector>
-#include <math.h>
-#include <stdio.h>
 #include <algorithm>
-#include <set>
-#include <regex>
-#include <iomanip>
-#include <map>
-#include <cassert>
-#include <stack>
-#include <queue>
-#include <deque>
-#include <numeric>
-using namespace std;
-using ll = long long;
-template<class T> using P = pair<T, T>;
-template<typename T> bool chmax(T &a, T b) { return ((a < b) ? (a = b, true) : (false)); }
-template<typename T> bool chmin(T &a, T b) { return ((a > b) ? (a = b, true) : (false)); }
-using G = vector<vector<int>>;
-#define rep(i, n) for (int i = 0; i < n; i++)
-#define rrep(i,j, n) for (int i = j; i < n; i++)
-#define all(x) (x).begin(), (x).end()
-const double PI = acos(-1);
-const int MI = 10e8;
-const ll MLL = 1e18;
 
-int main()
-{
-  // 90度回転して、*を取り除く
-  return 0;
+using namespace std;
+
+int main() {
+    int N, K;
+    cin >> N >> K;
+    vector<int> R(N);
+
+    for (int i = 0; i < N; ++i) {
+        cin >> R[i];
+    }
+
+    vector<int> seq;
+    // 最初の順列を作成
+    for (int i = 0; i < N; ++i) {
+        for (int j = 1; j <= R[i]; ++j) {
+            seq.push_back(j);
+        }
+    }
+
+    sort(seq.begin(), seq.end());
+
+    // 全ての順列を生成
+    do {
+        // 各順列の合計を計算
+        int sum = 0;
+        for (int i = 0; i < N; ++i) {
+            sum += seq[i];
+        }
+
+        // 合計がKの倍数なら出力
+        if (sum % K == 0) {
+            for (int i = 0; i < N; ++i) {
+                cout << seq[i] << " ";
+            }
+            cout << endl;
+        }
+    } while (next_permutation(seq.begin(), seq.end()));
+
+    return 0;
 }

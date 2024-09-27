@@ -22,26 +22,27 @@ using G = vector<vector<int>>;
 #define rrep(i,j, n) for (int i = j; i < n; i++)
 #define all(x) (x).begin(), (x).end()
 const double PI = acos(-1);
-const int MI = 10e8;
+const int MI = 1e9+1;
 const ll MLL = 1e18;
 
 int main()
 {
-  int n;
-  cin >> n;
-  vector<int> a(n);
-  rep(i,n) cin >> a[i];
-  vector<int> rle(n-1);
-  rep(i,n-1) rle[i] = a[i+1] - a[i];
-  int combo = 0;
-  ll ans = 0;
-  rep(i,n-1) {
-    if (combo > 0 && rle[i] == rle[i-1]) combo++;
-    else combo = 1;
-    ans += combo;
-    int t = 3;
+  ll a,b,x;
+  cin >> a >> b >> x;  
+  ll left = 0,right = MI;
+  auto isOK = [&](ll n) -> bool {
+    ll d = to_string(n).size();
+    ll calc = a * n + b * d;
+    // xがlower_boundの第2引数と同じ内容になる。
+    return calc <= x;
+  };
+
+  while (right - left > 1)
+  {
+    ll mid = (left + right)/2;
+    if (isOK(mid)) left = mid;
+    else right = mid;
   }
-  ans += n;
-  cout << ans << endl;
+  cout << left << endl;
   return 0;
 }

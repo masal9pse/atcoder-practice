@@ -25,23 +25,25 @@ const double PI = acos(-1);
 const int MI = 10e8;
 const ll MLL = 1e18;
 
-int main()
-{
-  int n;
-  cin >> n;
-  vector<int> a(n);
-  rep(i,n) cin >> a[i];
-  vector<int> rle(n-1);
-  rep(i,n-1) rle[i] = a[i+1] - a[i];
-  int combo = 0;
-  ll ans = 0;
-  rep(i,n-1) {
-    if (combo > 0 && rle[i] == rle[i-1]) combo++;
-    else combo = 1;
-    ans += combo;
-    int t = 3;
-  }
-  ans += n;
-  cout << ans << endl;
-  return 0;
+int main() {   
+    int n;
+    cin >> n;
+    vector<int> a(n);
+    rep(i,n) cin >> a[i];
+
+    ll ans = 0;
+    int r = 0;
+    rep(l,n) {
+        // rがincrementする回数は合計で見るとmaxでn回なので、計算量は0(N+N) => O(N)
+        while (r < n)
+        {
+          if (r > l+1 && a[r]-a[r-1] != a[r-1]-a[r-2]) break;
+          //  等差数列である限りrを進める
+          r++;
+        }
+        ans += r-l;
+    }
+    // なぜか7になる、なんで？
+    cout << ans << endl;
+    return 0;
 }

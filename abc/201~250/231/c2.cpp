@@ -27,21 +27,20 @@ const ll MLL = 1e18;
 
 int main()
 {
-  int n;
-  cin >> n;
-  vector<int> a(n);
+  int n,q;
+  cin >> n >> q;
+  vector<int> a(n),x(q);
   rep(i,n) cin >> a[i];
-  vector<int> rle(n-1);
-  rep(i,n-1) rle[i] = a[i+1] - a[i];
-  int combo = 0;
-  ll ans = 0;
-  rep(i,n-1) {
-    if (combo > 0 && rle[i] == rle[i-1]) combo++;
-    else combo = 1;
-    ans += combo;
-    int t = 3;
+  rep(i,q) cin >> x[i];
+  sort(a.begin(),a.end());
+  /* 
+   lower_boundでx_i以上のa_iのindexを求められる。100,130,300の内、120以上なのは2人
+   lower_boundで境界値が求められるので全体-x_i以下のものを出力する。
+  */
+  rep(i,q) {
+    int j = lower_bound(all(a),x[i])-a.begin();
+    int ans = (int) (a.size()-1) - (j-1);
+    cout << ans << endl;
   }
-  ans += n;
-  cout << ans << endl;
   return 0;
 }

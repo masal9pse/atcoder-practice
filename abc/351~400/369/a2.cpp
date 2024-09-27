@@ -27,21 +27,12 @@ const ll MLL = 1e18;
 
 int main()
 {
-  int n;
-  cin >> n;
-  vector<int> a(n);
-  rep(i,n) cin >> a[i];
-  vector<int> rle(n-1);
-  rep(i,n-1) rle[i] = a[i+1] - a[i];
-  int combo = 0;
-  ll ans = 0;
-  rep(i,n-1) {
-    if (combo > 0 && rle[i] == rle[i-1]) combo++;
-    else combo = 1;
-    ans += combo;
-    int t = 3;
+  int a,b;
+  cin >> a >> b;  
+  if (a == b) cout << 1 << endl;
+  else {
+    if ((a+b)%2 == 0) cout << 3 << endl;
+    else cout << 2 << endl;
   }
-  ans += n;
-  cout << ans << endl;
   return 0;
 }

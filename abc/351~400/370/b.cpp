@@ -26,22 +26,23 @@ const int MI = 10e8;
 const ll MLL = 1e18;
 
 int main()
-{
+{  
   int n;
   cin >> n;
-  vector<int> a(n);
-  rep(i,n) cin >> a[i];
-  vector<int> rle(n-1);
-  rep(i,n-1) rle[i] = a[i+1] - a[i];
-  int combo = 0;
-  ll ans = 0;
-  rep(i,n-1) {
-    if (combo > 0 && rle[i] == rle[i-1]) combo++;
-    else combo = 1;
-    ans += combo;
-    int t = 3;
+  vector<vector<int>> a(n);
+  rep(i,n) {
+    rep(j,i+1) {
+      int t;
+      cin >> t;
+      t--;
+      a[i].push_back(t);
+    }
   }
-  ans += n;
-  cout << ans << endl;
+  int i = 0;
+  rep(j,n) {
+    if (i >= j) i = a[i][j];
+    else i = a[j][i];
+  }
+  cout << i+1 << endl;
   return 0;
 }

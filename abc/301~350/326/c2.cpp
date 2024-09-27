@@ -27,21 +27,23 @@ const ll MLL = 1e18;
 
 int main()
 {
-  int n;
-  cin >> n;
+  /*
+    ai + mでどこまでのプレゼントを確保できるのかをめぐる式で求める
+    あとはaiのindexと上記で求めたindexを引き算して、N回試したあとのmaxを求める。
+  */
+  int n, m;
+  cin >> n >> m;
   vector<int> a(n);
-  rep(i,n) cin >> a[i];
-  vector<int> rle(n-1);
-  rep(i,n-1) rle[i] = a[i+1] - a[i];
-  int combo = 0;
-  ll ans = 0;
-  rep(i,n-1) {
-    if (combo > 0 && rle[i] == rle[i-1]) combo++;
-    else combo = 1;
-    ans += combo;
+  rep(i, n) cin >> a[i];
+  sort(a.begin(),a.end());
+  int ans = 0;
+  rep(i,n) {
+    ll sum = a[i]+m;
+    int j = lower_bound(all(a),sum)-a.begin();
+    int range = j - i;
+    ans = max(ans,range);
     int t = 3;
   }
-  ans += n;
   cout << ans << endl;
   return 0;
 }

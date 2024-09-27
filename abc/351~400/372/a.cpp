@@ -26,22 +26,13 @@ const int MI = 10e8;
 const ll MLL = 1e18;
 
 int main()
-{
+{  
+  /*
+    問題分類　ex: 累積和
+
+    自由記述↓
+  */
   int n;
   cin >> n;
-  vector<int> a(n);
-  rep(i,n) cin >> a[i];
-  vector<int> rle(n-1);
-  rep(i,n-1) rle[i] = a[i+1] - a[i];
-  int combo = 0;
-  ll ans = 0;
-  rep(i,n-1) {
-    if (combo > 0 && rle[i] == rle[i-1]) combo++;
-    else combo = 1;
-    ans += combo;
-    int t = 3;
-  }
-  ans += n;
-  cout << ans << endl;
   return 0;
 }

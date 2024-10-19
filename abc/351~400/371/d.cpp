@@ -27,22 +27,10 @@ const ll MLL = 1e18;
 
 int main()
 {
-  int n;
-  cin >> n;
-  vector<int> x(n),p(n);
-  rep(i,n) cin >> x[i];
-  rep(i,n) cin >> p[i];
-  int q;
-  cin >> q;
-  vector<int> l(q),r(q);
-  rep(i,n) cin >> l[i] >> r[i];
-  vector<ll> sum(n+1);
-  rep(i,n) sum[i+1] = sum[i] + p[i];
-  rep(i,q) {
-    int j1 = upper_bound(all(x),l[i]) - x.begin();
-    int j2 = upper_bound(all(x),r[i]) - x.begin();
-    ll ans = sum[j2]- sum[j1];
-    cout << ans << endl;
-  }
+  vector<int> test = {1,3,5,7};
+  vector<int>::iterator test2 = test.begin()+1;
+  vector<int>::iterator t = upper_bound(all(test),1);
+  int t2 = upper_bound(all(test),1)-test.begin();
+  int k = 3;
   return 0;
 }

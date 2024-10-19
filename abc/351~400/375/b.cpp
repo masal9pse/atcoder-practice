@@ -29,6 +29,15 @@ int main()
 {
   int n;
   cin >> n;
-  
+  double ans = 0;
+  double now_a = 0,now_b = 0;
+  rep(i,n) {
+    double a,b;
+    cin >> a >> b;
+    ans += sqrt((now_a-a)*(now_a-a)+(now_b-b)*(now_b-b));
+    now_a = a,now_b = b;
+  }
+  ans += sqrt((now_a-0)*(now_a-0)+(now_b-0)*(now_b-0));
+  printf("%.10f\n",ans);
   return 0;
 }

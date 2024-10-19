@@ -25,10 +25,23 @@ const double PI = acos(-1);
 const int MI = 1e8;
 const ll MLL = 1e18;
 
-int main()
-{
-  int n;
-  cin >> n;
-  
-  return 0;
+int main() {
+    string s;
+    cin >> s;
+    vector<int> lcnt(26);
+    vector<int> rcnt(26);
+    int n = s.size();
+    // 不要な分岐を減らすためにまずjを含めたrcntを持っておく。
+    rep(i,n) rcnt[s[i]-'A']++;
+    ll ans = 0;
+    rep(j,n) {
+      // 真ん中s[j]は計算したくないのでまず引く。
+      rcnt[s[j]-'A']--;
+      // 回文個数計算
+      rep(c,26) ans += (ll)rcnt[c] * lcnt[c];
+      // jを動かすことによってiの文字の個数を更新する。
+      lcnt[s[j]-'A']++;
+    }
+    cout << ans << endl;
+    return 0;
 }

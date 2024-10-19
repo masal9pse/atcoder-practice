@@ -26,13 +26,22 @@ const int MI = 10e8;
 const ll MLL = 1e18;
 
 int main()
-{  
-  /*
-    問題分類　ex: 累積和
-
-    自由記述↓
-  */
-  int n;
-  cin >> n;
+{
+  int m;
+  cin >> m;
+  vector<int> a;
+  for (int ai = 10; ai >= 0; ai--)
+  {
+    int x = 1;
+    rep(j,ai) x *= 3;
+    while (m >= x)
+    {
+      m -= x;
+      a.push_back(ai);
+    }
+  }
+  cout << a.size() << endl;
+  for(int ans:a) cout << ans << " ";
+  cout << endl;
   return 0;
 }

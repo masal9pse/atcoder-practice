@@ -29,6 +29,12 @@ int main()
 {
   int n;
   cin >> n;
-  
+  string s;
+  cin >> s;
+  int ans = 0;
+  rep(i,n-2) {
+    if (s[i] == '#' && s[i+2] == '#' && s[i+1] == '.') ans++;
+  }
+  cout << ans << endl;
   return 0;
 }

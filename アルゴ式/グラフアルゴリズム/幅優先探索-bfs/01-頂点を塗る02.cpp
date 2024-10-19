@@ -27,8 +27,15 @@ const ll MLL = 1e18;
 
 int main()
 {
-  int n;
-  cin >> n;
+  int n,m;
+  cin >> n >> m;
+  G g(n);
+  rep(i,n) {
+    int a,b;
+    cin >> a >> b;
+    g[i].push_back(a);
+    g[i].push_back(b);
+  }
   
   return 0;
 }

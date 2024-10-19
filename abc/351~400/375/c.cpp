@@ -25,10 +25,31 @@ const double PI = acos(-1);
 const int MI = 1e8;
 const ll MLL = 1e18;
 
-int main()
-{
-  int n;
-  cin >> n;
-  
-  return 0;
+int main() {
+    int N;
+    std::cin >> N;
+
+    std::vector<std::string> grid(N);
+    
+    // グリッドの入力
+    for (int i = 0; i < N; ++i) {
+        std::cin >> grid[i];
+    }
+
+    // 新しいグリッドを初期化
+    std::vector<std::string> newGrid(N, std::string(N, '.'));
+
+    // 色の置き換え
+    for (int i = 0; i < N; ++i) {
+        for (int j = 0; j < N; ++j) {
+            newGrid[j][N - 1 - i] = grid[i][j];
+        }
+    }
+    cout << "\n" << endl;
+    // 新しいグリッドの出力
+    for (const auto& row : newGrid) {
+        std::cout << row << std::endl;
+    }
+
+    return 0;
 }

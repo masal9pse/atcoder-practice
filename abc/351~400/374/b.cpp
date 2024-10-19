@@ -22,13 +22,36 @@ using G = vector<vector<int>>;
 #define rrep(i,j, n) for (int i = j; i < n; i++)
 #define all(x) (x).begin(), (x).end()
 const double PI = acos(-1);
-const int MI = 1e8;
+const int MI = 10e8;
 const ll MLL = 1e18;
 
 int main()
 {
-  int n;
-  cin >> n;
-  
+  string s,t;
+  cin >> s >> t;
+  s += '$';
+  t += '$';
+  if (s == t) {
+    cout << 0 << endl;
+    return 0;
+  }
+
+  int n1 = s.size();
+  int n2 = t.size();
+  int n = -1;
+  n = min(n1,n2);
+  rep(i,n) {
+    if (s[i] != t[i]) {
+      cout << i + 1 << endl;
+      return 0;
+    }
+  }
+
+  /// 大きいサイズの次の番号を出力
+  if (n1 < n2) cout << n1+1 << endl;
+  else cout << n2+1 << endl;
   return 0;
 }
+
+// abcdefg
+// abcde

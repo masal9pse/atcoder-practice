@@ -22,13 +22,31 @@ using G = vector<vector<int>>;
 #define rrep(i,j, n) for (int i = j; i < n; i++)
 #define all(x) (x).begin(), (x).end()
 const double PI = acos(-1);
-const int MI = 1e8;
+const int MI = 10e8;
 const ll MLL = 1e18;
 
 int main()
 {
-  int n;
-  cin >> n;
-  
+  string s;
+  cin >> s;
+  if (s.substr(s.size()-3) == "san") cout << "Yes" << endl;
+  else cout << "No" << endl;
+  /// ダメな例
+  // for (int i = s.size()-1; i >= 0; i--)
+  // {
+  //   if (i == s.size()-1 && s[i] != 'n') {
+  //     cout << "No" << endl;
+  //     return 0;
+  //   }
+  //   if (i == s.size()-2 && s[i] != 'a') {
+  //     cout << "No" << endl;
+  //     return 0;
+  //   } 
+  //   if (i == s.size()-3 && s[i] != 's') {
+  //     cout << "No" << endl;
+  //     return 0;
+  //   } 
+  // } 
+  // cout << "Yes" << endl;
   return 0;
 }

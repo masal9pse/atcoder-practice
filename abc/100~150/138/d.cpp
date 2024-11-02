@@ -27,43 +27,21 @@ const ll MLL = 1e18;
 
 int main()
 {
-  int n = 8;
-    vector<string> s(n);
-    rep(i,n) cin >> s[i];
-    G visited(n,vector<int>(n));
-    rep(ai,n) {
-      rep(aj,n) {
-        if (s[ai][aj] == '.') continue;
-        
-        // 右
-        for (int j = aj; j < n; j++)
-        {
-          visited[ai][j] = 1;
-        }
-        
-        // 左
-        for (int j = aj; j >= 0; j--)
-        {
-          visited[ai][j] = 1;
-        }
-
-        // 上
-        for (int i = ai; i >= 0; i--)
-        {
-          visited[i][aj] = 1;
-        }
-
-        // 下
-        for (int i = ai; i < n; i++)
-        {
-          visited[i][aj] = 1;
-        }
-      }
-    }
-    int ans = 0;
-    rep(i,n) rep(j,n) {
-      if (visited[i][j] == 0) ans++;
-    }
-    cout << ans << endl;
-    return 0;
+  int n,q;
+  cin >> n >> q;
+  G g(n);
+  rep(i,n-1) {
+    int a,b;
+    cin >> a >> b;
+    a--,b--;
+    g[a].push_back(b);
+    g[b].push_back(a);
+  }
+  rep(i,q) {
+    int p,x;
+    cin >> p >> x;
+    p--;
+    
+  }
+  return 0;
 }

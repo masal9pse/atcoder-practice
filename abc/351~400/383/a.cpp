@@ -22,32 +22,31 @@ using G = vector<vector<int>>;
 #define rrep(i,j, n) for (int i = j; i < n; i++)
 #define all(x) (x).begin(), (x).end()
 const double PI = acos(-1);
-const int MI = 10e8;
+const int MI = 1e8;
 const ll MLL = 1e18;
 
 int main()
 {
-  string s,t;
-  cin >> s >> t;
-  vector<string> x;
-  int n = s.size();
-  while (s != t)
+  int n;
+  cin >> n;
+  // vector<int> t(n),v(n);
+  map<int,int> mp;
+  int last;
+  rep(i,n) {
+    int t,v;
+    cin >> t >> v;
+    mp[t] = v;
+    last = t;
+  }
+  // rep(i,n) cin >> t[i] >> v[i];
+  int now = 0;
+  for (int i = 1; i <= last; i++)
   {
-    string best;
-    rep(i,n) {
-      if (s[i] != t[i]) {
-        string ns = s;
-        ns[i] = t[i];
-        if (best == "") best = ns;
-        else best = min(best,ns);
-      }
+    if(now) now--;
+    if (mp.count(i)) {
+      now += mp[i];
     }
-    s = best;
-    x.push_back(s);
   }
-  cout << x.size() << endl;
-  for(string s: x) {
-    cout << s << endl;
-  }
+  cout << now << endl;
   return 0;
 }

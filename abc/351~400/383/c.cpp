@@ -22,32 +22,16 @@ using G = vector<vector<int>>;
 #define rrep(i,j, n) for (int i = j; i < n; i++)
 #define all(x) (x).begin(), (x).end()
 const double PI = acos(-1);
-const int MI = 10e8;
+const int MI = 1e8;
 const ll MLL = 1e18;
+
+int distance(int x1, int y1, int x2, int y2) {
+    return abs(x1 - x2) + abs(y1 - y2);
+}
 
 int main()
 {
-  string s,t;
-  cin >> s >> t;
-  vector<string> x;
-  int n = s.size();
-  while (s != t)
-  {
-    string best;
-    rep(i,n) {
-      if (s[i] != t[i]) {
-        string ns = s;
-        ns[i] = t[i];
-        if (best == "") best = ns;
-        else best = min(best,ns);
-      }
-    }
-    s = best;
-    x.push_back(s);
-  }
-  cout << x.size() << endl;
-  for(string s: x) {
-    cout << s << endl;
-  }
+  int h,w,d;
+  cin >> h >> w >> d;
   return 0;
 }

@@ -22,32 +22,25 @@ using G = vector<vector<int>>;
 #define rrep(i,j, n) for (int i = j; i < n; i++)
 #define all(x) (x).begin(), (x).end()
 const double PI = acos(-1);
-const int MI = 10e8;
+const int MI = 1e8;
 const ll MLL = 1e18;
 
 int main()
 {
-  string s,t;
-  cin >> s >> t;
-  vector<string> x;
-  int n = s.size();
-  while (s != t)
-  {
-    string best;
-    rep(i,n) {
-      if (s[i] != t[i]) {
-        string ns = s;
-        ns[i] = t[i];
-        if (best == "") best = ns;
-        else best = min(best,ns);
-      }
+  int n,d;
+  cin >> n >> d;
+  string s;
+  cin >> s;
+  cout << s << endl;
+  rep(i,d) {
+    rep(j,s.size()) {
+      if (s[j] == '@') s[j]='.';
     }
-    s = best;
-    x.push_back(s);
   }
-  cout << x.size() << endl;
-  for(string s: x) {
-    cout << s << endl;
+  int ans = 0;
+  rep(i,s.size()) {
+    if (s[i] == '@') ans++;
   }
+  cout << ans << endl;
   return 0;
 }

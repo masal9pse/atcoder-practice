@@ -22,32 +22,20 @@ using G = vector<vector<int>>;
 #define rrep(i,j, n) for (int i = j; i < n; i++)
 #define all(x) (x).begin(), (x).end()
 const double PI = acos(-1);
-const int MI = 10e8;
+const int MI = 1e8;
 const ll MLL = 1e18;
 
 int main()
 {
-  string s,t;
-  cin >> s >> t;
-  vector<string> x;
-  int n = s.size();
-  while (s != t)
-  {
-    string best;
-    rep(i,n) {
-      if (s[i] != t[i]) {
-        string ns = s;
-        ns[i] = t[i];
-        if (best == "") best = ns;
-        else best = min(best,ns);
-      }
+    int n, m;
+    cin >> n >> m;
+    vector<int> a(m);
+    rep(i,m) cin >> a[i];
+    // O(NM)
+    // 2分探索？
+    for (int i = 1; i <= n; i++) {
+        int t = *lower_bound(all(a),i);
+        cout << t - i << endl;
     }
-    s = best;
-    x.push_back(s);
-  }
-  cout << x.size() << endl;
-  for(string s: x) {
-    cout << s << endl;
-  }
-  return 0;
+    return 0;
 }

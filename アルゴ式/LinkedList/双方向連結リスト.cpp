@@ -28,7 +28,7 @@ struct Node {
     int value;
     Node* next;
     Node* prev;
-    Node(int v): value(v),next(nullptr) {},prev(nullptr) {}
+    Node(int v): value(v),next(nullptr),prev(nullptr) {}
 };
 
 int main() {
@@ -39,14 +39,27 @@ int main() {
     
     node1.next = &node2;
     node2.next = &node3;
+    node2.prev = &node1;
     node3.next = &node4;
+    node3.prev = &node2;
+    node4.prev = &node3;
     
     Node* pointer = &node1;
     
+    // 先頭から走破
     while (pointer != nullptr)
     {
         cout << pointer->value << endl;
         pointer = pointer->next;
     }
+
+    // 末尾から走破
+    pointer = &node4;
+    while (pointer != nullptr)
+    {
+        cout << pointer->value << endl;
+        pointer = pointer->prev;
+    }
+    
     return 0;
 }

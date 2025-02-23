@@ -27,17 +27,40 @@ using G = vector<vector<int>>;
 const double PI = acos(-1);
 const int MI = 1e8;
 const ll MLL = 1e18;
+// 四方向への移動を表すベクトル
+// 下、右、上、左の順
+vector<int> dx = {1, 0, -1, 0};
+vector<int> dy = {0, 1, 0, -1};
 
 int main()
 {
-  int n;
-  cin >> n;
-  vector<pair<string,int>> p;
-  rep(i,n) {
-    string s;int c;
-    cin >> s >> c;
-    p[i].first = s;
-    p[i].second = c;
+  int n,m;
+  cin >> n >> m;
+  G g(n);
+  rep(i,m) {
+    int a,b;
+    cin >> a >> b;
+    g[a].push_back(b);
+    g[b].push_back(a);
   }
-  sort(p[]);
+  vector<int> dist(n,-1);
+  queue<int> que;
+  que.push(0);
+  dist[0] = 0;
+
+  while (!que.empty())
+  {
+    int v = que.front();
+    que.pop();
+    for(int next_v: g[v]) {
+      if (dist[next_v] != -1) continue;
+      dist[next_v] = dist[v] + 1;
+      que.push(next_v);
+    }
+  }
+  
+  int ans = 0;
+  rep(i,n) ans = max(ans, dist[i]);
+  cout << ans << endl;
+  return 0;
 }

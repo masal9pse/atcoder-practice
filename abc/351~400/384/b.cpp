@@ -27,17 +27,41 @@ using G = vector<vector<int>>;
 const double PI = acos(-1);
 const int MI = 1e8;
 const ll MLL = 1e18;
+// 四方向への移動を表すベクトル
+// 下、右、上、左の順
+vector<int> dx = {1, 0, -1, 0};
+vector<int> dy = {0, 1, 0, -1};
+// 8方向
+// 　あとで方向記載
+const vector<int> di = {-1, -1, 0, 0, 1, 1, 1, -1};
+const vector<int> dj = {0, 1, -1, 1, -1, 0, 1, -1};
+
+#include <iostream>
+#include <vector>
+using namespace std;
 
 int main()
 {
-  int n;
-  cin >> n;
-  vector<pair<string,int>> p;
-  rep(i,n) {
-    string s;int c;
-    cin >> s >> c;
-    p[i].first = s;
-    p[i].second = c;
+  ll n, r;
+  cin >> n >> r;
+
+  vector<ll> d(n), a(n);
+  rep(i, n) cin >> d[i] >> a[i];
+
+  rep(i, n)
+  {
+    if (d[i] == 1)
+    {
+      if (r >= 1600 && r <= 2799)
+        r += a[i];
+    }
+    else
+    {
+      if (r >= 1200 && r <= 2399)
+        r += a[i];
+    }
   }
-  sort(p[]);
+
+  cout << r << endl;
+  return 0;
 }

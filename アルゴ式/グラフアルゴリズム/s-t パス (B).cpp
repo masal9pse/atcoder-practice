@@ -22,17 +22,43 @@ using G = vector<vector<int>>;
 #define rrep(i,j, n) for (int i = j; i < n; i++)
 #define all(x) (x).begin(), (x).end()
 const double PI = acos(-1);
-const int MI = 10e8;
+const int MI = 1e8;
 const ll MLL = 1e18;
 
 int main()
-{  
-  /*
-    問題分類　ex: 累積和
+{
+  int n,m,s,t;
+  cin >> n >> m >> s >> t;
+  G g(n);
+  rep(i,m) {
+    int a,b;
+    cin >> a >> b;
+    g[a].push_back(b);
+  }
+  vector<int> dist(n,-1);
+  queue<int> que;
+  dist[s] = 0;
+  que.push(s);
 
-    自由記述↓
-  */
-  int n;
-  cin >> n;
+  while (!que.empty())
+  {
+    int v = que.front();
+    que.pop();
+    for(int next_v: g[v]) {
+        if (dist[next_v] != -1) continue;
+        dist[next_v] = dist[v] + 1;
+        que.push(next_v);
+    }
+  }
+  vector<P<int>> p;
+  rep(i,n) {
+    if (dist[i] != -1) {
+      p.emplace_back(dist[i],i);
+    }
+  }
+  sort(all(p));
+  cout << p.size() << endl;
+  for(auto t:p) cout << t.second << " ";
+  cout << endl;
   return 0;
 }

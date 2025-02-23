@@ -24,47 +24,25 @@ using G = vector<vector<int>>;
 const double PI = acos(-1);
 const int MI = 1e8;
 const ll MLL = 1e18;
-
 // 四方向への移動を表すベクトル
 // 下、右、上、左の順
 vector<int> dx = {1, 0, -1, 0};
 vector<int> dy = {0, 1, 0, -1};
-
+// 8方向
+//　あとで方向記載
+const vector<int> di = {-1, -1, 0, 0, 1, 1, 1, -1};
+const vector<int> dj = {0, 1, -1, 1, -1, 0, 1, -1};
+ 
 int main()
 {
-  int h,w,D;
-  cin >> h >> w >> D;
-  vector<string> s(h);
-  rep(i,h) cin >> s[i];
-  vector dist(h,vector<int>(w,-1));
-  queue<P<int>> que; 
-  rep(i,h) rep(j,w) {
-    if (s[i][j] != 'H') continue;
-    dist[i][j] = 0;
-    que.emplace(i,j);
+  int n;
+  char c1,c2;
+  cin >> n >> c1 >> c2;
+  string s;
+  cin >> s;
+  rep(i,n) {
+    if (s[i] != c1) s[i] = c2;
   }
-
-  while (!que.empty())
-  {
-    auto [x,y] = que.front();
-    que.pop();
-    rep(d,4) {
-      int x2 = x + dx[d];
-      int y2 = y + dy[d];
-      // 配列外参照の対応
-      if (x2 < 0 || x2 >= h || y2 < 0 || y2 >= w) continue;
-      // 壁は計算しない。
-      if (s[x2][y2] == '#') continue;
-      // すでにメモしたマスは更新しない。
-      if (dist[x2][y2] != -1) continue;
-      dist[x2][y2] = dist[x][y] + 1;
-      que.emplace(x2,y2);
-    }
-  }
-  int ans = 0;
-  rep(x,h) rep(y,w) {
-    if (dist[x][y] >= 0 && dist[x][y] <= D) ans++;
-  }
-  cout << ans << endl;
+  cout << s << endl;
   return 0;
 }

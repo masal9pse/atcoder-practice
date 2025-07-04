@@ -15,7 +15,9 @@
 using namespace std;
 using ll = long long;
 template<class T> using P = pair<T, T>;
+// chmax -> change maxの略 a,bを比較してbの方が大きい場合、aをbに更新する。
 template<typename T> bool chmax(T &a, T b) { return ((a < b) ? (a = b, true) : (false)); }
+// chmin -> change minimumの略 a,bを比較してbの方が小さい場合、aをbに更新する。
 template<typename T> bool chmin(T &a, T b) { return ((a > b) ? (a = b, true) : (false)); }
 using G = vector<vector<int>>;
 #define rep(i, n) for (int i = 0; i < n; i++)
